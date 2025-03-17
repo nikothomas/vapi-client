@@ -1,11 +1,15 @@
 [package]
-name = "vapi-client-rs"
+name = "vapi-client"
 version = "0.0.1"
 authors = ["OpenAPI Generator team and contributors", "Nikolas Yanek-Chrones"]
 description = "Voice AI for developers."
+homepage = "https://docs.vapi.ai"
+repository = "https://github.com/nikothomas/vapi-client"
+keywords = ["vapi", "api", "client"]
+categories = ["api-bindings"]
 # Override this license by providing a License Object in the OpenAPI.
-license = "Unlicense"
-edition = "2021"
+license = "MIT"
+edition = "2024"
 
 [dependencies]
 serde = { version = "^1.0", features = ["derive"] }
