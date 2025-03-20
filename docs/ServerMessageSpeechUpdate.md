@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **r#type** | **String** | This is the type of the message. \"speech-update\" is sent whenever assistant or user start or stop speaking. | 
 **status** | **String** | This is the status of the speech update. | 
 **role** | **String** | This is the role which the speech update is for. | 
-**timestamp** | Option<**String**> | This is the ISO-8601 formatted timestamp of when the message was sent. | [optional]
+**timestamp** | Option<**f64**> | This is the ISO-8601 formatted timestamp of when the message was sent. | [optional]
 **artifact** | Option<[**models::Artifact**](Artifact.md)> | This is a live version of the `call.artifact`.  This matches what is stored on `call.artifact` after the call. | [optional]
 **assistant** | Option<[**models::CreateAssistantDto**](CreateAssistantDTO.md)> | This is the assistant that is currently active. This is provided for convenience.  This matches one of the following: - `call.assistant`, - `call.assistantId`, - `call.squad[n].assistant`, - `call.squad[n].assistantId`, - `call.squadId->[n].assistant`, - `call.squadId->[n].assistantId`. | [optional]
 **customer** | Option<[**models::CreateCustomerDto**](CreateCustomerDTO.md)> | This is the customer associated with the call.  This matches one of the following: - `call.customer`, - `call.customerId`. | [optional]

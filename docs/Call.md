@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **monitor** | Option<[**models::Monitor**](Monitor.md)> | This is to real-time monitor the call. Configure in `assistant.monitorPlan`. | [optional]
 **artifact** | Option<[**models::Artifact**](Artifact.md)> | These are the artifacts created from the call. Configure in `assistant.artifactPlan`. | [optional]
 **transport** | Option<[**models::Transport**](Transport.md)> | This is the transport used for the call. | [optional]
-**phone_call_provider_id** | Option<**String**> | The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage. callControlId in Telnyx.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type. | [optional]
+**phone_call_provider_id** | Option<**String**> | The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type. | [optional]
 **assistant_id** | Option<**String**> | This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. | [optional]
 **assistant** | Option<[**models::CreateAssistantDto**](CreateAssistantDTO.md)> | This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. | [optional]
 **assistant_overrides** | Option<[**models::AssistantOverrides**](AssistantOverrides.md)> | These are the overrides for the `assistant` or `assistantId`'s settings and template variables. | [optional]

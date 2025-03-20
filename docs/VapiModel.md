@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **tool_ids** | Option<**Vec<String>**> | These are the tools that the assistant can use during the call. To use transient tools, use `tools`.  Both `tools` and `toolIds` can be used together. | [optional]
 **knowledge_base** | Option<[**models::AnyscaleModelKnowledgeBase**](AnyscaleModel_knowledgeBase.md)> |  | [optional]
 **knowledge_base_id** | Option<**String**> | This is the ID of the knowledge base the model will use. | [optional]
+**steps** | Option<[**Vec<models::VapiModelStepsInner>**](VapiModel_steps_inner.md)> |  | [optional]
 **provider** | **String** |  | 
 **workflow_id** | Option<**String**> | This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead. | [optional]
 **workflow** | Option<[**models::Workflow**](Workflow.md)> | This is the workflow that will be used for the call. To use an existing workflow, use `workflowId` instead. | [optional]

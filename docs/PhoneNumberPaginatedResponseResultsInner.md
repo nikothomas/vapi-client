@@ -5,7 +5,6 @@
 | Name | Description |
 |---- | -----|
 | ByoPhoneNumber |  |
-| TelnyxPhoneNumber |  |
 | TwilioPhoneNumber |  |
 | VapiPhoneNumber |  |
 | VonagePhoneNumber |  |

@@ -6,7 +6,6 @@
 |---- | -----|
 | AnthropicModel | These are the options for the assistant&#39;s LLM. |
 | AnyscaleModel | These are the options for the assistant&#39;s LLM. |
-| CerebrasModel | These are the options for the assistant&#39;s LLM. |
 | CustomLlmModel | These are the options for the assistant&#39;s LLM. |
 | DeepInfraModel | These are the options for the assistant&#39;s LLM. |
 | DeepSeekModel | These are the options for the assistant&#39;s LLM. |

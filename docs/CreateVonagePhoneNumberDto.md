@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **fallback_destination** | Option<[**models::ImportTwilioPhoneNumberDtoFallbackDestination**](ImportTwilioPhoneNumberDTO_fallbackDestination.md)> |  | [optional]
 **provider** | **String** | This is to use numbers bought on Vonage. | 
 **number** | **String** | These are the digits of the phone number you own on your Vonage. | 
-**credential_id** | **String** | This is the credential you added in dashboard.vapi.ai/keys. This is used to configure the number to send inbound calls to Vapi, make outbound calls and do live call updates like transfers and hangups. | 
+**credential_id** | **String** | This is the credential that is used to make outgoing calls, and do operations like call transfer and hang up. | 
 **name** | Option<**String**> | This is the name of the phone number. This is just for your own reference. | [optional]
 **assistant_id** | Option<**String**> | This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected. | [optional]
 **squad_id** | Option<**String**> | This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected. | [optional]

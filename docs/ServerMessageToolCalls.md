@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **phone_number** | Option<[**models::ServerMessageAssistantRequestPhoneNumber**](ServerMessageAssistantRequest_phoneNumber.md)> |  | [optional]
 **r#type** | Option<**String**> | This is the type of the message. \"tool-calls\" is sent to call a tool. | [optional]
 **tool_with_tool_call_list** | [**Vec<models::ClientMessageToolCallsToolWithToolCallListInner>**](ClientMessageToolCalls_toolWithToolCallList_inner.md) | This is the list of tools calls that the model is requesting along with the original tool configuration. | 
-**timestamp** | Option<**String**> | This is the ISO-8601 formatted timestamp of when the message was sent. | [optional]
+**timestamp** | Option<**f64**> | This is the ISO-8601 formatted timestamp of when the message was sent. | [optional]
 **artifact** | Option<[**models::Artifact**](Artifact.md)> | This is a live version of the `call.artifact`.  This matches what is stored on `call.artifact` after the call. | [optional]
 **assistant** | Option<[**models::CreateAssistantDto**](CreateAssistantDTO.md)> | This is the assistant that is currently active. This is provided for convenience.  This matches one of the following: - `call.assistant`, - `call.assistantId`, - `call.squad[n].assistant`, - `call.squad[n].assistantId`, - `call.squadId->[n].assistant`, - `call.squadId->[n].assistantId`. | [optional]
 **customer** | Option<[**models::CreateCustomerDto**](CreateCustomerDTO.md)> | This is the customer associated with the call.  This matches one of the following: - `call.customer`, - `call.customerId`. | [optional]
