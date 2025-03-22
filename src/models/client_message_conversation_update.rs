@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ClientMessageConversationUpdate {
     /// This is the type of the message. \"conversation-update\" is sent when an update is committed to the conversation history.
     #[serde(rename = "type")]
@@ -38,7 +40,7 @@ impl ClientMessageConversationUpdate {
     }
 }
 /// This is the type of the message. \"conversation-update\" is sent when an update is committed to the conversation history.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "conversation-update")]
     ConversationUpdate,

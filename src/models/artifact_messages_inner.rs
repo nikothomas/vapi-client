@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ArtifactMessagesInner {
     UserMessage(models::UserMessage),

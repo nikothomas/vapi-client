@@ -8,161 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df160db3-eec4-4e09-8226-972b2a975b5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.openapi-generator-ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/AssignmentMutation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlockCompleteMessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlockControllerCreateRequest.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlockControllerFindAll200ResponseInner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlockControllerUpdateRequest.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlockStartMessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlockStartMessageConditionsInner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/BlocksApi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/CallbackStep.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/CallbackStepMutationsInner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ChatDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ConversationBlock.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ConversationBlockMessagesInner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/CreateConversationBlockDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/CreateToolCallBlockDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/CreateWorkflowBlockDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/HandoffStep.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/HandoffStepBlock.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/HandoffStepDestinationsInner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ModelBasedCondition.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/RuleBasedCondition.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/StepDestination.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ToolCallBlock.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ToolCallBlockTool.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/UpdateConversationBlockDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/UpdateToolCallBlockDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/UpdateWorkflowBlockDto.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/VapiModelStepsInner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/WorkflowBlock.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/openapi.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/apis/blocks_api.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/assignment_mutation.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/block_complete_message.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/block_controller_create_request.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/block_controller_find_all_200_response_inner.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/block_controller_update_request.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/block_start_message.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/block_start_message_conditions_inner.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/callback_step.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/callback_step_mutations_inner.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/chat_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/conversation_block.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/conversation_block_messages_inner.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/create_conversation_block_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/create_tool_call_block_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/create_workflow_block_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/handoff_step.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/handoff_step_block.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/handoff_step_destinations_inner.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/model_based_condition.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/rule_based_condition.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/step_destination.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/tool_call_block.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/tool_call_block_tool.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/update_conversation_block_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/update_tool_call_block_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/update_workflow_block_dto.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/vapi_model_steps_inner.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/workflow_block.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.openapi-generator/FILES" beforeDir="false" afterPath="$PROJECT_DIR$/.openapi-generator/FILES" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.openapi-generator/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/.openapi-generator/VERSION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bin/script.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AddVoiceToProviderDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AddVoiceToProviderDto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Assistant.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Assistant.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AssistantOverrides.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AssistantOverrides.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AssistantPaginatedResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Call.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Call.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CerebrasModel.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateAssistantDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateAssistantDto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateAssistantDtoCredentialsInner.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateAssistantDtoCredentialsInner.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateAssistantDtoModel.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateAssistantDtoModel.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateAssistantDtoTranscriber.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateAssistantDtoTranscriber.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateAssistantDtoVoice.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateAssistantDtoVoice.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateAssistantDtoVoicemailDetection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateHumeCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateMistralCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateNeuphonicCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateSpeechmaticsCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateTelnyxPhoneNumberDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateTrieveCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CreateVonagePhoneNumberDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateVonagePhoneNumberDto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CustomLlmModel.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CustomLlmModel.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/DeepgramTranscriber.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DeepgramTranscriber.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ElevenLabsTranscriber.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/FallbackNeuphonicVoice.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/HumeCredential.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/HumeVoice.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ImportVonagePhoneNumberDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ImportVonagePhoneNumberDto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/LangfuseObservabilityPlan.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/MistralCredential.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/NeuphonicCredential.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/NeuphonicVoice.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/NeuphonicVoiceVoiceId.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/OpenAiVoicemailDetectionPlan.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/PhoneNumberPaginatedResponseResultsInner.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/PhoneNumberPaginatedResponseResultsInner.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageAssistantRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageAssistantRequest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageConversationUpdate.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageConversationUpdate.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageEndOfCallReport.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageEndOfCallReport.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageHang.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageHang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageKnowledgeBaseRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageKnowledgeBaseRequest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageLanguageChangeDetected.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageLanguageChangeDetected.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageModelOutput.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageModelOutput.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessagePhoneCallControl.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessagePhoneCallControl.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageSpeechUpdate.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageSpeechUpdate.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageStatusUpdate.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageStatusUpdate.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageToolCalls.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageToolCalls.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageTranscript.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageTranscript.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageTransferDestinationRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageTransferDestinationRequest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageTransferUpdate.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageTransferUpdate.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageUserInterrupted.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageUserInterrupted.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageVoiceInput.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageVoiceInput.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ServerMessageVoiceRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ServerMessageVoiceRequest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/SpeechmaticsCredential.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/SpeechmaticsTranscriber.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/StartSpeakingPlan.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/StartSpeakingPlan.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/TelnyxPhoneNumber.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/TrieveCredential.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateAssistantDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/UpdateAssistantDto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateHumeCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateMistralCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateNeuphonicCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateSpeechmaticsCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateTelnyxPhoneNumberDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateTrieveCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateVonagePhoneNumberDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/UpdateVonagePhoneNumberDto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateWebhookCredentialDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateWorkflowDto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/VapiModel.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/VapiModel.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/VapiVoice.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/VonagePhoneNumber.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/VonagePhoneNumber.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/WorkflowApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/analytics_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/analytics_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/assistants_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/assistants_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/calls_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/calls_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/configuration.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/configuration.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/files_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/files_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/knowledge_base_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/knowledge_base_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/logs_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/logs_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/phone_numbers_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/phone_numbers_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/squads_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/squads_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/test_suite_runs_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/test_suite_runs_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/test_suite_tests_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/test_suite_tests_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/test_suites_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/test_suites_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/tools_api.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/tools_api.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/workflow_api.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/add_voice_to_provider_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/add_voice_to_provider_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/ai_edge_condition.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ai_edge_condition.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/analysis.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/analysis.rs" afterDir="false" />
@@ -186,12 +34,12 @@
       <change beforePath="$PROJECT_DIR$/src/models/artifact_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/artifact_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assembly_ai_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assembly_ai_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assembly_ai_transcriber.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assembly_ai_transcriber.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/assignment_mutation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assignment_mutation.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assistant.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assistant.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assistant_custom_endpointing_rule.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assistant_custom_endpointing_rule.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assistant_hook_filter.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assistant_hook_filter.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assistant_hooks.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assistant_hooks.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/assistant_overrides.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/assistant_overrides.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/assistant_paginated_response.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/auto_reload_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/auto_reload_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/azure_blob_storage_bucket_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/azure_blob_storage_bucket_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/azure_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/azure_credential.rs" afterDir="false" />
@@ -202,6 +50,12 @@
       <change beforePath="$PROJECT_DIR$/src/models/backoff_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/backoff_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/bash_tool.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bash_tool.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/bash_tool_with_tool_call.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bash_tool_with_tool_call.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/block_complete_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/block_complete_message.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/block_controller_create_request.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/block_controller_create_request.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/block_controller_find_all_200_response_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/block_controller_find_all_200_response_inner.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/block_controller_update_request.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/block_controller_update_request.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/block_start_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/block_start_message.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/block_start_message_conditions_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/block_start_message_conditions_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/bot_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bot_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/both_custom_endpointing_rule.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/both_custom_endpointing_rule.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/bucket_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bucket_plan.rs" afterDir="false" />
@@ -213,14 +67,16 @@
       <change beforePath="$PROJECT_DIR$/src/models/call_log_privileged.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/call_log_privileged.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/call_logs_paginated_response.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/call_logs_paginated_response.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/call_paginated_response.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/call_paginated_response.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/callback_step.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/callback_step.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/callback_step_mutations_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/callback_step_mutations_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/cartesia_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cartesia_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/cartesia_experimental_controls.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cartesia_experimental_controls.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/cartesia_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cartesia_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/cerebras_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cerebras_credential.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/cerebras_model.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/chat_completion_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/chat_completion_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/chat_completion_message_metadata.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/chat_completion_message_metadata.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/chat_completions_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/chat_completions_dto.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/chat_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/chat_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/chunk_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/chunk_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/client_inbound_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/client_inbound_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/client_inbound_message_add_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/client_inbound_message_add_message.rs" afterDir="false" />
@@ -254,6 +110,8 @@
       <change beforePath="$PROJECT_DIR$/src/models/computer_tool.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/computer_tool.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/computer_tool_with_tool_call.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/computer_tool_with_tool_call.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/condition.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/condition.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/conversation_block.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/conversation_block.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/conversation_block_messages_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/conversation_block_messages_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/cost_breakdown.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cost_breakdown.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_anthropic_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_anthropic_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_anyscale_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_anyscale_credential_dto.rs" afterDir="false" />
@@ -264,7 +122,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/create_assistant_dto_transcriber.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_assistant_dto_transcriber.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_assistant_dto_transport_configurations_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_assistant_dto_transport_configurations_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_assistant_dto_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_assistant_dto_voice.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_assistant_dto_voicemail_detection.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_azure_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_azure_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_azure_open_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_azure_open_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_bash_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_bash_tool_dto.rs" afterDir="false" />
@@ -275,6 +132,7 @@
       <change beforePath="$PROJECT_DIR$/src/models/create_cerebras_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_cerebras_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_cloudflare_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_cloudflare_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_computer_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_computer_tool_dto.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/create_conversation_block_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_conversation_block_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_custom_knowledge_base_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_custom_knowledge_base_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_custom_llm_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_custom_llm_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_customer_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_customer_dto.rs" afterDir="false" />
@@ -292,14 +150,11 @@
       <change beforePath="$PROJECT_DIR$/src/models/create_go_high_level_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_go_high_level_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_google_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_google_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_groq_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_groq_credential_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_hume_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_inflection_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_inflection_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_langfuse_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_langfuse_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_lmnt_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_lmnt_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_make_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_make_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_make_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_make_tool_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_mistral_credential_dto.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_neuphonic_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_open_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_open_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_open_router_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_open_router_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_org_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_org_dto.rs" afterDir="false" />
@@ -312,23 +167,21 @@
       <change beforePath="$PROJECT_DIR$/src/models/create_runpod_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_runpod_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_s3_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_s3_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_smallest_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_smallest_ai_credential_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_speechmatics_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_squad_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_squad_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_supabase_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_supabase_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_tavus_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_tavus_credential_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_telnyx_phone_number_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_test_suite_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_test_suite_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_test_suite_run_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_test_suite_run_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_test_suite_test_voice_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_test_suite_test_voice_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_text_editor_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_text_editor_tool_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_together_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_together_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_token_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_token_dto.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/create_tool_call_block_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_tool_call_block_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_tool_template_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_tool_template_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_tool_template_dto_details.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_tool_template_dto_details.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_tool_template_dto_provider_details.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_tool_template_dto_provider_details.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_transfer_call_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_transfer_call_tool_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_transfer_call_tool_dto_destinations_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_transfer_call_tool_dto_destinations_inner.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/create_trieve_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_trieve_knowledge_base_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_trieve_knowledge_base_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_twilio_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_twilio_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_twilio_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_twilio_phone_number_dto.rs" afterDir="false" />
@@ -338,6 +191,7 @@
       <change beforePath="$PROJECT_DIR$/src/models/create_vonage_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_vonage_phone_number_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_web_call_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_web_call_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_webhook_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_webhook_credential_dto.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/create_workflow_block_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_workflow_block_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_workflow_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_workflow_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/create_xai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/create_xai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/custom_knowledge_base.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/custom_knowledge_base.rs" afterDir="false" />
@@ -360,7 +214,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/edge.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/edge.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/edge_condition.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/edge_condition.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/eleven_labs_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/eleven_labs_credential.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/eleven_labs_transcriber.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/eleven_labs_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/eleven_labs_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/eleven_labs_voice_voice_id.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/eleven_labs_voice_voice_id.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/end_call_tool.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/end_call_tool.rs" afterDir="false" />
@@ -375,7 +228,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/fallback_hume_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fallback_hume_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/fallback_lmnt_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fallback_lmnt_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/fallback_neets_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fallback_neets_voice.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/fallback_neuphonic_voice.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/fallback_open_ai_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fallback_open_ai_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/fallback_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fallback_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/fallback_plan_voices_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/fallback_plan_voices_inner.rs" afterDir="false" />
@@ -411,10 +263,11 @@
       <change beforePath="$PROJECT_DIR$/src/models/google_voicemail_detection_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/google_voicemail_detection_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/groq_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/groq_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/groq_model.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/groq_model.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/handoff_step.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/handoff_step.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/handoff_step_block.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/handoff_step_block.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/handoff_step_destinations_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/handoff_step_destinations_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/hangup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/hangup.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/hook.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/hook.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/hume_credential.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/hume_voice.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/import_twilio_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/import_twilio_phone_number_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/import_twilio_phone_number_dto_fallback_destination.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/import_twilio_phone_number_dto_fallback_destination.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/import_vonage_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/import_vonage_phone_number_dto.rs" afterDir="false" />
@@ -430,7 +283,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/knowledge_base_controller_update_request.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/knowledge_base_controller_update_request.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/knowledge_base_response_document.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/knowledge_base_response_document.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/langfuse_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/langfuse_credential.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/langfuse_observability_plan.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/lmnt_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/lmnt_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/lmnt_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/lmnt_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/lmnt_voice_voice_id.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/lmnt_voice_voice_id.rs" afterDir="false" />
@@ -444,16 +296,13 @@
       <change beforePath="$PROJECT_DIR$/src/models/make_tool_with_tool_call.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/make_tool_with_tool_call.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/message_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/message_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/metrics.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/metrics.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mistral_credential.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/model_based_condition.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/model_based_condition.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/model_cost.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/model_cost.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/monitor.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/monitor.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/monitor_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/monitor_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/neets_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/neets_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/neets_voice_voice_id.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/neets_voice_voice_id.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/neuphonic_credential.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/neuphonic_voice.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/neuphonic_voice_voice_id.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/o_auth2_authentication_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/o_auth2_authentication_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/oauth2_authentication_session.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/oauth2_authentication_session.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/open_ai_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/open_ai_credential.rs" afterDir="false" />
@@ -462,7 +311,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/open_ai_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/open_ai_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/open_ai_model.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/open_ai_model.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/open_ai_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/open_ai_voice.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/open_ai_voicemail_detection_plan.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/open_router_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/open_router_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/open_router_model.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/open_router_model.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/org.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/org.rs" afterDir="false" />
@@ -485,6 +333,7 @@
       <change beforePath="$PROJECT_DIR$/src/models/rime_ai_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/rime_ai_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/rime_ai_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/rime_ai_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/rime_ai_voice_voice_id.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/rime_ai_voice_voice_id.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/rule_based_condition.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/rule_based_condition.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/runpod_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/runpod_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/s3_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/s3_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/say.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/say.rs" afterDir="false" />
@@ -528,12 +377,11 @@
       <change beforePath="$PROJECT_DIR$/src/models/smallest_ai_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/smallest_ai_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/smallest_ai_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/smallest_ai_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/smallest_ai_voice_voice_id.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/smallest_ai_voice_voice_id.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/speechmatics_credential.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/speechmatics_transcriber.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/squad.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/squad.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/squad_member_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/squad_member_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/start_speaking_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/start_speaking_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/start_speaking_plan_custom_endpointing_rules_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/start_speaking_plan_custom_endpointing_rules_inner.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/step_destination.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/step_destination.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/stop_speaking_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/stop_speaking_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/structured_data_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/structured_data_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/subscription.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/subscription.rs" afterDir="false" />
@@ -548,7 +396,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/tavus_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tavus_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tavus_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tavus_voice.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tavus_voice_voice_id.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tavus_voice_voice_id.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/telnyx_phone_number.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/template.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/template.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/test_suite.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/test_suite.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/test_suite_run.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/test_suite_run.rs" afterDir="false" />
@@ -576,6 +423,8 @@
       <change beforePath="$PROJECT_DIR$/src/models/token.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/token.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/token_restrictions.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/token_restrictions.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tool_call.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tool_call.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/tool_call_block.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tool_call_block.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/tool_call_block_tool.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tool_call_block_tool.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tool_call_function.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tool_call_function.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tool_call_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tool_call_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/tool_call_result.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tool_call_result.rs" afterDir="false" />
@@ -608,7 +457,6 @@
       <change beforePath="$PROJECT_DIR$/src/models/transport.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/transport.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/transport_configuration_twilio.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/transport_configuration_twilio.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/transport_cost.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/transport_cost.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/trieve_credential.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/trieve_knowledge_base.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/trieve_knowledge_base.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/trieve_knowledge_base_chunk_plan.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/trieve_knowledge_base_chunk_plan.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/trieve_knowledge_base_create.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/trieve_knowledge_base_create.rs" afterDir="false" />
@@ -632,6 +480,7 @@
       <change beforePath="$PROJECT_DIR$/src/models/update_cerebras_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_cerebras_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_cloudflare_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_cloudflare_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_computer_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_computer_tool_dto.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/update_conversation_block_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_conversation_block_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_custom_knowledge_base_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_custom_knowledge_base_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_custom_llm_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_custom_llm_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_deep_infra_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_deep_infra_credential_dto.rs" afterDir="false" />
@@ -648,14 +497,11 @@
       <change beforePath="$PROJECT_DIR$/src/models/update_go_high_level_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_go_high_level_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_google_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_google_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_groq_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_groq_credential_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_hume_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_inflection_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_inflection_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_langfuse_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_langfuse_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_lmnt_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_lmnt_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_make_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_make_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_make_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_make_tool_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_mistral_credential_dto.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_neuphonic_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_open_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_open_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_open_router_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_open_router_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_org_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_org_dto.rs" afterDir="false" />
@@ -667,20 +513,18 @@
       <change beforePath="$PROJECT_DIR$/src/models/update_runpod_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_runpod_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_s3_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_s3_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_smallest_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_smallest_ai_credential_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_speechmatics_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_squad_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_squad_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_supabase_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_supabase_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_tavus_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_tavus_credential_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_telnyx_phone_number_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_test_suite_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_test_suite_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_test_suite_run_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_test_suite_run_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_test_suite_test_voice_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_test_suite_test_voice_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_text_editor_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_text_editor_tool_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_together_ai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_together_ai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_token_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_token_dto.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/update_tool_call_block_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_tool_call_block_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_tool_template_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_tool_template_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_transfer_call_tool_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_transfer_call_tool_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_trieve_credential_dto.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_trieve_knowledge_base_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_trieve_knowledge_base_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_twilio_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_twilio_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_twilio_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_twilio_phone_number_dto.rs" afterDir="false" />
@@ -688,15 +532,14 @@
       <change beforePath="$PROJECT_DIR$/src/models/update_vapi_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_vapi_phone_number_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_vonage_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_vonage_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_vonage_phone_number_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_vonage_phone_number_dto.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_webhook_credential_dto.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/update_workflow_dto.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/update_workflow_block_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_workflow_block_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/update_xai_credential_dto.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/update_xai_credential_dto.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/user.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/user_message.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/vapi_cost.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/vapi_cost.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/vapi_model.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/vapi_model.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/vapi_model_steps_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/vapi_model_steps_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/vapi_phone_number.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/vapi_phone_number.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/vapi_voice.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/voice_cost.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/voice_cost.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/voice_library.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/voice_library.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/voice_library_voice_response.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/voice_library_voice_response.rs" afterDir="false" />
@@ -705,29 +548,37 @@
       <change beforePath="$PROJECT_DIR$/src/models/vonage_phone_number.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/vonage_phone_number.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/webhook_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/webhook_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/workflow.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/workflow.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/workflow_block.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/workflow_block.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/workflow_nodes_inner.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/workflow_nodes_inner.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/xai_credential.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/xai_credential.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/xai_model.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/xai_model.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vapi-client-rs.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "nikothomas"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nikothomas&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/nikothomas/vapi-client.git",
-    "accountId": "1b84b091-476e-41bb-a03d-f44e85fcd081"
+    "accountId": "61a86ec9-3d12-421b-a8a4-cfc3d46e2e59"
   }
 }]]></component>
   <component name="MacroExpansionManager">
@@ -736,9 +587,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2uZWRI7qaAqjB11wXWRAJJfI98D" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -746,10 +597,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Cargo.Run openapi.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.rust.reset.selective.auto.import": "true",
     "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Nik/IdeaProjects/vapi-client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -768,11 +621,45 @@
       <recent name="C:\Users\Nik\IdeaProjects\vapi-client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/bin" />
       <recent name="C:\Users\Nik\IdeaProjects\vapi-client" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Run openapi" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run --package vapi-client --bin openapi" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Run openapi" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -783,6 +670,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742456566215</updated>
       <workItem from="1742456567331" duration="833000" />
+      <workItem from="1742673175216" duration="2773000" />
     </task>
     <servers />
   </component>

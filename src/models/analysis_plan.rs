@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct AnalysisPlan {
     /// This is the plan for generating the summary of the call. This outputs to `call.analysis.summary`.
     #[serde(rename = "summaryPlan", skip_serializing_if = "Option::is_none")]

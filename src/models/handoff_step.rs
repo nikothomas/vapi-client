@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct HandoffStep {
     #[serde(rename = "block", skip_serializing_if = "Option::is_none")]
     pub block: Option<models::HandoffStepBlock>,
@@ -46,7 +48,7 @@ impl HandoffStep {
     }
 }
 /// This is a step that takes a handoff from the previous step. This means it won't return to the calling step. The workflow execution will continue linearly.  Use case: - You want to collect information linearly (e.g. a form, provide information, etc).
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "handoff")]
     Handoff,

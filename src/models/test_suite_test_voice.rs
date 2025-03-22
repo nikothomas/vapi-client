@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct TestSuiteTestVoice {
     /// These are the scorers used to evaluate the test.
     #[serde(rename = "scorers")]
@@ -72,7 +74,7 @@ impl TestSuiteTestVoice {
     }
 }
 /// This is the type of the test, which must be voice.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "voice")]
     Voice,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ChunkPlan {
     /// This determines whether the model output is chunked before being sent to the voice provider. Default `true`.  
     /// Usage:
@@ -63,7 +65,7 @@ impl ChunkPlan {
 /// - To increase quality, constrain to fewer boundaries.
 /// - To decrease latency, enable all.  
 /// Default is automatically set to balance the trade-off between quality and latency based on the provider.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum PunctuationBoundaries {
     #[serde(rename = "。")]
     IdeographicFullStop,

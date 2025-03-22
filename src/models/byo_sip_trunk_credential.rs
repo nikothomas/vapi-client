@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ByoSipTrunkCredential {
     /// This can be used to bring your own SIP trunks or to connect to a Carrier.
     #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
@@ -83,7 +85,7 @@ impl ByoSipTrunkCredential {
     }
 }
 /// This can be used to bring your own SIP trunks or to connect to a Carrier.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "byo-sip-trunk")]
     ByoSipTrunk,

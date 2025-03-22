@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// ClientMessageMessage : These are all the messages that can be sent to the client-side SDKs during the call. Configure the messages you'd like to receive in `assistant.clientMessages`.
 /// These are all the messages that can be sent to the client-side SDKs during the call. Configure the messages you'd like to receive in `assistant.clientMessages`.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ClientMessageMessage {
     ClientMessageWorkflowNodeStarted(models::ClientMessageWorkflowNodeStarted),
@@ -38,7 +40,7 @@ impl Default for ClientMessageMessage {
     }
 }
 /// This is the type of the message. \"workflow.node.started\" is sent when the active node changes.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "workflow.node.started")]
     WorkflowPeriodNodePeriodStarted,
@@ -76,7 +78,7 @@ impl Default for Type {
     }
 }
 /// This is the status of the speech update.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Status {
     #[serde(rename = "started")]
     Started,
@@ -90,7 +92,7 @@ impl Default for Status {
     }
 }
 /// This is the role for which the transcript is for.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Role {
     #[serde(rename = "assistant")]
     Assistant,
@@ -104,7 +106,7 @@ impl Default for Role {
     }
 }
 /// This is the type of the transcript.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum TranscriptType {
     #[serde(rename = "partial")]
     Partial,

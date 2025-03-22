@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ClientMessageSpeechUpdate {
     /// This is the type of the message. \"speech-update\" is sent whenever assistant or user start or stop speaking.
     #[serde(rename = "type")]
@@ -35,7 +37,7 @@ impl ClientMessageSpeechUpdate {
     }
 }
 /// This is the type of the message. \"speech-update\" is sent whenever assistant or user start or stop speaking.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "speech-update")]
     SpeechUpdate,
@@ -47,7 +49,7 @@ impl Default for Type {
     }
 }
 /// This is the status of the speech update.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Status {
     #[serde(rename = "started")]
     Started,
@@ -61,7 +63,7 @@ impl Default for Status {
     }
 }
 /// This is the role which the speech update is for.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Role {
     #[serde(rename = "assistant")]
     Assistant,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum TestSuiteRunTestAttemptScorerResultsInner {
     TestSuiteRunScorerAi(models::TestSuiteRunScorerAi),
@@ -24,7 +26,7 @@ impl Default for TestSuiteRunTestAttemptScorerResultsInner {
     }
 }
 /// This is the type of the scorer, which must be AI.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "ai")]
     Ai,
@@ -36,7 +38,7 @@ impl Default for Type {
     }
 }
 /// This is the result of the test suite.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Result {
     #[serde(rename = "pass")]
     Pass,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct FallbackElevenLabsVoice {
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
@@ -76,7 +78,7 @@ impl FallbackElevenLabsVoice {
     }
 }
 /// This is the voice provider that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "11labs")]
     Variant11labs,
@@ -88,7 +90,7 @@ impl Default for Provider {
     }
 }
 /// This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Model {
     #[serde(rename = "eleven_multilingual_v2")]
     ElevenMultilingualV2,

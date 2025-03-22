@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ServerMessageModelOutput {
     #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<models::ServerMessageAssistantRequestPhoneNumber>,
@@ -54,7 +56,7 @@ impl ServerMessageModelOutput {
     }
 }
 /// This is the type of the message. \"model-output\" is sent as the model outputs tokens.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "model-output")]
     ModelOutput,

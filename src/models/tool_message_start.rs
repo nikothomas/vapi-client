@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ToolMessageStart {
     /// This is an alternative to the `content` property. It allows to specify variants of the same content, one per language.  Usage: - If your assistants are multilingual, you can provide content for each language. - If you don't provide content for a language, the first item in the array will be automatically translated to the active language at that moment.  This will override the `content` property.
     #[serde(rename = "contents", skip_serializing_if = "Option::is_none")]
@@ -43,7 +45,7 @@ impl ToolMessageStart {
     }
 }
 /// This message is triggered when the tool call starts.  This message is never triggered for async tools.  If this message is not provided, one of the default filler messages \"Hold on a sec\", \"One moment\", \"Just a sec\", \"Give me a moment\" or \"This'll just take a sec\" will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "request-start")]
     RequestStart,

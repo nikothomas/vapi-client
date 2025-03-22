@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct FallbackRimeAiVoice {
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
@@ -42,7 +44,7 @@ impl FallbackRimeAiVoice {
     }
 }
 /// This is the voice provider that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "rime-ai")]
     RimeAi,
@@ -54,7 +56,7 @@ impl Default for Provider {
     }
 }
 /// This is the model that will be used. Defaults to 'v1' when not specified.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Model {
     #[serde(rename = "v1")]
     V1,

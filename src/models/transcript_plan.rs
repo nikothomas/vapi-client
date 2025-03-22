@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct TranscriptPlan {
     /// This determines whether the transcript is stored in `call.artifact.transcript`. Defaults to true.  @default true
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]

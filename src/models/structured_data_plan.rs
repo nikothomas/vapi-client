@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct StructuredDataPlan {
     /// These are the messages used to generate the structured data.  @default: ``` [   {     \"role\": \"system\",     \"content\": \"You are an expert data extractor. You will be given a transcript of a call. Extract structured data per the JSON Schema. DO NOT return anything except the structured data.\\n\\nJson Schema:\\\\n{{schema}}\\n\\nOnly respond with the JSON.\"   },   {     \"role\": \"user\",     \"content\": \"Here is the transcript:\\n\\n{{transcript}}\\n\\n\"   } ]```  You can customize by providing any messages you want.  Here are the template variables available: - {{transcript}}: the transcript of the call from `call.artifact.transcript`- {{systemPrompt}}: the system prompt of the call from `assistant.model.messages[type=system].content`- {{schema}}: the schema of the structured data from `structuredDataPlan.schema`
     #[serde(rename = "messages", skip_serializing_if = "Option::is_none")]

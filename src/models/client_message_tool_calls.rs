@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ClientMessageToolCalls {
     /// This is the type of the message. \"tool-calls\" is sent to call a tool.
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
@@ -38,7 +40,7 @@ impl ClientMessageToolCalls {
     }
 }
 /// This is the type of the message. \"tool-calls\" is sent to call a tool.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "tool-calls")]
     ToolCalls,

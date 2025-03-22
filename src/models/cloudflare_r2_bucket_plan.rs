@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct CloudflareR2BucketPlan {
     /// Cloudflare R2 Access key ID.
     #[serde(rename = "accessKeyId", skip_serializing_if = "Option::is_none")]

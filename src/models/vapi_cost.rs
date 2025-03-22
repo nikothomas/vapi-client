@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct VapiCost {
     /// This is the type of cost, always 'vapi' for this class.
     #[serde(rename = "type")]
@@ -39,7 +41,7 @@ impl VapiCost {
     }
 }
 /// This is the type of cost, always 'vapi' for this class.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "vapi")]
     Vapi,
@@ -51,7 +53,7 @@ impl Default for Type {
     }
 }
 /// This is the sub type of the cost.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum SubType {
     #[serde(rename = "normal")]
     Normal,

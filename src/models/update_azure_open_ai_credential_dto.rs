@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct UpdateAzureOpenAiCredentialDto {
     #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
     pub region: Option<Region>,
@@ -47,7 +49,7 @@ impl UpdateAzureOpenAiCredentialDto {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Region {
     #[serde(rename = "australia")]
     Australia,
@@ -93,7 +95,7 @@ impl Default for Region {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Models {
     #[serde(rename = "gpt-4o-2024-08-06")]
     Gpt4o20240806,

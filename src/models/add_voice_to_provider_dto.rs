@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct AddVoiceToProviderDto {
     /// This is the owner_id of your shared voice which you want to add to your provider Account from Provider Voice Library
     #[serde(rename = "ownerId")]

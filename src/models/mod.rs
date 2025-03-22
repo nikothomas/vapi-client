@@ -1,5 +1,7 @@
 pub mod add_voice_to_provider_dto;
 pub use self::add_voice_to_provider_dto::AddVoiceToProviderDto;
+use utoipa::OpenApi;
+
 pub mod ai_edge_condition;
 pub use self::ai_edge_condition::AiEdgeCondition;
 pub mod analysis;

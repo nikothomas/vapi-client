@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct XaiCredential {
     /// This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
     #[serde(rename = "provider")]
@@ -58,7 +60,7 @@ impl XaiCredential {
     }
 }
 /// This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "xai")]
     Xai,

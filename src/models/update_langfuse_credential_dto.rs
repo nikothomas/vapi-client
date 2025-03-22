@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct UpdateLangfuseCredentialDto {
     /// The public key for Langfuse project. Eg: pk-lf-...
     #[serde(rename = "publicKey", skip_serializing_if = "Option::is_none")]

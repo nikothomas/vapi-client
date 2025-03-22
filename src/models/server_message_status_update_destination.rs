@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// ServerMessageStatusUpdateDestination : This is the destination the call is being transferred to. This is only sent if the status is \"forwarding\".
 /// This is the destination the call is being transferred to. This is only sent if the status is \"forwarding\".
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ServerMessageStatusUpdateDestination {
     TransferDestinationNumber(models::TransferDestinationNumber),
@@ -27,7 +29,7 @@ impl Default for ServerMessageStatusUpdateDestination {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "number")]
     Number,

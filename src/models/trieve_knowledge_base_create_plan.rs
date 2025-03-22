@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// TrieveKnowledgeBaseCreatePlan : This is the plan if you want us to create/import a new vector store using Trieve.
 /// This is the plan if you want us to create/import a new vector store using Trieve.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum TrieveKnowledgeBaseCreatePlan {
     TrieveKnowledgeBaseImport(models::TrieveKnowledgeBaseImport),
@@ -26,7 +28,7 @@ impl Default for TrieveKnowledgeBaseCreatePlan {
     }
 }
 /// This is to import an existing dataset from Trieve.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "import")]
     Import,

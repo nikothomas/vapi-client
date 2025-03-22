@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum CreateAssistantDtoCredentialsInner {
     CreateAnthropicCredentialDto(models::CreateAnthropicCredentialDto),
@@ -58,7 +60,7 @@ impl Default for CreateAssistantDtoCredentialsInner {
     }
 }
 /// This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "xai")]
     Xai,
@@ -70,7 +72,7 @@ impl Default for Provider {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Models {
     #[serde(rename = "gpt-4o-2024-08-06")]
     Gpt4o20240806,
@@ -98,7 +100,7 @@ impl Default for Models {
     }
 }
 /// This is the service being used in Azure.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Service {
     #[serde(rename = "speech")]
     Speech,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct Server {
     /// This is the timeout in seconds for the request to your server. Defaults to 20 seconds.  @default 20
     #[serde(rename = "timeoutSeconds", skip_serializing_if = "Option::is_none")]

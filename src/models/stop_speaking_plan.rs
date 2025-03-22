@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct StopSpeakingPlan {
     /// This is the number of words that the customer has to say before the assistant will stop talking.  Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value.  Words like \"okay\", \"yeah\", \"right\" will never interrupt.  When set to 0, `voiceSeconds` is used in addition to the transcriptions to determine the customer has started speaking.  Defaults to 0.  @default 0
     #[serde(rename = "numWords", skip_serializing_if = "Option::is_none")]

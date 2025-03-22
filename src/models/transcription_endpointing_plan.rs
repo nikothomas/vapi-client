@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct TranscriptionEndpointingPlan {
     /// The minimum number of seconds to wait after transcription ending with punctuation before sending a request to the model. Defaults to 0.1.  This setting exists because the transcriber punctuates the transcription when it's more confident that customer has completed a thought.  @default 0.1
     #[serde(

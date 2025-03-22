@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct OrgPlan {
     #[serde(rename = "includedProviders", skip_serializing_if = "Option::is_none")]
     pub included_providers: Option<Vec<serde_json::Value>>,

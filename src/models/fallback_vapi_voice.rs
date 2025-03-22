@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct FallbackVapiVoice {
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
@@ -35,7 +37,7 @@ impl FallbackVapiVoice {
     }
 }
 /// This is the voice provider that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "vapi")]
     Vapi,
@@ -47,7 +49,7 @@ impl Default for Provider {
     }
 }
 /// The voices provided by Vapi
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum VoiceId {
     #[serde(rename = "Jordan")]
     Jordan,

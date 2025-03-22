@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ExactReplacement {
     /// This is the exact replacement type. You can use this to replace a specific word or phrase with a different word or phrase.  Usage: - Replace \"hello\" with \"hi\": { type: 'exact', key: 'hello', value: 'hi' } - Replace \"good morning\" with \"good day\": { type: 'exact', key: 'good morning', value: 'good day' } - Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' } - Replace an acronym: { type: 'exact', key: 'AI', value: 'Artificial Intelligence' } - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'Vapi', value: 'Vappy' }
     #[serde(rename = "type")]
@@ -31,7 +33,7 @@ impl ExactReplacement {
     }
 }
 /// This is the exact replacement type. You can use this to replace a specific word or phrase with a different word or phrase.  Usage: - Replace \"hello\" with \"hi\": { type: 'exact', key: 'hello', value: 'hi' } - Replace \"good morning\" with \"good day\": { type: 'exact', key: 'good morning', value: 'good day' } - Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' } - Replace an acronym: { type: 'exact', key: 'AI', value: 'Artificial Intelligence' } - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'Vapi', value: 'Vappy' }
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "exact")]
     Exact,

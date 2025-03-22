@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct CostBreakdown {
     /// This is the cost of the transport provider, like Twilio or Vonage.
     #[serde(rename = "transport", skip_serializing_if = "Option::is_none")]

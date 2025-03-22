@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct SummaryPlan {
     /// These are the messages used to generate the summary.  @default: ``` [   {     \"role\": \"system\",     \"content\": \"You are an expert note-taker. You will be given a transcript of a call. Summarize the call in 2-3 sentences. DO NOT return anything except the summary.\"   },   {     \"role\": \"user\",     \"content\": \"Here is the transcript:\\n\\n{{transcript}}\\n\\n\"   } ]```  You can customize by providing any messages you want.  Here are the template variables available: - {{transcript}}: The transcript of the call from `call.artifact.transcript`- {{systemPrompt}}: The system prompt of the call from `assistant.model.messages[type=system].content`
     #[serde(rename = "messages", skip_serializing_if = "Option::is_none")]

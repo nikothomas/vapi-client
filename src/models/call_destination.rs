@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// CallDestination : This is the destination where the call ended up being transferred to. If the call was not transferred, this will be empty.
 /// This is the destination where the call ended up being transferred to. If the call was not transferred, this will be empty.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum CallDestination {
     TransferDestinationNumber(models::TransferDestinationNumber),
@@ -27,7 +29,7 @@ impl Default for CallDestination {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "number")]
     Number,

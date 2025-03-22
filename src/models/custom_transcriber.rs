@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct CustomTranscriber {
     /// This is the transcription provider that will be used. Use `custom-transcriber` for providers that are not natively supported.
     #[serde(rename = "provider")]
@@ -28,7 +30,7 @@ impl CustomTranscriber {
     }
 }
 /// This is the transcription provider that will be used. Use `custom-transcriber` for providers that are not natively supported.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "custom-transcriber")]
     CustomTranscriber,

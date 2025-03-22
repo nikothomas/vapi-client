@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// ImportTwilioPhoneNumberDtoFallbackDestination : This is the fallback destination an inbound call will be transferred to if: 1. `assistantId` is not set 2. `squadId` is not set 3. and, `assistant-request` message to the `serverUrl` fails  If this is not set and above conditions are met, the inbound call is hung up with an error message.
 /// This is the fallback destination an inbound call will be transferred to if: 1. `assistantId` is not set 2. `squadId` is not set 3. and, `assistant-request` message to the `serverUrl` fails  If this is not set and above conditions are met, the inbound call is hung up with an error message.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ImportTwilioPhoneNumberDtoFallbackDestination {
     TransferDestinationNumber(models::TransferDestinationNumber),
@@ -27,7 +29,7 @@ impl Default for ImportTwilioPhoneNumberDtoFallbackDestination {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "number")]
     Number,

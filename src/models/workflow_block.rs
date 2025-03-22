@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct WorkflowBlock {
     /// These are the pre-configured messages that will be spoken to the user while the block is running.
     #[serde(rename = "messages", skip_serializing_if = "Option::is_none")]
@@ -69,7 +71,7 @@ impl WorkflowBlock {
     }
 }
 /// This creates a workflow which can contain any number of steps (block executions).
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "workflow")]
     Workflow,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ServerMessageHang {
     #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<models::ServerMessageAssistantRequestPhoneNumber>,
@@ -50,7 +52,7 @@ impl ServerMessageHang {
     }
 }
 /// This is the type of the message. \"hang\" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as: - the model is too slow to respond - the voice is too slow to respond - the tool call is still waiting for a response from your server - etc.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "hang")]
     Hang,

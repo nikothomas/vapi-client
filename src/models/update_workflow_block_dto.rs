@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct UpdateWorkflowBlockDto {
     /// These are the pre-configured messages that will be spoken to the user while the block is running.
     #[serde(rename = "messages", skip_serializing_if = "Option::is_none")]

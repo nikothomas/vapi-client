@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ServerMessageEndOfCallReport {
     #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<models::ServerMessageAssistantRequestPhoneNumber>,
@@ -79,7 +81,7 @@ impl ServerMessageEndOfCallReport {
     }
 }
 /// This is the type of the message. \"end-of-call-report\" is sent when the call ends and post-processing is complete.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "end-of-call-report")]
     EndOfCallReport,
@@ -91,7 +93,7 @@ impl Default for Type {
     }
 }
 /// This is the reason the call ended. This can also be found at `call.endedReason` on GET /call/:id.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum EndedReason {
     #[serde(rename = "assistant-not-valid")]
     AssistantNotValid,

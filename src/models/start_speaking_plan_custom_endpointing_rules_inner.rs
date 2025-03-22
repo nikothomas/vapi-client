@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum StartSpeakingPlanCustomEndpointingRulesInner {
     AssistantCustomEndpointingRule(models::AssistantCustomEndpointingRule),
@@ -26,7 +28,7 @@ impl Default for StartSpeakingPlanCustomEndpointingRulesInner {
     }
 }
 /// This endpointing rule is based on the last assistant message before customer started speaking.  Flow: - Assistant speaks - Customer starts speaking - Customer transcription comes in - This rule is evaluated on the last assistant message - If a match is found based on `regex`, the endpointing timeout is set to `timeoutSeconds`  Usage: - If you have yes/no questions in your use case like \"are you interested in a loan?\", you can set a shorter timeout. - If you have questions where the customer may pause to look up information like \"what's my account number?\", you can set a longer timeout.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "assistant")]
     Assistant,

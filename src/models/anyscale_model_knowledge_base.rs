@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// AnyscaleModelKnowledgeBase : These are the options for the knowledge base.
 /// These are the options for the knowledge base.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum AnyscaleModelKnowledgeBase {
     CreateCustomKnowledgeBaseDto(models::CreateCustomKnowledgeBaseDto),
@@ -26,7 +28,7 @@ impl Default for AnyscaleModelKnowledgeBase {
     }
 }
 /// This knowledge base is bring your own knowledge base implementation.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "custom-knowledge-base")]
     CustomKnowledgeBase,

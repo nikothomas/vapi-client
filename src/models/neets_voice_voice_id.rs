@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// NeetsVoiceVoiceId : This is the provider-specific ID that will be used.
 /// This is the provider-specific ID that will be used.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum NeetsVoiceVoiceId {
     PresetVoiceOptions(String),

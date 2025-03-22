@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct TrieveKnowledgeBaseChunkPlan {
     /// These are the file ids that will be used to create the vector store. To upload files, use the `POST /files` endpoint.
     #[serde(rename = "fileIds", skip_serializing_if = "Option::is_none")]

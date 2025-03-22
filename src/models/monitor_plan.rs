@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct MonitorPlan {
     /// This determines whether the assistant's calls allow live listening. Defaults to true.  Fetch `call.monitor.listenUrl` to get the live listening URL.  @default true
     #[serde(rename = "listenEnabled", skip_serializing_if = "Option::is_none")]

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct GoogleRealtimeConfig {
     /// This is the nucleus sampling parameter that controls the cumulative probability of tokens considered during text generation. Only applicable with the Gemini Flash 2.0 Multimodal Live API.
     #[serde(rename = "topP", skip_serializing_if = "Option::is_none")]

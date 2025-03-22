@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// ServerMessageAssistantRequestPhoneNumber : This is the phone number associated with the call.  This matches one of the following: - `call.phoneNumber`, - `call.phoneNumberId`.
 /// This is the phone number associated with the call.  This matches one of the following: - `call.phoneNumber`, - `call.phoneNumberId`.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ServerMessageAssistantRequestPhoneNumber {
     CreateByoPhoneNumberDto(models::CreateByoPhoneNumberDto),
@@ -29,7 +31,7 @@ impl Default for ServerMessageAssistantRequestPhoneNumber {
     }
 }
 /// This is to create free SIP phone numbers on Vapi.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "vapi")]
     Vapi,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct UpdateGcpCredentialDto {
     /// This is the name of credential. This is just for your reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]

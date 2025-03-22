@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct FormatPlan {
     /// This determines whether the chunk is formatted before being sent to the voice provider. This helps with enunciation. This includes phone numbers, emails and addresses. Default `true`.  Usage: - To rely on the voice provider's formatting logic, set this to `false`.  If `voice.chunkPlan.enabled` is `false`, this is automatically `false` since there's no chunk to format.  @default true
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]
@@ -42,7 +44,7 @@ impl FormatPlan {
     }
 }
 /// List of formatters to apply. If not provided, all default formatters will be applied. If provided, only the specified formatters will be applied. Note: Some essential formatters like angle bracket removal will always be applied. @default undefined
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum FormattersEnabled {
     #[serde(rename = "markdown")]
     Markdown,

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum TestSuiteTestsPaginatedResponseResultsInner {
     TestSuiteTestVoice(models::TestSuiteTestVoice),
@@ -24,7 +26,7 @@ impl Default for TestSuiteTestsPaginatedResponseResultsInner {
     }
 }
 /// This is the type of the test, which must be voice.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "voice")]
     Voice,

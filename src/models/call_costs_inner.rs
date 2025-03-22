@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum CallCostsInner {
     TransportCost(models::TransportCost),
@@ -30,7 +32,7 @@ impl Default for CallCostsInner {
     }
 }
 /// This is the type of cost, always 'transport' for this class.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "transport")]
     Transport,
@@ -54,7 +56,7 @@ impl Default for Type {
     }
 }
 /// This is the provider that was used to detect the voicemail.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "twilio")]
     Twilio,
@@ -70,7 +72,7 @@ impl Default for Provider {
     }
 }
 /// This is the sub type of the cost.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum SubType {
     #[serde(rename = "normal")]
     Normal,
@@ -84,7 +86,7 @@ impl Default for SubType {
     }
 }
 /// This is the type of analysis performed.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum AnalysisType {
     #[serde(rename = "summary")]
     Summary,

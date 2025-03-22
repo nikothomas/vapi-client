@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// ElevenLabsVoiceVoiceId : This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library.
 /// This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ElevenLabsVoiceVoiceId {
     PresetVoiceOptions(String),

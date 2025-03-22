@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct SyncVoiceLibraryDto {
     /// List of providers you want to sync.
     #[serde(rename = "providers", skip_serializing_if = "Option::is_none")]
@@ -25,7 +27,7 @@ impl SyncVoiceLibraryDto {
     }
 }
 /// List of providers you want to sync.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Providers {
     #[serde(rename = "vapi")]
     Vapi,

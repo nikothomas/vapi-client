@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct FallbackSmallestAiVoice {
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
@@ -45,7 +47,7 @@ impl FallbackSmallestAiVoice {
     }
 }
 /// This is the voice provider that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "smallest-ai")]
     SmallestAi,
@@ -57,7 +59,7 @@ impl Default for Provider {
     }
 }
 /// Smallest AI voice model to use. Defaults to 'lightning' when not specified.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Model {
     #[serde(rename = "lightning")]
     Lightning,

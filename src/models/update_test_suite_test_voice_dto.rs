@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct UpdateTestSuiteTestVoiceDto {
     /// These are the scorers used to evaluate the test.
     #[serde(rename = "scorers", skip_serializing_if = "Option::is_none")]

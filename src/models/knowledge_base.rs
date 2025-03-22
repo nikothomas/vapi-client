@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct KnowledgeBase {
     /// The name of the knowledge base
     #[serde(rename = "name")]
@@ -49,7 +51,7 @@ impl KnowledgeBase {
     }
 }
 /// The provider of the knowledge base
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Provider {
     #[serde(rename = "google")]
     Google,
@@ -61,7 +63,7 @@ impl Default for Provider {
     }
 }
 /// The model to use for the knowledge base
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Model {
     #[serde(rename = "gemini-2.0-flash-thinking-exp")]
     Gemini2Period0FlashThinkingExp,

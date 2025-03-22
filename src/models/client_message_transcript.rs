@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ClientMessageTranscript {
     /// This is the type of the message. \"transcript\" is sent as transcriber outputs partial or final transcript.
     #[serde(rename = "type")]
@@ -44,7 +46,7 @@ impl ClientMessageTranscript {
     }
 }
 /// This is the type of the message. \"transcript\" is sent as transcriber outputs partial or final transcript.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "transcript")]
     Transcript,
@@ -58,7 +60,7 @@ impl Default for Type {
     }
 }
 /// This is the role for which the transcript is for.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Role {
     #[serde(rename = "assistant")]
     Assistant,
@@ -72,7 +74,7 @@ impl Default for Role {
     }
 }
 /// This is the type of the transcript.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum TranscriptType {
     #[serde(rename = "partial")]
     Partial,

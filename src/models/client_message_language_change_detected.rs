@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct ClientMessageLanguageChangeDetected {
     /// This is the type of the message. \"language-change-detected\" is sent when the transcriber is automatically switched based on the detected language.
     #[serde(rename = "type")]
@@ -28,7 +30,7 @@ impl ClientMessageLanguageChangeDetected {
     }
 }
 /// This is the type of the message. \"language-change-detected\" is sent when the transcriber is automatically switched based on the detected language.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "language-change-detected")]
     LanguageChangeDetected,

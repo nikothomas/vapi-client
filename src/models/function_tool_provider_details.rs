@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct FunctionToolProviderDetails {
     /// This is the Template URL or the Snapshot URL corresponding to the Template.
     #[serde(rename = "templateUrl", skip_serializing_if = "Option::is_none")]
@@ -34,7 +36,7 @@ impl FunctionToolProviderDetails {
     }
 }
 /// The type of tool. \"function\" for Function tool.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "function")]
     Function,

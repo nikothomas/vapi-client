@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct TokenRestrictions {
     /// This determines whether the token is enabled or disabled. Default is true, it's enabled.
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]

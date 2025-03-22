@@ -9,12 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
 /// ServerMessageResponseMessageResponse : This is the response that is expected from the server to the message.  Note: Most messages don't expect a response. Only \"assistant-request\", \"tool-calls\" and \"transfer-destination-request\" do.
 /// This is the response that is expected from the server to the message.  Note: Most messages don't expect a response. Only \"assistant-request\", \"tool-calls\" and \"transfer-destination-request\" do.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 #[serde(untagged)]
 pub enum ServerMessageResponseMessageResponse {
     ServerMessageResponseAssistantRequest(models::ServerMessageResponseAssistantRequest),

@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct AnalysisCost {
     /// This is the type of cost, always 'analysis' for this class.
     #[serde(rename = "type")]
@@ -54,7 +56,7 @@ impl AnalysisCost {
     }
 }
 /// This is the type of cost, always 'analysis' for this class.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Type {
     #[serde(rename = "analysis")]
     Analysis,
@@ -66,7 +68,7 @@ impl Default for Type {
     }
 }
 /// This is the type of analysis performed.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum AnalysisType {
     #[serde(rename = "summary")]
     Summary,

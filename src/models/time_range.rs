@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct TimeRange {
     /// This is the time step for aggregations.  If not provided, defaults to returning for the entire time range.
     #[serde(rename = "step", skip_serializing_if = "Option::is_none")]
@@ -39,7 +41,7 @@ impl TimeRange {
     }
 }
 /// This is the time step for aggregations.  If not provided, defaults to returning for the entire time range.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Step {
     #[serde(rename = "second")]
     Second,

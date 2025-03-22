@@ -9,10 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
+use utoipa::OpenApi;
+
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
 pub struct AnalyticsOperation {
     /// This is the aggregation operation you want to perform.
     #[serde(rename = "operation")]
@@ -35,7 +37,7 @@ impl AnalyticsOperation {
     }
 }
 /// This is the aggregation operation you want to perform.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Operation {
     #[serde(rename = "sum")]
     Sum,
@@ -57,7 +59,7 @@ impl Default for Operation {
     }
 }
 /// This is the columns you want to perform the aggregation operation on.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
 pub enum Column {
     #[serde(rename = "id")]
     Id,
