@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum CreateTransferCallToolDtoDestinationsInner {
     TransferDestinationAssistant(models::TransferDestinationAssistant),
@@ -29,7 +29,7 @@ impl Default for CreateTransferCallToolDtoDestinationsInner {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "assistant")]
     Assistant,
@@ -47,7 +47,7 @@ impl Default for Type {
     }
 }
 /// This is the mode to use for the transfer. Defaults to `rolling-history`.  - `rolling-history`: This is the default mode. It keeps the entire conversation history and appends the new assistant's system message on transfer.    Example:    Pre-transfer:     system: assistant1 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     assistant: (destination.message)    Post-transfer:     system: assistant1 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     assistant: (destination.message)     system: assistant2 system message     assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)  - `swap-system-message-in-history`: This replaces the original system message with the new assistant's system message on transfer.    Example:    Pre-transfer:     system: assistant1 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     assistant: (destination.message)    Post-transfer:     system: assistant2 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     assistant: (destination.message)     assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)  - `delete-history`: This deletes the entire conversation history on transfer.    Example:    Pre-transfer:     system: assistant1 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     assistant: (destination.message)    Post-transfer:     system: assistant2 system message     assistant: assistant2 first message     user: Yes, please     assistant: how can i help?     user: i need help with my account  - `swap-system-message-in-history-and-remove-transfer-tool-messages`: This replaces the original system message with the new assistant's system message on transfer and removes transfer tool messages from conversation history sent to the LLM.    Example:    Pre-transfer:     system: assistant1 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     transfer-tool     transfer-tool-result     assistant: (destination.message)    Post-transfer:     system: assistant2 system message     assistant: assistant1 first message     user: hey, good morning     assistant: how can i help?     user: i need help with my account     assistant: (destination.message)     assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)  @default 'rolling-history'
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum TransferMode {
     #[serde(rename = "rolling-history")]
     RollingHistory,

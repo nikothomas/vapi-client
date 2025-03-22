@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct ClientInboundMessageTransfer {
     /// This is the type of the message. Send \"transfer\" message to transfer the call to a destination.
     #[serde(rename = "type")]
@@ -36,7 +36,7 @@ impl ClientInboundMessageTransfer {
     }
 }
 /// This is the type of the message. Send \"transfer\" message to transfer the call to a destination.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "transfer")]
     Transfer,

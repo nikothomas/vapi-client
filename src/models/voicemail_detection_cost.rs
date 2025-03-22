@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct VoicemailDetectionCost {
     /// This is the type of cost, always 'voicemail-detection' for this class.
     #[serde(rename = "type")]
@@ -66,7 +66,7 @@ impl VoicemailDetectionCost {
     }
 }
 /// This is the type of cost, always 'voicemail-detection' for this class.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "voicemail-detection")]
     VoicemailDetection,
@@ -78,7 +78,7 @@ impl Default for Type {
     }
 }
 /// This is the provider that was used to detect the voicemail.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Provider {
     #[serde(rename = "twilio")]
     Twilio,

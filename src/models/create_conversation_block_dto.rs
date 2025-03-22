@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct CreateConversationBlockDto {
     /// These are the pre-configured messages that will be spoken to the user while the block is running.
     #[serde(rename = "messages", skip_serializing_if = "Option::is_none")]
@@ -49,7 +49,7 @@ impl CreateConversationBlockDto {
     }
 }
 /// This block is used for conversation. This can be a free flow conversation or a conversation with a specific goal like collecting some information.  For free block conversation, put clearly in the `instruction` when the block can be considered done. ``` {  \"type\": \"conversation\",  \"instruction\": \"Chit chat with the user asking them about their day. When user asks a specific question or once you have talked to the user for a couple of turns of conversation, move on.\" } ```  For conversation with a specific goal, you can define an `outputSchema` with required fields. The block won't be considered done until the user has provided all the required fields in the `outputSchema`. ``` {  \"type\": \"conversation\",  \"instruction\": \"Ask the user about their hobbies, hopes and dreams.\",  \"outputSchema\": {    \"type\": \"object\",    \"properties\": {      \"hobbies\": {        \"type\": \"string\"      },      \"hopes\": {        \"type\": \"string\"      },      \"dreams\": {        \"type\": \"string\"      }    },    \"required\": [\"hobbies\"]  } } ``` For the above example, the conversation block will be considered done once the user has provided the `hobbies` (even if they have not provided the `hopes` and `dreams`).
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "conversation")]
     Conversation,

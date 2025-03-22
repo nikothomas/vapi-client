@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// CreateAssistantDtoTranscriber : These are the options for the assistant's transcriber.
 /// These are the options for the assistant's transcriber.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum CreateAssistantDtoTranscriber {
     AssemblyAiTranscriber(models::AssemblyAiTranscriber),
@@ -33,7 +33,7 @@ impl Default for CreateAssistantDtoTranscriber {
     }
 }
 /// This is the transcription provider that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Provider {
     #[serde(rename = "talkscriber")]
     Talkscriber,
@@ -45,7 +45,7 @@ impl Default for Provider {
     }
 }
 /// This is the language that will be set for the transcription. The list of languages Whisper supports can be found here: https://github.com/openai/whisper/blob/main/whisper/tokenizer.py
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Language {
     #[serde(rename = "en")]
     En,
@@ -255,7 +255,7 @@ impl Default for Language {
     }
 }
 /// This is the model that will be used for the transcription.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Model {
     #[serde(rename = "whisper")]
     Whisper,

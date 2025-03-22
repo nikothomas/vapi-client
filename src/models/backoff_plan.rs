@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct BackoffPlan {
     /// This is the maximum number of retries to attempt if the request fails. Defaults to 0 (no retries).  @default 0
     #[serde(rename = "maxRetries")]
@@ -37,7 +37,7 @@ impl BackoffPlan {
     }
 }
 /// This is the type of backoff plan to use. Defaults to fixed.  @default fixed
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "fixed")]
     Fixed,

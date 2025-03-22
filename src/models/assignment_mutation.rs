@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct AssignmentMutation {
     /// This is an optional array of conditions that must be met for this mutation to be triggered.
     #[serde(rename = "conditions", skip_serializing_if = "Option::is_none")]
@@ -41,7 +41,7 @@ impl AssignmentMutation {
     }
 }
 /// This mutation assigns a new value to an existing or new variable.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "assignment")]
     Assignment,

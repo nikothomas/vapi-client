@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct Call {
     /// This is the type of call.
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
@@ -154,7 +154,7 @@ impl Call {
     }
 }
 /// This is the type of call.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "inboundPhoneCall")]
     InboundPhoneCall,
@@ -170,7 +170,7 @@ impl Default for Type {
     }
 }
 /// This is the provider of the call.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum PhoneCallProvider {
     #[serde(rename = "twilio")]
     Twilio,
@@ -186,7 +186,7 @@ impl Default for PhoneCallProvider {
     }
 }
 /// This is the transport of the phone call.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum PhoneCallTransport {
     #[serde(rename = "sip")]
     Sip,
@@ -200,7 +200,7 @@ impl Default for PhoneCallTransport {
     }
 }
 /// This is the status of the call.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Status {
     #[serde(rename = "queued")]
     Queued,
@@ -220,7 +220,7 @@ impl Default for Status {
     }
 }
 /// This is the explanation for how the call ended.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum EndedReason {
     #[serde(rename = "assistant-not-valid")]
     AssistantNotValid,

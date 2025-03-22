@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum CallbackStepMutationsInner {
     AssignmentMutation(models::AssignmentMutation),
@@ -26,7 +26,7 @@ impl Default for CallbackStepMutationsInner {
     }
 }
 /// This mutation assigns a new value to an existing or new variable.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "assignment")]
     Assignment,

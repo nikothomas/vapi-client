@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct TrieveKnowledgeBaseSearchPlan {
     /// Specifies the number of top chunks to return. This corresponds to the `page_size` parameter in Trieve.
     #[serde(rename = "topK", skip_serializing_if = "Option::is_none")]
@@ -41,7 +41,7 @@ impl TrieveKnowledgeBaseSearchPlan {
     }
 }
 /// This is the search method used when searching for relevant chunks from the vector store.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum SearchType {
     #[serde(rename = "fulltext")]
     Fulltext,

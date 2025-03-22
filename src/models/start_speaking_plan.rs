@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct StartSpeakingPlan {
     /// This is how long assistant waits before speaking. Defaults to 0.4.  This is the minimum it will wait but if there is latency is the pipeline, this minimum will be exceeded. This is intended as a stopgap in case the pipeline is moving too fast.  Example: - If model generates tokens and voice generates bytes within 100ms, the pipeline still waits 300ms before outputting speech.  Usage: - If the customer is taking long pauses, set this to a higher value. - If the assistant is accidentally jumping in too much, set this to a higher value.  @default 0.4
     #[serde(rename = "waitSeconds", skip_serializing_if = "Option::is_none")]

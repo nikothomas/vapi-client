@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct ServerMessageStatusUpdate {
     #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
     pub phone_number: Option<models::ServerMessageAssistantRequestPhoneNumber>,
@@ -89,7 +89,7 @@ impl ServerMessageStatusUpdate {
     }
 }
 /// This is the type of the message. \"status-update\" is sent whenever the `call.status` changes.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "status-update")]
     StatusUpdate,
@@ -101,7 +101,7 @@ impl Default for Type {
     }
 }
 /// This is the status of the call.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Status {
     #[serde(rename = "queued")]
     Queued,
@@ -121,7 +121,7 @@ impl Default for Status {
     }
 }
 /// This is the reason the call ended. This is only sent if the status is \"ended\".
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum EndedReason {
     #[serde(rename = "assistant-not-valid")]
     AssistantNotValid,

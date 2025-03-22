@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(tag = "type")]
 pub enum BlockControllerUpdateRequest {
     #[serde(rename = "conversation")]

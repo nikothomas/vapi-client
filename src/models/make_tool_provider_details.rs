@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct MakeToolProviderDetails {
     /// This is the Template URL or the Snapshot URL corresponding to the Template.
     #[serde(rename = "templateUrl", skip_serializing_if = "Option::is_none")]
@@ -48,7 +48,7 @@ impl MakeToolProviderDetails {
     }
 }
 /// The type of tool. \"make\" for Make tool.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "make")]
     Make,

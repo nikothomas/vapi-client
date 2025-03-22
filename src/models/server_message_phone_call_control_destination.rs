@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// ServerMessagePhoneCallControlDestination : This is the destination to forward the call to if the request is \"forward\".
 /// This is the destination to forward the call to if the request is \"forward\".
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum ServerMessagePhoneCallControlDestination {
     TransferDestinationNumber(models::TransferDestinationNumber),
@@ -29,7 +29,7 @@ impl Default for ServerMessagePhoneCallControlDestination {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "number")]
     Number,

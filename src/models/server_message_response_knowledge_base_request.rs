@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct ServerMessageResponseKnowledgeBaseRequest {
     /// This is the list of documents that will be sent to the model alongside the `messages` to generate a response.
     #[serde(rename = "documents", skip_serializing_if = "Option::is_none")]

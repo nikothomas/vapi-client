@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// GladiaTranscriberModel : This is the Gladia model that will be used. Default is 'fast'
 /// This is the Gladia model that will be used. Default is 'fast'
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum GladiaTranscriberModel {
     String(String),

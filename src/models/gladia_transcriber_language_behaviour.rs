@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// GladiaTranscriberLanguageBehaviour : Defines how the transcription model detects the audio language. Default value is 'automatic single language'.
 /// Defines how the transcription model detects the audio language. Default value is 'automatic single language'.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum GladiaTranscriberLanguageBehaviour {
     String(String),

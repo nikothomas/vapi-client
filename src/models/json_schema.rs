@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct JsonSchema {
     /// This is the type of output you'd like.  `string`, `number`, `integer`, `boolean` are the primitive types and should be obvious.  `array` and `object` are more interesting and quite powerful. They allow you to define nested structures.  For `array`, you can define the schema of the items in the array using the `items` property.  For `object`, you can define the properties of the object using the `properties` property.
     #[serde(rename = "type")]
@@ -61,7 +61,7 @@ impl JsonSchema {
     }
 }
 /// This is the type of output you'd like.  `string`, `number`, `integer`, `boolean` are the primitive types and should be obvious.  `array` and `object` are more interesting and quite powerful. They allow you to define nested structures.  For `array`, you can define the schema of the items in the array using the `items` property.  For `object`, you can define the properties of the object using the `properties` property.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "string")]
     String,

@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// ClientInboundMessageMessage : These are the messages that can be sent from client-side SDKs to control the call.
 /// These are the messages that can be sent from client-side SDKs to control the call.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum ClientInboundMessageMessage {
     ClientInboundMessageAddMessage(models::ClientInboundMessageAddMessage),
@@ -32,7 +32,7 @@ impl Default for ClientInboundMessageMessage {
     }
 }
 /// This is the type of the message. Send \"add-message\" message to add a message to the conversation history.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "add-message")]
     AddMessage,
@@ -52,7 +52,7 @@ impl Default for Type {
     }
 }
 /// This is the control action
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Control {
     #[serde(rename = "mute-assistant")]
     MuteAssistant,

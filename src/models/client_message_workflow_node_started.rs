@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct ClientMessageWorkflowNodeStarted {
     /// This is the type of the message. \"workflow.node.started\" is sent when the active node changes.
     #[serde(rename = "type")]
@@ -30,7 +30,7 @@ impl ClientMessageWorkflowNodeStarted {
     }
 }
 /// This is the type of the message. \"workflow.node.started\" is sent when the active node changes.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "workflow.node.started")]
     WorkflowPeriodNodePeriodStarted,

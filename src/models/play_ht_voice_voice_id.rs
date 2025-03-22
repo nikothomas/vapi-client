@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// PlayHtVoiceVoiceId : This is the provider-specific ID that will be used.
 /// This is the provider-specific ID that will be used.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum PlayHtVoiceVoiceId {
     PresetVoiceOptions(String),

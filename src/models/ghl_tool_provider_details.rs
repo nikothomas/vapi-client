@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct GhlToolProviderDetails {
     /// This is the Template URL or the Snapshot URL corresponding to the Template.
     #[serde(rename = "templateUrl", skip_serializing_if = "Option::is_none")]
@@ -51,7 +51,7 @@ impl GhlToolProviderDetails {
     }
 }
 /// The type of tool. \"ghl\" for GHL tool.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "ghl")]
     Ghl,

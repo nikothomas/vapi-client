@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(tag = "type")]
 pub enum ToolControllerCreateRequest {
     #[serde(rename = "dtmf")]
@@ -48,7 +48,7 @@ impl Default for ToolControllerCreateRequest {
 }
 
 /// The sub type of tool.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum SubType {
     #[serde(rename = "text_editor_20241022")]
     TextEditor20241022,
@@ -60,7 +60,7 @@ impl Default for SubType {
     }
 }
 /// The name of the tool, fixed to 'str_replace_editor'
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Name {
     #[serde(rename = "str_replace_editor")]
     StrReplaceEditor,

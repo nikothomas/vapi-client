@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct AnthropicModel {
     /// This is the starting state for the conversation.
     #[serde(rename = "messages", skip_serializing_if = "Option::is_none")]
@@ -75,7 +75,7 @@ impl AnthropicModel {
     }
 }
 /// The specific Anthropic/Claude model that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Model {
     #[serde(rename = "claude-3-opus-20240229")]
     Claude3Opus20240229,
@@ -99,7 +99,7 @@ impl Default for Model {
     }
 }
 /// The provider identifier for Anthropic.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Provider {
     #[serde(rename = "anthropic")]
     Anthropic,

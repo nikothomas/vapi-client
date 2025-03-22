@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct OpenAiFunctionParameters {
     /// This must be set to 'object'. It instructs the model to return a JSON object containing the function call properties.
     #[serde(rename = "type")]
@@ -40,7 +40,7 @@ impl OpenAiFunctionParameters {
     }
 }
 /// This must be set to 'object'. It instructs the model to return a JSON object containing the function call properties.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "object")]
     Object,

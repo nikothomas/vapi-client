@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct ClientInboundMessageControl {
     /// This is the type of the message. Send \"control\" message to control the assistant. `control` options are: - \"mute-assistant\" - mute the assistant - \"unmute-assistant\" - unmute the assistant - \"say-first-message\" - say the first message (this is used when video recording is enabled and the conversation is only started once the client side kicks off the recording)
     #[serde(rename = "type")]
@@ -30,7 +30,7 @@ impl ClientInboundMessageControl {
     }
 }
 /// This is the type of the message. Send \"control\" message to control the assistant. `control` options are: - \"mute-assistant\" - mute the assistant - \"unmute-assistant\" - unmute the assistant - \"say-first-message\" - say the first message (this is used when video recording is enabled and the conversation is only started once the client side kicks off the recording)
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "control")]
     Control,
@@ -42,7 +42,7 @@ impl Default for Type {
     }
 }
 /// This is the control action
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Control {
     #[serde(rename = "mute-assistant")]
     MuteAssistant,

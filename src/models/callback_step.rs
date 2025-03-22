@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct CallbackStep {
     #[serde(rename = "block", skip_serializing_if = "Option::is_none")]
     pub block: Option<models::HandoffStepBlock>,
@@ -48,7 +48,7 @@ impl CallbackStep {
     }
 }
 /// This is a step that calls back to the previous step after it's done. This effectively means we're spawning a new conversation thread. The previous conversation thread will resume where it left off once this step is done.  Use case: - You are collecting a customer's order and while they were on one item, they start a new item or try to modify a previous one. You would make a OrderUpdate block which calls the same block repeatedly when a new update starts.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "callback")]
     Callback,

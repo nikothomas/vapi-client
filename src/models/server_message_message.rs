@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// ServerMessageMessage : These are all the messages that can be sent to your server before, after and during the call. Configure the messages you'd like to receive in `assistant.serverMessages`.  The server where the message is sent is determined by the following precedence order:  1. `tool.server.url` (if configured, and only for \"tool-calls\" message) 2. `assistant.serverUrl` (if configure) 3. `phoneNumber.serverUrl` (if configured) 4. `org.serverUrl` (if configured)
 /// These are all the messages that can be sent to your server before, after and during the call. Configure the messages you'd like to receive in `assistant.serverMessages`.  The server where the message is sent is determined by the following precedence order:  1. `tool.server.url` (if configured, and only for \"tool-calls\" message) 2. `assistant.serverUrl` (if configure) 3. `phoneNumber.serverUrl` (if configured) 4. `org.serverUrl` (if configured)
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum ServerMessageMessage {
     ServerMessageAssistantRequest(models::ServerMessageAssistantRequest),
@@ -44,7 +44,7 @@ impl Default for ServerMessageMessage {
     }
 }
 /// This is the type of the message. \"assistant-request\" is sent to fetch assistant configuration for an incoming call.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "assistant-request")]
     AssistantRequest,
@@ -90,7 +90,7 @@ impl Default for Type {
     }
 }
 /// This is the reason the call ended. This is only sent if the status is \"ended\".
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum EndedReason {
     #[serde(rename = "assistant-not-valid")]
     AssistantNotValid,
@@ -546,7 +546,7 @@ impl Default for EndedReason {
     }
 }
 /// This is the request to control the phone call.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Request {
     #[serde(rename = "forward")]
     Forward,
@@ -560,7 +560,7 @@ impl Default for Request {
     }
 }
 /// This is the status of the call.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Status {
     #[serde(rename = "queued")]
     Queued,
@@ -580,7 +580,7 @@ impl Default for Status {
     }
 }
 /// This is the role for which the transcript is for.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Role {
     #[serde(rename = "assistant")]
     Assistant,
@@ -594,7 +594,7 @@ impl Default for Role {
     }
 }
 /// This is the type of the transcript.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum TranscriptType {
     #[serde(rename = "partial")]
     Partial,

@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct SupabaseBucketPlan {
     /// This is the S3 Region. It should look like us-east-1 It should be one of the supabase regions defined in the SUPABASE_REGION enum Check https://supabase.com/docs/guides/platform/regions for up to date regions
     #[serde(rename = "region")]
@@ -55,7 +55,7 @@ impl SupabaseBucketPlan {
     }
 }
 /// This is the S3 Region. It should look like us-east-1 It should be one of the supabase regions defined in the SUPABASE_REGION enum Check https://supabase.com/docs/guides/platform/regions for up to date regions
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Region {
     #[serde(rename = "us-west-1")]
     UsWest1,

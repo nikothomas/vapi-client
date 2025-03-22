@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct FallbackCustomVoice {
     /// This is the voice provider that will be used. Use `custom-voice` for providers that are not natively supported.
     #[serde(rename = "provider")]
@@ -37,7 +37,7 @@ impl FallbackCustomVoice {
     }
 }
 /// This is the voice provider that will be used. Use `custom-voice` for providers that are not natively supported.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Provider {
     #[serde(rename = "custom-voice")]
     CustomVoice,

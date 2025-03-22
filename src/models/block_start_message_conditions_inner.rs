@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum BlockStartMessageConditionsInner {
     ModelBasedCondition(models::ModelBasedCondition),
@@ -27,7 +27,7 @@ impl Default for BlockStartMessageConditionsInner {
     }
 }
 /// This condition is based on a model.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "model-based")]
     ModelBased,
@@ -41,7 +41,7 @@ impl Default for Type {
     }
 }
 /// This is the operator you want to use to compare the left side and right side.  The operation becomes `(leftSide) operator (rightSide)`.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Operator {
     #[serde(rename = "eq")]
     Eq,

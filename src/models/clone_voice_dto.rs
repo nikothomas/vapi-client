@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct CloneVoiceDto {
     /// This is the name of the cloned voice in the provider account.
     #[serde(rename = "name")]
@@ -27,6 +27,7 @@ pub struct CloneVoiceDto {
     pub labels: Option<String>,
     /// These are the files you want to use to clone your voice. Only Audio files are supported.
     #[serde(rename = "files")]
+    #[schema(value_type = String)]
     pub files: Vec<std::path::PathBuf>,
 }
 

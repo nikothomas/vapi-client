@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// CreateAssistantDtoVoice : These are the options for the assistant's voice.
 /// These are the options for the assistant's voice.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum CreateAssistantDtoVoice {
     AzureVoice(models::AzureVoice),
@@ -39,7 +39,7 @@ impl Default for CreateAssistantDtoVoice {
     }
 }
 /// This is the voice provider that will be used.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Provider {
     #[serde(rename = "tavus")]
     Tavus,
@@ -51,7 +51,7 @@ impl Default for Provider {
     }
 }
 /// Smallest AI voice model to use. Defaults to 'lightning' when not specified.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Model {
     #[serde(rename = "lightning")]
     Lightning,
@@ -63,7 +63,7 @@ impl Default for Model {
     }
 }
 /// The language to use for the speech.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Language {
     #[serde(rename = "afrikaans")]
     Afrikaans,
@@ -147,7 +147,7 @@ impl Default for Language {
     }
 }
 /// An emotion to be applied to the speech.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Emotion {
     #[serde(rename = "female_happy")]
     FemaleHappy,

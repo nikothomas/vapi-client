@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct ClientMessageMetadata {
     /// This is the type of the message. \"metadata\" is sent to forward metadata to the client.
     #[serde(rename = "type")]
@@ -30,7 +30,7 @@ impl ClientMessageMetadata {
     }
 }
 /// This is the type of the message. \"metadata\" is sent to forward metadata to the client.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "metadata")]
     Metadata,

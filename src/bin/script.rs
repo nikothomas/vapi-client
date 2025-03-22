@@ -9,7 +9,7 @@ fn main() -> std::io::Result<()> {
     // Process all Rust files in the models directory
     process_directory(models_dir)?;
 
-    println!("Successfully updated all model files with OpenApi derive!");
+    println!("Successfully updated all model files with ToSchema derive!");
     Ok(())
 }
 
@@ -37,16 +37,16 @@ fn process_file(file_path: &Path) -> std::io::Result<()> {
     let derive_pattern = Regex::new(r"#\[derive\(([^)]*)\)\]").unwrap();
     let import_section_pattern = Regex::new(r"(?s)(use [^;]+;(\n|[ \t]*\r\n|\r[ \t]*))+").unwrap();
 
-    // Check if OpenApi is already in derives
-    let content_has_openapi = derive_pattern.captures_iter(&content)
-        .any(|cap| cap[1].contains("OpenApi"));
+    // Check if ToSchema is already in derives
+    let content_has_toschema = derive_pattern.captures_iter(&content)
+        .any(|cap| cap[1].contains("ToSchema"));
 
     // Check if utoipa is already imported
-    let content_has_utoipa_import = content.contains("use utoipa::OpenApi;");
+    let content_has_utoipa_import = content.contains("use utoipa::ToSchema;");
 
     // If both are already present, no need to modify
-    if content_has_openapi && content_has_utoipa_import {
-        println!("File already has OpenApi derive: {}", file_path.display());
+    if content_has_toschema && content_has_utoipa_import {
+        println!("File already has ToSchema derive: {}", file_path.display());
         return Ok(());
     }
 
@@ -59,7 +59,7 @@ fn process_file(file_path: &Path) -> std::io::Result<()> {
         if let Some(import_match) = import_section_pattern.find(&content) {
             // Insert after the last import statement
             let insert_pos = import_match.end();
-            modified_content.insert_str(insert_pos, "use utoipa::OpenApi;\n\n");
+            modified_content.insert_str(insert_pos, "use utoipa::ToSchema;\n\n");
         } else {
             // If no imports found, add after file comments/docstrings
             // First try to find the end of the initial comment block
@@ -67,27 +67,27 @@ fn process_file(file_path: &Path) -> std::io::Result<()> {
             if let Some(pos) = comment_end {
                 let insert_pos = pos + 2;
                 let line_break = if content[insert_pos..].starts_with("\n") { "" } else { "\n" };
-                modified_content.insert_str(insert_pos, &format!("{line_break}\nuse utoipa::OpenApi;\n"));
+                modified_content.insert_str(insert_pos, &format!("{line_break}\nuse utoipa::ToSchema;\n"));
             } else {
                 // If no comment block, add at the beginning of the file
-                modified_content = format!("use utoipa::OpenApi;\n\n{}", modified_content);
+                modified_content = format!("use utoipa::ToSchema;\n\n{}", modified_content);
             }
         }
     }
 
-    // Add OpenApi to derives if not present
-    if !content_has_openapi {
+    // Add ToSchema to derives if not present
+    if !content_has_toschema {
         modified_content = derive_pattern.replace_all(&modified_content, |caps: &regex::Captures| {
             let current_derives = &caps[1];
-            if current_derives.contains("OpenApi") {
+            if current_derives.contains("ToSchema") {
                 return caps[0].to_string();
             }
 
             // Format properly with or without existing derives
             let new_derives = if current_derives.trim().is_empty() {
-                "OpenApi".to_string()
+                "ToSchema".to_string()
             } else {
-                format!("{}, OpenApi", current_derives)
+                format!("{}, ToSchema", current_derives)
             };
 
             format!("#[derive({})]", new_derives)

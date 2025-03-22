@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// TransferAssistantHookActionDestination : This is the destination details for the transfer - can be a phone number or SIP URI
 /// This is the destination details for the transfer - can be a phone number or SIP URI
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum TransferAssistantHookActionDestination {
     TransferDestinationNumber(models::TransferDestinationNumber),
@@ -29,7 +29,7 @@ impl Default for TransferAssistantHookActionDestination {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "number")]
     Number,

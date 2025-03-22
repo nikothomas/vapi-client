@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct TwilioVoicemailDetectionPlan {
     /// This is the provider to use for voicemail detection.
     #[serde(rename = "provider")]
@@ -68,7 +68,7 @@ impl TwilioVoicemailDetectionPlan {
     }
 }
 /// This is the provider to use for voicemail detection.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Provider {
     #[serde(rename = "twilio")]
     Twilio,
@@ -80,7 +80,7 @@ impl Default for Provider {
     }
 }
 /// These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence'].  @default {Array} ['machine_end_beep', 'machine_end_silence']
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum VoicemailDetectionTypes {
     #[serde(rename = "machine_start")]
     MachineStart,

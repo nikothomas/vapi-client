@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct CreateWebCallDto {
     /// This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
     #[serde(rename = "assistantId", skip_serializing_if = "Option::is_none")]

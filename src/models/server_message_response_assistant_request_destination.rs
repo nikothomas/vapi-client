@@ -9,14 +9,14 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
 /// ServerMessageResponseAssistantRequestDestination : This is the destination to transfer the inbound call to. This will immediately transfer without using any assistants.  If this is sent, `assistantId`, `assistant`, `squadId`, and `squad` are ignored.
 /// This is the destination to transfer the inbound call to. This will immediately transfer without using any assistants.  If this is sent, `assistantId`, `assistant`, `squadId`, and `squad` are ignored.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum ServerMessageResponseAssistantRequestDestination {
     TransferDestinationNumber(models::TransferDestinationNumber),
@@ -29,7 +29,7 @@ impl Default for ServerMessageResponseAssistantRequestDestination {
     }
 }
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "number")]
     Number,

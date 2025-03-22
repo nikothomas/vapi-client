@@ -9,12 +9,12 @@
  */
 
 use serde::{Deserialize, Serialize};
-use utoipa::OpenApi;
+use utoipa::ToSchema;
 
 
 use crate::models;
 
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize, ToSchema)]
 pub struct RuleBasedCondition {
     /// This condition is based on a strict rule.
     #[serde(rename = "type")]
@@ -46,7 +46,7 @@ impl RuleBasedCondition {
     }
 }
 /// This condition is based on a strict rule.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Type {
     #[serde(rename = "rule-based")]
     RuleBased,
@@ -58,7 +58,7 @@ impl Default for Type {
     }
 }
 /// This is the operator you want to use to compare the left side and right side.  The operation becomes `(leftSide) operator (rightSide)`.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, OpenApi)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Operator {
     #[serde(rename = "eq")]
     Eq,
