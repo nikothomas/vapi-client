@@ -7,7 +7,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df160db3-eec4-4e09-8226-972b2a975b5f" name="Changes" comment="utoipa to schema" />
+    <list default="true" id="df160db3-eec4-4e09-8226-972b2a975b5f" name="Changes" comment="fix version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +128,7 @@
       <updated>1742456566215</updated>
       <workItem from="1742456567331" duration="833000" />
       <workItem from="1742673175216" duration="3479000" />
-      <workItem from="1742685571296" duration="650000" />
+      <workItem from="1742685571296" duration="2674000" />
     </task>
     <task id="LOCAL-00001" summary="added utoipa">
       <option name="closed" value="true" />
@@ -160,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742686193996</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix version">
+      <option name="closed" value="true" />
+      <created>1742686267790</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742686267790</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +190,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added utoipa" />
     <MESSAGE value="utoipa to schema" />
-    <option name="LAST_COMMIT_MESSAGE" value="utoipa to schema" />
+    <MESSAGE value="fix version" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix version" />
   </component>
 </project>

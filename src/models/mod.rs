@@ -2,6 +2,8 @@ pub mod add_voice_to_provider_dto;
 pub use self::add_voice_to_provider_dto::AddVoiceToProviderDto;
 use utoipa::ToSchema;
 
+pub mod knowledge_base_cost;
+pub use self::knowledge_base_cost::KnowledgeBaseCost;
 pub mod ai_edge_condition;
 pub use self::ai_edge_condition::AiEdgeCondition;
 pub mod analysis;

@@ -843,6 +843,7 @@ src/models/knowledge_base_controller_create_request.rs
 src/models/knowledge_base_controller_find_all_200_response_inner.rs
 src/models/knowledge_base_controller_update_request.rs
 src/models/knowledge_base_response_document.rs
+src/models/knowledge_base_cost.rs
 src/models/langfuse_credential.rs
 src/models/lmnt_credential.rs
 src/models/lmnt_voice.rs
