@@ -70,6 +70,8 @@ impl Default for Provider {
 /// This is the model that will be used. This is optional and will default to the correct model for the voiceId.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize, ToSchema)]
 pub enum Model {
+    #[serde(rename = "sonic-2")]
+    Sonic2,
     #[serde(rename = "sonic-english")]
     SonicEnglish,
     #[serde(rename = "sonic-multilingual")]
