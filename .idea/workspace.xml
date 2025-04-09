@@ -7,9 +7,8 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df160db3-eec4-4e09-8226-972b2a975b5f" name="Changes" comment="fix version">
+    <list default="true" id="df160db3-eec4-4e09-8226-972b2a975b5f" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/cartesia_voice.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cartesia_voice.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,8 @@
       <workItem from="1743019633029" duration="110000" />
       <workItem from="1743019877620" duration="680000" />
       <workItem from="1743061949930" duration="1976000" />
-      <workItem from="1743113610082" duration="40000" />
+      <workItem from="1743113610082" duration="874000" />
+      <workItem from="1743448855381" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="added utoipa">
       <option name="closed" value="true" />
@@ -175,7 +175,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742686267790</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix">
+      <option name="closed" value="true" />
+      <created>1743113685044</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743113685044</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <option name="closed" value="true" />
+      <created>1743113718904</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743113718904</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +212,7 @@
     <MESSAGE value="added utoipa" />
     <MESSAGE value="utoipa to schema" />
     <MESSAGE value="fix version" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix version" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>
