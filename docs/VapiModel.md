@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messages** | Option<[**Vec<models::OpenAiMessage>**](OpenAIMessage.md)> | This is the starting state for the conversation. | [optional]
-**tools** | Option<[**Vec<models::AnyscaleModelToolsInner>**](AnyscaleModel_tools_inner.md)> | These are the tools that the assistant can use during the call. To use existing tools, use `toolIds`.  Both `tools` and `toolIds` can be used together. | [optional]
+**messages** | Option<[**Vec<models::OpenAiMessage>**](OpenAiMessage.md)> | This is the starting state for the conversation. | [optional]
+**tools** | Option<[**Vec<models::VapiModelToolsItem>**](VapiModelToolsItem.md)> | These are the tools that the assistant can use during the call. To use existing tools, use `toolIds`.  Both `tools` and `toolIds` can be used together. | [optional]
 **tool_ids** | Option<**Vec<String>**> | These are the tools that the assistant can use during the call. To use transient tools, use `tools`.  Both `tools` and `toolIds` can be used together. | [optional]
-**knowledge_base** | Option<[**models::AnyscaleModelKnowledgeBase**](AnyscaleModel_knowledgeBase.md)> |  | [optional]
+**knowledge_base** | Option<[**models::CreateCustomKnowledgeBaseDto**](CreateCustomKnowledgeBaseDto.md)> |  | [optional]
 **knowledge_base_id** | Option<**String**> | This is the ID of the knowledge base the model will use. | [optional]
-**steps** | Option<[**Vec<models::VapiModelStepsInner>**](VapiModel_steps_inner.md)> |  | [optional]
-**provider** | **String** |  | 
 **workflow_id** | Option<**String**> | This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead. | [optional]
-**workflow** | Option<[**models::Workflow**](Workflow.md)> | This is the workflow that will be used for the call. To use an existing workflow, use `workflowId` instead. | [optional]
+**workflow** | Option<[**models::Workflow**](Workflow.md)> |  | [optional]
 **model** | **String** | This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b | 
 **temperature** | Option<**f64**> | This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. | [optional]
 **max_tokens** | Option<**f64**> | This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250. | [optional]

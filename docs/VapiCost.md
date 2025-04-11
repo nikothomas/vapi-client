@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** | This is the type of cost, always 'vapi' for this class. | 
-**sub_type** | **String** | This is the sub type of the cost. | 
+**sub_type** | [**models::VapiCostSubType**](VapiCostSubType.md) |  | 
 **minutes** | **f64** | This is the minutes of Vapi usage. This should match `call.endedAt` - `call.startedAt`. | 
 **cost** | **f64** | This is the cost of the component in USD. | 
 

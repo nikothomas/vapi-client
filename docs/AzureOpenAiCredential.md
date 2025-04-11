@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **provider** | **String** |  | 
-**region** | **String** |  | 
-**models** | **Vec<String>** |  | 
+**region** | [**models::AzureOpenAiCredentialRegion**](AzureOpenAiCredentialRegion.md) |  | 
+**models** | [**Vec<models::AzureOpenAiCredentialModelsItem>**](AzureOpenAiCredentialModelsItem.md) |  | 
 **open_ai_key** | **String** | This is not returned in the API. | 
 **ocp_apim_subscription_key** | Option<**String**> | This is not returned in the API. | [optional]
 **id** | **String** | This is the unique identifier for the credential. | 

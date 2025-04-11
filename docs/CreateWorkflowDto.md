@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodes** | [**Vec<models::WorkflowNodesInner>**](Workflow_nodes_inner.md) |  | 
+**nodes** | [**Vec<models::CreateWorkflowDtoNodesItem>**](CreateWorkflowDtoNodesItem.md) |  | 
+**model** | Option<[**models::CreateWorkflowDtoModel**](CreateWorkflowDtoModel.md)> |  | [optional]
 **name** | **String** |  | 
 **edges** | [**Vec<models::Edge>**](Edge.md) |  | 
 

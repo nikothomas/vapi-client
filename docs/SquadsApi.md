@@ -4,17 +4,17 @@ All URIs are relative to *https://api.vapi.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**squad_controller_create**](SquadsApi.md#squad_controller_create) | **POST** /squad | Create Squad
-[**squad_controller_find_all**](SquadsApi.md#squad_controller_find_all) | **GET** /squad | List Squads
-[**squad_controller_find_one**](SquadsApi.md#squad_controller_find_one) | **GET** /squad/{id} | Get Squad
-[**squad_controller_remove**](SquadsApi.md#squad_controller_remove) | **DELETE** /squad/{id} | Delete Squad
-[**squad_controller_update**](SquadsApi.md#squad_controller_update) | **PATCH** /squad/{id} | Update Squad
+[**squads_create**](SquadsApi.md#squads_create) | **POST** /squad | Create Squad
+[**squads_delete**](SquadsApi.md#squads_delete) | **DELETE** /squad/{id} | Delete Squad
+[**squads_get**](SquadsApi.md#squads_get) | **GET** /squad/{id} | Get Squad
+[**squads_list**](SquadsApi.md#squads_list) | **GET** /squad | List Squads
+[**squads_update**](SquadsApi.md#squads_update) | **PATCH** /squad/{id} | Update Squad
 
 
 
-## squad_controller_create
+## squads_create
 
-> models::Squad squad_controller_create(create_squad_dto)
+> models::Squad squads_create(create_squad_dto)
 Create Squad
 
 ### Parameters
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -40,9 +40,65 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## squad_controller_find_all
+## squads_delete
 
-> Vec<models::Squad> squad_controller_find_all(limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
+> models::Squad squads_delete(id)
+Delete Squad
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::Squad**](Squad.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## squads_get
+
+> models::Squad squads_get(id)
+Get Squad
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::Squad**](Squad.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## squads_list
+
+> Vec<models::Squad> squads_list(limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
 List Squads
 
 ### Parameters
@@ -66,7 +122,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -76,65 +132,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## squad_controller_find_one
+## squads_update
 
-> models::Squad squad_controller_find_one(id)
-Get Squad
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
-
-### Return type
-
-[**models::Squad**](Squad.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## squad_controller_remove
-
-> models::Squad squad_controller_remove(id)
-Delete Squad
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
-
-### Return type
-
-[**models::Squad**](Squad.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## squad_controller_update
-
-> models::Squad squad_controller_update(id, update_squad_dto)
+> models::Squad squads_update(id, squad_id_body)
 Update Squad
 
 ### Parameters
@@ -143,7 +143,7 @@ Update Squad
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**update_squad_dto** | [**UpdateSquadDto**](UpdateSquadDto.md) |  | [required] |
+**squad_id_body** | [**SquadIdBody**](SquadIdBody.md) |  | [required] |
 
 ### Return type
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

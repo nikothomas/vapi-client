@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **r#type** | **String** |  | 
-**metadata** | Option<[**serde_json::Value**](.md)> | This is for metadata you want to store on the task. | [optional]
+**metadata** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | This is for metadata you want to store on the task. | [optional]
 **exact** | Option<**String**> |  | [optional]
 **prompt** | Option<**String**> |  | [optional]
 

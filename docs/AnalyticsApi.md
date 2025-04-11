@@ -4,13 +4,13 @@ All URIs are relative to *https://api.vapi.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**analytics_controller_query**](AnalyticsApi.md#analytics_controller_query) | **POST** /analytics | Create Analytics Queries
+[**analytics_get**](AnalyticsApi.md#analytics_get) | **POST** /analytics | Create Analytics Queries
 
 
 
-## analytics_controller_query
+## analytics_get
 
-> Vec<models::AnalyticsQueryResult> analytics_controller_query(analytics_query_dto)
+> Vec<models::AnalyticsQueryResult> analytics_get(analytics_body)
 Create Analytics Queries
 
 ### Parameters
@@ -18,7 +18,7 @@ Create Analytics Queries
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**analytics_query_dto** | [**AnalyticsQueryDto**](AnalyticsQueryDto.md) |  | [required] |
+**analytics_body** | [**AnalyticsBody**](AnalyticsBody.md) |  | [required] |
 
 ### Return type
 
@@ -26,7 +26,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[bearer](../README.md#bearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

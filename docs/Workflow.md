@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodes** | [**Vec<models::WorkflowNodesInner>**](Workflow_nodes_inner.md) |  | 
+**nodes** | [**Vec<models::WorkflowNodesItem>**](WorkflowNodesItem.md) |  | 
+**model** | Option<[**models::WorkflowModel**](WorkflowModel.md)> |  | [optional]
 **id** | **String** |  | 
 **org_id** | **String** |  | 
 **created_at** | **String** |  | 

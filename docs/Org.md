@@ -15,12 +15,13 @@ Name | Type | Description | Notes
 **stripe_subscription_item_id** | Option<**String**> | This is the subscription's subscription item. | [optional]
 **stripe_subscription_current_period_start** | Option<**String**> | This is the subscription's current period start. | [optional]
 **stripe_subscription_status** | Option<**String**> | This is the subscription's status. | [optional]
-**plan** | Option<[**models::OrgPlan**](OrgPlan.md)> | This is the plan for the org. | [optional]
+**plan** | Option<[**models::OrgPlan**](OrgPlan.md)> |  | [optional]
 **name** | Option<**String**> | This is the name of the org. This is just for your own reference. | [optional]
-**channel** | Option<**String**> | This is the channel of the org. There is the cluster the API traffic for the org will be directed. | [optional]
+**channel** | Option<[**models::OrgChannel**](OrgChannel.md)> |  | [optional]
 **billing_limit** | Option<**f64**> | This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@vapi.ai. | [optional]
-**server** | Option<[**models::Server**](Server.md)> | This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.  The order of precedence is:  1. assistant.server 2. phoneNumber.server 3. org.server | [optional]
+**server** | Option<[**models::Server**](Server.md)> |  | [optional]
 **concurrency_limit** | Option<**f64**> | This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@vapi.ai. | [optional]
+**compliance_plan** | Option<[**models::CompliancePlan**](CompliancePlan.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

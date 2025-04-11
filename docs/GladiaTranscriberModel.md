@@ -2,9 +2,11 @@
 
 ## Enum Variants
 
-| Name | Description |
+| Name | Value |
 |---- | -----|
-| String | This is the Gladia model that will be used. Default is &#39;fast&#39; |
+| Fast | fast |
+| Accurate | accurate |
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

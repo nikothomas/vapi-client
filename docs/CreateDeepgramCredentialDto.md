@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider** | **String** |  | 
 **api_key** | **String** | This is not returned in the API. | 
 **api_url** | Option<**String**> | This can be used to point to an onprem Deepgram instance. Defaults to api.deepgram.com. | [optional]
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]

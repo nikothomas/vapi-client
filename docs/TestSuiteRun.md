@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **String** | This is the current status of the test suite run. | 
+**status** | [**models::TestSuiteRunStatus**](TestSuiteRunStatus.md) |  | 
 **id** | **String** | This is the unique identifier for the test suite run. | 
 **org_id** | **String** | This is the unique identifier for the organization this run belongs to. | 
 **test_suite_id** | **String** | This is the unique identifier for the test suite this run belongs to. | 

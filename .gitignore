@@ -1,4 +1,9 @@
 /target/
 **/*.rs.bk
 Cargo.lock
-.env
+tests
+.openapi-generator-ignore
+code-gen
+git_push.sh
+.travis.yml
+

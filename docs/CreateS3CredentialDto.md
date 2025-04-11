@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider** | **String** | Credential provider. Only allowed value is s3 | 
 **aws_access_key_id** | **String** | AWS access key ID. | 
 **aws_secret_access_key** | **String** | AWS access key secret. This is not returned in the API. | 
 **region** | **String** | AWS region in which the S3 bucket is located. | 

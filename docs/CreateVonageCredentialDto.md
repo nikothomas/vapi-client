@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider** | **String** |  | 
 **api_secret** | **String** | This is not returned in the API. | 
 **api_key** | **String** |  | 
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]
