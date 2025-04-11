@@ -21,6 +21,7 @@ pub enum ServerMessageEndOfCallReportCostsItem {
     CallCostsItemOneOf4(models::CallCostsItemOneOf4),
     CallCostsItemOneOf5(models::CallCostsItemOneOf5),
     CallCostsItemOneOf6(models::CallCostsItemOneOf6),
+    CallCostsItemOneOf7(models::CallCostsItemOneOf7),
 }
 
 impl Default for ServerMessageEndOfCallReportCostsItem {
@@ -45,6 +46,8 @@ pub enum Type {
     VoicemailDetection,
     #[serde(rename = "analysis")]
     Analysis,
+    #[serde(rename = "knowledge-base")]
+    KnowledgeBase,
 }
 
 impl Default for Type {
