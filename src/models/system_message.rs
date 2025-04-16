@@ -23,7 +23,7 @@ pub struct SystemMessage {
     #[serde(rename = "time")]
     pub time: f64,
     /// The number of seconds from the start of the conversation.
-    #[serde(rename = "seconds_from_start")]
+    #[serde(rename = "secondsFromStart")]
     pub seconds_from_start: f64,
 }
 
