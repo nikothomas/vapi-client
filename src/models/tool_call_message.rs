@@ -17,7 +17,7 @@ pub struct ToolCallMessage {
     #[serde(rename = "role")]
     pub role: String,
     /// The list of tool calls made during the conversation.
-    #[serde(rename = "toolCalls")]
+    #[serde(rename = "tool_calls")]
     pub tool_calls: Vec<std::collections::HashMap<String, serde_json::Value>>,
     /// The message content for the tool call.
     #[serde(rename = "message")]
@@ -26,7 +26,7 @@ pub struct ToolCallMessage {
     #[serde(rename = "time")]
     pub time: f64,
     /// The number of seconds from the start of the conversation.
-    #[serde(rename = "secondsFromStart")]
+    #[serde(rename = "seconds_from_start")]
     pub seconds_from_start: f64,
 }
 

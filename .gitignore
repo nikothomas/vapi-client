@@ -7,4 +7,5 @@ code-gen
 git_push.sh
 .travis.yml
 .openapi-generator-files
-
+tests/calls.rs
+tests/*.rs
