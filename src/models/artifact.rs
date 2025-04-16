@@ -17,25 +17,25 @@ pub struct Artifact {
     #[serde(rename = "messages", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub messages: Option<Option<Vec<models::ArtifactMessagesItem>>>,
     /// These are the messages that were spoken during the call, formatted for OpenAI.
-    #[serde(rename = "messagesOpenAIFormatted", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "messages_open_a_i_formatted", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub messages_open_ai_formatted: Option<Option<Vec<models::OpenAiMessage>>>,
     /// This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.
-    #[serde(rename = "recordingUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "recording_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub recording_url: Option<Option<String>>,
     /// This is the stereo recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.
-    #[serde(rename = "stereoRecordingUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "stereo_recording_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub stereo_recording_url: Option<Option<String>>,
     /// This is video recording url for the call. To enable, set `assistant.artifactPlan.videoRecordingEnabled`.
-    #[serde(rename = "videoRecordingUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "video_recording_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub video_recording_url: Option<Option<String>>,
     /// This is video recording start delay in ms. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. This can be used to align the playback of the recording with artifact.messages timestamps.
-    #[serde(rename = "videoRecordingStartDelaySeconds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "video_recording_start_delay_seconds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub video_recording_start_delay_seconds: Option<Option<f64>>,
     /// This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience.
     #[serde(rename = "transcript", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub transcript: Option<Option<String>>,
     /// This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`.
-    #[serde(rename = "pcapUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "pcap_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub pcap_url: Option<Option<String>>,
 }
 

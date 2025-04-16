@@ -17,7 +17,7 @@ pub struct ToolCallResultMessage {
     #[serde(rename = "role")]
     pub role: String,
     /// The ID of the tool call.
-    #[serde(rename = "toolCallId")]
+    #[serde(rename = "tool_call_id")]
     pub tool_call_id: String,
     /// The name of the tool that returned the result.
     #[serde(rename = "name")]
@@ -29,7 +29,7 @@ pub struct ToolCallResultMessage {
     #[serde(rename = "time")]
     pub time: f64,
     /// The number of seconds from the start of the conversation.
-    #[serde(rename = "secondsFromStart")]
+    #[serde(rename = "seconds_from_start")]
     pub seconds_from_start: f64,
 }
 
