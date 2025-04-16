@@ -23,10 +23,10 @@ pub struct BotMessage {
     #[serde(rename = "time")]
     pub time: f64,
     /// The timestamp when the message ended.
-    #[serde(rename = "endTime")]
+    #[serde(alias = "end_time")]
     pub end_time: f64,
     /// The number of seconds from the start of the conversation.
-    #[serde(rename = "secondsFromStart")]
+    #[serde(alias = "seconds_from_start")]
     pub seconds_from_start: f64,
     /// The source of the message.
     #[serde(rename = "source", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
