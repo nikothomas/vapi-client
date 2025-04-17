@@ -2,7 +2,7 @@
 name = "vapi-client"
 version = "0.3.0"
 authors = ["OpenAPI Generator team and contributors", "Nikolas Yanek-Chrones"]
-description = "Voice AI for developers."
+description = "Unofficial crate for Vapi - Voice AI for developers."
 homepage = "https://docs.vapi.ai"
 repository = "https://github.com/nikothomas/vapi-client"
 keywords = ["vapi", "api", "client", "voiceai"]

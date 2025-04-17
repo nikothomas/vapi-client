@@ -1,6 +1,6 @@
 # vapi-client
 
-A Rust API client for [Vapi](https://vapi.ai) - Voice AI for developers.
+An unofficial Rust API client for [Vapi](https://vapi.ai) - Voice AI for developers.
 
 [![Crates.io](https://img.shields.io/crates/v/vapi-client.svg)](https://crates.io/crates/vapi-client)
 [![Documentation](https://docs.rs/vapi-client/badge.svg)](https://docs.rs/vapi-client)
