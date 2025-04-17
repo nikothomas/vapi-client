@@ -8,3 +8,4 @@ git_push.sh
 .idea
 .travis.yml
 .DS_Store
+.openapi-generator
