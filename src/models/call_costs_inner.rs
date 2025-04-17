@@ -21,6 +21,7 @@ pub enum CallCostsInner {
     VapiCost(models::VapiCost),
     VoicemailDetectionCost(models::VoicemailDetectionCost),
     AnalysisCost(models::AnalysisCost),
+    KnowledgeBase(models::KnowledgeBaseCost),
 }
 
 impl Default for CallCostsInner {
@@ -45,6 +46,8 @@ pub enum Type {
     VoicemailDetection,
     #[serde(rename = "analysis")]
     Analysis,
+    #[serde(rename = "knowledge-base")]
+    KnowledgeBase,
 }
 
 impl Default for Type {

@@ -616,6 +616,8 @@ pub mod knowledge_base;
 pub use self::knowledge_base::KnowledgeBase;
 pub mod knowledge_base_controller_find_all_200_response_inner;
 pub use self::knowledge_base_controller_find_all_200_response_inner::KnowledgeBaseControllerFindAll200ResponseInner;
+pub mod knowledge_base_cost;
+pub use self::knowledge_base_cost::KnowledgeBaseCost;
 pub mod knowledge_base_response_document;
 pub use self::knowledge_base_response_document::KnowledgeBaseResponseDocument;
 pub mod knowledgebase_body;
