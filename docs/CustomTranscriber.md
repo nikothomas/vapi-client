@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**server** | [**models::Server**](Server.md) |  | 
-**fallback_plan** | Option<[**models::FallbackTranscriberPlan**](FallbackTranscriberPlan.md)> |  | [optional]
+**provider** | **String** | This is the transcription provider that will be used. Use `custom-transcriber` for providers that are not natively supported. | 
+**server** | [**models::Server**](Server.md) | This is where the transcription request will be sent.  Usage: 1. Vapi will initiate a websocket connection with `server.url`.  2. Vapi will send an initial text frame with the sample rate. Format: ```     {       \"type\": \"start\",       \"encoding\": \"linear16\", // 16-bit raw PCM format       \"container\": \"raw\",       \"sampleRate\": {{sampleRate}},       \"channels\": 2 // customer is channel 0, assistant is channel 1     } ```  3. Vapi will send the audio data in 16-bit raw PCM format as binary frames.  4. You can read the messages something like this: ``` ws.on('message', (data, isBinary) => {   if (isBinary) {     pcmBuffer = Buffer.concat([pcmBuffer, data]);     console.log(`Received PCM data, buffer size: ${pcmBuffer.length}`);   } else {     console.log('Received message:', JSON.parse(data.toString()));   } }); ```  5. You will respond with transcriptions as you have them. Format: ```  {     \"type\": \"transcriber-response\",     \"transcription\": \"Hello, world!\",     \"channel\": \"customer\" | \"assistant\"  } ``` | 
+**fallback_plan** | Option<[**models::FallbackTranscriberPlan**](FallbackTranscriberPlan.md)> | This is the plan for voice provider fallbacks in the event that the primary voice provider fails. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

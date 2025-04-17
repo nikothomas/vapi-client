@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | This is the voice provider that will be used. | [optional]
+**provider** | Option<[**serde_json::Value**](.md)> | This is the voice provider that will be used. | [optional]
 **provider_id** | Option<**String**> | The ID of the voice provided by the provider. | [optional]
 **slug** | Option<**String**> | The unique slug of the voice. | [optional]
 **name** | Option<**String**> | The name of the voice. | [optional]
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **language_code** | Option<**String**> | The language code of the voice. | [optional]
 **model** | Option<**String**> | The model of the voice. | [optional]
 **supported_models** | Option<**String**> | The supported models of the voice. | [optional]
-**gender** | Option<[**models::VoiceLibraryGender**](VoiceLibraryGender.md)> |  | [optional]
+**gender** | Option<**String**> | The gender of the voice. | [optional]
 **accent** | Option<**String**> | The accent of the voice. | [optional]
 **preview_url** | Option<**String**> | The preview URL of the voice. | [optional]
 **description** | Option<**String**> | The description of the voice. | [optional]

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **String** | This is the unique identifier for the subscription. | 
 **created_at** | **String** | This is the timestamp when the subscription was created. | 
 **updated_at** | **String** | This is the timestamp when the subscription was last updated. | 
-**r#type** | [**models::SubscriptionType**](SubscriptionType.md) |  | 
-**status** | [**models::SubscriptionStatus**](SubscriptionStatus.md) |  | 
+**r#type** | **String** | This is the type / tier of the subscription. | 
+**status** | **String** | This is the status of the subscription. Past due subscriptions are subscriptions with past due payments. | 
 **credits** | **String** | This is the number of credits the subscription currently has.  Note: This is a string to avoid floating point precision issues. | 
 **concurrency_counter** | **f64** | This is the total number of active calls (concurrency) across all orgs under this subscription. | 
 **concurrency_limit_included** | **f64** | This is the default concurrency limit for the subscription. | 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **stripe_payment_method_fingerprint** | Option<**String**> | This is the Stripe fingerprint of the payment method (card). It allows us to detect users who try to abuse our system through multiple sign-ups. | [optional]
 **stripe_customer_email** | Option<**String**> | This is the customer's email on Stripe. | [optional]
 **referred_by_email** | Option<**String**> | This is the email of the referrer for the subscription. | [optional]
-**auto_reload_plan** | Option<[**models::AutoReloadPlan**](AutoReloadPlan.md)> |  | [optional]
+**auto_reload_plan** | Option<[**models::AutoReloadPlan**](AutoReloadPlan.md)> | This is the auto reload plan configured for the subscription. | [optional]
 **minutes_included** | Option<**f64**> | The number of minutes included in the subscription. | [optional]
 **minutes_used** | Option<**f64**> | The number of minutes used in the subscription. | [optional]
 **minutes_used_next_reset_at** | Option<**String**> | This is the timestamp at which the number of monthly free minutes is scheduled to reset at. | [optional]
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **outbound_calls_counter_next_reset_at** | Option<**String**> | This is the timestamp at which the outbound calls counter is scheduled to reset at. | [optional]
 **coupon_ids** | Option<**Vec<String>**> | This is the IDs of the coupons applicable to this subscription. | [optional]
 **coupon_usage_left** | Option<**String**> | This is the number of credits left obtained from a coupon. | [optional]
-**invoice_plan** | Option<[**models::InvoicePlan**](InvoicePlan.md)> |  | [optional]
+**invoice_plan** | Option<[**models::InvoicePlan**](InvoicePlan.md)> | This is the invoice plan for the subscription. | [optional]
 **pci_enabled** | Option<**bool**> | This is the PCI enabled flag for the subscription. It determines whether orgs under this subscription have the option to enable PCI compliance. | [optional]
 **pci_common_paper_agreement_id** | Option<**String**> | This is the ID for the Common Paper agreement outlining the PCI contract. | [optional]
 

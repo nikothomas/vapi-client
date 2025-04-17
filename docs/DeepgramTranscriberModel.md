@@ -2,37 +2,9 @@
 
 ## Enum Variants
 
-| Name | Value |
+| Name | Description |
 |---- | -----|
-| Nova2 | nova-2 |
-| Nova2General | nova-2-general |
-| Nova2Meeting | nova-2-meeting |
-| Nova2Phonecall | nova-2-phonecall |
-| Nova2Finance | nova-2-finance |
-| Nova2Conversationalai | nova-2-conversationalai |
-| Nova2Voicemail | nova-2-voicemail |
-| Nova2Video | nova-2-video |
-| Nova2Medical | nova-2-medical |
-| Nova2Drivethru | nova-2-drivethru |
-| Nova2Automotive | nova-2-automotive |
-| Nova | nova |
-| NovaGeneral | nova-general |
-| NovaPhonecall | nova-phonecall |
-| NovaMedical | nova-medical |
-| Enhanced | enhanced |
-| EnhancedGeneral | enhanced-general |
-| EnhancedMeeting | enhanced-meeting |
-| EnhancedPhonecall | enhanced-phonecall |
-| EnhancedFinance | enhanced-finance |
-| Base | base |
-| BaseGeneral | base-general |
-| BaseMeeting | base-meeting |
-| BasePhonecall | base-phonecall |
-| BaseFinance | base-finance |
-| BaseConversationalai | base-conversationalai |
-| BaseVoicemail | base-voicemail |
-| BaseVideo | base-video |
-
+| String | This is the Deepgram model that will be used. A list of models can be found here: https://developers.deepgram.com/docs/models-languages-overview |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

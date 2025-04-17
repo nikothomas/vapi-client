@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**provider** | **String** |  | 
 **authorization_id** | **String** | The authorization ID for the OAuth2 authorization | 
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]
 

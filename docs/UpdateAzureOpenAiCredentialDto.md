@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**region** | Option<[**models::UpdateAzureOpenAiCredentialDtoRegion**](UpdateAzureOpenAiCredentialDtoRegion.md)> |  | [optional]
-**models** | Option<[**Vec<models::UpdateAzureOpenAiCredentialDtoModelsItem>**](UpdateAzureOpenAiCredentialDtoModelsItem.md)> |  | [optional]
+**region** | Option<**String**> |  | [optional]
+**models** | Option<**Vec<String>**> |  | [optional]
 **open_ai_key** | Option<**String**> | This is not returned in the API. | [optional]
 **ocp_apim_subscription_key** | Option<**String**> | This is not returned in the API. | [optional]
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]

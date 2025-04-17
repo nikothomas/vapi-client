@@ -4,20 +4,20 @@
 
 | Name | Description |
 |---- | -----|
-| UpdateAssistantDtoVoiceOneOf | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf1 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf10 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf11 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf12 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf13 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf2 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf3 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf4 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf5 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf6 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf7 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf8 | These are the options for the assistant&#39;s voice. |
-| UpdateAssistantDtoVoiceOneOf9 | These are the options for the assistant&#39;s voice. |
+| AzureVoice | These are the options for the assistant&#39;s voice. |
+| CartesiaVoice | These are the options for the assistant&#39;s voice. |
+| CustomVoice | These are the options for the assistant&#39;s voice. |
+| DeepgramVoice | These are the options for the assistant&#39;s voice. |
+| ElevenLabsVoice | These are the options for the assistant&#39;s voice. |
+| HumeVoice | These are the options for the assistant&#39;s voice. |
+| LmntVoice | These are the options for the assistant&#39;s voice. |
+| NeuphonicVoice | These are the options for the assistant&#39;s voice. |
+| OpenAiVoice | These are the options for the assistant&#39;s voice. |
+| PlayHtVoice | These are the options for the assistant&#39;s voice. |
+| RimeAiVoice | These are the options for the assistant&#39;s voice. |
+| SmallestAiVoice | These are the options for the assistant&#39;s voice. |
+| TavusVoice | These are the options for the assistant&#39;s voice. |
+| VapiVoice | These are the options for the assistant&#39;s voice. |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

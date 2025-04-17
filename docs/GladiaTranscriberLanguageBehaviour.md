@@ -2,12 +2,9 @@
 
 ## Enum Variants
 
-| Name | Value |
+| Name | Description |
 |---- | -----|
-| Manual | manual |
-| AutomaticSingleLanguage | automatic single language |
-| AutomaticMultipleLanguages | automatic multiple languages |
-
+| String | Defines how the transcription model detects the audio language. Default value is &#39;automatic single language&#39;. |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

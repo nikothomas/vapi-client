@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::CredentialWebhookDtoType**](CredentialWebhookDtoType.md) |  | 
-**operation** | [**models::CredentialWebhookDtoOperation**](CredentialWebhookDtoOperation.md) |  | 
+**r#type** | **String** |  | 
+**operation** | **String** |  | 
 **from** | **String** |  | 
 **connection_id** | **String** |  | 
-**auth_mode** | [**models::CredentialWebhookDtoAuthMode**](CredentialWebhookDtoAuthMode.md) |  | 
+**auth_mode** | **String** |  | 
 **provider_config_key** | **String** |  | 
 **provider** | **String** |  | 
 **environment** | **String** |  | 

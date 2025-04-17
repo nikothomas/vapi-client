@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | The name of the knowledge base | 
 **provider** | **String** | The provider of the knowledge base | 
-**model** | Option<[**models::KnowledgeBaseModel**](KnowledgeBaseModel.md)> |  | [optional]
+**model** | Option<**String**> | The model to use for the knowledge base | [optional]
 **description** | **String** | A description of the knowledge base | 
 **file_ids** | **Vec<String>** | The file IDs associated with this knowledge base | 
 

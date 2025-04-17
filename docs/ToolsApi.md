@@ -4,17 +4,17 @@ All URIs are relative to *https://api.vapi.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**tools_create**](ToolsApi.md#tools_create) | **POST** /tool | Create Tool
-[**tools_delete**](ToolsApi.md#tools_delete) | **DELETE** /tool/{id} | Delete Tool
-[**tools_get**](ToolsApi.md#tools_get) | **GET** /tool/{id} | Get Tool
-[**tools_list**](ToolsApi.md#tools_list) | **GET** /tool | List Tools
-[**tools_update**](ToolsApi.md#tools_update) | **PATCH** /tool/{id} | Update Tool
+[**tool_controller_create**](ToolsApi.md#tool_controller_create) | **POST** /tool | Create Tool
+[**tool_controller_find_all**](ToolsApi.md#tool_controller_find_all) | **GET** /tool | List Tools
+[**tool_controller_find_one**](ToolsApi.md#tool_controller_find_one) | **GET** /tool/{id} | Get Tool
+[**tool_controller_remove**](ToolsApi.md#tool_controller_remove) | **DELETE** /tool/{id} | Delete Tool
+[**tool_controller_update**](ToolsApi.md#tool_controller_update) | **PATCH** /tool/{id} | Update Tool
 
 
 
-## tools_create
+## tool_controller_create
 
-> models::ToolsCreateResponse tools_create(tools_create_request)
+> models::InlineResponse2011 tool_controller_create(tool_body)
 Create Tool
 
 ### Parameters
@@ -22,15 +22,15 @@ Create Tool
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tools_create_request** | [**ToolsCreateRequest**](ToolsCreateRequest.md) |  | [required] |
+**tool_body** | [**ToolBody**](ToolBody.md) |  | [required] |
 
 ### Return type
 
-[**models::ToolsCreateResponse**](ToolsCreateResponse.md)
+[**models::InlineResponse2011**](inline_response_201_1.md)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -40,65 +40,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## tools_delete
+## tool_controller_find_all
 
-> models::ToolsDeleteResponse tools_delete(id)
-Delete Tool
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
-
-### Return type
-
-[**models::ToolsDeleteResponse**](ToolsDeleteResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## tools_get
-
-> models::ToolsGetResponse tools_get(id)
-Get Tool
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
-
-### Return type
-
-[**models::ToolsGetResponse**](ToolsGetResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## tools_list
-
-> Vec<models::ToolsListResponseItem> tools_list(limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
+> Vec<models::ToolControllerFindAll200ResponseInner> tool_controller_find_all(limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
 List Tools
 
 ### Parameters
@@ -118,11 +62,11 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::ToolsListResponseItem>**](ToolsListResponseItem.md)
+[**Vec<models::ToolControllerFindAll200ResponseInner>**](ToolController_findAll_200_response_inner.md)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -132,9 +76,65 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## tools_update
+## tool_controller_find_one
 
-> models::ToolsUpdateResponse tools_update(id, tools_update_request)
+> models::InlineResponse2011 tool_controller_find_one(id)
+Get Tool
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::InlineResponse2011**](inline_response_201_1.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## tool_controller_remove
+
+> models::InlineResponse2011 tool_controller_remove(id)
+Delete Tool
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::InlineResponse2011**](inline_response_201_1.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## tool_controller_update
+
+> models::InlineResponse2011 tool_controller_update(id, tool_id_body)
 Update Tool
 
 ### Parameters
@@ -143,15 +143,15 @@ Update Tool
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**tools_update_request** | [**ToolsUpdateRequest**](ToolsUpdateRequest.md) |  | [required] |
+**tool_id_body** | [**ToolIdBody**](ToolIdBody.md) |  | [required] |
 
 ### Return type
 
-[**models::ToolsUpdateResponse**](ToolsUpdateResponse.md)
+[**models::InlineResponse2011**](inline_response_201_1.md)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider** | Option<[**models::TransportCostProvider**](TransportCostProvider.md)> |  | [optional]
+**r#type** | **String** | This is the type of cost, always 'transport' for this class. | 
+**provider** | Option<**String**> |  | [optional]
 **minutes** | **f64** | This is the minutes of `transport` usage. This should match `call.endedAt` - `call.startedAt`. | 
 **cost** | **f64** | This is the cost of the component in USD. | 
 

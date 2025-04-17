@@ -93,8 +93,7 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 /// Internal use only
 /// A content type supported by this client.
 #[allow(dead_code)]
-#[derive(Debug)]
-pub enum ContentType {
+enum ContentType {
     Json,
     Text,
     Unsupported(String)
@@ -116,7 +115,7 @@ pub mod analytics_api;
 pub mod assistants_api;
 pub mod calls_api;
 pub mod files_api;
-pub mod knowledge_bases_api;
+pub mod knowledge_base_api;
 pub mod logs_api;
 pub mod phone_numbers_api;
 pub mod squads_api;

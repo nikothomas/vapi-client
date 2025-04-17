@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messages** | Option<[**Vec<models::ArtifactMessagesItem>**](ArtifactMessagesItem.md)> | These are the messages that were spoken during the call. | [optional]
-**messages_open_ai_formatted** | Option<[**Vec<models::OpenAiMessage>**](OpenAiMessage.md)> | These are the messages that were spoken during the call, formatted for OpenAI. | [optional]
+**messages** | Option<[**Vec<models::ArtifactMessagesInner>**](Artifact_messages_inner.md)> | These are the messages that were spoken during the call. | [optional]
+**messages_open_ai_formatted** | Option<[**Vec<models::OpenAiMessage>**](OpenAIMessage.md)> | These are the messages that were spoken during the call, formatted for OpenAI. | [optional]
 **recording_url** | Option<**String**> | This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`. | [optional]
 **stereo_recording_url** | Option<**String**> | This is the stereo recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`. | [optional]
 **video_recording_url** | Option<**String**> | This is video recording url for the call. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. | [optional]

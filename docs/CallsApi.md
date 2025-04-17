@@ -4,17 +4,17 @@ All URIs are relative to *https://api.vapi.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**calls_create**](CallsApi.md#calls_create) | **POST** /call | Create Call
-[**calls_delete**](CallsApi.md#calls_delete) | **DELETE** /call/{id} | Delete Call Data
-[**calls_get**](CallsApi.md#calls_get) | **GET** /call/{id} | Get Call
-[**calls_list**](CallsApi.md#calls_list) | **GET** /call | List Calls
-[**calls_update**](CallsApi.md#calls_update) | **PATCH** /call/{id} | Update Call
+[**call_controller_create**](CallsApi.md#call_controller_create) | **POST** /call | Create Call
+[**call_controller_delete_call_data**](CallsApi.md#call_controller_delete_call_data) | **DELETE** /call/{id} | Delete Call Data
+[**call_controller_find_all**](CallsApi.md#call_controller_find_all) | **GET** /call | List Calls
+[**call_controller_find_one**](CallsApi.md#call_controller_find_one) | **GET** /call/{id} | Get Call
+[**call_controller_update**](CallsApi.md#call_controller_update) | **PATCH** /call/{id} | Update Call
 
 
 
-## calls_create
+## call_controller_create
 
-> models::CallsCreateResponse calls_create(calls_create_request)
+> models::InlineResponse201 call_controller_create(create_call_dto)
 Create Call
 
 ### Parameters
@@ -22,15 +22,15 @@ Create Call
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**calls_create_request** | [**CallsCreateRequest**](CallsCreateRequest.md) |  | [required] |
+**create_call_dto** | [**CreateCallDto**](CreateCallDto.md) |  | [required] |
 
 ### Return type
 
-[**models::CallsCreateResponse**](CallsCreateResponse.md)
+[**models::InlineResponse201**](inline_response_201.md)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -40,9 +40,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## calls_delete
+## call_controller_delete_call_data
 
-> models::Call calls_delete(id)
+> models::Call call_controller_delete_call_data(id)
 Delete Call Data
 
 ### Parameters
@@ -58,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -68,37 +68,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## calls_get
+## call_controller_find_all
 
-> models::Call calls_get(id)
-Get Call
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
-
-### Return type
-
-[**models::Call**](Call.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## calls_list
-
-> Vec<models::Call> calls_list(id, assistant_id, phone_number_id, limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
+> Vec<models::Call> call_controller_find_all(id, assistant_id, phone_number_id, limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
 List Calls
 
 ### Parameters
@@ -125,7 +97,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -135,9 +107,37 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## calls_update
+## call_controller_find_one
 
-> models::Call calls_update(id, calls_update_request)
+> models::Call call_controller_find_one(id)
+Get Call
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::Call**](Call.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## call_controller_update
+
+> models::Call call_controller_update(id, update_call_dto)
 Update Call
 
 ### Parameters
@@ -146,7 +146,7 @@ Update Call
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**calls_update_request** | [**CallsUpdateRequest**](CallsUpdateRequest.md) |  | [required] |
+**update_call_dto** | [**UpdateCallDto**](UpdateCallDto.md) |  | [required] |
 
 ### Return type
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

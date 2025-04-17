@@ -1,0 +1,8 @@
+#!/bin/bash
+/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home/bin/java \
+  -Dfile.encoding=UTF-8 \
+  -Dsun.stdout.encoding=UTF-8 \
+  -Dsun.stderr.encoding=UTF-8 \
+  -Xmx96g \
+  -jar /Users/nik/IdeaProjects/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar \
+  "$@"

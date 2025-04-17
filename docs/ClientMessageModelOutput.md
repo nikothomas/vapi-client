@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **r#type** | **String** | This is the type of the message. \"model-output\" is sent as the model outputs tokens. | 
-**output** | [**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md) | This is the output of the model. It can be a token or tool call. | 
+**output** | [**serde_json::Value**](.md) | This is the output of the model. It can be a token or tool call. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

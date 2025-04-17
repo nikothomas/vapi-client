@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**region** | [**models::CreateAzureOpenAiCredentialDtoRegion**](CreateAzureOpenAiCredentialDtoRegion.md) |  | 
-**models** | [**Vec<models::CreateAzureOpenAiCredentialDtoModelsItem>**](CreateAzureOpenAiCredentialDtoModelsItem.md) |  | 
+**provider** | **String** |  | 
+**region** | **String** |  | 
+**models** | **Vec<String>** |  | 
 **open_ai_key** | **String** | This is not returned in the API. | 
 **ocp_apim_subscription_key** | Option<**String**> | This is not returned in the API. | [optional]
 **open_ai_endpoint** | **String** |  | 

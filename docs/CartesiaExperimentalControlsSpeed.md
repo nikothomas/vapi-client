@@ -2,14 +2,10 @@
 
 ## Enum Variants
 
-| Name | Value |
+| Name | Description |
 |---- | -----|
-| Slowest | slowest |
-| Slow | slow |
-| Normal | normal |
-| Fast | fast |
-| Fastest | fastest |
-
+| String |  |
+| f64 |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

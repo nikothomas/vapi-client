@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**provider** | **String** | This is the key for Gemini in Google AI Studio. Get it from here: https://aistudio.google.com/app/apikey | 
 **api_key** | **String** | This is not returned in the API. | 
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]
 

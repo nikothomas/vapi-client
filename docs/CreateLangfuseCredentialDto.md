@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**provider** | **String** |  | 
 **public_key** | **String** | The public key for Langfuse project. Eg: pk-lf-... | 
 **api_key** | **String** | The secret key for Langfuse project. Eg: sk-lf-... .This is not returned in the API. | 
 **api_url** | **String** | The host URL for Langfuse project. Eg: https://cloud.langfuse.com | 

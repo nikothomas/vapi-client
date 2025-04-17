@@ -4,16 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fallback_destination** | Option<[**models::TelnyxPhoneNumberFallbackDestination**](TelnyxPhoneNumberFallbackDestination.md)> |  | [optional]
+**fallback_destination** | Option<[**models::ImportTwilioPhoneNumberDtoFallbackDestination**](ImportTwilioPhoneNumberDTO_fallbackDestination.md)> |  | [optional]
+**hooks** | Option<[**Vec<serde_json::Value>**](serde_json::Value.md)> | This is the hooks that will be used for incoming calls to this phone number. | [optional]
+**provider** | **String** | This is to use numbers bought on Telnyx. | 
 **id** | **String** | This is the unique identifier for the phone number. | 
 **org_id** | **String** | This is the unique identifier for the org that this phone number belongs to. | 
 **created_at** | **String** | This is the ISO 8601 date-time string of when the phone number was created. | 
 **updated_at** | **String** | This is the ISO 8601 date-time string of when the phone number was last updated. | 
-**status** | Option<[**models::TelnyxPhoneNumberStatus**](TelnyxPhoneNumberStatus.md)> |  | [optional]
+**status** | Option<**String**> | This is the status of the phone number. | [optional]
 **name** | Option<**String**> | This is the name of the phone number. This is just for your own reference. | [optional]
 **assistant_id** | Option<**String**> | This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected. | [optional]
 **squad_id** | Option<**String**> | This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected. | [optional]
-**server** | Option<[**models::Server**](Server.md)> |  | [optional]
+**server** | Option<[**models::Server**](Server.md)> | This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.  The order of precedence is:  1. assistant.server 2. phoneNumber.server 3. org.server | [optional]
 **number** | **String** | These are the digits of the phone number you own on your Telnyx. | 
 **credential_id** | **String** | This is the credential you added in dashboard.vapi.ai/keys. This is used to configure the number to send inbound calls to Vapi, make outbound calls and do live call updates like transfers and hangups. | 
 

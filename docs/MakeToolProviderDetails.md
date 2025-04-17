@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **template_url** | Option<**String**> | This is the Template URL or the Snapshot URL corresponding to the Template. | [optional]
 **setup_instructions** | Option<[**Vec<models::ToolTemplateSetup>**](ToolTemplateSetup.md)> |  | [optional]
+**r#type** | **String** | The type of tool. \"make\" for Make tool. | 
 **scenario_id** | Option<**f64**> |  | [optional]
 **scenario_name** | Option<**String**> |  | [optional]
 **trigger_hook_id** | Option<**f64**> |  | [optional]

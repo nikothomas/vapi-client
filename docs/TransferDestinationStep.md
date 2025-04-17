@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | Option<[**models::TransferDestinationStepMessage**](TransferDestinationStepMessage.md)> |  | [optional]
+**message** | Option<[**models::TransferDestinationAssistantMessage**](TransferDestinationAssistant_message.md)> |  | [optional]
+**r#type** | **String** |  | 
 **step_name** | **String** | This is the step to transfer to. | 
 **description** | Option<**String**> | This is the description of the destination, used by the AI to choose when and how to transfer the call. | [optional]
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::JsonSchemaType**](JsonSchemaType.md) |  | 
-**items** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | This is required if the type is \"array\". This is the schema of the items in the array.  This is of type JsonSchema. However, Swagger doesn't support circular references. | [optional]
-**properties** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | This is required if the type is \"object\". This specifies the properties of the object.  This is a map of string to JsonSchema. However, Swagger doesn't support circular references. | [optional]
+**r#type** | **String** | This is the type of output you'd like.  `string`, `number`, `integer`, `boolean` are the primitive types and should be obvious.  `array` and `object` are more interesting and quite powerful. They allow you to define nested structures.  For `array`, you can define the schema of the items in the array using the `items` property.  For `object`, you can define the properties of the object using the `properties` property. | 
+**items** | Option<[**serde_json::Value**](.md)> | This is required if the type is \"array\". This is the schema of the items in the array.  This is of type JsonSchema. However, Swagger doesn't support circular references. | [optional]
+**properties** | Option<[**serde_json::Value**](.md)> | This is required if the type is \"object\". This specifies the properties of the object.  This is a map of string to JsonSchema. However, Swagger doesn't support circular references. | [optional]
 **description** | Option<**String**> | This is the description to help the model understand what it needs to output. | [optional]
 **required** | Option<**Vec<String>**> | This is a list of properties that are required.  This only makes sense if the type is \"object\". | [optional]
 **regex** | Option<**String**> | This is a regex that will be used to validate data in question. | [optional]

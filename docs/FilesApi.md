@@ -4,17 +4,17 @@ All URIs are relative to *https://api.vapi.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**files_create**](FilesApi.md#files_create) | **POST** /file | Upload File
-[**files_delete**](FilesApi.md#files_delete) | **DELETE** /file/{id} | Delete File
-[**files_get**](FilesApi.md#files_get) | **GET** /file/{id} | Get File
-[**files_list**](FilesApi.md#files_list) | **GET** /file | List Files
-[**files_update**](FilesApi.md#files_update) | **PATCH** /file/{id} | Update File
+[**file_controller_create**](FilesApi.md#file_controller_create) | **POST** /file | Upload File
+[**file_controller_find_all**](FilesApi.md#file_controller_find_all) | **GET** /file | List Files
+[**file_controller_find_one**](FilesApi.md#file_controller_find_one) | **GET** /file/{id} | Get File
+[**file_controller_remove**](FilesApi.md#file_controller_remove) | **DELETE** /file/{id} | Delete File
+[**file_controller_update**](FilesApi.md#file_controller_update) | **PATCH** /file/{id} | Update File
 
 
 
-## files_create
+## file_controller_create
 
-> models::File files_create(file)
+> models::File file_controller_create(file)
 Upload File
 
 ### Parameters
@@ -22,7 +22,7 @@ Upload File
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**file** | Option<**std::path::PathBuf**> |  |  |
+**file** | **std::path::PathBuf** | This is the File you want to upload for use with the Knowledge Base. | [required] |
 
 ### Return type
 
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -40,25 +40,22 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## files_delete
+## file_controller_find_all
 
-> models::File files_delete(id)
-Delete File
+> Vec<models::File> file_controller_find_all()
+List Files
 
 ### Parameters
 
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**models::File**](File.md)
+[**Vec<models::File>**](File.md)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -68,9 +65,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## files_get
+## file_controller_find_one
 
-> models::File files_get(id)
+> models::File file_controller_find_one(id)
 Get File
 
 ### Parameters
@@ -86,7 +83,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -96,22 +93,25 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## files_list
+## file_controller_remove
 
-> Vec<models::File> files_list()
-List Files
+> models::File file_controller_remove(id)
+Delete File
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
 
 ### Return type
 
-[**Vec<models::File>**](File.md)
+[**models::File**](File.md)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -121,9 +121,9 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## files_update
+## file_controller_update
 
-> models::File files_update(id, file_id_body)
+> models::File file_controller_update(id, update_file_dto)
 Update File
 
 ### Parameters
@@ -132,7 +132,7 @@ Update File
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**file_id_body** | [**FileIdBody**](FileIdBody.md) |  | [required] |
+**update_file_dto** | [**UpdateFileDto**](UpdateFileDto.md) |  | [required] |
 
 ### Return type
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
