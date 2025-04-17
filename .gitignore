@@ -7,4 +7,4 @@ git_push.sh
 .openapi-generator-ignore
 .idea
 .travis.yml
-
+.DS_Store
