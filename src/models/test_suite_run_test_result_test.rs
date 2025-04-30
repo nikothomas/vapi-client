@@ -17,6 +17,7 @@ use serde::{Deserialize, Serialize};
 #[serde(untagged)]
 pub enum TestSuiteRunTestResultTest {
     TestSuiteTestVoice(models::TestSuiteTestVoice),
+    TestSuiteTestChat(models::TestSuiteTestChat),
 }
 
 /// This is the type of the test, which must be voice.
@@ -24,6 +25,8 @@ pub enum TestSuiteRunTestResultTest {
 pub enum Type {
     #[serde(rename = "voice")]
     Voice,
+    #[serde(rename = "chat")]
+    Chat,
 }
 
 impl Default for Type {
