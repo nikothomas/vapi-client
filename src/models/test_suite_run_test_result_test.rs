@@ -19,11 +19,6 @@ pub enum TestSuiteRunTestResultTest {
     TestSuiteTestVoice(models::TestSuiteTestVoice),
 }
 
-impl Default for TestSuiteRunTestResultTest {
-    fn default() -> Self {
-        Self::TestSuiteTestVoice(Default::default())
-    }
-}
 /// This is the type of the test, which must be voice.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Type {

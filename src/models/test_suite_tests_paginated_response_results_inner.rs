@@ -18,11 +18,6 @@ pub enum TestSuiteTestsPaginatedResponseResultsInner {
     TestSuiteTestChat(models::TestSuiteTestChat),
 }
 
-impl Default for TestSuiteTestsPaginatedResponseResultsInner {
-    fn default() -> Self {
-        Self::TestSuiteTestVoice(Default::default())
-    }
-}
 /// This is the type of the test, which must be voice.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Type {

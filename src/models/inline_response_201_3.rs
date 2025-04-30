@@ -12,18 +12,10 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(tag = "type")]
+#[serde(untagged)]
 pub enum InlineResponse2013 {
-    #[serde(rename="voice")]
     Voice(models::TestSuiteTestVoice),
-    #[serde(rename="chat")]
     Chat(models::TestSuiteTestChat),
-}
-
-impl Default for InlineResponse2013 {
-    fn default() -> Self {
-        Self::Voice(Default::default())
-    }
 }
 
 
