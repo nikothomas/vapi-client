@@ -16,22 +16,39 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ServerMessageMessage {
+    #[serde(rename = "assistant-request")]
     ServerMessageAssistantRequest(models::ServerMessageAssistantRequest),
+    #[serde(rename = "conversation-update")]
     ServerMessageConversationUpdate(models::ServerMessageConversationUpdate),
+    #[serde(rename = "end-of-call-report")]
     ServerMessageEndOfCallReport(models::ServerMessageEndOfCallReport),
+    #[serde(rename = "hang")]
     ServerMessageHang(models::ServerMessageHang),
+    #[serde(rename = "knowledge-base-request")]
     ServerMessageKnowledgeBaseRequest(models::ServerMessageKnowledgeBaseRequest),
+    #[serde(rename = "model-output")]
     ServerMessageModelOutput(models::ServerMessageModelOutput),
+    #[serde(rename = "phone-call-control")]
     ServerMessagePhoneCallControl(models::ServerMessagePhoneCallControl),
+    #[serde(rename = "speech-update")]
     ServerMessageSpeechUpdate(models::ServerMessageSpeechUpdate),
+    #[serde(rename = "status-update")]
     ServerMessageStatusUpdate(models::ServerMessageStatusUpdate),
+    #[serde(rename = "tool-calls")]
     ServerMessageToolCalls(models::ServerMessageToolCalls),
+    #[serde(rename = "transfer-destination-request")]
     ServerMessageTransferDestinationRequest(models::ServerMessageTransferDestinationRequest),
+    #[serde(rename = "transfer-update")]
     ServerMessageTransferUpdate(models::ServerMessageTransferUpdate),
+    #[serde(rename = "transcript")]
     ServerMessageTranscript(models::ServerMessageTranscript),
+    #[serde(rename = "user-interrupted")]
     ServerMessageUserInterrupted(models::ServerMessageUserInterrupted),
+    #[serde(rename = "language-change-detected")]
     ServerMessageLanguageChangeDetected(models::ServerMessageLanguageChangeDetected),
+    #[serde(rename = "voice-input")]
     ServerMessageVoiceInput(models::ServerMessageVoiceInput),
+    #[serde(rename = "voice-request")]
     ServerMessageVoiceRequest(models::ServerMessageVoiceRequest),
 }
 

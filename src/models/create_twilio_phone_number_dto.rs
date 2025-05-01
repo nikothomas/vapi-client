@@ -28,8 +28,8 @@ pub struct CreateTwilioPhoneNumberDto {
     #[serde(rename = "twilioAccountSid")]
     pub twilio_account_sid: String,
     /// This is the Twilio Auth Token for the phone number.
-    #[serde(rename = "twilioAuthToken")]
-    pub twilio_auth_token: String,
+    #[serde(rename = "twilioAuthToken", skip_serializing_if = "Option::is_none")]
+    pub twilio_auth_token: Option<String>,
     /// This is the name of the phone number. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -45,14 +45,14 @@ pub struct CreateTwilioPhoneNumberDto {
 }
 
 impl CreateTwilioPhoneNumberDto {
-    pub fn new(provider: Provider, number: String, twilio_account_sid: String, twilio_auth_token: String) -> CreateTwilioPhoneNumberDto {
+    pub fn new(provider: Provider, number: String, twilio_account_sid: String) -> CreateTwilioPhoneNumberDto {
         CreateTwilioPhoneNumberDto {
             fallback_destination: None,
             hooks: None,
             provider,
             number,
             twilio_account_sid,
-            twilio_auth_token,
+            twilio_auth_token: None,
             name: None,
             assistant_id: None,
             squad_id: None,

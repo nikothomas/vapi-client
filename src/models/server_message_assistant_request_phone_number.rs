@@ -16,9 +16,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ServerMessageAssistantRequestPhoneNumber {
+    #[serde(rename = "byo-phone-number")]
     CreateByoPhoneNumberDto(models::CreateByoPhoneNumberDto),
+    #[serde(rename = "twilio")]
     CreateTwilioPhoneNumberDto(models::CreateTwilioPhoneNumberDto),
+    #[serde(rename = "vonage")]
     CreateVonagePhoneNumberDto(models::CreateVonagePhoneNumberDto),
+    #[serde(rename = "vapi")]
     CreateVapiPhoneNumberDto(models::CreateVapiPhoneNumberDto),
 }
 

@@ -10,3 +10,5 @@ git_push.sh
 .DS_Store
 .openapi-generator
 .env
+/tests/agent_test.rs
+example.json
