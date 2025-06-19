@@ -1,0 +1,19 @@
+additionalProperties:
+  avoidBoxedModels: true
+  bestFitInt: true
+  enumNameSuffix: true
+  hideGenerationTimestamp: true
+  library: reqwest
+  mockall: false
+  packageName: vapi-client
+  packageVersion: 0.4.0
+  preferUnsignedInt: true
+  supportAsync: true
+  supportMiddleware: false
+  supportMultipleResponses: false
+  supportTokenSource: false
+  topLevelApiClient: false
+  useSingleRequestParameter: false
+# Note: After running openapi-generator-cli generate, you need to run:
+# ./fix_chunk_plan.sh
+# This fixes the PunctuationBoundary enum which has issues with Unicode characters
