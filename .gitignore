@@ -2,7 +2,7 @@
 **/*.rs.bk
 Cargo.lock
 .claude
-.openapi-geneerator
+.openapi-generator
 CLAUDE.md
 git_push.sh
 openapitools.json
