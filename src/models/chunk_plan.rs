@@ -21,7 +21,7 @@ pub struct ChunkPlan {
     pub min_characters: Option<f64>,
     /// These are the punctuations that are considered valid boundaries for a chunk to be created.  Usage: - To increase quality, constrain to fewer boundaries. - To decrease latency, enable all.  Default is automatically set to balance the trade-off between quality and latency based on the provider.
     #[serde(rename = "punctuationBoundaries", skip_serializing_if = "Option::is_none")]
-    pub punctuation_boundaries: Option<Vec<PunctuationBoundariesTrue>>,
+    pub punctuation_boundaries: Option<Vec<PunctuationBoundary>>,
     /// This is the plan for formatting the chunk before it is sent to the voice provider.
     #[serde(rename = "formatPlan", skip_serializing_if = "Option::is_none")]
     pub format_plan: Option<models::FormatPlan>,
@@ -37,13 +37,14 @@ impl ChunkPlan {
         }
     }
 }
-/// These are the punctuations that are considered valid boundaries for a chunk to be created.  Usage: - To increase quality, constrain to fewer boundaries. - To decrease latency, enable all.  Default is automatically set to balance the trade-off between quality and latency based on the provider.
+
+/// Punctuation boundaries that are considered valid for chunk creation
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum PunctuationBoundariesTrue {
+pub enum PunctuationBoundary {
     #[serde(rename = "。")]
-    ,
+    ChinesePeriod,
     #[serde(rename = "，")]
-    2,
+    ChineseComma,
     #[serde(rename = ".")]
     Period,
     #[serde(rename = "!")]
@@ -55,26 +56,25 @@ pub enum PunctuationBoundariesTrue {
     #[serde(rename = ")")]
     RightParenthesis,
     #[serde(rename = "،")]
-    3,
+    ArabicComma,
     #[serde(rename = "۔")]
-    4,
+    UrduPeriod,
     #[serde(rename = "।")]
-    5,
+    DevanagariDanda,
     #[serde(rename = "॥")]
-    6,
+    DevanagariDoubleDanda,
     #[serde(rename = "|")]
     Pipe,
     #[serde(rename = "||")]
-    PipePipe,
+    DoublePipe,
     #[serde(rename = ",")]
     Comma,
     #[serde(rename = ":")]
     Colon,
 }
 
-impl Default for PunctuationBoundariesTrue {
-    fn default() -> PunctuationBoundariesTrue {
-        Self::
+impl Default for PunctuationBoundary {
+    fn default() -> PunctuationBoundary {
+        Self::Period
     }
 }
-

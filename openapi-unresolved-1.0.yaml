@@ -14405,37 +14405,6 @@ components:
 
             Default is automatically set to balance the trade-off between
             quality and latency based on the provider.
-          enum:
-            - 。
-            - ，
-            - .
-            - '!'
-            - '?'
-            - ;
-            - )
-            - ،
-            - ۔
-            - ।
-            - ॥
-            - '|'
-            - '||'
-            - ','
-            - ':'
-          example:
-            - 。
-            - ，
-            - .
-            - '!'
-            - '?'
-            - ;
-            - ،
-            - ۔
-            - ।
-            - ॥
-            - '|'
-            - '||'
-            - ','
-            - ':'
           items:
             type: string
             enum:
@@ -14454,6 +14423,21 @@ components:
               - '||'
               - ','
               - ':'
+          example:
+            - 。
+            - ，
+            - .
+            - '!'
+            - '?'
+            - ;
+            - ،
+            - ۔
+            - ।
+            - ॥
+            - '|'
+            - '||'
+            - ','
+            - ':'
         formatPlan:
           description: >-
             This is the plan for formatting the chunk before it is sent to the
@@ -19210,7 +19194,7 @@ components:
             You can also provide a custom sound by providing a URL to an audio
             file.
           oneOf:
-            - type: enum
+            - type: string
               enum:
                 - 'off'
                 - office
@@ -19898,7 +19882,7 @@ components:
             You can also provide a custom sound by providing a URL to an audio
             file.
           oneOf:
-            - type: enum
+            - type: string
               enum:
                 - 'off'
                 - office
@@ -23708,7 +23692,7 @@ components:
             You can also provide a custom sound by providing a URL to an audio
             file.
           oneOf:
-            - type: enum
+            - type: string
               enum:
                 - 'off'
                 - office
@@ -24447,7 +24431,7 @@ components:
             You can also provide a custom sound by providing a URL to an audio
             file.
           oneOf:
-            - type: enum
+            - type: string
               enum:
                 - 'off'
                 - office

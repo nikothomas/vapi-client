@@ -14,3 +14,6 @@ additionalProperties:
   supportTokenSource: false
   topLevelApiClient: false
   useSingleRequestParameter: false
+# Note: After running openapi-generator-cli generate, you need to run:
+# ./fix_chunk_plan.sh
+# This fixes the PunctuationBoundary enum which has issues with Unicode characters

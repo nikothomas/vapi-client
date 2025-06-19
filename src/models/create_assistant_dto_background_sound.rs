@@ -16,8 +16,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAssistantDtoBackgroundSound {
-    Enum(models::Enum),
-    String(String),
+    Enum(BackgroundSoundChoice),
+    Url(String),
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, Default)]
+pub enum BackgroundSoundChoice {
+    #[serde(rename = "office")]
+    #[default]
+    Office,
+    #[serde(rename = "off")]
+    Off,
 }
 
 impl Default for CreateAssistantDtoBackgroundSound {
