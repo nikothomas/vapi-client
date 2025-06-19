@@ -19,6 +19,10 @@ pub enum CreateToolTemplateDtoProviderDetails {
     FunctionToolProviderDetails(models::FunctionToolProviderDetails),
     GoogleCalendarCreateEventToolProviderDetails(models::GoogleCalendarCreateEventToolProviderDetails),
     GoogleSheetsRowAppendToolProviderDetails(models::GoogleSheetsRowAppendToolProviderDetails),
+    GoHighLevelCalendarAvailabilityToolProviderDetails(models::GoHighLevelCalendarAvailabilityToolProviderDetails),
+    GoHighLevelCalendarEventCreateToolProviderDetails(models::GoHighLevelCalendarEventCreateToolProviderDetails),
+    GoHighLevelContactCreateToolProviderDetails(models::GoHighLevelContactCreateToolProviderDetails),
+    GoHighLevelContactGetToolProviderDetails(models::GoHighLevelContactGetToolProviderDetails),
 }
 
 impl Default for CreateToolTemplateDtoProviderDetails {
@@ -28,7 +32,7 @@ impl Default for CreateToolTemplateDtoProviderDetails {
 }
 /// The type of tool. \"make\" for Make tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "make")]
     Make,
     #[serde(rename = "ghl")]
@@ -39,10 +43,18 @@ pub enum Type {
     GooglePeriodCalendarPeriodEventPeriodCreate,
     #[serde(rename = "google.sheets.row.append")]
     GooglePeriodSheetsPeriodRowPeriodAppend,
+    #[serde(rename = "gohighlevel.calendar.availability.check")]
+    GohighlevelPeriodCalendarPeriodAvailabilityPeriodCheck,
+    #[serde(rename = "gohighlevel.calendar.event.create")]
+    GohighlevelPeriodCalendarPeriodEventPeriodCreate,
+    #[serde(rename = "gohighlevel.contact.create")]
+    GohighlevelPeriodContactPeriodCreate,
+    #[serde(rename = "gohighlevel.contact.get")]
+    GohighlevelPeriodContactPeriodGet,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Make
     }
 }

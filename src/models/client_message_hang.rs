@@ -13,27 +13,46 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientMessageHang {
+    #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
+    pub phone_number: Option<models::ClientMessageWorkflowNodeStartedPhoneNumber>,
     /// This is the type of the message. \"hang\" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as: - the model is too slow to respond - the voice is too slow to respond - the tool call is still waiting for a response from your server - etc.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
+    /// This is the timestamp of the message.
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<f64>,
+    /// This is the call that the message is associated with.
+    #[serde(rename = "call", skip_serializing_if = "Option::is_none")]
+    pub call: Option<models::Call>,
+    /// This is the customer that the message is associated with.
+    #[serde(rename = "customer", skip_serializing_if = "Option::is_none")]
+    pub customer: Option<models::CreateCustomerDto>,
+    /// This is the assistant that the message is associated with.
+    #[serde(rename = "assistant", skip_serializing_if = "Option::is_none")]
+    pub assistant: Option<models::CreateAssistantDto>,
 }
 
 impl ClientMessageHang {
-    pub fn new(r#type: Type) -> ClientMessageHang {
+    pub fn new(r#type: TypeTrue) -> ClientMessageHang {
         ClientMessageHang {
+            phone_number: None,
             r#type,
+            timestamp: None,
+            call: None,
+            customer: None,
+            assistant: None,
         }
     }
 }
 /// This is the type of the message. \"hang\" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as: - the model is too slow to respond - the voice is too slow to respond - the tool call is still waiting for a response from your server - etc.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "hang")]
     Hang,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Hang
     }
 }

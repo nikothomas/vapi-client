@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GoogleCalendarOAuth2ClientCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the unique identifier for the credential.
     #[serde(rename = "id")]
     pub id: String,
@@ -33,7 +33,7 @@ pub struct GoogleCalendarOAuth2ClientCredential {
 }
 
 impl GoogleCalendarOAuth2ClientCredential {
-    pub fn new(provider: Provider, id: String, org_id: String, created_at: String, updated_at: String) -> GoogleCalendarOAuth2ClientCredential {
+    pub fn new(provider: ProviderTrue, id: String, org_id: String, created_at: String, updated_at: String) -> GoogleCalendarOAuth2ClientCredential {
         GoogleCalendarOAuth2ClientCredential {
             provider,
             id,
@@ -46,13 +46,13 @@ impl GoogleCalendarOAuth2ClientCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "google.calendar.oauth2-client")]
     GooglePeriodCalendarPeriodOauth2Client,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::GooglePeriodCalendarPeriodOauth2Client
     }
 }

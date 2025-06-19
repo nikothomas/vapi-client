@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct SyncVoiceLibraryDto {
     /// List of providers you want to sync.
     #[serde(rename = "providers", skip_serializing_if = "Option::is_none")]
-    pub providers: Option<Vec<Providers>>,
+    pub providers: Option<Vec<ProvidersTrue>>,
 }
 
 impl SyncVoiceLibraryDto {
@@ -27,7 +27,7 @@ impl SyncVoiceLibraryDto {
 }
 /// List of providers you want to sync.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Providers {
+pub enum ProvidersTrue {
     #[serde(rename = "vapi")]
     Vapi,
     #[serde(rename = "11labs")]
@@ -60,8 +60,8 @@ pub enum Providers {
     Sesame,
 }
 
-impl Default for Providers {
-    fn default() -> Providers {
+impl Default for ProvidersTrue {
+    fn default() -> ProvidersTrue {
         Self::Vapi
     }
 }

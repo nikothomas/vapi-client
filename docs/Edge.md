@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**condition** | Option<[**models::EdgeCondition**](Edge_condition.md)> |  | [optional]
+**condition** | Option<[**models::AiEdgeCondition**](AIEdgeCondition.md)> |  | [optional]
 **from** | **String** |  | 
 **to** | **String** |  | 
 **metadata** | Option<[**serde_json::Value**](.md)> | This is for metadata you want to store on the edge. | [optional]

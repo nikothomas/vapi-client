@@ -14,16 +14,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateAzureCredentialDto {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the service being used in Azure.
     #[serde(rename = "service")]
-    pub service: Service,
+    pub service: ServiceTrue,
     /// This is the region of the Azure resource.
     #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
-    pub region: Option<Region>,
+    pub region: Option<RegionTrue>,
     /// This is not returned in the API.
     #[serde(rename = "apiKey", skip_serializing_if = "Option::is_none")]
     pub api_key: Option<String>,
+    /// This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order.
+    #[serde(rename = "fallbackIndex", skip_serializing_if = "Option::is_none")]
+    pub fallback_index: Option<f64>,
     /// This is the bucket plan that can be provided to store call artifacts in Azure Blob Storage.
     #[serde(rename = "bucketPlan", skip_serializing_if = "Option::is_none")]
     pub bucket_plan: Option<models::AzureBlobStorageBucketPlan>,
@@ -33,12 +36,13 @@ pub struct CreateAzureCredentialDto {
 }
 
 impl CreateAzureCredentialDto {
-    pub fn new(provider: Provider, service: Service) -> CreateAzureCredentialDto {
+    pub fn new(provider: ProviderTrue, service: ServiceTrue) -> CreateAzureCredentialDto {
         CreateAzureCredentialDto {
             provider,
             service,
             region: None,
             api_key: None,
+            fallback_index: None,
             bucket_plan: None,
             name: None,
         }
@@ -46,33 +50,33 @@ impl CreateAzureCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "azure")]
     Azure,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Azure
     }
 }
 /// This is the service being used in Azure.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Service {
+pub enum ServiceTrue {
     #[serde(rename = "speech")]
     Speech,
     #[serde(rename = "blob_storage")]
     BlobStorage,
 }
 
-impl Default for Service {
-    fn default() -> Service {
+impl Default for ServiceTrue {
+    fn default() -> ServiceTrue {
         Self::Speech
     }
 }
 /// This is the region of the Azure resource.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Region {
+pub enum RegionTrue {
     #[serde(rename = "australia")]
     Australia,
     #[serde(rename = "canadaeast")]
@@ -111,8 +115,8 @@ pub enum Region {
     Westus3,
 }
 
-impl Default for Region {
-    fn default() -> Region {
+impl Default for RegionTrue {
+    fn default() -> RegionTrue {
         Self::Australia
     }
 }

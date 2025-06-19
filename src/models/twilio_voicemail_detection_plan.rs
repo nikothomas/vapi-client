@@ -15,10 +15,10 @@ use serde::{Deserialize, Serialize};
 pub struct TwilioVoicemailDetectionPlan {
     /// This is the provider to use for voicemail detection.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence'].  @default {Array} ['machine_end_beep', 'machine_end_silence']
     #[serde(rename = "voicemailDetectionTypes", skip_serializing_if = "Option::is_none")]
-    pub voicemail_detection_types: Option<Vec<VoicemailDetectionTypes>>,
+    pub voicemail_detection_types: Option<Vec<VoicemailDetectionTypesTrue>>,
     /// This sets whether the assistant should detect voicemail. Defaults to true.  @default true
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
@@ -37,7 +37,7 @@ pub struct TwilioVoicemailDetectionPlan {
 }
 
 impl TwilioVoicemailDetectionPlan {
-    pub fn new(provider: Provider) -> TwilioVoicemailDetectionPlan {
+    pub fn new(provider: ProviderTrue) -> TwilioVoicemailDetectionPlan {
         TwilioVoicemailDetectionPlan {
             provider,
             voicemail_detection_types: None,
@@ -51,19 +51,19 @@ impl TwilioVoicemailDetectionPlan {
 }
 /// This is the provider to use for voicemail detection.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "twilio")]
     Twilio,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Twilio
     }
 }
 /// These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence'].  @default {Array} ['machine_end_beep', 'machine_end_silence']
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum VoicemailDetectionTypes {
+pub enum VoicemailDetectionTypesTrue {
     #[serde(rename = "machine_start")]
     MachineStart,
     #[serde(rename = "human")]
@@ -80,8 +80,8 @@ pub enum VoicemailDetectionTypes {
     MachineEndOther,
 }
 
-impl Default for VoicemailDetectionTypes {
-    fn default() -> VoicemailDetectionTypes {
+impl Default for VoicemailDetectionTypesTrue {
+    fn default() -> VoicemailDetectionTypesTrue {
         Self::MachineStart
     }
 }

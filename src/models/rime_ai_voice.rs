@@ -13,18 +13,21 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RimeAiVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "voiceId")]
     pub voice_id: models::RimeAiVoiceVoiceId,
     /// This is the model that will be used. Defaults to 'v1' when not specified.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// This is the speed multiplier that will be used.
     #[serde(rename = "speed", skip_serializing_if = "Option::is_none")]
     pub speed: Option<f64>,
-    /// This is a flag that controls whether to add slight pauses using angle brackets. Example: “Hi. <200> I’d love to have a conversation with you.” adds a 200ms pause between the first and second sentences.
+    /// This is a flag that controls whether to add slight pauses using angle brackets. Example: \"Hi. <200> I'd love to have a conversation with you.\" adds a 200ms pause between the first and second sentences.
     #[serde(rename = "pauseBetweenBrackets", skip_serializing_if = "Option::is_none")]
     pub pause_between_brackets: Option<bool>,
     /// This is a flag that controls whether text inside brackets should be phonemized (converted to phonetic pronunciation) - Example: \"{h'El.o} World\" will pronounce \"Hello\" as expected.
@@ -45,8 +48,9 @@ pub struct RimeAiVoice {
 }
 
 impl RimeAiVoice {
-    pub fn new(provider: Provider, voice_id: models::RimeAiVoiceVoiceId) -> RimeAiVoice {
+    pub fn new(provider: ProviderTrue, voice_id: models::RimeAiVoiceVoiceId) -> RimeAiVoice {
         RimeAiVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             model: None,
@@ -62,19 +66,19 @@ impl RimeAiVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "rime-ai")]
     RimeAi,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::RimeAi
     }
 }
 /// This is the model that will be used. Defaults to 'v1' when not specified.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "v1")]
     V1,
     #[serde(rename = "mist")]
@@ -83,8 +87,8 @@ pub enum Model {
     Mistv2,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::V1
     }
 }

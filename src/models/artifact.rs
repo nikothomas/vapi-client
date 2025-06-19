@@ -31,12 +31,21 @@ pub struct Artifact {
     /// This is video recording start delay in ms. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. This can be used to align the playback of the recording with artifact.messages timestamps.
     #[serde(rename = "videoRecordingStartDelaySeconds", skip_serializing_if = "Option::is_none")]
     pub video_recording_start_delay_seconds: Option<f64>,
+    /// This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.
+    #[serde(rename = "recording", skip_serializing_if = "Option::is_none")]
+    pub recording: Option<models::Recording>,
     /// This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience.
     #[serde(rename = "transcript", skip_serializing_if = "Option::is_none")]
     pub transcript: Option<String>,
     /// This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`.
     #[serde(rename = "pcapUrl", skip_serializing_if = "Option::is_none")]
     pub pcap_url: Option<String>,
+    /// This is the history of workflow nodes that were executed during the call.
+    #[serde(rename = "nodes", skip_serializing_if = "Option::is_none")]
+    pub nodes: Option<Vec<models::NodeArtifact>>,
+    /// This is the state of variables at the end of the workflow execution.
+    #[serde(rename = "variables", skip_serializing_if = "Option::is_none")]
+    pub variables: Option<serde_json::Value>,
 }
 
 impl Artifact {
@@ -48,8 +57,11 @@ impl Artifact {
             stereo_recording_url: None,
             video_recording_url: None,
             video_recording_start_delay_seconds: None,
+            recording: None,
             transcript: None,
             pcap_url: None,
+            nodes: None,
+            variables: None,
         }
     }
 }

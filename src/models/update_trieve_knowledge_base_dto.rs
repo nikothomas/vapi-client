@@ -20,7 +20,7 @@ pub struct UpdateTrieveKnowledgeBaseDto {
     #[serde(rename = "searchPlan", skip_serializing_if = "Option::is_none")]
     pub search_plan: Option<models::TrieveKnowledgeBaseSearchPlan>,
     #[serde(rename = "createPlan", skip_serializing_if = "Option::is_none")]
-    pub create_plan: Option<models::TrieveKnowledgeBaseCreatePlan>,
+    pub create_plan: Option<models::TrieveKnowledgeBaseImport>,
 }
 
 impl UpdateTrieveKnowledgeBaseDto {

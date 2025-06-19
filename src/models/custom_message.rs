@@ -18,14 +18,14 @@ pub struct CustomMessage {
     pub contents: Option<Vec<models::ToolMessageStartContentsInner>>,
     /// This is a custom message.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the content that the assistant will say when this message is triggered.
     #[serde(rename = "content", skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
 }
 
 impl CustomMessage {
-    pub fn new(r#type: Type) -> CustomMessage {
+    pub fn new(r#type: TypeTrue) -> CustomMessage {
         CustomMessage {
             contents: None,
             r#type,
@@ -35,13 +35,13 @@ impl CustomMessage {
 }
 /// This is a custom message.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "custom-message")]
     CustomMessage,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::CustomMessage
     }
 }

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## test_suite_test_controller_create
 
-> models::InlineResponse2013 test_suite_test_controller_create(test_suite_id, test_suite_id_test_body)
+> models::TestSuiteTestControllerCreate201Response test_suite_test_controller_create(test_suite_id, test_suite_test_controller_create_request)
 Create Test
 
 ### Parameters
@@ -23,11 +23,11 @@ Create Test
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **test_suite_id** | **String** |  | [required] |
-**test_suite_id_test_body** | [**TestSuiteIdTestBody**](TestSuiteIdTestBody.md) |  | [required] |
+**test_suite_test_controller_create_request** | [**TestSuiteTestControllerCreateRequest**](TestSuiteTestControllerCreateRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::InlineResponse2013**](inline_response_201_3.md)
+[**models::TestSuiteTestControllerCreate201Response**](TestSuiteTestController_create_201_response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Required | Notes
 
 ## test_suite_test_controller_find_one
 
-> models::InlineResponse2013 test_suite_test_controller_find_one(test_suite_id, id)
+> models::TestSuiteTestControllerCreate201Response test_suite_test_controller_find_one(test_suite_id, id)
 Get Test
 
 ### Parameters
@@ -95,7 +95,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse2013**](inline_response_201_3.md)
+[**models::TestSuiteTestControllerCreate201Response**](TestSuiteTestController_create_201_response.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Required | Notes
 
 ## test_suite_test_controller_remove
 
-> models::InlineResponse2013 test_suite_test_controller_remove(test_suite_id, id)
+> models::TestSuiteTestControllerCreate201Response test_suite_test_controller_remove(test_suite_id, id)
 Delete Test
 
 ### Parameters
@@ -124,7 +124,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse2013**](inline_response_201_3.md)
+[**models::TestSuiteTestControllerCreate201Response**](TestSuiteTestController_create_201_response.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ## test_suite_test_controller_update
 
-> models::InlineResponse2013 test_suite_test_controller_update(test_suite_id, id, test_id_body)
+> models::TestSuiteTestControllerCreate201Response test_suite_test_controller_update(test_suite_id, id, test_suite_test_controller_update_request)
 Update Test
 
 ### Parameters
@@ -150,11 +150,11 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **test_suite_id** | **String** |  | [required] |
 **id** | **String** |  | [required] |
-**test_id_body** | [**TestIdBody**](TestIdBody.md) |  | [required] |
+**test_suite_test_controller_update_request** | [**TestSuiteTestControllerUpdateRequest**](TestSuiteTestControllerUpdateRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::InlineResponse2013**](inline_response_201_3.md)
+[**models::TestSuiteTestControllerCreate201Response**](TestSuiteTestController_create_201_response.md)
 
 ### Authorization
 

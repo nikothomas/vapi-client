@@ -13,18 +13,21 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FallbackCartesiaVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// The ID of the particular voice you want to use.
     #[serde(rename = "voiceId")]
     pub voice_id: String,
     /// This is the model that will be used. This is optional and will default to the correct model for the voiceId.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// This is the language that will be used. This is optional and will default to the correct language for the voiceId.
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
     /// Experimental controls for Cartesia voice generation
     #[serde(rename = "experimentalControls", skip_serializing_if = "Option::is_none")]
     pub experimental_controls: Option<models::CartesiaExperimentalControls>,
@@ -34,8 +37,9 @@ pub struct FallbackCartesiaVoice {
 }
 
 impl FallbackCartesiaVoice {
-    pub fn new(provider: Provider, voice_id: String) -> FallbackCartesiaVoice {
+    pub fn new(provider: ProviderTrue, voice_id: String) -> FallbackCartesiaVoice {
         FallbackCartesiaVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             model: None,
@@ -47,19 +51,19 @@ impl FallbackCartesiaVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "cartesia")]
     Cartesia,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Cartesia
     }
 }
 /// This is the model that will be used. This is optional and will default to the correct model for the voiceId.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "sonic-2")]
     Sonic2,
     #[serde(rename = "sonic-english")]
@@ -72,14 +76,14 @@ pub enum Model {
     Sonic,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::Sonic2
     }
 }
 /// This is the language that will be used. This is optional and will default to the correct language for the voiceId.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "en")]
     En,
     #[serde(rename = "de")]
@@ -112,8 +116,8 @@ pub enum Language {
     Tr,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::En
     }
 }

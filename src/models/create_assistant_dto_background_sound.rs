@@ -16,12 +16,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAssistantDtoBackgroundSound {
+    Enum(models::Enum),
     String(String),
 }
 
 impl Default for CreateAssistantDtoBackgroundSound {
     fn default() -> Self {
-        Self::String(Default::default())
+        Self::Enum(Default::default())
     }
 }
 

@@ -27,7 +27,7 @@ impl Default for CreateDtmfToolDtoMessagesInner {
 }
 /// This message is triggered when the tool call starts.  This message is never triggered for async tools.  If this message is not provided, one of the default filler messages \"Hold on a sec\", \"One moment\", \"Just a sec\", \"Give me a moment\" or \"This'll just take a sec\" will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "request-start")]
     RequestStart,
     #[serde(rename = "request-complete")]
@@ -38,22 +38,22 @@ pub enum Type {
     RequestResponseDelayed,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::RequestStart
     }
 }
 /// This is optional and defaults to \"assistant\".  When role=assistant, `content` is said out loud.  When role=system, `content` is passed to the model in a system message. Example:     system: default one     assistant:     user:     assistant:     user:     assistant:     user:     assistant: tool called     tool: your server response     <--- system prompt as hint     ---> model generates response which is spoken This is useful when you want to provide a hint to the model about what to say next.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Role {
+pub enum RoleTrue {
     #[serde(rename = "assistant")]
     Assistant,
     #[serde(rename = "system")]
     System,
 }
 
-impl Default for Role {
-    fn default() -> Role {
+impl Default for RoleTrue {
+    fn default() -> RoleTrue {
         Self::Assistant
     }
 }

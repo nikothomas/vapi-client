@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 pub struct ClientInboundMessageEndCall {
     /// This is the type of the message. Send \"end-call\" message to end the call.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
 }
 
 impl ClientInboundMessageEndCall {
-    pub fn new(r#type: Type) -> ClientInboundMessageEndCall {
+    pub fn new(r#type: TypeTrue) -> ClientInboundMessageEndCall {
         ClientInboundMessageEndCall {
             r#type,
         }
@@ -27,13 +27,13 @@ impl ClientInboundMessageEndCall {
 }
 /// This is the type of the message. Send \"end-call\" message to end the call.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "end-call")]
     EndCall,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::EndCall
     }
 }

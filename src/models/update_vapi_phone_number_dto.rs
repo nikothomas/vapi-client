@@ -17,14 +17,17 @@ pub struct UpdateVapiPhoneNumberDto {
     pub fallback_destination: Option<models::ImportTwilioPhoneNumberDtoFallbackDestination>,
     /// This is the hooks that will be used for incoming calls to this phone number.
     #[serde(rename = "hooks", skip_serializing_if = "Option::is_none")]
-    pub hooks: Option<Vec<serde_json::Value>>,
+    pub hooks: Option<Vec<models::ImportTwilioPhoneNumberDtoHooksInner>>,
     /// This is the name of the phone number. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    /// This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     #[serde(rename = "assistantId", skip_serializing_if = "Option::is_none")]
     pub assistant_id: Option<String>,
-    /// This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    /// This is the workflow that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    #[serde(rename = "workflowId", skip_serializing_if = "Option::is_none")]
+    pub workflow_id: Option<String>,
+    /// This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     #[serde(rename = "squadId", skip_serializing_if = "Option::is_none")]
     pub squad_id: Option<String>,
     /// This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.  The order of precedence is:  1. assistant.server 2. phoneNumber.server 3. org.server
@@ -45,6 +48,7 @@ impl UpdateVapiPhoneNumberDto {
             hooks: None,
             name: None,
             assistant_id: None,
+            workflow_id: None,
             squad_id: None,
             server: None,
             sip_uri: None,

@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **stripe_subscription_current_period_start** | Option<**String**> | This is the subscription's current period start. | [optional]
 **stripe_subscription_status** | Option<**String**> | This is the subscription's status. | [optional]
 **plan** | Option<[**models::OrgPlan**](OrgPlan.md)> | This is the plan for the org. | [optional]
+**jwt_secret** | Option<**String**> | This is the secret key used for signing JWT tokens for the org. | [optional]
+**minutes_used** | Option<**f64**> | This is the total number of call minutes used by this org across all time. | [optional]
 **name** | Option<**String**> | This is the name of the org. This is just for your own reference. | [optional]
 **channel** | Option<**String**> | This is the channel of the org. There is the cluster the API traffic for the org will be directed. | [optional]
 **billing_limit** | Option<**f64**> | This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@vapi.ai. | [optional]

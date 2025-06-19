@@ -15,7 +15,10 @@ use serde::{Deserialize, Serialize};
 pub struct CreateSupabaseCredentialDto {
     /// This is for supabase storage.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
+    /// This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order.
+    #[serde(rename = "fallbackIndex", skip_serializing_if = "Option::is_none")]
+    pub fallback_index: Option<f64>,
     #[serde(rename = "bucketPlan", skip_serializing_if = "Option::is_none")]
     pub bucket_plan: Option<models::SupabaseBucketPlan>,
     /// This is the name of credential. This is just for your reference.
@@ -24,9 +27,10 @@ pub struct CreateSupabaseCredentialDto {
 }
 
 impl CreateSupabaseCredentialDto {
-    pub fn new(provider: Provider) -> CreateSupabaseCredentialDto {
+    pub fn new(provider: ProviderTrue) -> CreateSupabaseCredentialDto {
         CreateSupabaseCredentialDto {
             provider,
+            fallback_index: None,
             bucket_plan: None,
             name: None,
         }
@@ -34,13 +38,13 @@ impl CreateSupabaseCredentialDto {
 }
 /// This is for supabase storage.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "supabase")]
     Supabase,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Supabase
     }
 }

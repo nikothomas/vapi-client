@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OAuth2AuthenticationPlan {
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the OAuth2 URL.
     #[serde(rename = "url")]
     pub url: String,
@@ -30,7 +30,7 @@ pub struct OAuth2AuthenticationPlan {
 }
 
 impl OAuth2AuthenticationPlan {
-    pub fn new(r#type: Type, url: String, client_id: String, client_secret: String) -> OAuth2AuthenticationPlan {
+    pub fn new(r#type: TypeTrue, url: String, client_id: String, client_secret: String) -> OAuth2AuthenticationPlan {
         OAuth2AuthenticationPlan {
             r#type,
             url,
@@ -42,13 +42,15 @@ impl OAuth2AuthenticationPlan {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "oauth2")]
     Oauth2,
+    #[serde(rename = "aws-sts")]
+    AwsSts,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Oauth2
     }
 }

@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 pub struct CredentialSessionDto {
     /// The type of credential to generate a session for. Only Nango user-facing providers are supported.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
 }
 
 impl CredentialSessionDto {
-    pub fn new(provider: Provider) -> CredentialSessionDto {
+    pub fn new(provider: ProviderTrue) -> CredentialSessionDto {
         CredentialSessionDto {
             provider,
         }
@@ -27,7 +27,7 @@ impl CredentialSessionDto {
 }
 /// The type of credential to generate a session for. Only Nango user-facing providers are supported.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "google.calendar.oauth2-client")]
     GooglePeriodCalendarPeriodOauth2Client,
     #[serde(rename = "google.calendar.oauth2-authorization")]
@@ -38,8 +38,8 @@ pub enum Provider {
     SlackPeriodOauth2Authorization,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::GooglePeriodCalendarPeriodOauth2Client
     }
 }

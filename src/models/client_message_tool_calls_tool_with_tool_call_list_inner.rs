@@ -30,7 +30,7 @@ impl Default for ClientMessageToolCallsToolWithToolCallListInner {
 }
 /// The type of tool. \"function\" for Function tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "function")]
     Function,
     #[serde(rename = "ghl")]
@@ -47,32 +47,32 @@ pub enum Type {
     GooglePeriodCalendarPeriodEventPeriodCreate,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Function
     }
 }
 /// The sub type of tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum SubType {
+pub enum SubTypeTrue {
     #[serde(rename = "text_editor_20241022")]
     TextEditor20241022,
 }
 
-impl Default for SubType {
-    fn default() -> SubType {
+impl Default for SubTypeTrue {
+    fn default() -> SubTypeTrue {
         Self::TextEditor20241022
     }
 }
 /// The name of the tool, fixed to 'str_replace_editor'
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Name {
+pub enum NameTrue {
     #[serde(rename = "str_replace_editor")]
     StrReplaceEditor,
 }
 
-impl Default for Name {
-    fn default() -> Name {
+impl Default for NameTrue {
+    fn default() -> NameTrue {
         Self::StrReplaceEditor
     }
 }

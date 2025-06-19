@@ -28,19 +28,19 @@ impl Default for PhoneNumberPaginatedResponseResultsInner {
 }
 /// This is to use numbers bought on Telnyx.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "telnyx")]
     Telnyx,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Telnyx
     }
 }
 /// This is the status of the phone number.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "active")]
     Active,
     #[serde(rename = "activating")]
@@ -49,8 +49,8 @@ pub enum Status {
     Blocked,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Active
     }
 }

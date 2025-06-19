@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct ExactReplacement {
     /// This is the exact replacement type. You can use this to replace a specific word or phrase with a different word or phrase.  Usage: - Replace \"hello\" with \"hi\": { type: 'exact', key: 'hello', value: 'hi' } - Replace \"good morning\" with \"good day\": { type: 'exact', key: 'good morning', value: 'good day' } - Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' } - Replace an acronym: { type: 'exact', key: 'AI', value: 'Artificial Intelligence' } - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'Vapi', value: 'Vappy' }
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This option let's you control whether to replace all instances of the key or only the first one. By default, it only replaces the first instance. Examples: - For { type: 'exact', key: 'hello', value: 'hi', replaceAllEnabled: false }. Before: \"hello world, hello universe\" | After: \"hi world, hello universe\" - For { type: 'exact', key: 'hello', value: 'hi', replaceAllEnabled: true }. Before: \"hello world, hello universe\" | After: \"hi world, hi universe\" @default false
     #[serde(rename = "replaceAllEnabled", skip_serializing_if = "Option::is_none")]
     pub replace_all_enabled: Option<bool>,
@@ -28,7 +28,7 @@ pub struct ExactReplacement {
 }
 
 impl ExactReplacement {
-    pub fn new(r#type: Type, key: String, value: String) -> ExactReplacement {
+    pub fn new(r#type: TypeTrue, key: String, value: String) -> ExactReplacement {
         ExactReplacement {
             r#type,
             replace_all_enabled: None,
@@ -39,13 +39,13 @@ impl ExactReplacement {
 }
 /// This is the exact replacement type. You can use this to replace a specific word or phrase with a different word or phrase.  Usage: - Replace \"hello\" with \"hi\": { type: 'exact', key: 'hello', value: 'hi' } - Replace \"good morning\" with \"good day\": { type: 'exact', key: 'good morning', value: 'good day' } - Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' } - Replace an acronym: { type: 'exact', key: 'AI', value: 'Artificial Intelligence' } - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'Vapi', value: 'Vappy' }
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "exact")]
     Exact,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Exact
     }
 }

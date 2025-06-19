@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct ClientInboundMessageControl {
     /// This is the type of the message. Send \"control\" message to control the assistant. `control` options are: - \"mute-assistant\" - mute the assistant - \"unmute-assistant\" - unmute the assistant - \"say-first-message\" - say the first message (this is used when video recording is enabled and the conversation is only started once the client side kicks off the recording)
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the control action
     #[serde(rename = "control")]
-    pub control: Control,
+    pub control: ControlTrue,
 }
 
 impl ClientInboundMessageControl {
-    pub fn new(r#type: Type, control: Control) -> ClientInboundMessageControl {
+    pub fn new(r#type: TypeTrue, control: ControlTrue) -> ClientInboundMessageControl {
         ClientInboundMessageControl {
             r#type,
             control,
@@ -31,19 +31,19 @@ impl ClientInboundMessageControl {
 }
 /// This is the type of the message. Send \"control\" message to control the assistant. `control` options are: - \"mute-assistant\" - mute the assistant - \"unmute-assistant\" - unmute the assistant - \"say-first-message\" - say the first message (this is used when video recording is enabled and the conversation is only started once the client side kicks off the recording)
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "control")]
     Control,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Control
     }
 }
 /// This is the control action
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Control {
+pub enum ControlTrue {
     #[serde(rename = "mute-assistant")]
     MuteAssistant,
     #[serde(rename = "unmute-assistant")]
@@ -52,8 +52,8 @@ pub enum Control {
     SayFirstMessage,
 }
 
-impl Default for Control {
-    fn default() -> Control {
+impl Default for ControlTrue {
+    fn default() -> ControlTrue {
         Self::MuteAssistant
     }
 }

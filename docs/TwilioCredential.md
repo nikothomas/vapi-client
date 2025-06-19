@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **provider** | **String** |  | 
-**auth_token** | **String** | This is not returned in the API. | 
+**auth_token** | Option<**String**> | This is not returned in the API. | [optional]
+**api_key** | Option<**String**> | This is not returned in the API. | [optional]
+**api_secret** | Option<**String**> | This is not returned in the API. | [optional]
 **id** | **String** | This is the unique identifier for the credential. | 
 **org_id** | **String** | This is the unique identifier for the org that this credential belongs to. | 
 **created_at** | **String** | This is the ISO 8601 date-time string of when the credential was created. | 

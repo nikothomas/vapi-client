@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct CreateXaiCredentialDto {
     /// This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -25,7 +25,7 @@ pub struct CreateXaiCredentialDto {
 }
 
 impl CreateXaiCredentialDto {
-    pub fn new(provider: Provider, api_key: String) -> CreateXaiCredentialDto {
+    pub fn new(provider: ProviderTrue, api_key: String) -> CreateXaiCredentialDto {
         CreateXaiCredentialDto {
             provider,
             api_key,
@@ -35,13 +35,13 @@ impl CreateXaiCredentialDto {
 }
 /// This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "xai")]
     Xai,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Xai
     }
 }

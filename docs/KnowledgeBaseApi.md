@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## knowledge_base_controller_create
 
-> models::InlineResponse2012 knowledge_base_controller_create(knowledgebase_body)
+> models::KnowledgeBaseControllerFindAll200ResponseInner knowledge_base_controller_create(knowledge_base_controller_create_request)
 Create Knowledge Base
 
 ### Parameters
@@ -22,11 +22,11 @@ Create Knowledge Base
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**knowledgebase_body** | [**KnowledgebaseBody**](KnowledgebaseBody.md) |  | [required] |
+**knowledge_base_controller_create_request** | [**KnowledgeBaseControllerCreateRequest**](KnowledgeBaseControllerCreateRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::InlineResponse2012**](inline_response_201_2.md)
+[**models::KnowledgeBaseControllerFindAll200ResponseInner**](KnowledgeBaseController_findAll_200_response_inner.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## knowledge_base_controller_find_one
 
-> models::InlineResponse2012 knowledge_base_controller_find_one(id)
+> models::KnowledgeBaseControllerFindAll200ResponseInner knowledge_base_controller_find_one(id)
 Get Knowledge Base
 
 ### Parameters
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse2012**](inline_response_201_2.md)
+[**models::KnowledgeBaseControllerFindAll200ResponseInner**](KnowledgeBaseController_findAll_200_response_inner.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ## knowledge_base_controller_remove
 
-> models::InlineResponse2012 knowledge_base_controller_remove(id)
+> models::KnowledgeBaseControllerFindAll200ResponseInner knowledge_base_controller_remove(id)
 Delete Knowledge Base
 
 ### Parameters
@@ -118,7 +118,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse2012**](inline_response_201_2.md)
+[**models::KnowledgeBaseControllerFindAll200ResponseInner**](KnowledgeBaseController_findAll_200_response_inner.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Required | Notes
 
 ## knowledge_base_controller_update
 
-> models::InlineResponse2012 knowledge_base_controller_update(id, knowledgebase_id_body)
+> models::KnowledgeBaseControllerFindAll200ResponseInner knowledge_base_controller_update(id, knowledge_base_controller_update_request)
 Update Knowledge Base
 
 ### Parameters
@@ -143,11 +143,11 @@ Update Knowledge Base
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**knowledgebase_id_body** | [**KnowledgebaseIdBody**](KnowledgebaseIdBody.md) |  | [required] |
+**knowledge_base_controller_update_request** | [**KnowledgeBaseControllerUpdateRequest**](KnowledgeBaseControllerUpdateRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::InlineResponse2012**](inline_response_201_2.md)
+[**models::KnowledgeBaseControllerFindAll200ResponseInner**](KnowledgeBaseController_findAll_200_response_inner.md)
 
 ### Authorization
 

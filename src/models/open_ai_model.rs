@@ -23,19 +23,22 @@ pub struct OpenAiModel {
     #[serde(rename = "toolIds", skip_serializing_if = "Option::is_none")]
     pub tool_ids: Option<Vec<String>>,
     #[serde(rename = "knowledgeBase", skip_serializing_if = "Option::is_none")]
-    pub knowledge_base: Option<models::AnyscaleModelKnowledgeBase>,
+    pub knowledge_base: Option<models::CreateCustomKnowledgeBaseDto>,
     /// This is the ID of the knowledge base the model will use.
     #[serde(rename = "knowledgeBaseId", skip_serializing_if = "Option::is_none")]
     pub knowledge_base_id: Option<String>,
     /// This is the provider that will be used for the model.
     #[serde(rename = "provider")]
-    pub provider: Provider,
-    /// This is the OpenAI model that will be used.
+    pub provider: ProviderTrue,
+    /// This is the OpenAI model that will be used.  When using Vapi OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest region that make sense. This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.  @default undefined
     #[serde(rename = "model")]
-    pub model: Model,
+    pub model: ModelTrue,
     /// These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense.
     #[serde(rename = "fallbackModels", skip_serializing_if = "Option::is_none")]
-    pub fallback_models: Option<Vec<FallbackModels>>,
+    pub fallback_models: Option<Vec<FallbackModelsTrue>>,
+    /// Azure OpenAI doesn't support `maxLength` right now https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure%2Cdotnet-entra-id&pivots=programming-language-csharp#unsupported-type-specific-keywords. Need to strip.  - `strip-parameters-with-unsupported-validation` will strip parameters with unsupported validation. - `strip-unsupported-validation` will keep the parameters but strip unsupported validation.  @default `strip-unsupported-validation`
+    #[serde(rename = "toolStrictCompatibilityMode", skip_serializing_if = "Option::is_none")]
+    pub tool_strict_compatibility_mode: Option<ToolStrictCompatibilityModeTrue>,
     /// This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.
     #[serde(rename = "temperature", skip_serializing_if = "Option::is_none")]
     pub temperature: Option<f64>,
@@ -51,7 +54,7 @@ pub struct OpenAiModel {
 }
 
 impl OpenAiModel {
-    pub fn new(provider: Provider, model: Model) -> OpenAiModel {
+    pub fn new(provider: ProviderTrue, model: ModelTrue) -> OpenAiModel {
         OpenAiModel {
             messages: None,
             tools: None,
@@ -61,6 +64,7 @@ impl OpenAiModel {
             provider,
             model,
             fallback_models: None,
+            tool_strict_compatibility_mode: None,
             temperature: None,
             max_tokens: None,
             emotion_recognition_enabled: None,
@@ -70,19 +74,25 @@ impl OpenAiModel {
 }
 /// This is the provider that will be used for the model.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "openai")]
     Openai,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Openai
     }
 }
-/// This is the OpenAI model that will be used.
+/// This is the OpenAI model that will be used.  When using Vapi OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest region that make sense. This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.  @default undefined
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
+    #[serde(rename = "gpt-4.1-2025-04-14")]
+    Gpt4Period120250414,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14")]
+    Gpt4Period1Mini20250414,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14")]
+    Gpt4Period1Nano20250414,
     #[serde(rename = "gpt-4.1")]
     Gpt4Period1,
     #[serde(rename = "gpt-4.1-mini")]
@@ -93,8 +103,12 @@ pub enum Model {
     Gpt4Period5Preview,
     #[serde(rename = "chatgpt-4o-latest")]
     Chatgpt4oLatest,
+    #[serde(rename = "o3")]
+    O3,
     #[serde(rename = "o3-mini")]
     O3Mini,
+    #[serde(rename = "o4-mini")]
+    O4Mini,
     #[serde(rename = "o1-preview")]
     O1Preview,
     #[serde(rename = "o1-preview-2024-09-12")]
@@ -145,16 +159,142 @@ pub enum Model {
     Gpt3Period5Turbo16k,
     #[serde(rename = "gpt-3.5-turbo-0613")]
     Gpt3Period5Turbo0613,
+    #[serde(rename = "gpt-4.1-2025-04-14:westus")]
+    Gpt4Period120250414ColonWestus,
+    #[serde(rename = "gpt-4.1-2025-04-14:eastus2")]
+    Gpt4Period120250414ColonEastus2,
+    #[serde(rename = "gpt-4.1-2025-04-14:eastus")]
+    Gpt4Period120250414ColonEastus,
+    #[serde(rename = "gpt-4.1-2025-04-14:westus3")]
+    Gpt4Period120250414ColonWestus3,
+    #[serde(rename = "gpt-4.1-2025-04-14:northcentralus")]
+    Gpt4Period120250414ColonNorthcentralus,
+    #[serde(rename = "gpt-4.1-2025-04-14:southcentralus")]
+    Gpt4Period120250414ColonSouthcentralus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:westus")]
+    Gpt4Period1Mini20250414ColonWestus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:eastus2")]
+    Gpt4Period1Mini20250414ColonEastus2,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:eastus")]
+    Gpt4Period1Mini20250414ColonEastus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:westus3")]
+    Gpt4Period1Mini20250414ColonWestus3,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:northcentralus")]
+    Gpt4Period1Mini20250414ColonNorthcentralus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:southcentralus")]
+    Gpt4Period1Mini20250414ColonSouthcentralus,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:westus")]
+    Gpt4Period1Nano20250414ColonWestus,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:eastus2")]
+    Gpt4Period1Nano20250414ColonEastus2,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:westus3")]
+    Gpt4Period1Nano20250414ColonWestus3,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:northcentralus")]
+    Gpt4Period1Nano20250414ColonNorthcentralus,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:southcentralus")]
+    Gpt4Period1Nano20250414ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-11-20:swedencentral")]
+    Gpt4o20241120ColonSwedencentral,
+    #[serde(rename = "gpt-4o-2024-11-20:westus")]
+    Gpt4o20241120ColonWestus,
+    #[serde(rename = "gpt-4o-2024-11-20:eastus2")]
+    Gpt4o20241120ColonEastus2,
+    #[serde(rename = "gpt-4o-2024-11-20:eastus")]
+    Gpt4o20241120ColonEastus,
+    #[serde(rename = "gpt-4o-2024-11-20:westus3")]
+    Gpt4o20241120ColonWestus3,
+    #[serde(rename = "gpt-4o-2024-11-20:southcentralus")]
+    Gpt4o20241120ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-08-06:westus")]
+    Gpt4o20240806ColonWestus,
+    #[serde(rename = "gpt-4o-2024-08-06:westus3")]
+    Gpt4o20240806ColonWestus3,
+    #[serde(rename = "gpt-4o-2024-08-06:eastus")]
+    Gpt4o20240806ColonEastus,
+    #[serde(rename = "gpt-4o-2024-08-06:eastus2")]
+    Gpt4o20240806ColonEastus2,
+    #[serde(rename = "gpt-4o-2024-08-06:northcentralus")]
+    Gpt4o20240806ColonNorthcentralus,
+    #[serde(rename = "gpt-4o-2024-08-06:southcentralus")]
+    Gpt4o20240806ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:westus")]
+    Gpt4oMini20240718ColonWestus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:westus3")]
+    Gpt4oMini20240718ColonWestus3,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:eastus")]
+    Gpt4oMini20240718ColonEastus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:eastus2")]
+    Gpt4oMini20240718ColonEastus2,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:northcentralus")]
+    Gpt4oMini20240718ColonNorthcentralus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:southcentralus")]
+    Gpt4oMini20240718ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-05-13:eastus2")]
+    Gpt4o20240513ColonEastus2,
+    #[serde(rename = "gpt-4o-2024-05-13:eastus")]
+    Gpt4o20240513ColonEastus,
+    #[serde(rename = "gpt-4o-2024-05-13:northcentralus")]
+    Gpt4o20240513ColonNorthcentralus,
+    #[serde(rename = "gpt-4o-2024-05-13:southcentralus")]
+    Gpt4o20240513ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-05-13:westus3")]
+    Gpt4o20240513ColonWestus3,
+    #[serde(rename = "gpt-4o-2024-05-13:westus")]
+    Gpt4o20240513ColonWestus,
+    #[serde(rename = "gpt-4-turbo-2024-04-09:eastus2")]
+    Gpt4Turbo20240409ColonEastus2,
+    #[serde(rename = "gpt-4-0125-preview:eastus")]
+    Gpt40125PreviewColonEastus,
+    #[serde(rename = "gpt-4-0125-preview:northcentralus")]
+    Gpt40125PreviewColonNorthcentralus,
+    #[serde(rename = "gpt-4-0125-preview:southcentralus")]
+    Gpt40125PreviewColonSouthcentralus,
+    #[serde(rename = "gpt-4-1106-preview:australia")]
+    Gpt41106PreviewColonAustralia,
+    #[serde(rename = "gpt-4-1106-preview:canadaeast")]
+    Gpt41106PreviewColonCanadaeast,
+    #[serde(rename = "gpt-4-1106-preview:france")]
+    Gpt41106PreviewColonFrance,
+    #[serde(rename = "gpt-4-1106-preview:india")]
+    Gpt41106PreviewColonIndia,
+    #[serde(rename = "gpt-4-1106-preview:norway")]
+    Gpt41106PreviewColonNorway,
+    #[serde(rename = "gpt-4-1106-preview:swedencentral")]
+    Gpt41106PreviewColonSwedencentral,
+    #[serde(rename = "gpt-4-1106-preview:uk")]
+    Gpt41106PreviewColonUk,
+    #[serde(rename = "gpt-4-1106-preview:westus")]
+    Gpt41106PreviewColonWestus,
+    #[serde(rename = "gpt-4-1106-preview:westus3")]
+    Gpt41106PreviewColonWestus3,
+    #[serde(rename = "gpt-4-0613:canadaeast")]
+    Gpt40613ColonCanadaeast,
+    #[serde(rename = "gpt-3.5-turbo-0125:canadaeast")]
+    Gpt3Period5Turbo0125ColonCanadaeast,
+    #[serde(rename = "gpt-3.5-turbo-0125:northcentralus")]
+    Gpt3Period5Turbo0125ColonNorthcentralus,
+    #[serde(rename = "gpt-3.5-turbo-0125:southcentralus")]
+    Gpt3Period5Turbo0125ColonSouthcentralus,
+    #[serde(rename = "gpt-3.5-turbo-1106:canadaeast")]
+    Gpt3Period5Turbo1106ColonCanadaeast,
+    #[serde(rename = "gpt-3.5-turbo-1106:westus")]
+    Gpt3Period5Turbo1106ColonWestus,
 }
 
-impl Default for Model {
-    fn default() -> Model {
-        Self::Gpt4Period1
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
+        Self::Gpt4Period120250414
     }
 }
 /// These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum FallbackModels {
+pub enum FallbackModelsTrue {
+    #[serde(rename = "gpt-4.1-2025-04-14")]
+    Gpt4Period120250414,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14")]
+    Gpt4Period1Mini20250414,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14")]
+    Gpt4Period1Nano20250414,
     #[serde(rename = "gpt-4.1")]
     Gpt4Period1,
     #[serde(rename = "gpt-4.1-mini")]
@@ -165,8 +305,12 @@ pub enum FallbackModels {
     Gpt4Period5Preview,
     #[serde(rename = "chatgpt-4o-latest")]
     Chatgpt4oLatest,
+    #[serde(rename = "o3")]
+    O3,
     #[serde(rename = "o3-mini")]
     O3Mini,
+    #[serde(rename = "o4-mini")]
+    O4Mini,
     #[serde(rename = "o1-preview")]
     O1Preview,
     #[serde(rename = "o1-preview-2024-09-12")]
@@ -217,11 +361,145 @@ pub enum FallbackModels {
     Gpt3Period5Turbo16k,
     #[serde(rename = "gpt-3.5-turbo-0613")]
     Gpt3Period5Turbo0613,
+    #[serde(rename = "gpt-4.1-2025-04-14:westus")]
+    Gpt4Period120250414ColonWestus,
+    #[serde(rename = "gpt-4.1-2025-04-14:eastus2")]
+    Gpt4Period120250414ColonEastus2,
+    #[serde(rename = "gpt-4.1-2025-04-14:eastus")]
+    Gpt4Period120250414ColonEastus,
+    #[serde(rename = "gpt-4.1-2025-04-14:westus3")]
+    Gpt4Period120250414ColonWestus3,
+    #[serde(rename = "gpt-4.1-2025-04-14:northcentralus")]
+    Gpt4Period120250414ColonNorthcentralus,
+    #[serde(rename = "gpt-4.1-2025-04-14:southcentralus")]
+    Gpt4Period120250414ColonSouthcentralus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:westus")]
+    Gpt4Period1Mini20250414ColonWestus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:eastus2")]
+    Gpt4Period1Mini20250414ColonEastus2,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:eastus")]
+    Gpt4Period1Mini20250414ColonEastus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:westus3")]
+    Gpt4Period1Mini20250414ColonWestus3,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:northcentralus")]
+    Gpt4Period1Mini20250414ColonNorthcentralus,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14:southcentralus")]
+    Gpt4Period1Mini20250414ColonSouthcentralus,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:westus")]
+    Gpt4Period1Nano20250414ColonWestus,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:eastus2")]
+    Gpt4Period1Nano20250414ColonEastus2,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:westus3")]
+    Gpt4Period1Nano20250414ColonWestus3,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:northcentralus")]
+    Gpt4Period1Nano20250414ColonNorthcentralus,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14:southcentralus")]
+    Gpt4Period1Nano20250414ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-11-20:swedencentral")]
+    Gpt4o20241120ColonSwedencentral,
+    #[serde(rename = "gpt-4o-2024-11-20:westus")]
+    Gpt4o20241120ColonWestus,
+    #[serde(rename = "gpt-4o-2024-11-20:eastus2")]
+    Gpt4o20241120ColonEastus2,
+    #[serde(rename = "gpt-4o-2024-11-20:eastus")]
+    Gpt4o20241120ColonEastus,
+    #[serde(rename = "gpt-4o-2024-11-20:westus3")]
+    Gpt4o20241120ColonWestus3,
+    #[serde(rename = "gpt-4o-2024-11-20:southcentralus")]
+    Gpt4o20241120ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-08-06:westus")]
+    Gpt4o20240806ColonWestus,
+    #[serde(rename = "gpt-4o-2024-08-06:westus3")]
+    Gpt4o20240806ColonWestus3,
+    #[serde(rename = "gpt-4o-2024-08-06:eastus")]
+    Gpt4o20240806ColonEastus,
+    #[serde(rename = "gpt-4o-2024-08-06:eastus2")]
+    Gpt4o20240806ColonEastus2,
+    #[serde(rename = "gpt-4o-2024-08-06:northcentralus")]
+    Gpt4o20240806ColonNorthcentralus,
+    #[serde(rename = "gpt-4o-2024-08-06:southcentralus")]
+    Gpt4o20240806ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:westus")]
+    Gpt4oMini20240718ColonWestus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:westus3")]
+    Gpt4oMini20240718ColonWestus3,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:eastus")]
+    Gpt4oMini20240718ColonEastus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:eastus2")]
+    Gpt4oMini20240718ColonEastus2,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:northcentralus")]
+    Gpt4oMini20240718ColonNorthcentralus,
+    #[serde(rename = "gpt-4o-mini-2024-07-18:southcentralus")]
+    Gpt4oMini20240718ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-05-13:eastus2")]
+    Gpt4o20240513ColonEastus2,
+    #[serde(rename = "gpt-4o-2024-05-13:eastus")]
+    Gpt4o20240513ColonEastus,
+    #[serde(rename = "gpt-4o-2024-05-13:northcentralus")]
+    Gpt4o20240513ColonNorthcentralus,
+    #[serde(rename = "gpt-4o-2024-05-13:southcentralus")]
+    Gpt4o20240513ColonSouthcentralus,
+    #[serde(rename = "gpt-4o-2024-05-13:westus3")]
+    Gpt4o20240513ColonWestus3,
+    #[serde(rename = "gpt-4o-2024-05-13:westus")]
+    Gpt4o20240513ColonWestus,
+    #[serde(rename = "gpt-4-turbo-2024-04-09:eastus2")]
+    Gpt4Turbo20240409ColonEastus2,
+    #[serde(rename = "gpt-4-0125-preview:eastus")]
+    Gpt40125PreviewColonEastus,
+    #[serde(rename = "gpt-4-0125-preview:northcentralus")]
+    Gpt40125PreviewColonNorthcentralus,
+    #[serde(rename = "gpt-4-0125-preview:southcentralus")]
+    Gpt40125PreviewColonSouthcentralus,
+    #[serde(rename = "gpt-4-1106-preview:australia")]
+    Gpt41106PreviewColonAustralia,
+    #[serde(rename = "gpt-4-1106-preview:canadaeast")]
+    Gpt41106PreviewColonCanadaeast,
+    #[serde(rename = "gpt-4-1106-preview:france")]
+    Gpt41106PreviewColonFrance,
+    #[serde(rename = "gpt-4-1106-preview:india")]
+    Gpt41106PreviewColonIndia,
+    #[serde(rename = "gpt-4-1106-preview:norway")]
+    Gpt41106PreviewColonNorway,
+    #[serde(rename = "gpt-4-1106-preview:swedencentral")]
+    Gpt41106PreviewColonSwedencentral,
+    #[serde(rename = "gpt-4-1106-preview:uk")]
+    Gpt41106PreviewColonUk,
+    #[serde(rename = "gpt-4-1106-preview:westus")]
+    Gpt41106PreviewColonWestus,
+    #[serde(rename = "gpt-4-1106-preview:westus3")]
+    Gpt41106PreviewColonWestus3,
+    #[serde(rename = "gpt-4-0613:canadaeast")]
+    Gpt40613ColonCanadaeast,
+    #[serde(rename = "gpt-3.5-turbo-0125:canadaeast")]
+    Gpt3Period5Turbo0125ColonCanadaeast,
+    #[serde(rename = "gpt-3.5-turbo-0125:northcentralus")]
+    Gpt3Period5Turbo0125ColonNorthcentralus,
+    #[serde(rename = "gpt-3.5-turbo-0125:southcentralus")]
+    Gpt3Period5Turbo0125ColonSouthcentralus,
+    #[serde(rename = "gpt-3.5-turbo-1106:canadaeast")]
+    Gpt3Period5Turbo1106ColonCanadaeast,
+    #[serde(rename = "gpt-3.5-turbo-1106:westus")]
+    Gpt3Period5Turbo1106ColonWestus,
 }
 
-impl Default for FallbackModels {
-    fn default() -> FallbackModels {
-        Self::Gpt4Period1
+impl Default for FallbackModelsTrue {
+    fn default() -> FallbackModelsTrue {
+        Self::Gpt4Period120250414
+    }
+}
+/// Azure OpenAI doesn't support `maxLength` right now https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure%2Cdotnet-entra-id&pivots=programming-language-csharp#unsupported-type-specific-keywords. Need to strip.  - `strip-parameters-with-unsupported-validation` will strip parameters with unsupported validation. - `strip-unsupported-validation` will keep the parameters but strip unsupported validation.  @default `strip-unsupported-validation`
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum ToolStrictCompatibilityModeTrue {
+    #[serde(rename = "strip-parameters-with-unsupported-validation")]
+    StripParametersWithUnsupportedValidation,
+    #[serde(rename = "strip-unsupported-validation")]
+    StripUnsupportedValidation,
+}
+
+impl Default for ToolStrictCompatibilityModeTrue {
+    fn default() -> ToolStrictCompatibilityModeTrue {
+        Self::StripParametersWithUnsupportedValidation
     }
 }
 

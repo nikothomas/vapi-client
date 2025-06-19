@@ -13,11 +13,25 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientMessageTransferUpdate {
+    #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
+    pub phone_number: Option<models::ClientMessageWorkflowNodeStartedPhoneNumber>,
     /// This is the type of the message. \"transfer-update\" is sent whenever a transfer happens.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     #[serde(rename = "destination", skip_serializing_if = "Option::is_none")]
     pub destination: Option<models::ClientMessageTransferUpdateDestination>,
+    /// This is the timestamp of the message.
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<f64>,
+    /// This is the call that the message is associated with.
+    #[serde(rename = "call", skip_serializing_if = "Option::is_none")]
+    pub call: Option<models::Call>,
+    /// This is the customer that the message is associated with.
+    #[serde(rename = "customer", skip_serializing_if = "Option::is_none")]
+    pub customer: Option<models::CreateCustomerDto>,
+    /// This is the assistant that the message is associated with.
+    #[serde(rename = "assistant", skip_serializing_if = "Option::is_none")]
+    pub assistant: Option<models::CreateAssistantDto>,
     /// This is the assistant that the call is being transferred to. This is only sent if `destination.type` is \"assistant\".
     #[serde(rename = "toAssistant", skip_serializing_if = "Option::is_none")]
     pub to_assistant: Option<models::CreateAssistantDto>,
@@ -33,10 +47,15 @@ pub struct ClientMessageTransferUpdate {
 }
 
 impl ClientMessageTransferUpdate {
-    pub fn new(r#type: Type) -> ClientMessageTransferUpdate {
+    pub fn new(r#type: TypeTrue) -> ClientMessageTransferUpdate {
         ClientMessageTransferUpdate {
+            phone_number: None,
             r#type,
             destination: None,
+            timestamp: None,
+            call: None,
+            customer: None,
+            assistant: None,
             to_assistant: None,
             from_assistant: None,
             to_step_record: None,
@@ -46,13 +65,13 @@ impl ClientMessageTransferUpdate {
 }
 /// This is the type of the message. \"transfer-update\" is sent whenever a transfer happens.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "transfer-update")]
     TransferUpdate,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::TransferUpdate
     }
 }

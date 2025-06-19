@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct OpenAiFunctionParameters {
     /// This must be set to 'object'. It instructs the model to return a JSON object containing the function call properties.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This provides a description of the properties required by the function. JSON Schema can be used to specify expectations for each property. Refer to [this doc](https://ajv.js.org/json-schema.html#json-data-type) for a comprehensive guide on JSON Schema.
     #[serde(rename = "properties")]
     pub properties: std::collections::HashMap<String, models::JsonSchema>,
@@ -25,7 +25,7 @@ pub struct OpenAiFunctionParameters {
 }
 
 impl OpenAiFunctionParameters {
-    pub fn new(r#type: Type, properties: std::collections::HashMap<String, models::JsonSchema>) -> OpenAiFunctionParameters {
+    pub fn new(r#type: TypeTrue, properties: std::collections::HashMap<String, models::JsonSchema>) -> OpenAiFunctionParameters {
         OpenAiFunctionParameters {
             r#type,
             properties,
@@ -35,13 +35,13 @@ impl OpenAiFunctionParameters {
 }
 /// This must be set to 'object'. It instructs the model to return a JSON object containing the function call properties.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "object")]
     Object,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Object
     }
 }

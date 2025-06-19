@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpdateAzureOpenAiCredentialDto {
     #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
-    pub region: Option<Region>,
+    pub region: Option<RegionTrue>,
     #[serde(rename = "models", skip_serializing_if = "Option::is_none")]
-    pub models: Option<Vec<Models>>,
+    pub models: Option<Vec<ModelsTrue>>,
     /// This is not returned in the API.
     #[serde(rename = "openAIKey", skip_serializing_if = "Option::is_none")]
     pub open_ai_key: Option<String>,
@@ -44,7 +44,7 @@ impl UpdateAzureOpenAiCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Region {
+pub enum RegionTrue {
     #[serde(rename = "australia")]
     Australia,
     #[serde(rename = "canadaeast")]
@@ -83,22 +83,28 @@ pub enum Region {
     Westus3,
 }
 
-impl Default for Region {
-    fn default() -> Region {
+impl Default for RegionTrue {
+    fn default() -> RegionTrue {
         Self::Australia
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Models {
+pub enum ModelsTrue {
+    #[serde(rename = "gpt-4.1-2025-04-14")]
+    Gpt4Period120250414,
+    #[serde(rename = "gpt-4.1-mini-2025-04-14")]
+    Gpt4Period1Mini20250414,
+    #[serde(rename = "gpt-4.1-nano-2025-04-14")]
+    Gpt4Period1Nano20250414,
     #[serde(rename = "gpt-4o-2024-11-20")]
     Gpt4o20241120,
     #[serde(rename = "gpt-4o-2024-08-06")]
     Gpt4o20240806,
-    #[serde(rename = "gpt-4o-mini-2024-07-18")]
-    Gpt4oMini20240718,
     #[serde(rename = "gpt-4o-2024-05-13")]
     Gpt4o20240513,
+    #[serde(rename = "gpt-4o-mini-2024-07-18")]
+    Gpt4oMini20240718,
     #[serde(rename = "gpt-4-turbo-2024-04-09")]
     Gpt4Turbo20240409,
     #[serde(rename = "gpt-4-0125-preview")]
@@ -113,9 +119,9 @@ pub enum Models {
     Gpt35Turbo1106,
 }
 
-impl Default for Models {
-    fn default() -> Models {
-        Self::Gpt4o20241120
+impl Default for ModelsTrue {
+    fn default() -> ModelsTrue {
+        Self::Gpt4Period120250414
     }
 }
 

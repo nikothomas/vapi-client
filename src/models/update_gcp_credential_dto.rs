@@ -13,13 +13,18 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpdateGcpCredentialDto {
+    /// This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order.
+    #[serde(rename = "fallbackIndex", skip_serializing_if = "Option::is_none")]
+    pub fallback_index: Option<f64>,
     /// This is the name of credential. This is just for your reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// This is the GCP key. This is the JSON that can be generated in the Google Cloud Console at https://console.cloud.google.com/iam-admin/serviceaccounts/details/<service-account-id>/keys.  The schema is identical to the JSON that GCP outputs.
     #[serde(rename = "gcpKey", skip_serializing_if = "Option::is_none")]
     pub gcp_key: Option<models::GcpKey>,
-    /// This is the bucket plan that can be provided to store call artifacts in GCP.
+    /// This is the region of the GCP resource.
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
     #[serde(rename = "bucketPlan", skip_serializing_if = "Option::is_none")]
     pub bucket_plan: Option<models::BucketPlan>,
 }
@@ -27,8 +32,10 @@ pub struct UpdateGcpCredentialDto {
 impl UpdateGcpCredentialDto {
     pub fn new() -> UpdateGcpCredentialDto {
         UpdateGcpCredentialDto {
+            fallback_index: None,
             name: None,
             gcp_key: None,
+            region: None,
             bucket_plan: None,
         }
     }

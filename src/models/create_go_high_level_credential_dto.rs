@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateGoHighLevelCredentialDto {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -24,7 +24,7 @@ pub struct CreateGoHighLevelCredentialDto {
 }
 
 impl CreateGoHighLevelCredentialDto {
-    pub fn new(provider: Provider, api_key: String) -> CreateGoHighLevelCredentialDto {
+    pub fn new(provider: ProviderTrue, api_key: String) -> CreateGoHighLevelCredentialDto {
         CreateGoHighLevelCredentialDto {
             provider,
             api_key,
@@ -34,13 +34,13 @@ impl CreateGoHighLevelCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "gohighlevel")]
     Gohighlevel,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Gohighlevel
     }
 }

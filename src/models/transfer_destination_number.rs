@@ -16,7 +16,7 @@ pub struct TransferDestinationNumber {
     #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
     pub message: Option<models::TransferDestinationAssistantMessage>,
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.  Use cases: - `false`: To allow non-E164 numbers like `+001234567890`, `1234`, or `abc`. This is useful for dialing out to non-E164 numbers on your SIP trunks. - `true` (default): To allow only E164 numbers like `+14155551234`. This is standard for PSTN calls.  If `false`, the `number` is still required to only contain alphanumeric characters (regex: `/^\\+?[a-zA-Z0-9]+$/`).  @default true (E164 check is enabled)
     #[serde(rename = "numberE164CheckEnabled", skip_serializing_if = "Option::is_none")]
     pub number_e164_check_enabled: Option<bool>,
@@ -38,7 +38,7 @@ pub struct TransferDestinationNumber {
 }
 
 impl TransferDestinationNumber {
-    pub fn new(r#type: Type, number: String) -> TransferDestinationNumber {
+    pub fn new(r#type: TypeTrue, number: String) -> TransferDestinationNumber {
         TransferDestinationNumber {
             message: None,
             r#type,
@@ -53,13 +53,13 @@ impl TransferDestinationNumber {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "number")]
     Number,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Number
     }
 }

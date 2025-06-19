@@ -23,15 +23,15 @@ pub struct GroqModel {
     #[serde(rename = "toolIds", skip_serializing_if = "Option::is_none")]
     pub tool_ids: Option<Vec<String>>,
     #[serde(rename = "knowledgeBase", skip_serializing_if = "Option::is_none")]
-    pub knowledge_base: Option<models::AnyscaleModelKnowledgeBase>,
+    pub knowledge_base: Option<models::CreateCustomKnowledgeBaseDto>,
     /// This is the ID of the knowledge base the model will use.
     #[serde(rename = "knowledgeBaseId", skip_serializing_if = "Option::is_none")]
     pub knowledge_base_id: Option<String>,
     /// This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
     #[serde(rename = "model")]
-    pub model: Model,
+    pub model: ModelTrue,
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.
     #[serde(rename = "temperature", skip_serializing_if = "Option::is_none")]
     pub temperature: Option<f64>,
@@ -47,7 +47,7 @@ pub struct GroqModel {
 }
 
 impl GroqModel {
-    pub fn new(model: Model, provider: Provider) -> GroqModel {
+    pub fn new(model: ModelTrue, provider: ProviderTrue) -> GroqModel {
         GroqModel {
             messages: None,
             tools: None,
@@ -65,41 +65,47 @@ impl GroqModel {
 }
 /// This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "deepseek-r1-distill-llama-70b")]
     DeepseekR1DistillLlama70b,
     #[serde(rename = "llama-3.3-70b-versatile")]
     Llama3Period370bVersatile,
     #[serde(rename = "llama-3.1-405b-reasoning")]
     Llama3Period1405bReasoning,
-    #[serde(rename = "llama-3.1-70b-versatile")]
-    Llama3Period170bVersatile,
     #[serde(rename = "llama-3.1-8b-instant")]
     Llama3Period18bInstant,
-    #[serde(rename = "mixtral-8x7b-32768")]
-    Mixtral8x7b32768,
     #[serde(rename = "llama3-8b-8192")]
     Llama38b8192,
     #[serde(rename = "llama3-70b-8192")]
     Llama370b8192,
     #[serde(rename = "gemma2-9b-it")]
     Gemma29bIt,
+    #[serde(rename = "meta-llama/llama-4-maverick-17b-128e-instruct")]
+    MetaLlamaSlashLlama4Maverick17b128eInstruct,
+    #[serde(rename = "meta-llama/llama-4-scout-17b-16e-instruct")]
+    MetaLlamaSlashLlama4Scout17b16eInstruct,
+    #[serde(rename = "mistral-saba-24b")]
+    MistralSaba24b,
+    #[serde(rename = "compound-beta")]
+    CompoundBeta,
+    #[serde(rename = "compound-beta-mini")]
+    CompoundBetaMini,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::DeepseekR1DistillLlama70b
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "groq")]
     Groq,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Groq
     }
 }

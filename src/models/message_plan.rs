@@ -19,6 +19,9 @@ pub struct MessagePlan {
     /// This determines the maximum number of times `idleMessages` can be spoken during the call.  @default 3
     #[serde(rename = "idleMessageMaxSpokenCount", skip_serializing_if = "Option::is_none")]
     pub idle_message_max_spoken_count: Option<f64>,
+    /// This determines whether the idle message count is reset whenever the user speaks.  @default false
+    #[serde(rename = "idleMessageResetCountOnUserSpeechEnabled", skip_serializing_if = "Option::is_none")]
+    pub idle_message_reset_count_on_user_speech_enabled: Option<bool>,
     /// This is the timeout in seconds before a message from `idleMessages` is spoken. The clock starts when the assistant finishes speaking and remains active until the user speaks.  @default 10
     #[serde(rename = "idleTimeoutSeconds", skip_serializing_if = "Option::is_none")]
     pub idle_timeout_seconds: Option<f64>,
@@ -32,6 +35,7 @@ impl MessagePlan {
         MessagePlan {
             idle_messages: None,
             idle_message_max_spoken_count: None,
+            idle_message_reset_count_on_user_speech_enabled: None,
             idle_timeout_seconds: None,
             silence_timeout_message: None,
         }

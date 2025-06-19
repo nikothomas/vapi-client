@@ -48,12 +48,18 @@ pub struct Org {
     /// This is the plan for the org.
     #[serde(rename = "plan", skip_serializing_if = "Option::is_none")]
     pub plan: Option<models::OrgPlan>,
+    /// This is the secret key used for signing JWT tokens for the org.
+    #[serde(rename = "jwtSecret", skip_serializing_if = "Option::is_none")]
+    pub jwt_secret: Option<String>,
+    /// This is the total number of call minutes used by this org across all time.
+    #[serde(rename = "minutesUsed", skip_serializing_if = "Option::is_none")]
+    pub minutes_used: Option<f64>,
     /// This is the name of the org. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     /// This is the channel of the org. There is the cluster the API traffic for the org will be directed.
     #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
-    pub channel: Option<Channel>,
+    pub channel: Option<ChannelTrue>,
     /// This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@vapi.ai.
     #[serde(rename = "billingLimit", skip_serializing_if = "Option::is_none")]
     pub billing_limit: Option<f64>,
@@ -83,6 +89,8 @@ impl Org {
             stripe_subscription_current_period_start: None,
             stripe_subscription_status: None,
             plan: None,
+            jwt_secret: None,
+            minutes_used: None,
             name: None,
             channel: None,
             billing_limit: None,
@@ -94,15 +102,15 @@ impl Org {
 }
 /// This is the channel of the org. There is the cluster the API traffic for the org will be directed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Channel {
+pub enum ChannelTrue {
     #[serde(rename = "default")]
     Default,
     #[serde(rename = "weekly")]
     Weekly,
 }
 
-impl Default for Channel {
-    fn default() -> Channel {
+impl Default for ChannelTrue {
+    fn default() -> ChannelTrue {
         Self::Default
     }
 }

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**caching_enabled** | Option<**bool**> | This is the flag to toggle voice caching for the assistant. | [optional][default to true]
 **provider** | **String** | This is the voice provider that will be used. | 
 **voice_id** | [**models::ElevenLabsVoiceVoiceId**](ElevenLabsVoice_voiceId.md) |  | 
 **stability** | Option<**f64**> | Defines the stability for voice settings. | [optional]

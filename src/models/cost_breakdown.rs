@@ -28,6 +28,9 @@ pub struct CostBreakdown {
     /// This is the cost of Vapi.
     #[serde(rename = "vapi", skip_serializing_if = "Option::is_none")]
     pub vapi: Option<f64>,
+    /// This is the cost of chat interactions.
+    #[serde(rename = "chat", skip_serializing_if = "Option::is_none")]
+    pub chat: Option<f64>,
     /// This is the total cost of the call.
     #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
     pub total: Option<f64>,
@@ -53,6 +56,7 @@ impl CostBreakdown {
             llm: None,
             tts: None,
             vapi: None,
+            chat: None,
             total: None,
             llm_prompt_tokens: None,
             llm_completion_tokens: None,

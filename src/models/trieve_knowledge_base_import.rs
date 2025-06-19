@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct TrieveKnowledgeBaseImport {
     /// This is to import an existing dataset from Trieve.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the `datasetId` of the dataset on your Trieve account.
     #[serde(rename = "providerId")]
     pub provider_id: String,
 }
 
 impl TrieveKnowledgeBaseImport {
-    pub fn new(r#type: Type, provider_id: String) -> TrieveKnowledgeBaseImport {
+    pub fn new(r#type: TypeTrue, provider_id: String) -> TrieveKnowledgeBaseImport {
         TrieveKnowledgeBaseImport {
             r#type,
             provider_id,
@@ -31,13 +31,13 @@ impl TrieveKnowledgeBaseImport {
 }
 /// This is to import an existing dataset from Trieve.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "import")]
     Import,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Import
     }
 }

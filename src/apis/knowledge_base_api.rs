@@ -51,9 +51,9 @@ pub enum KnowledgeBaseControllerUpdateError {
 }
 
 
-pub async fn knowledge_base_controller_create(configuration: &configuration::Configuration, knowledgebase_body: models::KnowledgebaseBody) -> Result<models::InlineResponse2012, Error<KnowledgeBaseControllerCreateError>> {
+pub async fn knowledge_base_controller_create(configuration: &configuration::Configuration, knowledge_base_controller_create_request: models::KnowledgeBaseControllerCreateRequest) -> Result<models::KnowledgeBaseControllerFindAll200ResponseInner, Error<KnowledgeBaseControllerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_knowledgebase_body = knowledgebase_body;
+    let p_knowledge_base_controller_create_request = knowledge_base_controller_create_request;
 
     let uri_str = format!("{}/knowledge-base", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -64,7 +64,7 @@ pub async fn knowledge_base_controller_create(configuration: &configuration::Con
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_knowledgebase_body);
+    req_builder = req_builder.json(&p_knowledge_base_controller_create_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -81,8 +81,8 @@ pub async fn knowledge_base_controller_create(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2012`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2012`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -165,7 +165,7 @@ pub async fn knowledge_base_controller_find_all(configuration: &configuration::C
     }
 }
 
-pub async fn knowledge_base_controller_find_one(configuration: &configuration::Configuration, id: &str) -> Result<models::InlineResponse2012, Error<KnowledgeBaseControllerFindOneError>> {
+pub async fn knowledge_base_controller_find_one(configuration: &configuration::Configuration, id: &str) -> Result<models::KnowledgeBaseControllerFindAll200ResponseInner, Error<KnowledgeBaseControllerFindOneError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -194,8 +194,8 @@ pub async fn knowledge_base_controller_find_one(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2012`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2012`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -204,7 +204,7 @@ pub async fn knowledge_base_controller_find_one(configuration: &configuration::C
     }
 }
 
-pub async fn knowledge_base_controller_remove(configuration: &configuration::Configuration, id: &str) -> Result<models::InlineResponse2012, Error<KnowledgeBaseControllerRemoveError>> {
+pub async fn knowledge_base_controller_remove(configuration: &configuration::Configuration, id: &str) -> Result<models::KnowledgeBaseControllerFindAll200ResponseInner, Error<KnowledgeBaseControllerRemoveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -233,8 +233,8 @@ pub async fn knowledge_base_controller_remove(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2012`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2012`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -243,10 +243,10 @@ pub async fn knowledge_base_controller_remove(configuration: &configuration::Con
     }
 }
 
-pub async fn knowledge_base_controller_update(configuration: &configuration::Configuration, id: &str, knowledgebase_id_body: models::KnowledgebaseIdBody) -> Result<models::InlineResponse2012, Error<KnowledgeBaseControllerUpdateError>> {
+pub async fn knowledge_base_controller_update(configuration: &configuration::Configuration, id: &str, knowledge_base_controller_update_request: models::KnowledgeBaseControllerUpdateRequest) -> Result<models::KnowledgeBaseControllerFindAll200ResponseInner, Error<KnowledgeBaseControllerUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
-    let p_knowledgebase_id_body = knowledgebase_id_body;
+    let p_knowledge_base_controller_update_request = knowledge_base_controller_update_request;
 
     let uri_str = format!("{}/knowledge-base/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -257,7 +257,7 @@ pub async fn knowledge_base_controller_update(configuration: &configuration::Con
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_knowledgebase_id_body);
+    req_builder = req_builder.json(&p_knowledge_base_controller_update_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -274,8 +274,8 @@ pub async fn knowledge_base_controller_update(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2012`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2012`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::KnowledgeBaseControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;

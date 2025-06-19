@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**caching_enabled** | Option<**bool**> | This is the flag to toggle voice caching for the assistant. | [optional][default to true]
 **provider** | **String** | This is the voice provider that will be used. | 
 **voice_id** | [**models::OpenAiVoiceVoiceId**](OpenAIVoice_voiceId.md) |  | 
 **model** | Option<**String**> | This is the model that will be used for text-to-speech. | [optional]

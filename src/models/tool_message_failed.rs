@@ -18,7 +18,7 @@ pub struct ToolMessageFailed {
     pub contents: Option<Vec<models::ToolMessageStartContentsInner>>,
     /// This message is triggered when the tool call fails.  This message is never triggered for async tool calls.  If this message is not provided, the model will be requested to respond.  If this message is provided, only this message will be spoken and the model will not be requested to come up with a response. It's an exclusive OR.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is an optional boolean that if true, the call will end after the message is spoken. Default is false.  @default false
     #[serde(rename = "endCallAfterSpokenEnabled", skip_serializing_if = "Option::is_none")]
     pub end_call_after_spoken_enabled: Option<bool>,
@@ -31,7 +31,7 @@ pub struct ToolMessageFailed {
 }
 
 impl ToolMessageFailed {
-    pub fn new(r#type: Type) -> ToolMessageFailed {
+    pub fn new(r#type: TypeTrue) -> ToolMessageFailed {
         ToolMessageFailed {
             contents: None,
             r#type,
@@ -43,13 +43,13 @@ impl ToolMessageFailed {
 }
 /// This message is triggered when the tool call fails.  This message is never triggered for async tool calls.  If this message is not provided, the model will be requested to respond.  If this message is provided, only this message will be spoken and the model will not be requested to come up with a response. It's an exclusive OR.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "request-failed")]
     RequestFailed,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::RequestFailed
     }
 }

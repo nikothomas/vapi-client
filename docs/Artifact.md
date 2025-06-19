@@ -10,8 +10,11 @@ Name | Type | Description | Notes
 **stereo_recording_url** | Option<**String**> | This is the stereo recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`. | [optional]
 **video_recording_url** | Option<**String**> | This is video recording url for the call. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. | [optional]
 **video_recording_start_delay_seconds** | Option<**f64**> | This is video recording start delay in ms. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. This can be used to align the playback of the recording with artifact.messages timestamps. | [optional]
+**recording** | Option<[**models::Recording**](Recording.md)> | This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`. | [optional]
 **transcript** | Option<**String**> | This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience. | [optional]
 **pcap_url** | Option<**String**> | This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`. | [optional]
+**nodes** | Option<[**Vec<models::NodeArtifact>**](NodeArtifact.md)> | This is the history of workflow nodes that were executed during the call. | [optional]
+**variables** | Option<[**serde_json::Value**](.md)> | This is the state of variables at the end of the workflow execution. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

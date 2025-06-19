@@ -17,6 +17,7 @@ use serde::{Deserialize, Serialize};
 #[serde(untagged)]
 pub enum DeepgramTranscriberModel {
     String(String),
+    String(String),
 }
 
 impl Default for DeepgramTranscriberModel {

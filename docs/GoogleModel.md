@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **messages** | Option<[**Vec<models::OpenAiMessage>**](OpenAIMessage.md)> | This is the starting state for the conversation. | [optional]
 **tools** | Option<[**Vec<models::AnyscaleModelToolsInner>**](AnyscaleModel_tools_inner.md)> | These are the tools that the assistant can use during the call. To use existing tools, use `toolIds`.  Both `tools` and `toolIds` can be used together. | [optional]
 **tool_ids** | Option<**Vec<String>**> | These are the tools that the assistant can use during the call. To use transient tools, use `tools`.  Both `tools` and `toolIds` can be used together. | [optional]
-**knowledge_base** | Option<[**models::AnyscaleModelKnowledgeBase**](AnyscaleModel_knowledgeBase.md)> |  | [optional]
+**knowledge_base** | Option<[**models::CreateCustomKnowledgeBaseDto**](CreateCustomKnowledgeBaseDTO.md)> |  | [optional]
 **knowledge_base_id** | Option<**String**> | This is the ID of the knowledge base the model will use. | [optional]
 **model** | **String** | This is the Google model that will be used. | 
 **provider** | **String** |  | 

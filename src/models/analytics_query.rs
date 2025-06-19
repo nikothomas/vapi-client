@@ -15,10 +15,10 @@ use serde::{Deserialize, Serialize};
 pub struct AnalyticsQuery {
     /// This is the table you want to query.
     #[serde(rename = "table")]
-    pub table: Table,
+    pub table: TableTrue,
     /// This is the list of columns you want to group by.
     #[serde(rename = "groupBy", skip_serializing_if = "Option::is_none")]
-    pub group_by: Option<Vec<GroupBy>>,
+    pub group_by: Option<Vec<GroupByTrue>>,
     /// This is the name of the query. This will be used to identify the query in the response.
     #[serde(rename = "name")]
     pub name: String,
@@ -31,7 +31,7 @@ pub struct AnalyticsQuery {
 }
 
 impl AnalyticsQuery {
-    pub fn new(table: Table, name: String, operations: Vec<models::AnalyticsOperation>) -> AnalyticsQuery {
+    pub fn new(table: TableTrue, name: String, operations: Vec<models::AnalyticsOperation>) -> AnalyticsQuery {
         AnalyticsQuery {
             table,
             group_by: None,
@@ -43,21 +43,21 @@ impl AnalyticsQuery {
 }
 /// This is the table you want to query.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Table {
+pub enum TableTrue {
     #[serde(rename = "call")]
     Call,
     #[serde(rename = "subscription")]
     Subscription,
 }
 
-impl Default for Table {
-    fn default() -> Table {
+impl Default for TableTrue {
+    fn default() -> TableTrue {
         Self::Call
     }
 }
 /// This is the list of columns you want to group by.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum GroupBy {
+pub enum GroupByTrue {
     #[serde(rename = "type")]
     Type,
     #[serde(rename = "assistantId")]
@@ -70,8 +70,8 @@ pub enum GroupBy {
     Status,
 }
 
-impl Default for GroupBy {
-    fn default() -> GroupBy {
+impl Default for GroupByTrue {
+    fn default() -> GroupByTrue {
         Self::Type
     }
 }

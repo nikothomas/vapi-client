@@ -6,6 +6,7 @@
 |---- | -----|
 | AssemblyAiTranscriber | These are the options for the assistant&#39;s transcriber. |
 | AzureSpeechTranscriber | These are the options for the assistant&#39;s transcriber. |
+| CartesiaTranscriber | These are the options for the assistant&#39;s transcriber. |
 | CustomTranscriber | These are the options for the assistant&#39;s transcriber. |
 | DeepgramTranscriber | These are the options for the assistant&#39;s transcriber. |
 | ElevenLabsTranscriber | These are the options for the assistant&#39;s transcriber. |

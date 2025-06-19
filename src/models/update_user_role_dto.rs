@@ -16,11 +16,11 @@ pub struct UpdateUserRoleDto {
     #[serde(rename = "userId")]
     pub user_id: String,
     #[serde(rename = "role")]
-    pub role: Role,
+    pub role: RoleTrue,
 }
 
 impl UpdateUserRoleDto {
-    pub fn new(user_id: String, role: Role) -> UpdateUserRoleDto {
+    pub fn new(user_id: String, role: RoleTrue) -> UpdateUserRoleDto {
         UpdateUserRoleDto {
             user_id,
             role,
@@ -29,7 +29,7 @@ impl UpdateUserRoleDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Role {
+pub enum RoleTrue {
     #[serde(rename = "admin")]
     Admin,
     #[serde(rename = "editor")]
@@ -38,8 +38,8 @@ pub enum Role {
     Viewer,
 }
 
-impl Default for Role {
-    fn default() -> Role {
+impl Default for RoleTrue {
+    fn default() -> RoleTrue {
         Self::Admin
     }
 }

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **provider** | **String** | This is for supabase storage. | 
+**fallback_index** | Option<**f64**> | This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. | [optional]
 **id** | **String** | This is the unique identifier for the credential. | 
 **org_id** | **String** | This is the unique identifier for the org that this credential belongs to. | 
 **created_at** | **String** | This is the ISO 8601 date-time string of when the credential was created. | 

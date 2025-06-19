@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 pub struct VapiSmartEndpointingPlan {
     /// This is the provider for the smart endpointing plan.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
 }
 
 impl VapiSmartEndpointingPlan {
-    pub fn new(provider: Provider) -> VapiSmartEndpointingPlan {
+    pub fn new(provider: ProviderTrue) -> VapiSmartEndpointingPlan {
         VapiSmartEndpointingPlan {
             provider,
         }
@@ -27,15 +27,15 @@ impl VapiSmartEndpointingPlan {
 }
 /// This is the provider for the smart endpointing plan.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "vapi")]
     Vapi,
     #[serde(rename = "livekit")]
     Livekit,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Vapi
     }
 }

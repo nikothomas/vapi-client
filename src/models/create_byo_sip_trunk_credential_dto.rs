@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct CreateByoSipTrunkCredentialDto {
     /// This can be used to bring your own SIP trunks or to connect to a Carrier.
     #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
-    pub provider: Option<Provider>,
+    pub provider: Option<ProviderTrue>,
     /// This is the list of SIP trunk's gateways.
     #[serde(rename = "gateways")]
     pub gateways: Vec<models::SipTrunkGateway>,
@@ -55,13 +55,13 @@ impl CreateByoSipTrunkCredentialDto {
 }
 /// This can be used to bring your own SIP trunks or to connect to a Carrier.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "byo-sip-trunk")]
     ByoSipTrunk,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::ByoSipTrunk
     }
 }

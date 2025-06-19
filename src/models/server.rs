@@ -13,29 +13,25 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Server {
-    /// This is the timeout in seconds for the request to your server. Defaults to 20 seconds.  @default 20
+    /// This is the timeout in seconds for the request. Defaults to 20 seconds.  @default 20
     #[serde(rename = "timeoutSeconds", skip_serializing_if = "Option::is_none")]
     pub timeout_seconds: Option<f64>,
-    /// API endpoint to send requests to.
-    #[serde(rename = "url")]
-    pub url: String,
-    /// This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.  Same precedence logic as server.
-    #[serde(rename = "secret", skip_serializing_if = "Option::is_none")]
-    pub secret: Option<String>,
-    /// These are the custom headers to include in the request sent to your server.  Each key-value pair represents a header name and its value.
+    /// This is where the request will be sent.
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    /// These are the headers to include in the request.  Each key-value pair represents a header name and its value.
     #[serde(rename = "headers", skip_serializing_if = "Option::is_none")]
     pub headers: Option<serde_json::Value>,
-    /// This is the backoff plan to use if the request fails.
+    /// This is the backoff plan if the request fails. Defaults to undefined (the request will not be retried).  @default undefined (the request will not be retried)
     #[serde(rename = "backoffPlan", skip_serializing_if = "Option::is_none")]
     pub backoff_plan: Option<models::BackoffPlan>,
 }
 
 impl Server {
-    pub fn new(url: String) -> Server {
+    pub fn new() -> Server {
         Server {
             timeout_seconds: None,
-            url,
-            secret: None,
+            url: None,
             headers: None,
             backoff_plan: None,
         }

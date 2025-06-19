@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct BothCustomEndpointingRule {
     /// This endpointing rule is based on both the last assistant message and the current customer message as they are speaking.  Flow: - Assistant speaks - Customer starts speaking - Customer transcription comes in - This rule is evaluated on the last assistant message and the current customer transcription - If assistant message matches `assistantRegex` AND customer message matches `customerRegex`, the endpointing timeout is set to `timeoutSeconds`  Usage: - If you want to wait longer while customer is speaking numbers, you can set a longer timeout.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the regex pattern to match the assistant's message.  Note: - This works by using the `RegExp.test` method in Node.JS. Eg. `/hello/.test(\"hello there\")` will return `true`.  Hot tip: - In JavaScript, escape `\\` when sending the regex pattern. Eg. `\"hello\\sthere\"` will be sent over the wire as `\"hellosthere\"`. Send `\"hello\\\\sthere\"` instead. - `RegExp.test` does substring matching, so `/cat/.test(\"I love cats\")` will return `true`. To do full string matching, send \"^cat$\".
     #[serde(rename = "assistantRegex")]
     pub assistant_regex: String,
@@ -33,7 +33,7 @@ pub struct BothCustomEndpointingRule {
 }
 
 impl BothCustomEndpointingRule {
-    pub fn new(r#type: Type, assistant_regex: String, customer_regex: String, timeout_seconds: f64) -> BothCustomEndpointingRule {
+    pub fn new(r#type: TypeTrue, assistant_regex: String, customer_regex: String, timeout_seconds: f64) -> BothCustomEndpointingRule {
         BothCustomEndpointingRule {
             r#type,
             assistant_regex,
@@ -46,13 +46,13 @@ impl BothCustomEndpointingRule {
 }
 /// This endpointing rule is based on both the last assistant message and the current customer message as they are speaking.  Flow: - Assistant speaks - Customer starts speaking - Customer transcription comes in - This rule is evaluated on the last assistant message and the current customer transcription - If assistant message matches `assistantRegex` AND customer message matches `customerRegex`, the endpointing timeout is set to `timeoutSeconds`  Usage: - If you want to wait longer while customer is speaking numbers, you can set a longer timeout.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "both")]
     Both,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Both
     }
 }

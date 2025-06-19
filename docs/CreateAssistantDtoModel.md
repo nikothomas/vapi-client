@@ -17,7 +17,6 @@
 | OpenRouterModel | These are the options for the assistant&#39;s LLM. |
 | PerplexityAiModel | These are the options for the assistant&#39;s LLM. |
 | TogetherAiModel | These are the options for the assistant&#39;s LLM. |
-| VapiModel | These are the options for the assistant&#39;s LLM. |
 | XaiModel | These are the options for the assistant&#39;s LLM. |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

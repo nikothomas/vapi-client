@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct AssistantHookFilter {
     /// This is the type of filter - currently only \"oneOf\" is supported
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the key to filter on (e.g. \"call.endedReason\")
     #[serde(rename = "key")]
     pub key: String,
@@ -25,7 +25,7 @@ pub struct AssistantHookFilter {
 }
 
 impl AssistantHookFilter {
-    pub fn new(r#type: Type, key: String, one_of: Vec<String>) -> AssistantHookFilter {
+    pub fn new(r#type: TypeTrue, key: String, one_of: Vec<String>) -> AssistantHookFilter {
         AssistantHookFilter {
             r#type,
             key,
@@ -35,13 +35,13 @@ impl AssistantHookFilter {
 }
 /// This is the type of filter - currently only \"oneOf\" is supported
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "oneOf")]
     OneOf,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::OneOf
     }
 }

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **service** | **String** | This is the service being used in Azure. | [default to Speech]
 **region** | Option<**String**> | This is the region of the Azure resource. | [optional]
 **api_key** | Option<**String**> | This is not returned in the API. | [optional]
+**fallback_index** | Option<**f64**> | This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. | [optional]
 **id** | **String** | This is the unique identifier for the credential. | 
 **org_id** | **String** | This is the unique identifier for the org that this credential belongs to. | 
 **created_at** | **String** | This is the ISO 8601 date-time string of when the credential was created. | 

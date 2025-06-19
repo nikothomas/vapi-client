@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateNeuphonicCredentialDto {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -24,7 +24,7 @@ pub struct CreateNeuphonicCredentialDto {
 }
 
 impl CreateNeuphonicCredentialDto {
-    pub fn new(provider: Provider, api_key: String) -> CreateNeuphonicCredentialDto {
+    pub fn new(provider: ProviderTrue, api_key: String) -> CreateNeuphonicCredentialDto {
         CreateNeuphonicCredentialDto {
             provider,
             api_key,
@@ -34,13 +34,13 @@ impl CreateNeuphonicCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "neuphonic")]
     Neuphonic,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Neuphonic
     }
 }

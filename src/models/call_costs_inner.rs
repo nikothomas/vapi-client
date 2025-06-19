@@ -21,7 +21,7 @@ pub enum CallCostsInner {
     VapiCost(models::VapiCost),
     VoicemailDetectionCost(models::VoicemailDetectionCost),
     AnalysisCost(models::AnalysisCost),
-    KnowledgeBase(models::KnowledgeBaseCost),
+    KnowledgeBaseCost(models::KnowledgeBaseCost),
 }
 
 impl Default for CallCostsInner {
@@ -31,7 +31,7 @@ impl Default for CallCostsInner {
 }
 /// This is the type of cost, always 'transport' for this class.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "transport")]
     Transport,
     #[serde(rename = "transcriber")]
@@ -50,44 +50,46 @@ pub enum Type {
     KnowledgeBase,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Transport
     }
 }
 /// This is the provider that was used to detect the voicemail.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "twilio")]
     Twilio,
     #[serde(rename = "google")]
     Google,
     #[serde(rename = "openai")]
     Openai,
+    #[serde(rename = "vapi")]
+    Vapi,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Twilio
     }
 }
 /// This is the sub type of the cost.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum SubType {
+pub enum SubTypeTrue {
     #[serde(rename = "normal")]
     Normal,
     #[serde(rename = "overage")]
     Overage,
 }
 
-impl Default for SubType {
-    fn default() -> SubType {
+impl Default for SubTypeTrue {
+    fn default() -> SubTypeTrue {
         Self::Normal
     }
 }
 /// This is the type of analysis performed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AnalysisType {
+pub enum AnalysisTypeTrue {
     #[serde(rename = "summary")]
     Summary,
     #[serde(rename = "structuredData")]
@@ -96,8 +98,8 @@ pub enum AnalysisType {
     SuccessEvaluation,
 }
 
-impl Default for AnalysisType {
-    fn default() -> AnalysisType {
+impl Default for AnalysisTypeTrue {
+    fn default() -> AnalysisTypeTrue {
         Self::Summary
     }
 }

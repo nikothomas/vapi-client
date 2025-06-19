@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct VoiceLibrary {
     /// This is the voice provider that will be used.
     #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
-    pub provider: Option<Provider>,
+    pub provider: Option<ProviderTrue>,
     /// The ID of the voice provided by the provider.
     #[serde(rename = "providerId", skip_serializing_if = "Option::is_none")]
     pub provider_id: Option<String>,
@@ -39,7 +39,7 @@ pub struct VoiceLibrary {
     pub supported_models: Option<String>,
     /// The gender of the voice.
     #[serde(rename = "gender", skip_serializing_if = "Option::is_none")]
-    pub gender: Option<Gender>,
+    pub gender: Option<GenderTrue>,
     /// The accent of the voice.
     #[serde(rename = "accent", skip_serializing_if = "Option::is_none")]
     pub accent: Option<String>,
@@ -99,7 +99,7 @@ impl VoiceLibrary {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "vapi")]
     Vapi,
     #[serde(rename = "11labs")]
@@ -132,22 +132,22 @@ pub enum Provider {
     Sesame,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Vapi
     }
 }
 /// The gender of the voice.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Gender {
+pub enum GenderTrue {
     #[serde(rename = "male")]
     Male,
     #[serde(rename = "female")]
     Female,
 }
 
-impl Default for Gender {
-    fn default() -> Gender {
+impl Default for GenderTrue {
+    fn default() -> GenderTrue {
         Self::Male
     }
 }

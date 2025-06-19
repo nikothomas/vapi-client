@@ -13,14 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NeuphonicVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "voiceId")]
     pub voice_id: models::NeuphonicVoiceVoiceId,
     /// This is the model that will be used. Defaults to 'neu_fast' if not specified.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// This is the language (ISO 639-1) that is enforced for the model.
     #[serde(rename = "language")]
     pub language: serde_json::Value,
@@ -36,8 +39,9 @@ pub struct NeuphonicVoice {
 }
 
 impl NeuphonicVoice {
-    pub fn new(provider: Provider, voice_id: models::NeuphonicVoiceVoiceId, language: serde_json::Value) -> NeuphonicVoice {
+    pub fn new(provider: ProviderTrue, voice_id: models::NeuphonicVoiceVoiceId, language: serde_json::Value) -> NeuphonicVoice {
         NeuphonicVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             model: None,
@@ -50,27 +54,27 @@ impl NeuphonicVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "neuphonic")]
     Neuphonic,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Neuphonic
     }
 }
 /// This is the model that will be used. Defaults to 'neu_fast' if not specified.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "neu_hq")]
     NeuHq,
     #[serde(rename = "neu_fast")]
     NeuFast,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::NeuHq
     }
 }

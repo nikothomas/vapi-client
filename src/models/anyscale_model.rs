@@ -23,12 +23,12 @@ pub struct AnyscaleModel {
     #[serde(rename = "toolIds", skip_serializing_if = "Option::is_none")]
     pub tool_ids: Option<Vec<String>>,
     #[serde(rename = "knowledgeBase", skip_serializing_if = "Option::is_none")]
-    pub knowledge_base: Option<models::AnyscaleModelKnowledgeBase>,
+    pub knowledge_base: Option<models::CreateCustomKnowledgeBaseDto>,
     /// This is the ID of the knowledge base the model will use.
     #[serde(rename = "knowledgeBaseId", skip_serializing_if = "Option::is_none")]
     pub knowledge_base_id: Option<String>,
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
     #[serde(rename = "model")]
     pub model: String,
@@ -47,7 +47,7 @@ pub struct AnyscaleModel {
 }
 
 impl AnyscaleModel {
-    pub fn new(provider: Provider, model: String) -> AnyscaleModel {
+    pub fn new(provider: ProviderTrue, model: String) -> AnyscaleModel {
         AnyscaleModel {
             messages: None,
             tools: None,
@@ -65,13 +65,13 @@ impl AnyscaleModel {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "anyscale")]
     Anyscale,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Anyscale
     }
 }

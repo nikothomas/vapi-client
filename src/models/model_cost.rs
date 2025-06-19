@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct ModelCost {
     /// This is the type of cost, always 'model' for this class.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the model that was used during the call.  This matches one of the following: - `call.assistant.model`, - `call.assistantId->model`, - `call.squad[n].assistant.model`, - `call.squad[n].assistantId->model`, - `call.squadId->[n].assistant.model`, - `call.squadId->[n].assistantId->model`.
     #[serde(rename = "model")]
     pub model: serde_json::Value,
@@ -31,7 +31,7 @@ pub struct ModelCost {
 }
 
 impl ModelCost {
-    pub fn new(r#type: Type, model: serde_json::Value, prompt_tokens: f64, completion_tokens: f64, cost: f64) -> ModelCost {
+    pub fn new(r#type: TypeTrue, model: serde_json::Value, prompt_tokens: f64, completion_tokens: f64, cost: f64) -> ModelCost {
         ModelCost {
             r#type,
             model,
@@ -43,13 +43,13 @@ impl ModelCost {
 }
 /// This is the type of cost, always 'model' for this class.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "model")]
     Model,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Model
     }
 }

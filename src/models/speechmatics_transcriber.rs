@@ -15,19 +15,19 @@ use serde::{Deserialize, Serialize};
 pub struct SpeechmaticsTranscriber {
     /// This is the transcription provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the model that will be used for the transcription.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
     /// This is the plan for voice provider fallbacks in the event that the primary voice provider fails.
     #[serde(rename = "fallbackPlan", skip_serializing_if = "Option::is_none")]
     pub fallback_plan: Option<models::FallbackTranscriberPlan>,
 }
 
 impl SpeechmaticsTranscriber {
-    pub fn new(provider: Provider) -> SpeechmaticsTranscriber {
+    pub fn new(provider: ProviderTrue) -> SpeechmaticsTranscriber {
         SpeechmaticsTranscriber {
             provider,
             model: None,
@@ -38,31 +38,31 @@ impl SpeechmaticsTranscriber {
 }
 /// This is the transcription provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "speechmatics")]
     Speechmatics,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Speechmatics
     }
 }
 /// This is the model that will be used for the transcription.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "default")]
     Default,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::Default
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "auto")]
     Auto,
     #[serde(rename = "ar")]
@@ -177,8 +177,8 @@ pub enum Language {
     Cy,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::Auto
     }
 }

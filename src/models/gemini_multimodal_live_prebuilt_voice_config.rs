@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GeminiMultimodalLivePrebuiltVoiceConfig {
     #[serde(rename = "voiceName")]
-    pub voice_name: VoiceName,
+    pub voice_name: VoiceNameTrue,
 }
 
 impl GeminiMultimodalLivePrebuiltVoiceConfig {
-    pub fn new(voice_name: VoiceName) -> GeminiMultimodalLivePrebuiltVoiceConfig {
+    pub fn new(voice_name: VoiceNameTrue) -> GeminiMultimodalLivePrebuiltVoiceConfig {
         GeminiMultimodalLivePrebuiltVoiceConfig {
             voice_name,
         }
@@ -26,7 +26,7 @@ impl GeminiMultimodalLivePrebuiltVoiceConfig {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum VoiceName {
+pub enum VoiceNameTrue {
     #[serde(rename = "Puck")]
     Puck,
     #[serde(rename = "Charon")]
@@ -39,8 +39,8 @@ pub enum VoiceName {
     Aoede,
 }
 
-impl Default for VoiceName {
-    fn default() -> VoiceName {
+impl Default for VoiceNameTrue {
+    fn default() -> VoiceNameTrue {
         Self::Puck
     }
 }

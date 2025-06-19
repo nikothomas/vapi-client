@@ -6,6 +6,10 @@
 |---- | -----|
 | FunctionToolProviderDetails |  |
 | GhlToolProviderDetails |  |
+| GoHighLevelCalendarAvailabilityToolProviderDetails |  |
+| GoHighLevelCalendarEventCreateToolProviderDetails |  |
+| GoHighLevelContactCreateToolProviderDetails |  |
+| GoHighLevelContactGetToolProviderDetails |  |
 | GoogleCalendarCreateEventToolProviderDetails |  |
 | GoogleSheetsRowAppendToolProviderDetails |  |
 | MakeToolProviderDetails |  |

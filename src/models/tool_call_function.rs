@@ -13,19 +13,19 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ToolCallFunction {
-    /// This is the name of the function the model called.
+    /// This is the arguments to call the function with
+    #[serde(rename = "arguments")]
+    pub arguments: String,
+    /// This is the name of the function to call
     #[serde(rename = "name")]
     pub name: String,
-    /// These are the arguments that the function was called with.
-    #[serde(rename = "arguments")]
-    pub arguments: serde_json::Value,
 }
 
 impl ToolCallFunction {
-    pub fn new(name: String, arguments: serde_json::Value) -> ToolCallFunction {
+    pub fn new(arguments: String, name: String) -> ToolCallFunction {
         ToolCallFunction {
-            name,
             arguments,
+            name,
         }
     }
 }

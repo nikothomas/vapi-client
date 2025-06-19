@@ -15,13 +15,31 @@ use serde::{Deserialize, Serialize};
 pub struct AssemblyAiTranscriber {
     /// This is the transcription provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the language that will be set for the transcription.
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
     /// Transcripts below this confidence threshold will be discarded.  @default 0.4
     #[serde(rename = "confidenceThreshold", skip_serializing_if = "Option::is_none")]
     pub confidence_threshold: Option<f64>,
+    /// Uses Assembly AI's new Universal Streaming API. See: https://www.assemblyai.com/docs/speech-to-text/universal-streaming  @default false
+    #[serde(rename = "enableUniversalStreamingApi", skip_serializing_if = "Option::is_none")]
+    pub enable_universal_streaming_api: Option<bool>,
+    /// This enables formatting of transcripts. Only used when `enableUniversalStreamingApi` is true.  @default false
+    #[serde(rename = "formatTurns", skip_serializing_if = "Option::is_none")]
+    pub format_turns: Option<bool>,
+    /// The confidence threshold to use when determining if the end of a turn has been reached. Only used when `enableUniversalStreamingApi` is true.  @default 0.7
+    #[serde(rename = "endOfTurnConfidenceThreshold", skip_serializing_if = "Option::is_none")]
+    pub end_of_turn_confidence_threshold: Option<f64>,
+    /// The minimum amount of silence in milliseconds required to detect end of turn when confident. Only used when `enableUniversalStreamingApi` is true.  @default 160
+    #[serde(rename = "minEndOfTurnSilenceWhenConfident", skip_serializing_if = "Option::is_none")]
+    pub min_end_of_turn_silence_when_confident: Option<f64>,
+    /// The maximum wait time for word finalization. Only used when `enableUniversalStreamingApi` is true.  @default 160
+    #[serde(rename = "wordFinalizationMaxWaitTime", skip_serializing_if = "Option::is_none")]
+    pub word_finalization_max_wait_time: Option<f64>,
+    /// The maximum amount of silence in milliseconds allowed in a turn before end of turn is triggered. Only used when `enableUniversalStreamingApi` is true.  @default 400
+    #[serde(rename = "maxTurnSilence", skip_serializing_if = "Option::is_none")]
+    pub max_turn_silence: Option<f64>,
     /// The WebSocket URL that the transcriber connects to.
     #[serde(rename = "realtimeUrl", skip_serializing_if = "Option::is_none")]
     pub realtime_url: Option<String>,
@@ -40,11 +58,17 @@ pub struct AssemblyAiTranscriber {
 }
 
 impl AssemblyAiTranscriber {
-    pub fn new(provider: Provider) -> AssemblyAiTranscriber {
+    pub fn new(provider: ProviderTrue) -> AssemblyAiTranscriber {
         AssemblyAiTranscriber {
             provider,
             language: None,
             confidence_threshold: None,
+            enable_universal_streaming_api: None,
+            format_turns: None,
+            end_of_turn_confidence_threshold: None,
+            min_end_of_turn_silence_when_confident: None,
+            word_finalization_max_wait_time: None,
+            max_turn_silence: None,
             realtime_url: None,
             word_boost: None,
             end_utterance_silence_threshold: None,
@@ -55,25 +79,25 @@ impl AssemblyAiTranscriber {
 }
 /// This is the transcription provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "assembly-ai")]
     AssemblyAi,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::AssemblyAi
     }
 }
 /// This is the language that will be set for the transcription.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "en")]
     En,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::En
     }
 }

@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **provider** | **String** |  | 
-**auth_token** | **String** | This is not returned in the API. | 
+**auth_token** | Option<**String**> | This is not returned in the API. | [optional]
+**api_key** | Option<**String**> | This is not returned in the API. | [optional]
+**api_secret** | Option<**String**> | This is not returned in the API. | [optional]
 **account_sid** | **String** |  | 
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]
 

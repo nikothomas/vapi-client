@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct RegexOption {
     /// This is the type of the regex option. Options are: - `ignore-case`: Ignores the case of the text being matched. Add - `whole-word`: Matches whole words only. - `multi-line`: Matches across multiple lines.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is whether to enable the option.  @default false
     #[serde(rename = "enabled")]
     pub enabled: bool,
 }
 
 impl RegexOption {
-    pub fn new(r#type: Type, enabled: bool) -> RegexOption {
+    pub fn new(r#type: TypeTrue, enabled: bool) -> RegexOption {
         RegexOption {
             r#type,
             enabled,
@@ -31,7 +31,7 @@ impl RegexOption {
 }
 /// This is the type of the regex option. Options are: - `ignore-case`: Ignores the case of the text being matched. Add - `whole-word`: Matches whole words only. - `multi-line`: Matches across multiple lines.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "ignore-case")]
     IgnoreCase,
     #[serde(rename = "whole-word")]
@@ -40,8 +40,8 @@ pub enum Type {
     MultiLine,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::IgnoreCase
     }
 }

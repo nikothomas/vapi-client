@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**caching_enabled** | Option<**bool**> | This is the flag to toggle voice caching for the assistant. | [optional][default to true]
 **provider** | **String** | This is the voice provider that will be used. | 
 **voice_id** | [**models::NeuphonicVoiceVoiceId**](NeuphonicVoice_voiceId.md) |  | 
 **model** | Option<**String**> | This is the model that will be used. Defaults to 'neu_fast' if not specified. | [optional]

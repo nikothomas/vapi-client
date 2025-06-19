@@ -20,11 +20,11 @@ pub struct GoogleCalendarCreateEventToolProviderDetails {
     pub setup_instructions: Option<Vec<models::ToolTemplateSetup>>,
     /// The type of tool. \"google.calendar.event.create\" for Google Calendar tool.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
 }
 
 impl GoogleCalendarCreateEventToolProviderDetails {
-    pub fn new(r#type: Type) -> GoogleCalendarCreateEventToolProviderDetails {
+    pub fn new(r#type: TypeTrue) -> GoogleCalendarCreateEventToolProviderDetails {
         GoogleCalendarCreateEventToolProviderDetails {
             template_url: None,
             setup_instructions: None,
@@ -34,13 +34,13 @@ impl GoogleCalendarCreateEventToolProviderDetails {
 }
 /// The type of tool. \"google.calendar.event.create\" for Google Calendar tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "google.calendar.event.create")]
     GooglePeriodCalendarPeriodEventPeriodCreate,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::GooglePeriodCalendarPeriodEventPeriodCreate
     }
 }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LangfuseObservabilityPlan {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is an array of tags to be added to the Langfuse trace. Tags allow you to categorize and filter traces. https://langfuse.com/docs/tracing-features/tags
     #[serde(rename = "tags")]
     pub tags: Vec<String>,
@@ -24,7 +24,7 @@ pub struct LangfuseObservabilityPlan {
 }
 
 impl LangfuseObservabilityPlan {
-    pub fn new(provider: Provider, tags: Vec<String>) -> LangfuseObservabilityPlan {
+    pub fn new(provider: ProviderTrue, tags: Vec<String>) -> LangfuseObservabilityPlan {
         LangfuseObservabilityPlan {
             provider,
             tags,
@@ -34,13 +34,13 @@ impl LangfuseObservabilityPlan {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "langfuse")]
     Langfuse,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Langfuse
     }
 }

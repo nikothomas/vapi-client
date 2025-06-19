@@ -13,14 +13,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OpenAiVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "voiceId")]
     pub voice_id: models::OpenAiVoiceVoiceId,
     /// This is the model that will be used for text-to-speech.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// This is a prompt that allows you to control the voice of your generated audio. Does not work with 'tts-1' or 'tts-1-hd' models.
     #[serde(rename = "instructions", skip_serializing_if = "Option::is_none")]
     pub instructions: Option<String>,
@@ -36,8 +39,9 @@ pub struct OpenAiVoice {
 }
 
 impl OpenAiVoice {
-    pub fn new(provider: Provider, voice_id: models::OpenAiVoiceVoiceId) -> OpenAiVoice {
+    pub fn new(provider: ProviderTrue, voice_id: models::OpenAiVoiceVoiceId) -> OpenAiVoice {
         OpenAiVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             model: None,
@@ -50,19 +54,19 @@ impl OpenAiVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "openai")]
     Openai,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Openai
     }
 }
 /// This is the model that will be used for text-to-speech.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "tts-1")]
     Tts1,
     #[serde(rename = "tts-1-hd")]
@@ -71,8 +75,8 @@ pub enum Model {
     Gpt4oMiniTts,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::Tts1
     }
 }

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## tool_controller_create
 
-> models::InlineResponse2011 tool_controller_create(tool_body)
+> models::ToolControllerFindAll200ResponseInner tool_controller_create(tool_controller_create_request)
 Create Tool
 
 ### Parameters
@@ -22,11 +22,11 @@ Create Tool
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tool_body** | [**ToolBody**](ToolBody.md) |  | [required] |
+**tool_controller_create_request** | [**ToolControllerCreateRequest**](ToolControllerCreateRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::InlineResponse2011**](inline_response_201_1.md)
+[**models::ToolControllerFindAll200ResponseInner**](ToolController_findAll_200_response_inner.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## tool_controller_find_one
 
-> models::InlineResponse2011 tool_controller_find_one(id)
+> models::ToolControllerFindAll200ResponseInner tool_controller_find_one(id)
 Get Tool
 
 ### Parameters
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse2011**](inline_response_201_1.md)
+[**models::ToolControllerFindAll200ResponseInner**](ToolController_findAll_200_response_inner.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ## tool_controller_remove
 
-> models::InlineResponse2011 tool_controller_remove(id)
+> models::ToolControllerFindAll200ResponseInner tool_controller_remove(id)
 Delete Tool
 
 ### Parameters
@@ -118,7 +118,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse2011**](inline_response_201_1.md)
+[**models::ToolControllerFindAll200ResponseInner**](ToolController_findAll_200_response_inner.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Required | Notes
 
 ## tool_controller_update
 
-> models::InlineResponse2011 tool_controller_update(id, tool_id_body)
+> models::ToolControllerFindAll200ResponseInner tool_controller_update(id, tool_controller_update_request)
 Update Tool
 
 ### Parameters
@@ -143,11 +143,11 @@ Update Tool
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**tool_id_body** | [**ToolIdBody**](ToolIdBody.md) |  | [required] |
+**tool_controller_update_request** | [**ToolControllerUpdateRequest**](ToolControllerUpdateRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::InlineResponse2011**](inline_response_201_1.md)
+[**models::ToolControllerFindAll200ResponseInner**](ToolController_findAll_200_response_inner.md)
 
 ### Authorization
 

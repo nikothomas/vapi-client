@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct Token {
     /// This is the tag for the token. It represents its scope.
     #[serde(rename = "tag", skip_serializing_if = "Option::is_none")]
-    pub tag: Option<Tag>,
+    pub tag: Option<TagTrue>,
     /// This is the unique identifier for the token.
     #[serde(rename = "id")]
     pub id: String,
@@ -55,15 +55,15 @@ impl Token {
 }
 /// This is the tag for the token. It represents its scope.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Tag {
+pub enum TagTrue {
     #[serde(rename = "private")]
     Private,
     #[serde(rename = "public")]
     Public,
 }
 
-impl Default for Tag {
-    fn default() -> Tag {
+impl Default for TagTrue {
+    fn default() -> TagTrue {
         Self::Private
     }
 }

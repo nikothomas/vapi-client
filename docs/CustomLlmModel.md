@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **messages** | Option<[**Vec<models::OpenAiMessage>**](OpenAIMessage.md)> | This is the starting state for the conversation. | [optional]
 **tools** | Option<[**Vec<models::AnyscaleModelToolsInner>**](AnyscaleModel_tools_inner.md)> | These are the tools that the assistant can use during the call. To use existing tools, use `toolIds`.  Both `tools` and `toolIds` can be used together. | [optional]
 **tool_ids** | Option<**Vec<String>**> | These are the tools that the assistant can use during the call. To use transient tools, use `tools`.  Both `tools` and `toolIds` can be used together. | [optional]
-**knowledge_base** | Option<[**models::AnyscaleModelKnowledgeBase**](AnyscaleModel_knowledgeBase.md)> |  | [optional]
+**knowledge_base** | Option<[**models::CreateCustomKnowledgeBaseDto**](CreateCustomKnowledgeBaseDTO.md)> |  | [optional]
 **knowledge_base_id** | Option<**String**> | This is the ID of the knowledge base the model will use. | [optional]
 **provider** | **String** | This is the provider that will be used for the model. Any service, including your own server, that is compatible with the OpenAI API can be used. | 
 **metadata_send_mode** | Option<**String**> | This determines whether metadata is sent in requests to the custom provider.  - `off` will not send any metadata. payload will look like `{ messages }` - `variable` will send `assistant.metadata` as a variable on the payload. payload will look like `{ messages, metadata }` - `destructured` will send `assistant.metadata` fields directly on the payload. payload will look like `{ messages, ...metadata }`  Further, `variable` and `destructured` will send `call`, `phoneNumber`, and `customer` objects in the payload.  Default is `variable`. | [optional]

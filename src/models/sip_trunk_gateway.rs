@@ -30,7 +30,7 @@ pub struct SipTrunkGateway {
     pub outbound_enabled: Option<bool>,
     /// This is the protocol to use for SIP signaling outbound calls. Default is udp.  @default udp
     #[serde(rename = "outboundProtocol", skip_serializing_if = "Option::is_none")]
-    pub outbound_protocol: Option<OutboundProtocol>,
+    pub outbound_protocol: Option<OutboundProtocolTrue>,
     /// This is whether to send options ping to the gateway. This can be used to check if the gateway is reachable. Default is false.  This is useful for high availability setups where you want to check if the gateway is reachable before routing calls to it. Note, if no gateway for a trunk is reachable, outbound calls will be rejected.  @default false
     #[serde(rename = "optionsPingEnabled", skip_serializing_if = "Option::is_none")]
     pub options_ping_enabled: Option<bool>,
@@ -51,7 +51,7 @@ impl SipTrunkGateway {
 }
 /// This is the protocol to use for SIP signaling outbound calls. Default is udp.  @default udp
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum OutboundProtocol {
+pub enum OutboundProtocolTrue {
     #[serde(rename = "tls/srtp")]
     TlsSlashSrtp,
     #[serde(rename = "tcp")]
@@ -62,8 +62,8 @@ pub enum OutboundProtocol {
     Udp,
 }
 
-impl Default for OutboundProtocol {
-    fn default() -> OutboundProtocol {
+impl Default for OutboundProtocolTrue {
+    fn default() -> OutboundProtocolTrue {
         Self::TlsSlashSrtp
     }
 }

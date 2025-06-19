@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct CreateTrieveKnowledgeBaseDto {
     /// This knowledge base is provided by Trieve.  To learn more about Trieve, visit https://trieve.ai.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the name of the knowledge base.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -23,11 +23,11 @@ pub struct CreateTrieveKnowledgeBaseDto {
     #[serde(rename = "searchPlan", skip_serializing_if = "Option::is_none")]
     pub search_plan: Option<models::TrieveKnowledgeBaseSearchPlan>,
     #[serde(rename = "createPlan", skip_serializing_if = "Option::is_none")]
-    pub create_plan: Option<models::TrieveKnowledgeBaseCreatePlan>,
+    pub create_plan: Option<models::TrieveKnowledgeBaseImport>,
 }
 
 impl CreateTrieveKnowledgeBaseDto {
-    pub fn new(provider: Provider) -> CreateTrieveKnowledgeBaseDto {
+    pub fn new(provider: ProviderTrue) -> CreateTrieveKnowledgeBaseDto {
         CreateTrieveKnowledgeBaseDto {
             provider,
             name: None,
@@ -38,13 +38,13 @@ impl CreateTrieveKnowledgeBaseDto {
 }
 /// This knowledge base is provided by Trieve.  To learn more about Trieve, visit https://trieve.ai.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "trieve")]
     Trieve,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Trieve
     }
 }

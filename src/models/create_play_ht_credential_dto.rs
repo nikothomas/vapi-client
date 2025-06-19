@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreatePlayHtCredentialDto {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -26,7 +26,7 @@ pub struct CreatePlayHtCredentialDto {
 }
 
 impl CreatePlayHtCredentialDto {
-    pub fn new(provider: Provider, api_key: String, user_id: String) -> CreatePlayHtCredentialDto {
+    pub fn new(provider: ProviderTrue, api_key: String, user_id: String) -> CreatePlayHtCredentialDto {
         CreatePlayHtCredentialDto {
             provider,
             api_key,
@@ -37,13 +37,13 @@ impl CreatePlayHtCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "playht")]
     Playht,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Playht
     }
 }

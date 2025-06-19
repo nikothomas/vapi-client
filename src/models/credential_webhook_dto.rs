@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CredentialWebhookDto {
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     #[serde(rename = "operation")]
-    pub operation: Operation,
+    pub operation: OperationTrue,
     #[serde(rename = "from")]
     pub from: String,
     #[serde(rename = "connectionId")]
     pub connection_id: String,
     #[serde(rename = "authMode")]
-    pub auth_mode: AuthMode,
+    pub auth_mode: AuthModeTrue,
     #[serde(rename = "providerConfigKey")]
     pub provider_config_key: String,
     #[serde(rename = "provider")]
@@ -38,7 +38,7 @@ pub struct CredentialWebhookDto {
 }
 
 impl CredentialWebhookDto {
-    pub fn new(r#type: Type, operation: Operation, from: String, connection_id: String, auth_mode: AuthMode, provider_config_key: String, provider: String, environment: String, success: bool, end_user: models::CredentialEndUser) -> CredentialWebhookDto {
+    pub fn new(r#type: TypeTrue, operation: OperationTrue, from: String, connection_id: String, auth_mode: AuthModeTrue, provider_config_key: String, provider: String, environment: String, success: bool, end_user: models::CredentialEndUser) -> CredentialWebhookDto {
         CredentialWebhookDto {
             r#type,
             operation,
@@ -56,7 +56,7 @@ impl CredentialWebhookDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "auth")]
     Auth,
     #[serde(rename = "sync")]
@@ -65,14 +65,14 @@ pub enum Type {
     Forward,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Auth
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Operation {
+pub enum OperationTrue {
     #[serde(rename = "creation")]
     Creation,
     #[serde(rename = "override")]
@@ -81,14 +81,14 @@ pub enum Operation {
     Refresh,
 }
 
-impl Default for Operation {
-    fn default() -> Operation {
+impl Default for OperationTrue {
+    fn default() -> OperationTrue {
         Self::Creation
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AuthMode {
+pub enum AuthModeTrue {
     #[serde(rename = "OAUTH2")]
     Oauth2,
     #[serde(rename = "API_KEY")]
@@ -97,8 +97,8 @@ pub enum AuthMode {
     Basic,
 }
 
-impl Default for AuthMode {
-    fn default() -> AuthMode {
+impl Default for AuthModeTrue {
+    fn default() -> AuthModeTrue {
         Self::Oauth2
     }
 }

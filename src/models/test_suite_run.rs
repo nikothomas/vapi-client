@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct TestSuiteRun {
     /// This is the current status of the test suite run.
     #[serde(rename = "status")]
-    pub status: Status,
+    pub status: StatusTrue,
     /// This is the unique identifier for the test suite run.
     #[serde(rename = "id")]
     pub id: String,
@@ -32,15 +32,15 @@ pub struct TestSuiteRun {
     #[serde(rename = "updatedAt")]
     pub updated_at: String,
     /// These are the results of the tests in this test suite run.
-    #[serde(rename = "testResults", skip_serializing_if = "Option::is_none")]
-    pub test_results: Option<Vec<models::TestSuiteRunTestResult>>,
+    #[serde(rename = "testResults")]
+    pub test_results: Vec<models::TestSuiteRunTestResult>,
     /// This is the name of the test suite run.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
 
 impl TestSuiteRun {
-    pub fn new(status: Status, id: String, org_id: String, test_suite_id: String, created_at: String, updated_at: String, test_results: Option<Vec<models::TestSuiteRunTestResult>>) -> TestSuiteRun {
+    pub fn new(status: StatusTrue, id: String, org_id: String, test_suite_id: String, created_at: String, updated_at: String, test_results: Vec<models::TestSuiteRunTestResult>) -> TestSuiteRun {
         TestSuiteRun {
             status,
             id,
@@ -55,7 +55,7 @@ impl TestSuiteRun {
 }
 /// This is the current status of the test suite run.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "queued")]
     Queued,
     #[serde(rename = "in-progress")]
@@ -66,8 +66,8 @@ pub enum Status {
     Failed,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Queued
     }
 }

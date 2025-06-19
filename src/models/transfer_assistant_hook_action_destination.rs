@@ -27,15 +27,15 @@ impl Default for TransferAssistantHookActionDestination {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "number")]
     Number,
     #[serde(rename = "sip")]
     Sip,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Number
     }
 }

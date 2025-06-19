@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**details** | Option<[**models::CreateToolTemplateDtoDetails**](CreateToolTemplateDTO_details.md)> |  | [optional]
+**details** | Option<[**models::AnyscaleModelToolsInner**](AnyscaleModel_tools_inner.md)> |  | [optional]
 **provider_details** | Option<[**models::CreateToolTemplateDtoProviderDetails**](CreateToolTemplateDTO_providerDetails.md)> |  | [optional]
 **metadata** | Option<[**models::ToolTemplateMetadata**](ToolTemplateMetadata.md)> |  | [optional]
 **visibility** | Option<**String**> |  | [optional][default to Private]

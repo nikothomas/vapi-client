@@ -21,13 +21,13 @@ pub struct Log {
     pub org_id: String,
     /// This is the type of the log.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the type of the webhook, given the log is from a webhook.
     #[serde(rename = "webhookType", skip_serializing_if = "Option::is_none")]
     pub webhook_type: Option<String>,
     /// This is the specific resource, relevant only to API logs.
     #[serde(rename = "resource", skip_serializing_if = "Option::is_none")]
-    pub resource: Option<Resource>,
+    pub resource: Option<ResourceTrue>,
     /// 'This is how long the request took.
     #[serde(rename = "requestDurationSeconds", skip_serializing_if = "Option::is_none")]
     pub request_duration_seconds: Option<f64>,
@@ -42,7 +42,7 @@ pub struct Log {
     pub request_body: Option<serde_json::Value>,
     /// This is the request method.
     #[serde(rename = "requestHttpMethod", skip_serializing_if = "Option::is_none")]
-    pub request_http_method: Option<RequestHttpMethod>,
+    pub request_http_method: Option<RequestHttpMethodTrue>,
     /// This is the request URL.
     #[serde(rename = "requestUrl", skip_serializing_if = "Option::is_none")]
     pub request_url: Option<String>,
@@ -88,7 +88,7 @@ pub struct Log {
 }
 
 impl Log {
-    pub fn new(time: String, org_id: String, r#type: Type) -> Log {
+    pub fn new(time: String, org_id: String, r#type: TypeTrue) -> Log {
         Log {
             time,
             org_id,
@@ -119,7 +119,7 @@ impl Log {
 }
 /// This is the type of the log.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "API")]
     Api,
     #[serde(rename = "Webhook")]
@@ -130,14 +130,14 @@ pub enum Type {
     Provider,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Api
     }
 }
 /// This is the specific resource, relevant only to API logs.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Resource {
+pub enum ResourceTrue {
     #[serde(rename = "org")]
     Org,
     #[serde(rename = "assistant")]
@@ -172,14 +172,14 @@ pub enum Resource {
     Log,
 }
 
-impl Default for Resource {
-    fn default() -> Resource {
+impl Default for ResourceTrue {
+    fn default() -> ResourceTrue {
         Self::Org
     }
 }
 /// This is the request method.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum RequestHttpMethod {
+pub enum RequestHttpMethodTrue {
     #[serde(rename = "POST")]
     Post,
     #[serde(rename = "GET")]
@@ -192,8 +192,8 @@ pub enum RequestHttpMethod {
     Delete,
 }
 
-impl Default for RequestHttpMethod {
-    fn default() -> RequestHttpMethod {
+impl Default for RequestHttpMethodTrue {
+    fn default() -> RequestHttpMethodTrue {
         Self::Post
     }
 }

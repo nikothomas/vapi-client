@@ -18,7 +18,7 @@ pub struct CreateTestSuiteTestVoiceDto {
     pub scorers: Vec<models::TestSuiteTestVoiceScorersInner>,
     /// This is the type of the test, which must be voice.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the script to be used for the voice test.
     #[serde(rename = "script")]
     pub script: String,
@@ -31,7 +31,7 @@ pub struct CreateTestSuiteTestVoiceDto {
 }
 
 impl CreateTestSuiteTestVoiceDto {
-    pub fn new(scorers: Vec<models::TestSuiteTestVoiceScorersInner>, r#type: Type, script: String) -> CreateTestSuiteTestVoiceDto {
+    pub fn new(scorers: Vec<models::TestSuiteTestVoiceScorersInner>, r#type: TypeTrue, script: String) -> CreateTestSuiteTestVoiceDto {
         CreateTestSuiteTestVoiceDto {
             scorers,
             r#type,
@@ -43,13 +43,13 @@ impl CreateTestSuiteTestVoiceDto {
 }
 /// This is the type of the test, which must be voice.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "voice")]
     Voice,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Voice
     }
 }

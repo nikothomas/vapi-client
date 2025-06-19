@@ -6,6 +6,7 @@
 |---- | -----|
 | FallbackAssemblyAiTranscriber |  |
 | FallbackAzureSpeechTranscriber |  |
+| FallbackCartesiaTranscriber |  |
 | FallbackCustomTranscriber |  |
 | FallbackDeepgramTranscriber |  |
 | FallbackElevenLabsTranscriber |  |

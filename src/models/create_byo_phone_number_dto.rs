@@ -17,10 +17,10 @@ pub struct CreateByoPhoneNumberDto {
     pub fallback_destination: Option<models::ImportTwilioPhoneNumberDtoFallbackDestination>,
     /// This is the hooks that will be used for incoming calls to this phone number.
     #[serde(rename = "hooks", skip_serializing_if = "Option::is_none")]
-    pub hooks: Option<Vec<serde_json::Value>>,
+    pub hooks: Option<Vec<models::ImportTwilioPhoneNumberDtoHooksInner>>,
     /// This is to bring your own phone numbers from your own SIP trunks or Carriers.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.  Use cases: - `false`: To allow non-E164 numbers like `+001234567890`, `1234`, or `abc`. This is useful for dialing out to non-E164 numbers on your SIP trunks. - `true` (default): To allow only E164 numbers like `+14155551234`. This is standard for PSTN calls.  If `false`, the `number` is still required to only contain alphanumeric characters (regex: `/^\\+?[a-zA-Z0-9]+$/`).  @default true (E164 check is enabled)
     #[serde(rename = "numberE164CheckEnabled", skip_serializing_if = "Option::is_none")]
     pub number_e164_check_enabled: Option<bool>,
@@ -33,10 +33,13 @@ pub struct CreateByoPhoneNumberDto {
     /// This is the name of the phone number. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    /// This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     #[serde(rename = "assistantId", skip_serializing_if = "Option::is_none")]
     pub assistant_id: Option<String>,
-    /// This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    /// This is the workflow that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    #[serde(rename = "workflowId", skip_serializing_if = "Option::is_none")]
+    pub workflow_id: Option<String>,
+    /// This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     #[serde(rename = "squadId", skip_serializing_if = "Option::is_none")]
     pub squad_id: Option<String>,
     /// This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.  The order of precedence is:  1. assistant.server 2. phoneNumber.server 3. org.server
@@ -45,7 +48,7 @@ pub struct CreateByoPhoneNumberDto {
 }
 
 impl CreateByoPhoneNumberDto {
-    pub fn new(provider: Provider, credential_id: String) -> CreateByoPhoneNumberDto {
+    pub fn new(provider: ProviderTrue, credential_id: String) -> CreateByoPhoneNumberDto {
         CreateByoPhoneNumberDto {
             fallback_destination: None,
             hooks: None,
@@ -55,6 +58,7 @@ impl CreateByoPhoneNumberDto {
             credential_id,
             name: None,
             assistant_id: None,
+            workflow_id: None,
             squad_id: None,
             server: None,
         }
@@ -62,13 +66,13 @@ impl CreateByoPhoneNumberDto {
 }
 /// This is to bring your own phone numbers from your own SIP trunks or Carriers.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "byo-phone-number")]
     ByoPhoneNumber,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::ByoPhoneNumber
     }
 }

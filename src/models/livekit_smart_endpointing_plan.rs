@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct LivekitSmartEndpointingPlan {
     /// This is the provider for the smart endpointing plan.
     #[serde(rename = "provider")]
-    pub provider: Provider,
-    /// This expression describes how long the bot will wait to start speaking based on the likelihood that the user has reached an endpoint.  This is a millisecond valued function. It maps probabilities (real numbers on [0,1]) to milliseconds that the bot should wait before speaking ([0, \\infty]). Any negative values that are returned are set to zero (the bot can't start talking in the past).  A probability of zero represents very high confidence that the caller has stopped speaking, and would like the bot to speak to them. A probability of one represents very high confidence that the caller is still speaking.  Under the hood, this is parsed into a mathjs expression. Whatever you use to write your expression needs to be valid with respect to mathjs  @default \"70 + 4000 * x\"
+    pub provider: ProviderTrue,
+    /// This expression describes how long the bot will wait to start speaking based on the likelihood that the user has reached an endpoint.  This is a millisecond valued function. It maps probabilities (real numbers on [0,1]) to milliseconds that the bot should wait before speaking ([0, \\infty]). Any negative values that are returned are set to zero (the bot can't start talking in the past).  A probability of zero represents very high confidence that the caller has stopped speaking, and would like the bot to speak to them. A probability of one represents very high confidence that the caller is still speaking.  Under the hood, this is parsed into a mathjs expression. Whatever you use to write your expression needs to be valid with respect to mathjs  @default \"20 + 500 * sqrt(x) + 2500 * x^3\"
     #[serde(rename = "waitFunction", skip_serializing_if = "Option::is_none")]
     pub wait_function: Option<String>,
 }
 
 impl LivekitSmartEndpointingPlan {
-    pub fn new(provider: Provider) -> LivekitSmartEndpointingPlan {
+    pub fn new(provider: ProviderTrue) -> LivekitSmartEndpointingPlan {
         LivekitSmartEndpointingPlan {
             provider,
             wait_function: None,
@@ -31,15 +31,15 @@ impl LivekitSmartEndpointingPlan {
 }
 /// This is the provider for the smart endpointing plan.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "vapi")]
     Vapi,
     #[serde(rename = "livekit")]
     Livekit,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Vapi
     }
 }

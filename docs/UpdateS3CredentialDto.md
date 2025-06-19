@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **region** | Option<**String**> | AWS region in which the S3 bucket is located. | [optional]
 **s3_bucket_name** | Option<**String**> | AWS S3 bucket name. | [optional]
 **s3_path_prefix** | Option<**String**> | The path prefix for the uploaded recording. Ex. \"recordings/\" | [optional]
+**fallback_index** | Option<**f64**> | This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. | [optional]
 **name** | Option<**String**> | This is the name of credential. This is just for your reference. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,16 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#async** | Option<**bool**> | This determines if the tool is async.  If async, the assistant will move forward without waiting for your server to respond. This is useful if you just want to trigger something on your server.  If sync, the assistant will wait for your server to respond. This is useful if want assistant to respond with the result from your server.  Defaults to synchronous (`false`). | [optional]
 **messages** | Option<[**Vec<models::CreateDtmfToolDtoMessagesInner>**](CreateDtmfToolDTO_messages_inner.md)> | These are the messages that will be spoken to the user as the tool is running.  For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured. | [optional]
 **r#type** | **String** | The type of tool. \"computer\" for Computer tool. | 
 **sub_type** | **String** | The sub type of tool. | 
+**server** | Option<[**models::Server**](Server.md)> |    This is the server where a `tool-calls` webhook will be sent.    Notes:   - Webhook is sent to this server when a tool call is made.   - Webhook contains the call, assistant, and phone number objects.   - Webhook contains the variables set on the assistant.   - Webhook is sent to the first available URL in this order: {{tool.server.url}}, {{assistant.server.url}}, {{phoneNumber.server.url}}, {{org.server.url}}.   - Webhook expects a response with tool call result. | [optional]
 **id** | **String** | This is the unique identifier for the tool. | 
 **org_id** | **String** | This is the unique identifier for the organization that this tool belongs to. | 
 **created_at** | **String** | This is the ISO 8601 date-time string of when the tool was created. | 
 **updated_at** | **String** | This is the ISO 8601 date-time string of when the tool was last updated. | 
 **function** | Option<[**models::OpenAiFunction**](OpenAIFunction.md)> | This is the function definition of the tool.  For `endCall`, `transferCall`, and `dtmf` tools, this is auto-filled based on tool-specific fields like `tool.destinations`. But, even in those cases, you can provide a custom function definition for advanced use cases.  An example of an advanced use case is if you want to customize the message that's spoken for `endCall` tool. You can specify a function where it returns an argument \"reason\". Then, in `messages` array, you can have many \"request-complete\" messages. One of these messages will be triggered if the `messages[].conditions` matches the \"reason\" argument. | [optional]
-**server** | Option<[**models::Server**](Server.md)> | This is the server that will be hit when this tool is requested by the model.  All requests will be sent with the call object among other things. You can find more details in the Server URL documentation.  This overrides the serverUrl set on the org and the phoneNumber. Order of precedence: highest tool.server.url, then assistant.serverUrl, then phoneNumber.serverUrl, then org.serverUrl. | [optional]
 **name** | **String** | The name of the tool, fixed to 'computer' | [default to Computer]
 **display_width_px** | **f64** | The display width in pixels | 
 **display_height_px** | **f64** | The display height in pixels | 

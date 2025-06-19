@@ -15,14 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct FallbackGladiaTranscriber {
     /// This is the transcription provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<models::GladiaTranscriberModel>,
+    pub model: Option<ModelTrue>,
     #[serde(rename = "languageBehaviour", skip_serializing_if = "Option::is_none")]
-    pub language_behaviour: Option<models::GladiaTranscriberLanguageBehaviour>,
+    pub language_behaviour: Option<LanguageBehaviourTrue>,
     /// Defines the language to use for the transcription. Required when languageBehaviour is 'manual'.
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
+    /// Defines the languages to use for the transcription. Required when languageBehaviour is 'manual'.
+    #[serde(rename = "languages", skip_serializing_if = "Option::is_none")]
+    pub languages: Option<LanguagesTrue>,
     /// Provides a custom vocabulary to the model to improve accuracy of transcribing context specific words, technical terms, names, etc. If empty, this argument is ignored. ⚠️ Warning ⚠️: Please be aware that the transcription_hint field has a character limit of 600. If you provide a transcription_hint longer than 600 characters, it will be automatically truncated to meet this limit.
     #[serde(rename = "transcriptionHint", skip_serializing_if = "Option::is_none")]
     pub transcription_hint: Option<String>,
@@ -38,12 +41,13 @@ pub struct FallbackGladiaTranscriber {
 }
 
 impl FallbackGladiaTranscriber {
-    pub fn new(provider: Provider) -> FallbackGladiaTranscriber {
+    pub fn new(provider: ProviderTrue) -> FallbackGladiaTranscriber {
         FallbackGladiaTranscriber {
             provider,
             model: None,
             language_behaviour: None,
             language: None,
+            languages: None,
             transcription_hint: None,
             prosody: None,
             audio_enhancer: None,
@@ -53,19 +57,51 @@ impl FallbackGladiaTranscriber {
 }
 /// This is the transcription provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "gladia")]
     Gladia,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Gladia
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum ModelTrue {
+    #[serde(rename = "fast")]
+    Fast,
+    #[serde(rename = "accurate")]
+    Accurate,
+    #[serde(rename = "solaria-1")]
+    Solaria1,
+}
+
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
+        Self::Fast
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum LanguageBehaviourTrue {
+    #[serde(rename = "manual")]
+    Manual,
+    #[serde(rename = "automatic single language")]
+    AutomaticSingleLanguage,
+    #[serde(rename = "automatic multiple languages")]
+    AutomaticMultipleLanguages,
+}
+
+impl Default for LanguageBehaviourTrue {
+    fn default() -> LanguageBehaviourTrue {
+        Self::Manual
     }
 }
 /// Defines the language to use for the transcription. Required when languageBehaviour is 'manual'.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "af")]
     Af,
     #[serde(rename = "sq")]
@@ -266,8 +302,216 @@ pub enum Language {
     Yo,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
+        Self::Af
+    }
+}
+/// Defines the languages to use for the transcription. Required when languageBehaviour is 'manual'.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum LanguagesTrue {
+    #[serde(rename = "af")]
+    Af,
+    #[serde(rename = "sq")]
+    Sq,
+    #[serde(rename = "am")]
+    Am,
+    #[serde(rename = "ar")]
+    Ar,
+    #[serde(rename = "hy")]
+    Hy,
+    #[serde(rename = "as")]
+    As,
+    #[serde(rename = "az")]
+    Az,
+    #[serde(rename = "ba")]
+    Ba,
+    #[serde(rename = "eu")]
+    Eu,
+    #[serde(rename = "be")]
+    Be,
+    #[serde(rename = "bn")]
+    Bn,
+    #[serde(rename = "bs")]
+    Bs,
+    #[serde(rename = "br")]
+    Br,
+    #[serde(rename = "bg")]
+    Bg,
+    #[serde(rename = "ca")]
+    Ca,
+    #[serde(rename = "zh")]
+    Zh,
+    #[serde(rename = "hr")]
+    Hr,
+    #[serde(rename = "cs")]
+    Cs,
+    #[serde(rename = "da")]
+    Da,
+    #[serde(rename = "nl")]
+    Nl,
+    #[serde(rename = "en")]
+    En,
+    #[serde(rename = "et")]
+    Et,
+    #[serde(rename = "fo")]
+    Fo,
+    #[serde(rename = "fi")]
+    Fi,
+    #[serde(rename = "fr")]
+    Fr,
+    #[serde(rename = "gl")]
+    Gl,
+    #[serde(rename = "ka")]
+    Ka,
+    #[serde(rename = "de")]
+    De,
+    #[serde(rename = "el")]
+    El,
+    #[serde(rename = "gu")]
+    Gu,
+    #[serde(rename = "ht")]
+    Ht,
+    #[serde(rename = "ha")]
+    Ha,
+    #[serde(rename = "haw")]
+    Haw,
+    #[serde(rename = "he")]
+    He,
+    #[serde(rename = "hi")]
+    Hi,
+    #[serde(rename = "hu")]
+    Hu,
+    #[serde(rename = "is")]
+    Is,
+    #[serde(rename = "id")]
+    Id,
+    #[serde(rename = "it")]
+    It,
+    #[serde(rename = "ja")]
+    Ja,
+    #[serde(rename = "jv")]
+    Jv,
+    #[serde(rename = "kn")]
+    Kn,
+    #[serde(rename = "kk")]
+    Kk,
+    #[serde(rename = "km")]
+    Km,
+    #[serde(rename = "ko")]
+    Ko,
+    #[serde(rename = "lo")]
+    Lo,
+    #[serde(rename = "la")]
+    La,
+    #[serde(rename = "lv")]
+    Lv,
+    #[serde(rename = "ln")]
+    Ln,
+    #[serde(rename = "lt")]
+    Lt,
+    #[serde(rename = "lb")]
+    Lb,
+    #[serde(rename = "mk")]
+    Mk,
+    #[serde(rename = "mg")]
+    Mg,
+    #[serde(rename = "ms")]
+    Ms,
+    #[serde(rename = "ml")]
+    Ml,
+    #[serde(rename = "mt")]
+    Mt,
+    #[serde(rename = "mi")]
+    Mi,
+    #[serde(rename = "mr")]
+    Mr,
+    #[serde(rename = "mn")]
+    Mn,
+    #[serde(rename = "my")]
+    My,
+    #[serde(rename = "ne")]
+    Ne,
+    #[serde(rename = "no")]
+    No,
+    #[serde(rename = "nn")]
+    Nn,
+    #[serde(rename = "oc")]
+    Oc,
+    #[serde(rename = "ps")]
+    Ps,
+    #[serde(rename = "fa")]
+    Fa,
+    #[serde(rename = "pl")]
+    Pl,
+    #[serde(rename = "pt")]
+    Pt,
+    #[serde(rename = "pa")]
+    Pa,
+    #[serde(rename = "ro")]
+    Ro,
+    #[serde(rename = "ru")]
+    Ru,
+    #[serde(rename = "sa")]
+    Sa,
+    #[serde(rename = "sr")]
+    Sr,
+    #[serde(rename = "sn")]
+    Sn,
+    #[serde(rename = "sd")]
+    Sd,
+    #[serde(rename = "si")]
+    Si,
+    #[serde(rename = "sk")]
+    Sk,
+    #[serde(rename = "sl")]
+    Sl,
+    #[serde(rename = "so")]
+    So,
+    #[serde(rename = "es")]
+    Es,
+    #[serde(rename = "su")]
+    Su,
+    #[serde(rename = "sw")]
+    Sw,
+    #[serde(rename = "sv")]
+    Sv,
+    #[serde(rename = "tl")]
+    Tl,
+    #[serde(rename = "tg")]
+    Tg,
+    #[serde(rename = "ta")]
+    Ta,
+    #[serde(rename = "tt")]
+    Tt,
+    #[serde(rename = "te")]
+    Te,
+    #[serde(rename = "th")]
+    Th,
+    #[serde(rename = "bo")]
+    Bo,
+    #[serde(rename = "tr")]
+    Tr,
+    #[serde(rename = "tk")]
+    Tk,
+    #[serde(rename = "uk")]
+    Uk,
+    #[serde(rename = "ur")]
+    Ur,
+    #[serde(rename = "uz")]
+    Uz,
+    #[serde(rename = "vi")]
+    Vi,
+    #[serde(rename = "cy")]
+    Cy,
+    #[serde(rename = "yi")]
+    Yi,
+    #[serde(rename = "yo")]
+    Yo,
+}
+
+impl Default for LanguagesTrue {
+    fn default() -> LanguagesTrue {
         Self::Af
     }
 }

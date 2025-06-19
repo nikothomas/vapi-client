@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct S3Credential {
     /// Credential provider. Only allowed value is s3
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// AWS access key ID.
     #[serde(rename = "awsAccessKeyId")]
     pub aws_access_key_id: String,
@@ -31,6 +31,9 @@ pub struct S3Credential {
     /// The path prefix for the uploaded recording. Ex. \"recordings/\"
     #[serde(rename = "s3PathPrefix")]
     pub s3_path_prefix: String,
+    /// This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order.
+    #[serde(rename = "fallbackIndex", skip_serializing_if = "Option::is_none")]
+    pub fallback_index: Option<f64>,
     /// This is the unique identifier for the credential.
     #[serde(rename = "id")]
     pub id: String,
@@ -49,7 +52,7 @@ pub struct S3Credential {
 }
 
 impl S3Credential {
-    pub fn new(provider: Provider, aws_access_key_id: String, aws_secret_access_key: String, region: String, s3_bucket_name: String, s3_path_prefix: String, id: String, org_id: String, created_at: String, updated_at: String) -> S3Credential {
+    pub fn new(provider: ProviderTrue, aws_access_key_id: String, aws_secret_access_key: String, region: String, s3_bucket_name: String, s3_path_prefix: String, id: String, org_id: String, created_at: String, updated_at: String) -> S3Credential {
         S3Credential {
             provider,
             aws_access_key_id,
@@ -57,6 +60,7 @@ impl S3Credential {
             region,
             s3_bucket_name,
             s3_path_prefix,
+            fallback_index: None,
             id,
             org_id,
             created_at,
@@ -67,13 +71,13 @@ impl S3Credential {
 }
 /// Credential provider. Only allowed value is s3
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "s3")]
     S3,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::S3
     }
 }

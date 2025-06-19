@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct FallbackTalkscriberTranscriber {
     /// This is the transcription provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the model that will be used for the transcription.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// This is the language that will be set for the transcription. The list of languages Whisper supports can be found here: https://github.com/openai/whisper/blob/main/whisper/tokenizer.py
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
 }
 
 impl FallbackTalkscriberTranscriber {
-    pub fn new(provider: Provider) -> FallbackTalkscriberTranscriber {
+    pub fn new(provider: ProviderTrue) -> FallbackTalkscriberTranscriber {
         FallbackTalkscriberTranscriber {
             provider,
             model: None,
@@ -35,31 +35,31 @@ impl FallbackTalkscriberTranscriber {
 }
 /// This is the transcription provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "talkscriber")]
     Talkscriber,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Talkscriber
     }
 }
 /// This is the model that will be used for the transcription.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "whisper")]
     Whisper,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::Whisper
     }
 }
 /// This is the language that will be set for the transcription. The list of languages Whisper supports can be found here: https://github.com/openai/whisper/blob/main/whisper/tokenizer.py
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "en")]
     En,
     #[serde(rename = "zh")]
@@ -262,8 +262,8 @@ pub enum Language {
     Yue,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::En
     }
 }

@@ -51,10 +51,10 @@ pub enum TestSuiteTestControllerUpdateError {
 }
 
 
-pub async fn test_suite_test_controller_create(configuration: &configuration::Configuration, test_suite_id: &str, test_suite_id_test_body: models::TestSuiteIdTestBody) -> Result<models::InlineResponse2013, Error<TestSuiteTestControllerCreateError>> {
+pub async fn test_suite_test_controller_create(configuration: &configuration::Configuration, test_suite_id: &str, test_suite_test_controller_create_request: models::TestSuiteTestControllerCreateRequest) -> Result<models::TestSuiteTestControllerCreate201Response, Error<TestSuiteTestControllerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_test_suite_id = test_suite_id;
-    let p_test_suite_id_test_body = test_suite_id_test_body;
+    let p_test_suite_test_controller_create_request = test_suite_test_controller_create_request;
 
     let uri_str = format!("{}/test-suite/{testSuiteId}/test", configuration.base_path, testSuiteId=crate::apis::urlencode(p_test_suite_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -65,7 +65,7 @@ pub async fn test_suite_test_controller_create(configuration: &configuration::Co
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_test_suite_id_test_body);
+    req_builder = req_builder.json(&p_test_suite_test_controller_create_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -82,8 +82,8 @@ pub async fn test_suite_test_controller_create(configuration: &configuration::Co
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2013`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2013`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -175,7 +175,7 @@ pub async fn test_suite_test_controller_find_all_paginated(configuration: &confi
     }
 }
 
-pub async fn test_suite_test_controller_find_one(configuration: &configuration::Configuration, test_suite_id: &str, id: &str) -> Result<models::InlineResponse2013, Error<TestSuiteTestControllerFindOneError>> {
+pub async fn test_suite_test_controller_find_one(configuration: &configuration::Configuration, test_suite_id: &str, id: &str) -> Result<models::TestSuiteTestControllerCreate201Response, Error<TestSuiteTestControllerFindOneError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_test_suite_id = test_suite_id;
     let p_id = id;
@@ -205,8 +205,8 @@ pub async fn test_suite_test_controller_find_one(configuration: &configuration::
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2013`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2013`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -215,7 +215,7 @@ pub async fn test_suite_test_controller_find_one(configuration: &configuration::
     }
 }
 
-pub async fn test_suite_test_controller_remove(configuration: &configuration::Configuration, test_suite_id: &str, id: &str) -> Result<models::InlineResponse2013, Error<TestSuiteTestControllerRemoveError>> {
+pub async fn test_suite_test_controller_remove(configuration: &configuration::Configuration, test_suite_id: &str, id: &str) -> Result<models::TestSuiteTestControllerCreate201Response, Error<TestSuiteTestControllerRemoveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_test_suite_id = test_suite_id;
     let p_id = id;
@@ -245,8 +245,8 @@ pub async fn test_suite_test_controller_remove(configuration: &configuration::Co
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2013`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2013`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -255,11 +255,11 @@ pub async fn test_suite_test_controller_remove(configuration: &configuration::Co
     }
 }
 
-pub async fn test_suite_test_controller_update(configuration: &configuration::Configuration, test_suite_id: &str, id: &str, test_id_body: models::TestIdBody) -> Result<models::InlineResponse2013, Error<TestSuiteTestControllerUpdateError>> {
+pub async fn test_suite_test_controller_update(configuration: &configuration::Configuration, test_suite_id: &str, id: &str, test_suite_test_controller_update_request: models::TestSuiteTestControllerUpdateRequest) -> Result<models::TestSuiteTestControllerCreate201Response, Error<TestSuiteTestControllerUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_test_suite_id = test_suite_id;
     let p_id = id;
-    let p_test_id_body = test_id_body;
+    let p_test_suite_test_controller_update_request = test_suite_test_controller_update_request;
 
     let uri_str = format!("{}/test-suite/{testSuiteId}/test/{id}", configuration.base_path, testSuiteId=crate::apis::urlencode(p_test_suite_id), id=crate::apis::urlencode(p_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -270,7 +270,7 @@ pub async fn test_suite_test_controller_update(configuration: &configuration::Co
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_test_id_body);
+    req_builder = req_builder.json(&p_test_suite_test_controller_update_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -287,8 +287,8 @@ pub async fn test_suite_test_controller_update(configuration: &configuration::Co
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2013`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2013`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TestSuiteTestControllerCreate201Response`")))),
         }
     } else {
         let content = resp.text().await?;

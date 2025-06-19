@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct File {
     #[serde(rename = "object", skip_serializing_if = "Option::is_none")]
-    pub object: Option<Object>,
+    pub object: Option<ObjectTrue>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Status>,
+    pub status: Option<StatusTrue>,
     /// This is the name of the file. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -82,19 +82,19 @@ impl File {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Object {
+pub enum ObjectTrue {
     #[serde(rename = "file")]
     File,
 }
 
-impl Default for Object {
-    fn default() -> Object {
+impl Default for ObjectTrue {
+    fn default() -> ObjectTrue {
         Self::File
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "processing")]
     Processing,
     #[serde(rename = "done")]
@@ -103,8 +103,8 @@ pub enum Status {
     Failed,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Processing
     }
 }

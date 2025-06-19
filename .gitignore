@@ -1,14 +1,3 @@
 /target/
 **/*.rs.bk
 Cargo.lock
-tests
-code-gen
-git_push.sh
-.openapi-generator-ignore
-.idea
-.travis.yml
-.DS_Store
-.openapi-generator
-.env
-/tests/agent_test.rs
-example.json

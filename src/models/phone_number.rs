@@ -34,7 +34,7 @@ impl Default for PhoneNumber {
 
 /// This is the status of the phone number.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "active")]
     Active,
     #[serde(rename = "activating")]
@@ -43,8 +43,8 @@ pub enum Status {
     Blocked,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Active
     }
 }

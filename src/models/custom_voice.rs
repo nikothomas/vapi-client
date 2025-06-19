@@ -13,9 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CustomVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used. Use `custom-voice` for providers that are not natively supported.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the plan for chunking the model output before it is sent to the voice provider.
     #[serde(rename = "chunkPlan", skip_serializing_if = "Option::is_none")]
     pub chunk_plan: Option<models::ChunkPlan>,
@@ -28,8 +31,9 @@ pub struct CustomVoice {
 }
 
 impl CustomVoice {
-    pub fn new(provider: Provider, server: models::Server) -> CustomVoice {
+    pub fn new(provider: ProviderTrue, server: models::Server) -> CustomVoice {
         CustomVoice {
+            caching_enabled: None,
             provider,
             chunk_plan: None,
             server,
@@ -39,13 +43,13 @@ impl CustomVoice {
 }
 /// This is the voice provider that will be used. Use `custom-voice` for providers that are not natively supported.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "custom-voice")]
     CustomVoice,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::CustomVoice
     }
 }

@@ -13,9 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FallbackTavusVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "voiceId")]
     pub voice_id: models::TavusVoiceVoiceId,
     /// This is the unique identifier for the persona that the replica will use in the conversation.
@@ -42,8 +45,9 @@ pub struct FallbackTavusVoice {
 }
 
 impl FallbackTavusVoice {
-    pub fn new(provider: Provider, voice_id: models::TavusVoiceVoiceId) -> FallbackTavusVoice {
+    pub fn new(provider: ProviderTrue, voice_id: models::TavusVoiceVoiceId) -> FallbackTavusVoice {
         FallbackTavusVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             persona_id: None,
@@ -58,13 +62,13 @@ impl FallbackTavusVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "tavus")]
     Tavus,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Tavus
     }
 }

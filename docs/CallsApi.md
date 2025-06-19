@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## call_controller_create
 
-> models::InlineResponse201 call_controller_create(create_call_dto)
+> models::CallControllerCreate201Response call_controller_create(create_call_dto)
 Create Call
 
 ### Parameters
@@ -26,7 +26,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InlineResponse201**](inline_response_201.md)
+[**models::CallControllerCreate201Response**](CallController_create_201_response.md)
 
 ### Authorization
 

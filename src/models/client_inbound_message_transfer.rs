@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct ClientInboundMessageTransfer {
     /// This is the type of the message. Send \"transfer\" message to transfer the call to a destination.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     #[serde(rename = "destination", skip_serializing_if = "Option::is_none")]
     pub destination: Option<models::ClientInboundMessageTransferDestination>,
     /// This is the content to say.
@@ -24,7 +24,7 @@ pub struct ClientInboundMessageTransfer {
 }
 
 impl ClientInboundMessageTransfer {
-    pub fn new(r#type: Type) -> ClientInboundMessageTransfer {
+    pub fn new(r#type: TypeTrue) -> ClientInboundMessageTransfer {
         ClientInboundMessageTransfer {
             r#type,
             destination: None,
@@ -34,13 +34,13 @@ impl ClientInboundMessageTransfer {
 }
 /// This is the type of the message. Send \"transfer\" message to transfer the call to a destination.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "transfer")]
     Transfer,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Transfer
     }
 }

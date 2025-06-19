@@ -15,12 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct FallbackDeepgramTranscriber {
     /// This is the transcription provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
     pub model: Option<models::DeepgramTranscriberModel>,
     /// This is the language that will be set for the transcription. The list of languages Deepgram supports can be found here: https://developers.deepgram.com/docs/models-languages-overview
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
     /// This will be use smart format option provided by Deepgram. It's default disabled because it can sometimes format numbers as times but it's getting better.
     #[serde(rename = "smartFormat", skip_serializing_if = "Option::is_none")]
     pub smart_format: Option<bool>,
@@ -48,7 +48,7 @@ pub struct FallbackDeepgramTranscriber {
 }
 
 impl FallbackDeepgramTranscriber {
-    pub fn new(provider: Provider) -> FallbackDeepgramTranscriber {
+    pub fn new(provider: ProviderTrue) -> FallbackDeepgramTranscriber {
         FallbackDeepgramTranscriber {
             provider,
             model: None,
@@ -66,21 +66,29 @@ impl FallbackDeepgramTranscriber {
 }
 /// This is the transcription provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "deepgram")]
     Deepgram,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Deepgram
     }
 }
 /// This is the language that will be set for the transcription. The list of languages Deepgram supports can be found here: https://developers.deepgram.com/docs/models-languages-overview
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
+    #[serde(rename = "ar")]
+    Ar,
+    #[serde(rename = "az")]
+    Az,
+    #[serde(rename = "ba")]
+    Ba,
     #[serde(rename = "bg")]
     Bg,
+    #[serde(rename = "br")]
+    Br,
     #[serde(rename = "ca")]
     Ca,
     #[serde(rename = "cs")]
@@ -115,12 +123,20 @@ pub enum Language {
     EsLatam,
     #[serde(rename = "et")]
     Et,
+    #[serde(rename = "eu")]
+    Eu,
     #[serde(rename = "fi")]
     Fi,
     #[serde(rename = "fr")]
     Fr,
     #[serde(rename = "fr-CA")]
     FrCa,
+    #[serde(rename = "ha")]
+    Ha,
+    #[serde(rename = "haw")]
+    Haw,
+    #[serde(rename = "he")]
+    He,
     #[serde(rename = "hi")]
     Hi,
     #[serde(rename = "hi-Latn")]
@@ -129,18 +145,28 @@ pub enum Language {
     Hu,
     #[serde(rename = "id")]
     Id,
+    #[serde(rename = "is")]
+    Is,
     #[serde(rename = "it")]
     It,
     #[serde(rename = "ja")]
     Ja,
+    #[serde(rename = "jw")]
+    Jw,
+    #[serde(rename = "kn")]
+    Kn,
     #[serde(rename = "ko")]
     Ko,
     #[serde(rename = "ko-KR")]
     KoKr,
+    #[serde(rename = "ln")]
+    Ln,
     #[serde(rename = "lt")]
     Lt,
     #[serde(rename = "lv")]
     Lv,
+    #[serde(rename = "mk")]
+    Mk,
     #[serde(rename = "ms")]
     Ms,
     #[serde(rename = "multi")]
@@ -163,6 +189,16 @@ pub enum Language {
     Ru,
     #[serde(rename = "sk")]
     Sk,
+    #[serde(rename = "sl")]
+    Sl,
+    #[serde(rename = "sn")]
+    Sn,
+    #[serde(rename = "so")]
+    So,
+    #[serde(rename = "sr")]
+    Sr,
+    #[serde(rename = "su")]
+    Su,
     #[serde(rename = "sv")]
     Sv,
     #[serde(rename = "sv-SE")]
@@ -177,10 +213,16 @@ pub enum Language {
     ThTh,
     #[serde(rename = "tr")]
     Tr,
+    #[serde(rename = "tt")]
+    Tt,
     #[serde(rename = "uk")]
     Uk,
+    #[serde(rename = "ur")]
+    Ur,
     #[serde(rename = "vi")]
     Vi,
+    #[serde(rename = "yo")]
+    Yo,
     #[serde(rename = "zh")]
     Zh,
     #[serde(rename = "zh-CN")]
@@ -195,9 +237,9 @@ pub enum Language {
     ZhTw,
 }
 
-impl Default for Language {
-    fn default() -> Language {
-        Self::Bg
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
+        Self::Ar
     }
 }
 

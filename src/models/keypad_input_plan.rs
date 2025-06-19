@@ -21,7 +21,7 @@ pub struct KeypadInputPlan {
     pub timeout_seconds: Option<f64>,
     /// This is the delimiter(s) that will be used to process the input. Can be '#', '*', or an empty array.
     #[serde(rename = "delimiters", skip_serializing_if = "Option::is_none")]
-    pub delimiters: Option<Delimiters>,
+    pub delimiters: Option<DelimitersTrue>,
 }
 
 impl KeypadInputPlan {
@@ -35,7 +35,7 @@ impl KeypadInputPlan {
 }
 /// This is the delimiter(s) that will be used to process the input. Can be '#', '*', or an empty array.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Delimiters {
+pub enum DelimitersTrue {
     #[serde(rename = "#")]
     Hash,
     #[serde(rename = "*")]
@@ -44,8 +44,8 @@ pub enum Delimiters {
     Empty,
 }
 
-impl Default for Delimiters {
-    fn default() -> Delimiters {
+impl Default for DelimitersTrue {
+    fn default() -> DelimitersTrue {
         Self::Hash
     }
 }

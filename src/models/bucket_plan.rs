@@ -16,7 +16,7 @@ pub struct BucketPlan {
     /// This is the name of the bucket.
     #[serde(rename = "name")]
     pub name: String,
-    /// This is the region of the bucket.  Usage: - If `credential.type` is `aws`, then this is required. - If `credential.type` is `gcp`, then this is optional since GCP allows buckets to be accessed without a region but region is required for data residency requirements. Read here: https://cloud.google.com/storage/docs/request-endpoints
+    /// This is the region of the bucket.  Usage: - If `credential.type` is `aws`, then this is required. - If `credential.type` is `gcp`, then this is optional since GCP allows buckets to be accessed without a region but region is required for data residency requirements. Read here: https://cloud.google.com/storage/docs/request-endpoints  This overrides the `credential.region` field if it is provided.
     #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
     /// This is the path where call artifacts will be stored.  Usage: - To store call artifacts in a specific folder, set this to the full path. Eg. \"/folder-name1/folder-name2\". - To store call artifacts in the root of the bucket, leave this blank.  @default \"/\"

@@ -28,6 +28,9 @@ pub struct UpdateS3CredentialDto {
     /// The path prefix for the uploaded recording. Ex. \"recordings/\"
     #[serde(rename = "s3PathPrefix", skip_serializing_if = "Option::is_none")]
     pub s3_path_prefix: Option<String>,
+    /// This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order.
+    #[serde(rename = "fallbackIndex", skip_serializing_if = "Option::is_none")]
+    pub fallback_index: Option<f64>,
     /// This is the name of credential. This is just for your reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -41,6 +44,7 @@ impl UpdateS3CredentialDto {
             region: None,
             s3_bucket_name: None,
             s3_path_prefix: None,
+            fallback_index: None,
             name: None,
         }
     }

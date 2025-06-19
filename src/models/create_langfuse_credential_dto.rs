@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateLangfuseCredentialDto {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// The public key for Langfuse project. Eg: pk-lf-...
     #[serde(rename = "publicKey")]
     pub public_key: String,
@@ -30,7 +30,7 @@ pub struct CreateLangfuseCredentialDto {
 }
 
 impl CreateLangfuseCredentialDto {
-    pub fn new(provider: Provider, public_key: String, api_key: String, api_url: String) -> CreateLangfuseCredentialDto {
+    pub fn new(provider: ProviderTrue, public_key: String, api_key: String, api_url: String) -> CreateLangfuseCredentialDto {
         CreateLangfuseCredentialDto {
             provider,
             public_key,
@@ -42,13 +42,13 @@ impl CreateLangfuseCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "langfuse")]
     Langfuse,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Langfuse
     }
 }

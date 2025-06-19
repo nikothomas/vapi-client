@@ -51,9 +51,9 @@ pub enum PhoneNumberControllerUpdateError {
 }
 
 
-pub async fn phone_number_controller_create(configuration: &configuration::Configuration, phonenumber_body: models::PhonenumberBody) -> Result<models::PhoneNumber, Error<PhoneNumberControllerCreateError>> {
+pub async fn phone_number_controller_create(configuration: &configuration::Configuration, phone_number_controller_create_request: models::PhoneNumberControllerCreateRequest) -> Result<models::PhoneNumber, Error<PhoneNumberControllerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_phonenumber_body = phonenumber_body;
+    let p_phone_number_controller_create_request = phone_number_controller_create_request;
 
     let uri_str = format!("{}/phone-number", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -64,7 +64,7 @@ pub async fn phone_number_controller_create(configuration: &configuration::Confi
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_phonenumber_body);
+    req_builder = req_builder.json(&p_phone_number_controller_create_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -91,7 +91,7 @@ pub async fn phone_number_controller_create(configuration: &configuration::Confi
     }
 }
 
-pub async fn phone_number_controller_find_all(configuration: &configuration::Configuration, limit: Option<f64>, created_at_gt: Option<String>, created_at_lt: Option<String>, created_at_ge: Option<String>, created_at_le: Option<String>, updated_at_gt: Option<String>, updated_at_lt: Option<String>, updated_at_ge: Option<String>, updated_at_le: Option<String>) -> Result<Vec<models::PhoneNumber1>, Error<PhoneNumberControllerFindAllError>> {
+pub async fn phone_number_controller_find_all(configuration: &configuration::Configuration, limit: Option<f64>, created_at_gt: Option<String>, created_at_lt: Option<String>, created_at_ge: Option<String>, created_at_le: Option<String>, updated_at_gt: Option<String>, updated_at_lt: Option<String>, updated_at_ge: Option<String>, updated_at_le: Option<String>) -> Result<Vec<models::PhoneNumber>, Error<PhoneNumberControllerFindAllError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_limit = limit;
     let p_created_at_gt = created_at_gt;
@@ -155,8 +155,8 @@ pub async fn phone_number_controller_find_all(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PhoneNumber1&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PhoneNumber1&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PhoneNumber&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PhoneNumber&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -243,10 +243,10 @@ pub async fn phone_number_controller_remove(configuration: &configuration::Confi
     }
 }
 
-pub async fn phone_number_controller_update(configuration: &configuration::Configuration, id: &str, phonenumber_id_body: models::PhonenumberIdBody) -> Result<models::PhoneNumber, Error<PhoneNumberControllerUpdateError>> {
+pub async fn phone_number_controller_update(configuration: &configuration::Configuration, id: &str, phone_number_controller_update_request: models::PhoneNumberControllerUpdateRequest) -> Result<models::PhoneNumber, Error<PhoneNumberControllerUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
-    let p_phonenumber_id_body = phonenumber_id_body;
+    let p_phone_number_controller_update_request = phone_number_controller_update_request;
 
     let uri_str = format!("{}/phone-number/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -257,7 +257,7 @@ pub async fn phone_number_controller_update(configuration: &configuration::Confi
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_phonenumber_id_body);
+    req_builder = req_builder.json(&p_phone_number_controller_update_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

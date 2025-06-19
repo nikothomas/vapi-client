@@ -13,51 +13,53 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FallbackVapiVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// The voices provided by Vapi
     #[serde(rename = "voiceId")]
-    pub voice_id: VoiceId,
+    pub voice_id: VoiceIdTrue,
     /// This is the speed multiplier that will be used.  @default 1
     #[serde(rename = "speed", skip_serializing_if = "Option::is_none")]
     pub speed: Option<f64>,
-    /// This is the language code (ISO 639-1) that will be used.  @default 'en-US'
-    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
     /// This is the plan for chunking the model output before it is sent to the voice provider.
     #[serde(rename = "chunkPlan", skip_serializing_if = "Option::is_none")]
     pub chunk_plan: Option<models::ChunkPlan>,
 }
 
 impl FallbackVapiVoice {
-    pub fn new(provider: Provider, voice_id: VoiceId) -> FallbackVapiVoice {
+    pub fn new(provider: ProviderTrue, voice_id: VoiceIdTrue) -> FallbackVapiVoice {
         FallbackVapiVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             speed: None,
-            language: None,
             chunk_plan: None,
         }
     }
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "vapi")]
     Vapi,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Vapi
     }
 }
 /// The voices provided by Vapi
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum VoiceId {
+pub enum VoiceIdTrue {
     #[serde(rename = "Elliot")]
     Elliot,
+    #[serde(rename = "Kylie")]
+    Kylie,
     #[serde(rename = "Rohan")]
     Rohan,
     #[serde(rename = "Lily")]
@@ -78,97 +80,9 @@ pub enum VoiceId {
     Spencer,
 }
 
-impl Default for VoiceId {
-    fn default() -> VoiceId {
+impl Default for VoiceIdTrue {
+    fn default() -> VoiceIdTrue {
         Self::Elliot
-    }
-}
-/// This is the language code (ISO 639-1) that will be used.  @default 'en-US'
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
-    #[serde(rename = "en-US")]
-    EnUs,
-    #[serde(rename = "en-GB")]
-    EnGb,
-    #[serde(rename = "en-AU")]
-    EnAu,
-    #[serde(rename = "en-CA")]
-    EnCa,
-    #[serde(rename = "ja")]
-    Ja,
-    #[serde(rename = "zh")]
-    Zh,
-    #[serde(rename = "de")]
-    De,
-    #[serde(rename = "hi")]
-    Hi,
-    #[serde(rename = "fr-FR")]
-    FrFr,
-    #[serde(rename = "fr-CA")]
-    FrCa,
-    #[serde(rename = "ko")]
-    Ko,
-    #[serde(rename = "pt-BR")]
-    PtBr,
-    #[serde(rename = "pt-PT")]
-    PtPt,
-    #[serde(rename = "it")]
-    It,
-    #[serde(rename = "es-ES")]
-    EsEs,
-    #[serde(rename = "es-MX")]
-    EsMx,
-    #[serde(rename = "id")]
-    Id,
-    #[serde(rename = "nl")]
-    Nl,
-    #[serde(rename = "tr")]
-    Tr,
-    #[serde(rename = "fil")]
-    Fil,
-    #[serde(rename = "pl")]
-    Pl,
-    #[serde(rename = "sv")]
-    Sv,
-    #[serde(rename = "bg")]
-    Bg,
-    #[serde(rename = "ro")]
-    Ro,
-    #[serde(rename = "ar-SA")]
-    ArSa,
-    #[serde(rename = "ar-AE")]
-    ArAe,
-    #[serde(rename = "cs")]
-    Cs,
-    #[serde(rename = "el")]
-    El,
-    #[serde(rename = "fi")]
-    Fi,
-    #[serde(rename = "hr")]
-    Hr,
-    #[serde(rename = "ms")]
-    Ms,
-    #[serde(rename = "sk")]
-    Sk,
-    #[serde(rename = "da")]
-    Da,
-    #[serde(rename = "ta")]
-    Ta,
-    #[serde(rename = "uk")]
-    Uk,
-    #[serde(rename = "ru")]
-    Ru,
-    #[serde(rename = "hu")]
-    Hu,
-    #[serde(rename = "no")]
-    No,
-    #[serde(rename = "vi")]
-    Vi,
-}
-
-impl Default for Language {
-    fn default() -> Language {
-        Self::EnUs
     }
 }
 

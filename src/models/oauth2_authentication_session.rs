@@ -19,6 +19,9 @@ pub struct Oauth2AuthenticationSession {
     /// This is the OAuth2 access token expiration.
     #[serde(rename = "expiresAt", skip_serializing_if = "Option::is_none")]
     pub expires_at: Option<String>,
+    /// This is the OAuth2 refresh token.
+    #[serde(rename = "refreshToken", skip_serializing_if = "Option::is_none")]
+    pub refresh_token: Option<String>,
 }
 
 impl Oauth2AuthenticationSession {
@@ -26,6 +29,7 @@ impl Oauth2AuthenticationSession {
         Oauth2AuthenticationSession {
             access_token: None,
             expires_at: None,
+            refresh_token: None,
         }
     }
 }

@@ -13,6 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalysisPlan {
+    /// The minimum number of messages required to run the analysis plan. If the number of messages is less than this, analysis will be skipped. @default 2
+    #[serde(rename = "minMessagesThreshold", skip_serializing_if = "Option::is_none")]
+    pub min_messages_threshold: Option<f64>,
     /// This is the plan for generating the summary of the call. This outputs to `call.analysis.summary`.
     #[serde(rename = "summaryPlan", skip_serializing_if = "Option::is_none")]
     pub summary_plan: Option<models::SummaryPlan>,
@@ -30,6 +33,7 @@ pub struct AnalysisPlan {
 impl AnalysisPlan {
     pub fn new() -> AnalysisPlan {
         AnalysisPlan {
+            min_messages_threshold: None,
             summary_plan: None,
             structured_data_plan: None,
             structured_data_multi_plan: None,

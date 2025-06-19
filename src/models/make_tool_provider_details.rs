@@ -20,7 +20,7 @@ pub struct MakeToolProviderDetails {
     pub setup_instructions: Option<Vec<models::ToolTemplateSetup>>,
     /// The type of tool. \"make\" for Make tool.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     #[serde(rename = "scenarioId", skip_serializing_if = "Option::is_none")]
     pub scenario_id: Option<f64>,
     #[serde(rename = "scenarioName", skip_serializing_if = "Option::is_none")]
@@ -32,7 +32,7 @@ pub struct MakeToolProviderDetails {
 }
 
 impl MakeToolProviderDetails {
-    pub fn new(r#type: Type) -> MakeToolProviderDetails {
+    pub fn new(r#type: TypeTrue) -> MakeToolProviderDetails {
         MakeToolProviderDetails {
             template_url: None,
             setup_instructions: None,
@@ -46,13 +46,13 @@ impl MakeToolProviderDetails {
 }
 /// The type of tool. \"make\" for Make tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "make")]
     Make,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Make
     }
 }

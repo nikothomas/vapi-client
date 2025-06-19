@@ -24,10 +24,10 @@ pub struct Subscription {
     pub updated_at: String,
     /// This is the type / tier of the subscription.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the status of the subscription. Past due subscriptions are subscriptions with past due payments.
     #[serde(rename = "status")]
-    pub status: Status,
+    pub status: StatusTrue,
     /// This is the number of credits the subscription currently has.  Note: This is a string to avoid floating point precision issues.
     #[serde(rename = "credits")]
     pub credits: String,
@@ -124,7 +124,7 @@ pub struct Subscription {
 }
 
 impl Subscription {
-    pub fn new(id: String, created_at: String, updated_at: String, r#type: Type, status: Status, credits: String, concurrency_counter: f64, concurrency_limit_included: f64, concurrency_limit_purchased: f64) -> Subscription {
+    pub fn new(id: String, created_at: String, updated_at: String, r#type: TypeTrue, status: StatusTrue, credits: String, concurrency_counter: f64, concurrency_limit_included: f64, concurrency_limit_purchased: f64) -> Subscription {
         Subscription {
             id,
             created_at,
@@ -167,31 +167,39 @@ impl Subscription {
 }
 /// This is the type / tier of the subscription.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "trial")]
     Trial,
     #[serde(rename = "pay-as-you-go")]
     PayAsYouGo,
     #[serde(rename = "enterprise")]
     Enterprise,
+    #[serde(rename = "agency")]
+    Agency,
+    #[serde(rename = "startup")]
+    Startup,
+    #[serde(rename = "growth")]
+    Growth,
+    #[serde(rename = "scale")]
+    Scale,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Trial
     }
 }
 /// This is the status of the subscription. Past due subscriptions are subscriptions with past due payments.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "active")]
     Active,
     #[serde(rename = "frozen")]
     Frozen,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Active
     }
 }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Edge {
     #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
-    pub condition: Option<models::EdgeCondition>,
+    pub condition: Option<models::AiEdgeCondition>,
     #[serde(rename = "from")]
     pub from: String,
     #[serde(rename = "to")]

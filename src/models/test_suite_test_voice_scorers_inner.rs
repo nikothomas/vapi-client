@@ -24,13 +24,13 @@ impl Default for TestSuiteTestVoiceScorersInner {
 }
 /// This is the type of the scorer, which must be AI.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "ai")]
     Ai,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Ai
     }
 }

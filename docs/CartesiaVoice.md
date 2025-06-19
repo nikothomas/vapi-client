@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**caching_enabled** | Option<**bool**> | This is the flag to toggle voice caching for the assistant. | [optional][default to true]
 **provider** | **String** | This is the voice provider that will be used. | 
 **voice_id** | **String** | The ID of the particular voice you want to use. | 
 **model** | Option<**String**> | This is the model that will be used. This is optional and will default to the correct model for the voiceId. | [optional]

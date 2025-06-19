@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeepSeekCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -36,7 +36,7 @@ pub struct DeepSeekCredential {
 }
 
 impl DeepSeekCredential {
-    pub fn new(provider: Provider, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> DeepSeekCredential {
+    pub fn new(provider: ProviderTrue, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> DeepSeekCredential {
         DeepSeekCredential {
             provider,
             api_key,
@@ -50,13 +50,13 @@ impl DeepSeekCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "deep-seek")]
     DeepSeek,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::DeepSeek
     }
 }

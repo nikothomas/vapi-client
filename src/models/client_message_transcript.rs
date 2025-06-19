@@ -13,24 +13,43 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientMessageTranscript {
+    #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
+    pub phone_number: Option<models::ClientMessageWorkflowNodeStartedPhoneNumber>,
     /// This is the type of the message. \"transcript\" is sent as transcriber outputs partial or final transcript.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
+    /// This is the timestamp of the message.
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<f64>,
+    /// This is the call that the message is associated with.
+    #[serde(rename = "call", skip_serializing_if = "Option::is_none")]
+    pub call: Option<models::Call>,
+    /// This is the customer that the message is associated with.
+    #[serde(rename = "customer", skip_serializing_if = "Option::is_none")]
+    pub customer: Option<models::CreateCustomerDto>,
+    /// This is the assistant that the message is associated with.
+    #[serde(rename = "assistant", skip_serializing_if = "Option::is_none")]
+    pub assistant: Option<models::CreateAssistantDto>,
     /// This is the role for which the transcript is for.
     #[serde(rename = "role")]
-    pub role: Role,
+    pub role: RoleTrue,
     /// This is the type of the transcript.
     #[serde(rename = "transcriptType")]
-    pub transcript_type: TranscriptType,
+    pub transcript_type: TranscriptTypeTrue,
     /// This is the transcript content.
     #[serde(rename = "transcript")]
     pub transcript: String,
 }
 
 impl ClientMessageTranscript {
-    pub fn new(r#type: Type, role: Role, transcript_type: TranscriptType, transcript: String) -> ClientMessageTranscript {
+    pub fn new(r#type: TypeTrue, role: RoleTrue, transcript_type: TranscriptTypeTrue, transcript: String) -> ClientMessageTranscript {
         ClientMessageTranscript {
+            phone_number: None,
             r#type,
+            timestamp: None,
+            call: None,
+            customer: None,
+            assistant: None,
             role,
             transcript_type,
             transcript,
@@ -39,43 +58,43 @@ impl ClientMessageTranscript {
 }
 /// This is the type of the message. \"transcript\" is sent as transcriber outputs partial or final transcript.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "transcript")]
     Transcript,
     #[serde(rename = "transcript[transcriptType=\"final\"]")]
     TranscriptLeftSquareBracketTranscriptTypeEqualDoubleQuoteFinalDoubleQuoteRightSquareBracket,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Transcript
     }
 }
 /// This is the role for which the transcript is for.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Role {
+pub enum RoleTrue {
     #[serde(rename = "assistant")]
     Assistant,
     #[serde(rename = "user")]
     User,
 }
 
-impl Default for Role {
-    fn default() -> Role {
+impl Default for RoleTrue {
+    fn default() -> RoleTrue {
         Self::Assistant
     }
 }
 /// This is the type of the transcript.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum TranscriptType {
+pub enum TranscriptTypeTrue {
     #[serde(rename = "partial")]
     Partial,
     #[serde(rename = "final")]
     Final,
 }
 
-impl Default for TranscriptType {
-    fn default() -> TranscriptType {
+impl Default for TranscriptTypeTrue {
+    fn default() -> TranscriptTypeTrue {
         Self::Partial
     }
 }

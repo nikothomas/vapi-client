@@ -24,27 +24,27 @@ impl Default for TestSuiteRunTestAttemptScorerResultsInner {
 }
 /// This is the type of the scorer, which must be AI.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "ai")]
     Ai,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Ai
     }
 }
 /// This is the result of the test suite.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Result {
+pub enum ResultTrue {
     #[serde(rename = "pass")]
     Pass,
     #[serde(rename = "fail")]
     Fail,
 }
 
-impl Default for Result {
-    fn default() -> Result {
+impl Default for ResultTrue {
+    fn default() -> ResultTrue {
         Self::Pass
     }
 }

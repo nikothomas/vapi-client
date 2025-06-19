@@ -24,7 +24,7 @@ pub struct UpdateOrgDto {
     pub name: Option<String>,
     /// This is the channel of the org. There is the cluster the API traffic for the org will be directed.
     #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
-    pub channel: Option<Channel>,
+    pub channel: Option<ChannelTrue>,
     /// This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@vapi.ai.
     #[serde(rename = "billingLimit", skip_serializing_if = "Option::is_none")]
     pub billing_limit: Option<f64>,
@@ -55,15 +55,15 @@ impl UpdateOrgDto {
 }
 /// This is the channel of the org. There is the cluster the API traffic for the org will be directed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Channel {
+pub enum ChannelTrue {
     #[serde(rename = "default")]
     Default,
     #[serde(rename = "weekly")]
     Weekly,
 }
 
-impl Default for Channel {
-    fn default() -> Channel {
+impl Default for ChannelTrue {
+    fn default() -> ChannelTrue {
         Self::Default
     }
 }

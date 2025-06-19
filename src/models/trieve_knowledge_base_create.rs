@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct TrieveKnowledgeBaseCreate {
     /// This is to create a new dataset on Trieve.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// These are the chunk plans used to create the dataset.
     #[serde(rename = "chunkPlans")]
     pub chunk_plans: Vec<models::TrieveKnowledgeBaseChunkPlan>,
 }
 
 impl TrieveKnowledgeBaseCreate {
-    pub fn new(r#type: Type, chunk_plans: Vec<models::TrieveKnowledgeBaseChunkPlan>) -> TrieveKnowledgeBaseCreate {
+    pub fn new(r#type: TypeTrue, chunk_plans: Vec<models::TrieveKnowledgeBaseChunkPlan>) -> TrieveKnowledgeBaseCreate {
         TrieveKnowledgeBaseCreate {
             r#type,
             chunk_plans,
@@ -31,13 +31,13 @@ impl TrieveKnowledgeBaseCreate {
 }
 /// This is to create a new dataset on Trieve.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "create")]
     Create,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Create
     }
 }

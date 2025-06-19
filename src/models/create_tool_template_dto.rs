@@ -14,24 +14,24 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateToolTemplateDto {
     #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<models::CreateToolTemplateDtoDetails>,
+    pub details: Option<models::AnyscaleModelToolsInner>,
     #[serde(rename = "providerDetails", skip_serializing_if = "Option::is_none")]
     pub provider_details: Option<models::CreateToolTemplateDtoProviderDetails>,
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
     pub metadata: Option<models::ToolTemplateMetadata>,
     #[serde(rename = "visibility", skip_serializing_if = "Option::is_none")]
-    pub visibility: Option<Visibility>,
+    pub visibility: Option<VisibilityTrue>,
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// The name of the template. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
-    pub provider: Option<Provider>,
+    pub provider: Option<ProviderTrue>,
 }
 
 impl CreateToolTemplateDto {
-    pub fn new(r#type: Type) -> CreateToolTemplateDto {
+    pub fn new(r#type: TypeTrue) -> CreateToolTemplateDto {
         CreateToolTemplateDto {
             details: None,
             provider_details: None,
@@ -45,33 +45,33 @@ impl CreateToolTemplateDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Visibility {
+pub enum VisibilityTrue {
     #[serde(rename = "public")]
     Public,
     #[serde(rename = "private")]
     Private,
 }
 
-impl Default for Visibility {
-    fn default() -> Visibility {
+impl Default for VisibilityTrue {
+    fn default() -> VisibilityTrue {
         Self::Public
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "tool")]
     Tool,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Tool
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "make")]
     Make,
     #[serde(rename = "gohighlevel")]
@@ -80,8 +80,8 @@ pub enum Provider {
     Function,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Make
     }
 }

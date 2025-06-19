@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct Condition {
     /// This is the operator you want to use to compare the parameter and value.
     #[serde(rename = "operator")]
-    pub operator: Operator,
+    pub operator: OperatorTrue,
     /// This is the name of the parameter that you want to check.
     #[serde(rename = "param")]
     pub param: String,
     /// This is the value you want to compare against the parameter.
     #[serde(rename = "value")]
-    pub value: serde_json::Value,
+    pub value: String,
 }
 
 impl Condition {
-    pub fn new(operator: Operator, param: String, value: serde_json::Value) -> Condition {
+    pub fn new(operator: OperatorTrue, param: String, value: String) -> Condition {
         Condition {
             operator,
             param,
@@ -35,7 +35,7 @@ impl Condition {
 }
 /// This is the operator you want to use to compare the parameter and value.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Operator {
+pub enum OperatorTrue {
     #[serde(rename = "eq")]
     Eq,
     #[serde(rename = "neq")]
@@ -50,8 +50,8 @@ pub enum Operator {
     Lte,
 }
 
-impl Default for Operator {
-    fn default() -> Operator {
+impl Default for OperatorTrue {
+    fn default() -> OperatorTrue {
         Self::Eq
     }
 }

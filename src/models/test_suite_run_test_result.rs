@@ -11,17 +11,17 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TestSuiteRunTestResult {
     #[serde(rename = "test")]
-    pub test: models::TestSuiteRunTestResultTest,
+    pub test: models::TestSuiteTestVoice,
     /// These are the attempts made for this test.
     #[serde(rename = "attempts")]
     pub attempts: Vec<models::TestSuiteRunTestAttempt>,
 }
 
 impl TestSuiteRunTestResult {
-    pub fn new(test: models::TestSuiteRunTestResultTest, attempts: Vec<models::TestSuiteRunTestAttempt>) -> TestSuiteRunTestResult {
+    pub fn new(test: models::TestSuiteTestVoice, attempts: Vec<models::TestSuiteRunTestAttempt>) -> TestSuiteRunTestResult {
         TestSuiteRunTestResult {
             test,
             attempts,

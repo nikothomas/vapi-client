@@ -17,7 +17,7 @@ pub struct VonageCredential {
     #[serde(rename = "vonageApplicationPrivateKey")]
     pub vonage_application_private_key: String,
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiSecret")]
     pub api_secret: String,
@@ -44,7 +44,7 @@ pub struct VonageCredential {
 }
 
 impl VonageCredential {
-    pub fn new(vonage_application_private_key: String, provider: Provider, api_secret: String, id: String, org_id: String, created_at: String, updated_at: String, vonage_application_id: String, api_key: String) -> VonageCredential {
+    pub fn new(vonage_application_private_key: String, provider: ProviderTrue, api_secret: String, id: String, org_id: String, created_at: String, updated_at: String, vonage_application_id: String, api_key: String) -> VonageCredential {
         VonageCredential {
             vonage_application_private_key,
             provider,
@@ -61,13 +61,13 @@ impl VonageCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "vonage")]
     Vonage,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Vonage
     }
 }

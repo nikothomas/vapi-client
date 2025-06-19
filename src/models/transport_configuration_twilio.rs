@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransportConfigurationTwilio {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// The integer number of seconds that we should allow the phone to ring before assuming there is no answer. The default is `60` seconds and the maximum is `600` seconds. For some call flows, we will add a 5-second buffer to the timeout value you provide. For this reason, a timeout value of 10 seconds could result in an actual timeout closer to 15 seconds. You can set this to a short time, such as `15` seconds, to hang up before reaching an answering machine or voicemail.  @default 60
     #[serde(rename = "timeout", skip_serializing_if = "Option::is_none")]
     pub timeout: Option<f64>,
@@ -23,11 +23,11 @@ pub struct TransportConfigurationTwilio {
     pub record: Option<bool>,
     /// The number of channels in the final recording. Can be: `mono` or `dual`. The default is `mono`. `mono` records both legs of the call in a single channel of the recording file. `dual` records each leg to a separate channel of the recording file. The first channel of a dual-channel recording contains the parent call and the second channel contains the child call.  @default 'mono'
     #[serde(rename = "recordingChannels", skip_serializing_if = "Option::is_none")]
-    pub recording_channels: Option<RecordingChannels>,
+    pub recording_channels: Option<RecordingChannelsTrue>,
 }
 
 impl TransportConfigurationTwilio {
-    pub fn new(provider: Provider) -> TransportConfigurationTwilio {
+    pub fn new(provider: ProviderTrue) -> TransportConfigurationTwilio {
         TransportConfigurationTwilio {
             provider,
             timeout: None,
@@ -38,27 +38,27 @@ impl TransportConfigurationTwilio {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "twilio")]
     Twilio,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Twilio
     }
 }
 /// The number of channels in the final recording. Can be: `mono` or `dual`. The default is `mono`. `mono` records both legs of the call in a single channel of the recording file. `dual` records each leg to a separate channel of the recording file. The first channel of a dual-channel recording contains the parent call and the second channel contains the child call.  @default 'mono'
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum RecordingChannels {
+pub enum RecordingChannelsTrue {
     #[serde(rename = "mono")]
     Mono,
     #[serde(rename = "dual")]
     Dual,
 }
 
-impl Default for RecordingChannels {
-    fn default() -> RecordingChannels {
+impl Default for RecordingChannelsTrue {
+    fn default() -> RecordingChannelsTrue {
         Self::Mono
     }
 }

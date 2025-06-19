@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct SupabaseBucketPlan {
     /// This is the S3 Region. It should look like us-east-1 It should be one of the supabase regions defined in the SUPABASE_REGION enum Check https://supabase.com/docs/guides/platform/regions for up to date regions
     #[serde(rename = "region")]
-    pub region: Region,
+    pub region: RegionTrue,
     /// This is the S3 compatible URL for Supabase S3 This should look like https://<project-ID>.supabase.co/storage/v1/s3
     #[serde(rename = "url")]
     pub url: String,
@@ -34,7 +34,7 @@ pub struct SupabaseBucketPlan {
 }
 
 impl SupabaseBucketPlan {
-    pub fn new(region: Region, url: String, access_key_id: String, secret_access_key: String, name: String) -> SupabaseBucketPlan {
+    pub fn new(region: RegionTrue, url: String, access_key_id: String, secret_access_key: String, name: String) -> SupabaseBucketPlan {
         SupabaseBucketPlan {
             region,
             url,
@@ -47,7 +47,7 @@ impl SupabaseBucketPlan {
 }
 /// This is the S3 Region. It should look like us-east-1 It should be one of the supabase regions defined in the SUPABASE_REGION enum Check https://supabase.com/docs/guides/platform/regions for up to date regions
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Region {
+pub enum RegionTrue {
     #[serde(rename = "us-west-1")]
     UsWest1,
     #[serde(rename = "us-east-1")]
@@ -82,8 +82,8 @@ pub enum Region {
     SaEast1,
 }
 
-impl Default for Region {
-    fn default() -> Region {
+impl Default for RegionTrue {
+    fn default() -> RegionTrue {
         Self::UsWest1
     }
 }

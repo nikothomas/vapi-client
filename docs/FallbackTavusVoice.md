@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**caching_enabled** | Option<**bool**> | This is the flag to toggle voice caching for the assistant. | [optional][default to true]
 **provider** | **String** | This is the voice provider that will be used. | 
 **voice_id** | [**models::TavusVoiceVoiceId**](TavusVoice_voiceId.md) |  | 
 **persona_id** | Option<**String**> | This is the unique identifier for the persona that the replica will use in the conversation. | [optional]

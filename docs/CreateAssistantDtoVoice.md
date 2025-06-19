@@ -15,6 +15,7 @@
 | OpenAiVoice | These are the options for the assistant&#39;s voice. |
 | PlayHtVoice | These are the options for the assistant&#39;s voice. |
 | RimeAiVoice | These are the options for the assistant&#39;s voice. |
+| SesameVoice | These are the options for the assistant&#39;s voice. |
 | SmallestAiVoice | These are the options for the assistant&#39;s voice. |
 | TavusVoice | These are the options for the assistant&#39;s voice. |
 | VapiVoice | These are the options for the assistant&#39;s voice. |

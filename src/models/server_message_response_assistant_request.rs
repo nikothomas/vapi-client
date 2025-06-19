@@ -15,21 +15,30 @@ use serde::{Deserialize, Serialize};
 pub struct ServerMessageResponseAssistantRequest {
     #[serde(rename = "destination", skip_serializing_if = "Option::is_none")]
     pub destination: Option<models::ServerMessageResponseAssistantRequestDestination>,
-    /// This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
-    #[serde(rename = "assistantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub assistant_id: Option<Option<String>>,
-    /// This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.  If you're unsure why you're getting an invalid assistant, try logging your response and send the JSON blob to POST /assistant which will return the validation errors.
+    /// This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead.  To start a call with: - Assistant, use `assistantId` or `assistant` - Squad, use `squadId` or `squad` - Workflow, use `workflowId` or `workflow`
+    #[serde(rename = "assistantId", skip_serializing_if = "Option::is_none")]
+    pub assistant_id: Option<String>,
+    /// This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.  To start a call with: - Assistant, use `assistant` - Squad, use `squad` - Workflow, use `workflow`
     #[serde(rename = "assistant", skip_serializing_if = "Option::is_none")]
     pub assistant: Option<models::CreateAssistantDto>,
     /// These are the overrides for the `assistant` or `assistantId`'s settings and template variables.
     #[serde(rename = "assistantOverrides", skip_serializing_if = "Option::is_none")]
     pub assistant_overrides: Option<models::AssistantOverrides>,
-    /// This is the squad that will be used for the call. To use a transient squad, use `squad` instead.
+    /// This is the squad that will be used for the call. To use a transient squad, use `squad` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
     #[serde(rename = "squadId", skip_serializing_if = "Option::is_none")]
     pub squad_id: Option<String>,
-    /// This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.
+    /// This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
     #[serde(rename = "squad", skip_serializing_if = "Option::is_none")]
     pub squad: Option<models::CreateSquadDto>,
+    /// This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
+    #[serde(rename = "workflowId", skip_serializing_if = "Option::is_none")]
+    pub workflow_id: Option<String>,
+    /// This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
+    #[serde(rename = "workflow", skip_serializing_if = "Option::is_none")]
+    pub workflow: Option<models::CreateWorkflowDto>,
+    /// These are the overrides for the `workflow` or `workflowId`'s settings and template variables.
+    #[serde(rename = "workflowOverrides", skip_serializing_if = "Option::is_none")]
+    pub workflow_overrides: Option<models::WorkflowOverrides>,
     /// This is the error if the call shouldn't be accepted. This is spoken to the customer.  If this is sent, `assistantId`, `assistant`, `squadId`, `squad`, and `destination` are ignored.
     #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
     pub error: Option<String>,
@@ -44,6 +53,9 @@ impl ServerMessageResponseAssistantRequest {
             assistant_overrides: None,
             squad_id: None,
             squad: None,
+            workflow_id: None,
+            workflow: None,
+            workflow_overrides: None,
             error: None,
         }
     }

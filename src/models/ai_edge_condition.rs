@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AiEdgeCondition {
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the prompt for the AI edge condition. It should evaluate to a boolean.
     #[serde(rename = "prompt")]
     pub prompt: String,
 }
 
 impl AiEdgeCondition {
-    pub fn new(r#type: Type, prompt: String) -> AiEdgeCondition {
+    pub fn new(r#type: TypeTrue, prompt: String) -> AiEdgeCondition {
         AiEdgeCondition {
             r#type,
             prompt,
@@ -30,13 +30,13 @@ impl AiEdgeCondition {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "ai")]
     Ai,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Ai
     }
 }

@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct Call {
     /// This is the type of call.
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<Type>,
+    pub r#type: Option<TypeTrue>,
     /// These are the costs of individual components of the call in USD.
     #[serde(rename = "costs", skip_serializing_if = "Option::is_none")]
     pub costs: Option<Vec<models::CallCostsInner>>,
@@ -23,16 +23,16 @@ pub struct Call {
     pub messages: Option<Vec<models::ArtifactMessagesInner>>,
     /// This is the provider of the call.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
     #[serde(rename = "phoneCallProvider", skip_serializing_if = "Option::is_none")]
-    pub phone_call_provider: Option<PhoneCallProvider>,
+    pub phone_call_provider: Option<PhoneCallProviderTrue>,
     /// This is the transport of the phone call.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
     #[serde(rename = "phoneCallTransport", skip_serializing_if = "Option::is_none")]
-    pub phone_call_transport: Option<PhoneCallTransport>,
+    pub phone_call_transport: Option<PhoneCallTransportTrue>,
     /// This is the status of the call.
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Status>,
+    pub status: Option<StatusTrue>,
     /// This is the explanation for how the call ended.
     #[serde(rename = "endedReason", skip_serializing_if = "Option::is_none")]
-    pub ended_reason: Option<EndedReason>,
+    pub ended_reason: Option<EndedReasonTrue>,
     #[serde(rename = "destination", skip_serializing_if = "Option::is_none")]
     pub destination: Option<models::CallDestination>,
     /// This is the unique identifier for the call.
@@ -74,21 +74,30 @@ pub struct Call {
     /// The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage. callControlId in Telnyx.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
     #[serde(rename = "phoneCallProviderId", skip_serializing_if = "Option::is_none")]
     pub phone_call_provider_id: Option<String>,
-    /// This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
+    /// This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead.  To start a call with: - Assistant, use `assistantId` or `assistant` - Squad, use `squadId` or `squad` - Workflow, use `workflowId` or `workflow`
     #[serde(rename = "assistantId", skip_serializing_if = "Option::is_none")]
     pub assistant_id: Option<String>,
-    /// This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.
+    /// This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.  To start a call with: - Assistant, use `assistant` - Squad, use `squad` - Workflow, use `workflow`
     #[serde(rename = "assistant", skip_serializing_if = "Option::is_none")]
     pub assistant: Option<models::CreateAssistantDto>,
     /// These are the overrides for the `assistant` or `assistantId`'s settings and template variables.
     #[serde(rename = "assistantOverrides", skip_serializing_if = "Option::is_none")]
     pub assistant_overrides: Option<models::AssistantOverrides>,
-    /// This is the squad that will be used for the call. To use a transient squad, use `squad` instead.
+    /// This is the squad that will be used for the call. To use a transient squad, use `squad` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
     #[serde(rename = "squadId", skip_serializing_if = "Option::is_none")]
     pub squad_id: Option<String>,
-    /// This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.
+    /// This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
     #[serde(rename = "squad", skip_serializing_if = "Option::is_none")]
     pub squad: Option<models::CreateSquadDto>,
+    /// This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
+    #[serde(rename = "workflowId", skip_serializing_if = "Option::is_none")]
+    pub workflow_id: Option<String>,
+    /// This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.  To start a call with: - Assistant, use `assistant` or `assistantId` - Squad, use `squad` or `squadId` - Workflow, use `workflow` or `workflowId`
+    #[serde(rename = "workflow", skip_serializing_if = "Option::is_none")]
+    pub workflow: Option<models::CreateWorkflowDto>,
+    /// These are the overrides for the `workflow` or `workflowId`'s settings and template variables.
+    #[serde(rename = "workflowOverrides", skip_serializing_if = "Option::is_none")]
+    pub workflow_overrides: Option<models::WorkflowOverrides>,
     /// This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
     #[serde(rename = "phoneNumberId", skip_serializing_if = "Option::is_none")]
     pub phone_number_id: Option<String>,
@@ -141,6 +150,9 @@ impl Call {
             assistant_overrides: None,
             squad_id: None,
             squad: None,
+            workflow_id: None,
+            workflow: None,
+            workflow_overrides: None,
             phone_number_id: None,
             phone_number: None,
             customer_id: None,
@@ -153,7 +165,7 @@ impl Call {
 }
 /// This is the type of call.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "inboundPhoneCall")]
     InboundPhoneCall,
     #[serde(rename = "outboundPhoneCall")]
@@ -164,14 +176,14 @@ pub enum Type {
     VapiPeriodWebsocketCall,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::InboundPhoneCall
     }
 }
 /// This is the provider of the call.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum PhoneCallProvider {
+pub enum PhoneCallProviderTrue {
     #[serde(rename = "twilio")]
     Twilio,
     #[serde(rename = "vonage")]
@@ -182,28 +194,28 @@ pub enum PhoneCallProvider {
     Telnyx,
 }
 
-impl Default for PhoneCallProvider {
-    fn default() -> PhoneCallProvider {
+impl Default for PhoneCallProviderTrue {
+    fn default() -> PhoneCallProviderTrue {
         Self::Twilio
     }
 }
 /// This is the transport of the phone call.  Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum PhoneCallTransport {
+pub enum PhoneCallTransportTrue {
     #[serde(rename = "sip")]
     Sip,
     #[serde(rename = "pstn")]
     Pstn,
 }
 
-impl Default for PhoneCallTransport {
-    fn default() -> PhoneCallTransport {
+impl Default for PhoneCallTransportTrue {
+    fn default() -> PhoneCallTransportTrue {
         Self::Sip
     }
 }
 /// This is the status of the call.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "scheduled")]
     Scheduled,
     #[serde(rename = "queued")]
@@ -218,14 +230,14 @@ pub enum Status {
     Ended,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Scheduled
     }
 }
 /// This is the explanation for how the call ended.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum EndedReason {
+pub enum EndedReasonTrue {
     #[serde(rename = "call-start-error-neither-assistant-nor-server-set")]
     CallStartErrorNeitherAssistantNorServerSet,
     #[serde(rename = "assistant-request-failed")]
@@ -240,10 +252,12 @@ pub enum EndedReason {
     AssistantRequestReturnedNoAssistant,
     #[serde(rename = "assistant-request-returned-forwarding-phone-number")]
     AssistantRequestReturnedForwardingPhoneNumber,
-    #[serde(rename = "call.start.error-get-org")]
-    CallPeriodStartPeriodErrorGetOrg,
-    #[serde(rename = "call.start.error-get-subscription")]
-    CallPeriodStartPeriodErrorGetSubscription,
+    #[serde(rename = "scheduled-call-deleted")]
+    ScheduledCallDeleted,
+    #[serde(rename = "call.start.error-vapifault-get-org")]
+    CallPeriodStartPeriodErrorVapifaultGetOrg,
+    #[serde(rename = "call.start.error-vapifault-get-subscription")]
+    CallPeriodStartPeriodErrorVapifaultGetSubscription,
     #[serde(rename = "call.start.error-get-assistant")]
     CallPeriodStartPeriodErrorGetAssistant,
     #[serde(rename = "call.start.error-get-phone-number")]
@@ -258,6 +272,16 @@ pub enum EndedReason {
     CallPeriodStartPeriodErrorVapiNumberOutboundDailyLimit,
     #[serde(rename = "call.start.error-get-transport")]
     CallPeriodStartPeriodErrorGetTransport,
+    #[serde(rename = "call.start.error-subscription-wallet-does-not-exist")]
+    CallPeriodStartPeriodErrorSubscriptionWalletDoesNotExist,
+    #[serde(rename = "call.start.error-subscription-frozen")]
+    CallPeriodStartPeriodErrorSubscriptionFrozen,
+    #[serde(rename = "call.start.error-subscription-insufficient-credits")]
+    CallPeriodStartPeriodErrorSubscriptionInsufficientCredits,
+    #[serde(rename = "call.start.error-subscription-upgrade-failed")]
+    CallPeriodStartPeriodErrorSubscriptionUpgradeFailed,
+    #[serde(rename = "call.start.error-subscription-concurrency-limit-reached")]
+    CallPeriodStartPeriodErrorSubscriptionConcurrencyLimitReached,
     #[serde(rename = "assistant-not-valid")]
     AssistantNotValid,
     #[serde(rename = "database-error")]
@@ -392,8 +416,6 @@ pub enum EndedReason {
     CallPeriodInProgressPeriodErrorPipelineNoAvailableLlmModel,
     #[serde(rename = "worker-shutdown")]
     WorkerShutdown,
-    #[serde(rename = "unknown-error")]
-    UnknownError,
     #[serde(rename = "vonage-disconnected")]
     VonageDisconnected,
     #[serde(rename = "vonage-failed-to-connect-call")]
@@ -402,12 +424,22 @@ pub enum EndedReason {
     VonageCompleted,
     #[serde(rename = "phone-call-provider-bypass-enabled-but-no-call-received")]
     PhoneCallProviderBypassEnabledButNoCallReceived,
+    #[serde(rename = "call.in-progress.error-providerfault-transport-never-connected")]
+    CallPeriodInProgressPeriodErrorProviderfaultTransportNeverConnected,
+    #[serde(rename = "call.in-progress.error-vapifault-worker-not-available")]
+    CallPeriodInProgressPeriodErrorVapifaultWorkerNotAvailable,
     #[serde(rename = "call.in-progress.error-vapifault-transport-never-connected")]
     CallPeriodInProgressPeriodErrorVapifaultTransportNeverConnected,
     #[serde(rename = "call.in-progress.error-vapifault-transport-connected-but-call-not-active")]
     CallPeriodInProgressPeriodErrorVapifaultTransportConnectedButCallNotActive,
     #[serde(rename = "call.in-progress.error-vapifault-call-started-but-connection-to-transport-missing")]
     CallPeriodInProgressPeriodErrorVapifaultCallStartedButConnectionToTransportMissing,
+    #[serde(rename = "call.in-progress.error-vapifault-worker-died")]
+    CallPeriodInProgressPeriodErrorVapifaultWorkerDied,
+    #[serde(rename = "call.in-progress.twilio-completed-call")]
+    CallPeriodInProgressPeriodTwilioCompletedCall,
+    #[serde(rename = "call.in-progress.sip-completed-call")]
+    CallPeriodInProgressPeriodSipCompletedCall,
     #[serde(rename = "call.in-progress.error-vapifault-openai-llm-failed")]
     CallPeriodInProgressPeriodErrorVapifaultOpenaiLlmFailed,
     #[serde(rename = "call.in-progress.error-vapifault-azure-openai-llm-failed")]
@@ -426,6 +458,8 @@ pub enum EndedReason {
     CallPeriodInProgressPeriodErrorVapifaultCerebrasLlmFailed,
     #[serde(rename = "call.in-progress.error-vapifault-deep-seek-llm-failed")]
     CallPeriodInProgressPeriodErrorVapifaultDeepSeekLlmFailed,
+    #[serde(rename = "call.in-progress.error-vapifault-chat-pipeline-failed-to-start")]
+    CallPeriodInProgressPeriodErrorVapifaultChatPipelineFailedToStart,
     #[serde(rename = "pipeline-error-openai-400-bad-request-validation-failed")]
     PipelineErrorOpenai400BadRequestValidationFailed,
     #[serde(rename = "pipeline-error-openai-401-unauthorized")]
@@ -960,6 +994,8 @@ pub enum EndedReason {
     PipelineErrorCartesiaRequestedPayment,
     #[serde(rename = "pipeline-error-cartesia-500-server-error")]
     PipelineErrorCartesia500ServerError,
+    #[serde(rename = "pipeline-error-cartesia-502-server-error")]
+    PipelineErrorCartesia502ServerError,
     #[serde(rename = "pipeline-error-cartesia-503-server-error")]
     PipelineErrorCartesia503ServerError,
     #[serde(rename = "pipeline-error-cartesia-522-server-error")]
@@ -1000,6 +1036,8 @@ pub enum EndedReason {
     PipelineErrorElevenLabsInvalidVoiceSamples,
     #[serde(rename = "pipeline-error-eleven-labs-voice-disabled-by-owner")]
     PipelineErrorElevenLabsVoiceDisabledByOwner,
+    #[serde(rename = "pipeline-error-eleven-labs-vapi-voice-disabled-by-owner")]
+    PipelineErrorElevenLabsVapiVoiceDisabledByOwner,
     #[serde(rename = "pipeline-error-eleven-labs-blocked-account-in-probation")]
     PipelineErrorElevenLabsBlockedAccountInProbation,
     #[serde(rename = "pipeline-error-eleven-labs-blocked-content-against-their-policy")]
@@ -1016,6 +1054,8 @@ pub enum EndedReason {
     PipelineErrorElevenLabsBlockedVoicePotentiallyAgainstTermsOfServiceAndAwaitingVerification,
     #[serde(rename = "pipeline-error-eleven-labs-500-server-error")]
     PipelineErrorElevenLabs500ServerError,
+    #[serde(rename = "pipeline-error-eleven-labs-503-server-error")]
+    PipelineErrorElevenLabs503ServerError,
     #[serde(rename = "call.in-progress.error-vapifault-eleven-labs-voice-not-found")]
     CallPeriodInProgressPeriodErrorVapifaultElevenLabsVoiceNotFound,
     #[serde(rename = "call.in-progress.error-vapifault-eleven-labs-quota-exceeded")]
@@ -1058,6 +1098,8 @@ pub enum EndedReason {
     CallPeriodInProgressPeriodErrorVapifaultElevenLabsBlockedVoicePotentiallyAgainstTermsOfServiceAndAwaitingVerification,
     #[serde(rename = "call.in-progress.error-providerfault-eleven-labs-500-server-error")]
     CallPeriodInProgressPeriodErrorProviderfaultElevenLabs500ServerError,
+    #[serde(rename = "call.in-progress.error-providerfault-eleven-labs-503-server-error")]
+    CallPeriodInProgressPeriodErrorProviderfaultElevenLabs503ServerError,
     #[serde(rename = "pipeline-error-playht-request-timed-out")]
     PipelineErrorPlayhtRequestTimedOut,
     #[serde(rename = "pipeline-error-playht-invalid-voice")]
@@ -1164,6 +1206,8 @@ pub enum EndedReason {
     AssistantJoinTimedOut,
     #[serde(rename = "call.in-progress.error-assistant-did-not-receive-customer-audio")]
     CallPeriodInProgressPeriodErrorAssistantDidNotReceiveCustomerAudio,
+    #[serde(rename = "call.in-progress.error-transfer-failed")]
+    CallPeriodInProgressPeriodErrorTransferFailed,
     #[serde(rename = "customer-busy")]
     CustomerBusy,
     #[serde(rename = "customer-ended-call")]
@@ -1178,14 +1222,30 @@ pub enum EndedReason {
     ManuallyCanceled,
     #[serde(rename = "phone-call-provider-closed-websocket")]
     PhoneCallProviderClosedWebsocket,
+    #[serde(rename = "call.forwarding.operator-busy")]
+    CallPeriodForwardingPeriodOperatorBusy,
     #[serde(rename = "silence-timed-out")]
     SilenceTimedOut,
-    #[serde(rename = "call.in-progress.error-sip-telephony-provider-failed-to-connect-call")]
-    CallPeriodInProgressPeriodErrorSipTelephonyProviderFailedToConnectCall,
+    #[serde(rename = "call.in-progress.error-sip-inbound-call-failed-to-connect")]
+    CallPeriodInProgressPeriodErrorSipInboundCallFailedToConnect,
+    #[serde(rename = "call.in-progress.error-providerfault-outbound-sip-403-forbidden")]
+    CallPeriodInProgressPeriodErrorProviderfaultOutboundSip403Forbidden,
+    #[serde(rename = "call.in-progress.error-providerfault-outbound-sip-407-proxy-authentication-required")]
+    CallPeriodInProgressPeriodErrorProviderfaultOutboundSip407ProxyAuthenticationRequired,
+    #[serde(rename = "call.in-progress.error-providerfault-outbound-sip-503-service-unavailable")]
+    CallPeriodInProgressPeriodErrorProviderfaultOutboundSip503ServiceUnavailable,
+    #[serde(rename = "call.in-progress.error-providerfault-outbound-sip-480-temporarily-unavailable")]
+    CallPeriodInProgressPeriodErrorProviderfaultOutboundSip480TemporarilyUnavailable,
+    #[serde(rename = "call.in-progress.error-sip-outbound-call-failed-to-connect")]
+    CallPeriodInProgressPeriodErrorSipOutboundCallFailedToConnect,
     #[serde(rename = "call.ringing.hook-executed-say")]
     CallPeriodRingingPeriodHookExecutedSay,
     #[serde(rename = "call.ringing.hook-executed-transfer")]
     CallPeriodRingingPeriodHookExecutedTransfer,
+    #[serde(rename = "call.ringing.sip-inbound-caller-hungup-before-call-connect")]
+    CallPeriodRingingPeriodSipInboundCallerHungupBeforeCallConnect,
+    #[serde(rename = "call.ringing.error-sip-inbound-call-failed-to-connect")]
+    CallPeriodRingingPeriodErrorSipInboundCallFailedToConnect,
     #[serde(rename = "twilio-failed-to-connect-call")]
     TwilioFailedToConnectCall,
     #[serde(rename = "twilio-reported-customer-misdialed")]
@@ -1196,8 +1256,8 @@ pub enum EndedReason {
     Voicemail,
 }
 
-impl Default for EndedReason {
-    fn default() -> EndedReason {
+impl Default for EndedReasonTrue {
+    fn default() -> EndedReasonTrue {
         Self::CallStartErrorNeitherAssistantNorServerSet
     }
 }

@@ -54,7 +54,7 @@ pub enum FileControllerUpdateError {
 
 pub async fn file_controller_create(configuration: &configuration::Configuration, file: std::path::PathBuf) -> Result<models::File, Error<FileControllerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let _p_file = file;
+    let p_file = file;
 
     let uri_str = format!("{}/file", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -65,7 +65,7 @@ pub async fn file_controller_create(configuration: &configuration::Configuration
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    let multipart_form = reqwest::multipart::Form::new();
+    let mut multipart_form = reqwest::multipart::Form::new();
     // TODO: support file upload for 'file' parameter
     req_builder = req_builder.multipart(multipart_form);
 

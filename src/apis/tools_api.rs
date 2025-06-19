@@ -51,9 +51,9 @@ pub enum ToolControllerUpdateError {
 }
 
 
-pub async fn tool_controller_create(configuration: &configuration::Configuration, tool_body: models::ToolBody) -> Result<models::InlineResponse2011, Error<ToolControllerCreateError>> {
+pub async fn tool_controller_create(configuration: &configuration::Configuration, tool_controller_create_request: models::ToolControllerCreateRequest) -> Result<models::ToolControllerFindAll200ResponseInner, Error<ToolControllerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tool_body = tool_body;
+    let p_tool_controller_create_request = tool_controller_create_request;
 
     let uri_str = format!("{}/tool", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -64,7 +64,7 @@ pub async fn tool_controller_create(configuration: &configuration::Configuration
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_tool_body);
+    req_builder = req_builder.json(&p_tool_controller_create_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -81,8 +81,8 @@ pub async fn tool_controller_create(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2011`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2011`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -165,7 +165,7 @@ pub async fn tool_controller_find_all(configuration: &configuration::Configurati
     }
 }
 
-pub async fn tool_controller_find_one(configuration: &configuration::Configuration, id: &str) -> Result<models::InlineResponse2011, Error<ToolControllerFindOneError>> {
+pub async fn tool_controller_find_one(configuration: &configuration::Configuration, id: &str) -> Result<models::ToolControllerFindAll200ResponseInner, Error<ToolControllerFindOneError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -194,8 +194,8 @@ pub async fn tool_controller_find_one(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2011`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2011`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -204,7 +204,7 @@ pub async fn tool_controller_find_one(configuration: &configuration::Configurati
     }
 }
 
-pub async fn tool_controller_remove(configuration: &configuration::Configuration, id: &str) -> Result<models::InlineResponse2011, Error<ToolControllerRemoveError>> {
+pub async fn tool_controller_remove(configuration: &configuration::Configuration, id: &str) -> Result<models::ToolControllerFindAll200ResponseInner, Error<ToolControllerRemoveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -233,8 +233,8 @@ pub async fn tool_controller_remove(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2011`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2011`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -243,10 +243,10 @@ pub async fn tool_controller_remove(configuration: &configuration::Configuration
     }
 }
 
-pub async fn tool_controller_update(configuration: &configuration::Configuration, id: &str, tool_id_body: models::ToolIdBody) -> Result<models::InlineResponse2011, Error<ToolControllerUpdateError>> {
+pub async fn tool_controller_update(configuration: &configuration::Configuration, id: &str, tool_controller_update_request: models::ToolControllerUpdateRequest) -> Result<models::ToolControllerFindAll200ResponseInner, Error<ToolControllerUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
-    let p_tool_id_body = tool_id_body;
+    let p_tool_controller_update_request = tool_controller_update_request;
 
     let uri_str = format!("{}/tool/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -257,7 +257,7 @@ pub async fn tool_controller_update(configuration: &configuration::Configuration
     if let Some(ref token) = configuration.bearer_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_tool_id_body);
+    req_builder = req_builder.json(&p_tool_controller_update_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -274,8 +274,8 @@ pub async fn tool_controller_update(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse2011`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse2011`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ToolControllerFindAll200ResponseInner`")))),
         }
     } else {
         let content = resp.text().await?;

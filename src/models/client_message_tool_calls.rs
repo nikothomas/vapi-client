@@ -13,12 +13,26 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientMessageToolCalls {
+    #[serde(rename = "phoneNumber", skip_serializing_if = "Option::is_none")]
+    pub phone_number: Option<models::ClientMessageWorkflowNodeStartedPhoneNumber>,
     /// This is the type of the message. \"tool-calls\" is sent to call a tool.
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<Type>,
+    pub r#type: Option<TypeTrue>,
     /// This is the list of tools calls that the model is requesting along with the original tool configuration.
     #[serde(rename = "toolWithToolCallList")]
     pub tool_with_tool_call_list: Vec<models::ClientMessageToolCallsToolWithToolCallListInner>,
+    /// This is the timestamp of the message.
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<f64>,
+    /// This is the call that the message is associated with.
+    #[serde(rename = "call", skip_serializing_if = "Option::is_none")]
+    pub call: Option<models::Call>,
+    /// This is the customer that the message is associated with.
+    #[serde(rename = "customer", skip_serializing_if = "Option::is_none")]
+    pub customer: Option<models::CreateCustomerDto>,
+    /// This is the assistant that the message is associated with.
+    #[serde(rename = "assistant", skip_serializing_if = "Option::is_none")]
+    pub assistant: Option<models::CreateAssistantDto>,
     /// This is the list of tool calls that the model is requesting.
     #[serde(rename = "toolCallList")]
     pub tool_call_list: Vec<models::ToolCall>,
@@ -27,21 +41,26 @@ pub struct ClientMessageToolCalls {
 impl ClientMessageToolCalls {
     pub fn new(tool_with_tool_call_list: Vec<models::ClientMessageToolCallsToolWithToolCallListInner>, tool_call_list: Vec<models::ToolCall>) -> ClientMessageToolCalls {
         ClientMessageToolCalls {
+            phone_number: None,
             r#type: None,
             tool_with_tool_call_list,
+            timestamp: None,
+            call: None,
+            customer: None,
+            assistant: None,
             tool_call_list,
         }
     }
 }
 /// This is the type of the message. \"tool-calls\" is sent to call a tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "tool-calls")]
     ToolCalls,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::ToolCalls
     }
 }

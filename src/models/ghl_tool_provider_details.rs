@@ -20,7 +20,7 @@ pub struct GhlToolProviderDetails {
     pub setup_instructions: Option<Vec<models::ToolTemplateSetup>>,
     /// The type of tool. \"ghl\" for GHL tool.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     #[serde(rename = "workflowId", skip_serializing_if = "Option::is_none")]
     pub workflow_id: Option<String>,
     #[serde(rename = "workflowName", skip_serializing_if = "Option::is_none")]
@@ -34,7 +34,7 @@ pub struct GhlToolProviderDetails {
 }
 
 impl GhlToolProviderDetails {
-    pub fn new(r#type: Type) -> GhlToolProviderDetails {
+    pub fn new(r#type: TypeTrue) -> GhlToolProviderDetails {
         GhlToolProviderDetails {
             template_url: None,
             setup_instructions: None,
@@ -49,13 +49,13 @@ impl GhlToolProviderDetails {
 }
 /// The type of tool. \"ghl\" for GHL tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "ghl")]
     Ghl,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Ghl
     }
 }

@@ -16,7 +16,7 @@ pub struct CartesiaExperimentalControls {
     #[serde(rename = "speed", skip_serializing_if = "Option::is_none")]
     pub speed: Option<models::CartesiaExperimentalControlsSpeed>,
     #[serde(rename = "emotion", skip_serializing_if = "Option::is_none")]
-    pub emotion: Option<Emotion>,
+    pub emotion: Option<EmotionTrue>,
 }
 
 impl CartesiaExperimentalControls {
@@ -29,7 +29,7 @@ impl CartesiaExperimentalControls {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Emotion {
+pub enum EmotionTrue {
     #[serde(rename = "anger:lowest")]
     AngerColonLowest,
     #[serde(rename = "anger:low")]
@@ -72,8 +72,8 @@ pub enum Emotion {
     CuriosityColonHighest,
 }
 
-impl Default for Emotion {
-    fn default() -> Emotion {
+impl Default for EmotionTrue {
+    fn default() -> EmotionTrue {
         Self::AngerColonLowest
     }
 }

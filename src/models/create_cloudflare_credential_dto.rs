@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct CreateCloudflareCredentialDto {
     /// Credential provider. Only allowed value is cloudflare
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// Cloudflare Account Id.
     #[serde(rename = "accountId", skip_serializing_if = "Option::is_none")]
     pub account_id: Option<String>,
@@ -25,6 +25,9 @@ pub struct CreateCloudflareCredentialDto {
     /// Cloudflare Account Email.
     #[serde(rename = "accountEmail", skip_serializing_if = "Option::is_none")]
     pub account_email: Option<String>,
+    /// This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order.
+    #[serde(rename = "fallbackIndex", skip_serializing_if = "Option::is_none")]
+    pub fallback_index: Option<f64>,
     /// This is the bucket plan that can be provided to store call artifacts in R2
     #[serde(rename = "bucketPlan", skip_serializing_if = "Option::is_none")]
     pub bucket_plan: Option<models::CloudflareR2BucketPlan>,
@@ -34,12 +37,13 @@ pub struct CreateCloudflareCredentialDto {
 }
 
 impl CreateCloudflareCredentialDto {
-    pub fn new(provider: Provider) -> CreateCloudflareCredentialDto {
+    pub fn new(provider: ProviderTrue) -> CreateCloudflareCredentialDto {
         CreateCloudflareCredentialDto {
             provider,
             account_id: None,
             api_key: None,
             account_email: None,
+            fallback_index: None,
             bucket_plan: None,
             name: None,
         }
@@ -47,13 +51,13 @@ impl CreateCloudflareCredentialDto {
 }
 /// Credential provider. Only allowed value is cloudflare
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "cloudflare")]
     Cloudflare,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Cloudflare
     }
 }

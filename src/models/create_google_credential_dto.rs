@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct CreateGoogleCredentialDto {
     /// This is the key for Gemini in Google AI Studio. Get it from here: https://aistudio.google.com/app/apikey
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -25,7 +25,7 @@ pub struct CreateGoogleCredentialDto {
 }
 
 impl CreateGoogleCredentialDto {
-    pub fn new(provider: Provider, api_key: String) -> CreateGoogleCredentialDto {
+    pub fn new(provider: ProviderTrue, api_key: String) -> CreateGoogleCredentialDto {
         CreateGoogleCredentialDto {
             provider,
             api_key,
@@ -35,13 +35,13 @@ impl CreateGoogleCredentialDto {
 }
 /// This is the key for Gemini in Google AI Studio. Get it from here: https://aistudio.google.com/app/apikey
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "google")]
     Google,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Google
     }
 }

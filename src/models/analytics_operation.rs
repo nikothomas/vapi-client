@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct AnalyticsOperation {
     /// This is the aggregation operation you want to perform.
     #[serde(rename = "operation")]
-    pub operation: Operation,
+    pub operation: OperationTrue,
     /// This is the columns you want to perform the aggregation operation on.
     #[serde(rename = "column")]
-    pub column: Column,
+    pub column: ColumnTrue,
     /// This is the alias for column name returned. Defaults to `${operation}${column}`.
     #[serde(rename = "alias", skip_serializing_if = "Option::is_none")]
     pub alias: Option<String>,
 }
 
 impl AnalyticsOperation {
-    pub fn new(operation: Operation, column: Column) -> AnalyticsOperation {
+    pub fn new(operation: OperationTrue, column: ColumnTrue) -> AnalyticsOperation {
         AnalyticsOperation {
             operation,
             column,
@@ -35,7 +35,7 @@ impl AnalyticsOperation {
 }
 /// This is the aggregation operation you want to perform.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Operation {
+pub enum OperationTrue {
     #[serde(rename = "sum")]
     Sum,
     #[serde(rename = "avg")]
@@ -50,14 +50,14 @@ pub enum Operation {
     History,
 }
 
-impl Default for Operation {
-    fn default() -> Operation {
+impl Default for OperationTrue {
+    fn default() -> OperationTrue {
         Self::Sum
     }
 }
 /// This is the columns you want to perform the aggregation operation on.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Column {
+pub enum ColumnTrue {
     #[serde(rename = "id")]
     Id,
     #[serde(rename = "cost")]
@@ -84,8 +84,8 @@ pub enum Column {
     MinutesUsed,
 }
 
-impl Default for Column {
-    fn default() -> Column {
+impl Default for ColumnTrue {
+    fn default() -> ColumnTrue {
         Self::Id
     }
 }

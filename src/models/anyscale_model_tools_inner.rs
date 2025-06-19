@@ -14,57 +14,116 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AnyscaleModelToolsInner {
+    CreateApiRequestToolDto(models::CreateApiRequestToolDto),
+    CreateBashToolDto(models::CreateBashToolDto),
+    CreateComputerToolDto(models::CreateComputerToolDto),
     CreateDtmfToolDto(models::CreateDtmfToolDto),
     CreateEndCallToolDto(models::CreateEndCallToolDto),
-    CreateVoicemailToolDto(models::CreateVoicemailToolDto),
     CreateFunctionToolDto(models::CreateFunctionToolDto),
-    CreateGhlToolDto(models::CreateGhlToolDto),
-    CreateMakeToolDto(models::CreateMakeToolDto),
-    CreateTransferCallToolDto(models::CreateTransferCallToolDto),
-    CreateQueryToolDto(models::CreateQueryToolDto),
+    CreateGoHighLevelCalendarAvailabilityToolDto(models::CreateGoHighLevelCalendarAvailabilityToolDto),
+    CreateGoHighLevelCalendarEventCreateToolDto(models::CreateGoHighLevelCalendarEventCreateToolDto),
+    CreateGoHighLevelContactCreateToolDto(models::CreateGoHighLevelContactCreateToolDto),
+    CreateGoHighLevelContactGetToolDto(models::CreateGoHighLevelContactGetToolDto),
+    CreateGoogleCalendarCheckAvailabilityToolDto(models::CreateGoogleCalendarCheckAvailabilityToolDto),
     CreateGoogleCalendarCreateEventToolDto(models::CreateGoogleCalendarCreateEventToolDto),
     CreateGoogleSheetsRowAppendToolDto(models::CreateGoogleSheetsRowAppendToolDto),
-    CreateGoogleCalendarCheckAvailabilityToolDto(models::CreateGoogleCalendarCheckAvailabilityToolDto),
+    CreateMcpToolDto(models::CreateMcpToolDto),
+    CreateQueryToolDto(models::CreateQueryToolDto),
     CreateSlackSendMessageToolDto(models::CreateSlackSendMessageToolDto),
+    CreateSmsToolDto(models::CreateSmsToolDto),
+    CreateTextEditorToolDto(models::CreateTextEditorToolDto),
+    CreateTransferCallToolDto(models::CreateTransferCallToolDto),
 }
 
 impl Default for AnyscaleModelToolsInner {
     fn default() -> Self {
-        Self::CreateDtmfToolDto(Default::default())
+        Self::CreateApiRequestToolDto(Default::default())
     }
 }
-/// The type of tool. \"dtmf\" for DTMF tool.
+/// The type of tool. \"apiRequest\" for API request tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
+    #[serde(rename = "apiRequest")]
+    ApiRequest,
+    #[serde(rename = "bash")]
+    Bash,
+    #[serde(rename = "computer")]
+    Computer,
     #[serde(rename = "dtmf")]
     Dtmf,
     #[serde(rename = "endCall")]
     EndCall,
-    #[serde(rename = "voicemail")]
-    Voicemail,
     #[serde(rename = "function")]
     Function,
-    #[serde(rename = "ghl")]
-    Ghl,
-    #[serde(rename = "make")]
-    Make,
-    #[serde(rename = "transferCall")]
-    TransferCall,
-    #[serde(rename = "query")]
-    Query,
+    #[serde(rename = "gohighlevel.calendar.availability.check")]
+    GohighlevelPeriodCalendarPeriodAvailabilityPeriodCheck,
+    #[serde(rename = "gohighlevel.calendar.event.create")]
+    GohighlevelPeriodCalendarPeriodEventPeriodCreate,
+    #[serde(rename = "gohighlevel.contact.create")]
+    GohighlevelPeriodContactPeriodCreate,
+    #[serde(rename = "gohighlevel.contact.get")]
+    GohighlevelPeriodContactPeriodGet,
+    #[serde(rename = "google.calendar.availability.check")]
+    GooglePeriodCalendarPeriodAvailabilityPeriodCheck,
     #[serde(rename = "google.calendar.event.create")]
     GooglePeriodCalendarPeriodEventPeriodCreate,
     #[serde(rename = "google.sheets.row.append")]
     GooglePeriodSheetsPeriodRowPeriodAppend,
-    #[serde(rename = "google.calendar.availability.check")]
-    GooglePeriodCalendarPeriodAvailabilityPeriodCheck,
+    #[serde(rename = "mcp")]
+    Mcp,
+    #[serde(rename = "query")]
+    Query,
     #[serde(rename = "slack.message.send")]
     SlackPeriodMessagePeriodSend,
+    #[serde(rename = "sms")]
+    Sms,
+    #[serde(rename = "textEditor")]
+    TextEditor,
+    #[serde(rename = "transferCall")]
+    TransferCall,
 }
 
-impl Default for Type {
-    fn default() -> Type {
-        Self::Dtmf
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
+        Self::ApiRequest
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum MethodTrue {
+    #[serde(rename = "POST")]
+    Post,
+    #[serde(rename = "GET")]
+    Get,
+}
+
+impl Default for MethodTrue {
+    fn default() -> MethodTrue {
+        Self::Post
+    }
+}
+/// The name of the tool, fixed to 'str_replace_editor'
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum NameTrue {
+    #[serde(rename = "str_replace_editor")]
+    StrReplaceEditor,
+}
+
+impl Default for NameTrue {
+    fn default() -> NameTrue {
+        Self::StrReplaceEditor
+    }
+}
+/// The sub type of tool.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum SubTypeTrue {
+    #[serde(rename = "text_editor_20241022")]
+    TextEditor20241022,
+}
+
+impl Default for SubTypeTrue {
+    fn default() -> SubTypeTrue {
+        Self::TextEditor20241022
     }
 }
 

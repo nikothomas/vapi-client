@@ -27,13 +27,13 @@ impl Default for TransferDestinationAssistantMessage {
 }
 /// This is a custom message.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "custom-message")]
     CustomMessage,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::CustomMessage
     }
 }

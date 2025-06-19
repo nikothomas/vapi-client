@@ -5,6 +5,7 @@
 | Name | Description |
 |---- | -----|
 | AnalysisCost |  |
+| KnowledgeBaseCost |  |
 | ModelCost |  |
 | TranscriberCost |  |
 | TransportCost |  |

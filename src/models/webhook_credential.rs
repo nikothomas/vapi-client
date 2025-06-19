@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct WebhookCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the authentication plan. Currently supports OAuth2 RFC 6749.
     #[serde(rename = "authenticationPlan")]
     pub authentication_plan: models::OAuth2AuthenticationPlan,
@@ -39,7 +39,7 @@ pub struct WebhookCredential {
 }
 
 impl WebhookCredential {
-    pub fn new(provider: Provider, authentication_plan: models::OAuth2AuthenticationPlan, id: String, org_id: String, created_at: String, updated_at: String, authentication_session: models::Oauth2AuthenticationSession) -> WebhookCredential {
+    pub fn new(provider: ProviderTrue, authentication_plan: models::OAuth2AuthenticationPlan, id: String, org_id: String, created_at: String, updated_at: String, authentication_session: models::Oauth2AuthenticationSession) -> WebhookCredential {
         WebhookCredential {
             provider,
             authentication_plan,
@@ -54,13 +54,13 @@ impl WebhookCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "webhook")]
     Webhook,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Webhook
     }
 }

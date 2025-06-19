@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TextContent {
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     #[serde(rename = "text")]
     pub text: String,
     #[serde(rename = "language")]
-    pub language: Language,
+    pub language: LanguageTrue,
 }
 
 impl TextContent {
-    pub fn new(r#type: Type, text: String, language: Language) -> TextContent {
+    pub fn new(r#type: TypeTrue, text: String, language: LanguageTrue) -> TextContent {
         TextContent {
             r#type,
             text,
@@ -32,19 +32,19 @@ impl TextContent {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "text")]
     Text,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Text
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "aa")]
     Aa,
     #[serde(rename = "ab")]
@@ -417,8 +417,8 @@ pub enum Language {
     Zu,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::Aa
     }
 }

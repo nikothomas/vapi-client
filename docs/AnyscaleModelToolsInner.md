@@ -4,18 +4,25 @@
 
 | Name | Description |
 |---- | -----|
+| CreateApiRequestToolDto |  |
+| CreateBashToolDto |  |
+| CreateComputerToolDto |  |
 | CreateDtmfToolDto |  |
 | CreateEndCallToolDto |  |
 | CreateFunctionToolDto |  |
-| CreateGhlToolDto |  |
+| CreateGoHighLevelCalendarAvailabilityToolDto |  |
+| CreateGoHighLevelCalendarEventCreateToolDto |  |
+| CreateGoHighLevelContactCreateToolDto |  |
+| CreateGoHighLevelContactGetToolDto |  |
 | CreateGoogleCalendarCheckAvailabilityToolDto |  |
 | CreateGoogleCalendarCreateEventToolDto |  |
 | CreateGoogleSheetsRowAppendToolDto |  |
-| CreateMakeToolDto |  |
+| CreateMcpToolDto |  |
 | CreateQueryToolDto |  |
 | CreateSlackSendMessageToolDto |  |
+| CreateSmsToolDto |  |
+| CreateTextEditorToolDto |  |
 | CreateTransferCallToolDto |  |
-| CreateVoicemailToolDto |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

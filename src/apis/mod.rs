@@ -114,10 +114,12 @@ impl From<&str> for ContentType {
 pub mod analytics_api;
 pub mod assistants_api;
 pub mod calls_api;
+pub mod chats_api;
 pub mod files_api;
 pub mod knowledge_base_api;
 pub mod logs_api;
 pub mod phone_numbers_api;
+pub mod sessions_api;
 pub mod squads_api;
 pub mod test_suite_runs_api;
 pub mod test_suite_tests_api;

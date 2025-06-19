@@ -18,7 +18,7 @@ pub struct ArtifactPlan {
     pub recording_enabled: Option<bool>,
     /// This determines the format of the recording. Defaults to `wav;l16`.  @default 'wav;l16'
     #[serde(rename = "recordingFormat", skip_serializing_if = "Option::is_none")]
-    pub recording_format: Option<RecordingFormat>,
+    pub recording_format: Option<RecordingFormatTrue>,
     /// This determines whether the video is recorded during the call. Defaults to false. Only relevant for `webCall` type.  You can find the video recording at `call.artifact.videoRecordingUrl` after the call is ended.  @default false
     #[serde(rename = "videoRecordingEnabled", skip_serializing_if = "Option::is_none")]
     pub video_recording_enabled: Option<bool>,
@@ -51,15 +51,15 @@ impl ArtifactPlan {
 }
 /// This determines the format of the recording. Defaults to `wav;l16`.  @default 'wav;l16'
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum RecordingFormat {
+pub enum RecordingFormatTrue {
     #[serde(rename = "wav;l16")]
     WavSemicolonL16,
     #[serde(rename = "mp3")]
     Mp3,
 }
 
-impl Default for RecordingFormat {
-    fn default() -> RecordingFormat {
+impl Default for RecordingFormatTrue {
+    fn default() -> RecordingFormatTrue {
         Self::WavSemicolonL16
     }
 }

@@ -30,6 +30,7 @@ pub enum CreateAssistantDtoVoice {
     SmallestAiVoice(models::SmallestAiVoice),
     TavusVoice(models::TavusVoice),
     VapiVoice(models::VapiVoice),
+    SesameVoice(models::SesameVoice),
 }
 
 impl Default for CreateAssistantDtoVoice {
@@ -39,149 +40,115 @@ impl Default for CreateAssistantDtoVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
-    #[serde(rename = "vapi")]
-    Vapi,
+pub enum ProviderTrue {
+    #[serde(rename = "sesame")]
+    Sesame,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
-        Self::Vapi
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
+        Self::Sesame
     }
 }
-/// The voices provided by Vapi
+/// This is the model that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum VoiceId {
-    #[serde(rename = "Elliot")]
-    Elliot,
-    #[serde(rename = "Rohan")]
-    Rohan,
-    #[serde(rename = "Lily")]
-    Lily,
-    #[serde(rename = "Savannah")]
-    Savannah,
-    #[serde(rename = "Hana")]
-    Hana,
-    #[serde(rename = "Neha")]
-    Neha,
-    #[serde(rename = "Cole")]
-    Cole,
-    #[serde(rename = "Harry")]
-    Harry,
-    #[serde(rename = "Paige")]
-    Paige,
-    #[serde(rename = "Spencer")]
-    Spencer,
+pub enum ModelTrue {
+    #[serde(rename = "csm-1b")]
+    Csm1b,
 }
 
-impl Default for VoiceId {
-    fn default() -> VoiceId {
-        Self::Elliot
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
+        Self::Csm1b
     }
 }
-/// Smallest AI voice model to use. Defaults to 'lightning' when not specified.
+/// The language to use for the speech.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
-    #[serde(rename = "lightning")]
-    Lightning,
+pub enum LanguageTrue {
+    #[serde(rename = "afrikaans")]
+    Afrikaans,
+    #[serde(rename = "albanian")]
+    Albanian,
+    #[serde(rename = "amharic")]
+    Amharic,
+    #[serde(rename = "arabic")]
+    Arabic,
+    #[serde(rename = "bengali")]
+    Bengali,
+    #[serde(rename = "bulgarian")]
+    Bulgarian,
+    #[serde(rename = "catalan")]
+    Catalan,
+    #[serde(rename = "croatian")]
+    Croatian,
+    #[serde(rename = "czech")]
+    Czech,
+    #[serde(rename = "danish")]
+    Danish,
+    #[serde(rename = "dutch")]
+    Dutch,
+    #[serde(rename = "english")]
+    English,
+    #[serde(rename = "french")]
+    French,
+    #[serde(rename = "galician")]
+    Galician,
+    #[serde(rename = "german")]
+    German,
+    #[serde(rename = "greek")]
+    Greek,
+    #[serde(rename = "hebrew")]
+    Hebrew,
+    #[serde(rename = "hindi")]
+    Hindi,
+    #[serde(rename = "hungarian")]
+    Hungarian,
+    #[serde(rename = "indonesian")]
+    Indonesian,
+    #[serde(rename = "italian")]
+    Italian,
+    #[serde(rename = "japanese")]
+    Japanese,
+    #[serde(rename = "korean")]
+    Korean,
+    #[serde(rename = "malay")]
+    Malay,
+    #[serde(rename = "mandarin")]
+    Mandarin,
+    #[serde(rename = "polish")]
+    Polish,
+    #[serde(rename = "portuguese")]
+    Portuguese,
+    #[serde(rename = "russian")]
+    Russian,
+    #[serde(rename = "serbian")]
+    Serbian,
+    #[serde(rename = "spanish")]
+    Spanish,
+    #[serde(rename = "swedish")]
+    Swedish,
+    #[serde(rename = "tagalog")]
+    Tagalog,
+    #[serde(rename = "thai")]
+    Thai,
+    #[serde(rename = "turkish")]
+    Turkish,
+    #[serde(rename = "ukrainian")]
+    Ukrainian,
+    #[serde(rename = "urdu")]
+    Urdu,
+    #[serde(rename = "xhosa")]
+    Xhosa,
 }
 
-impl Default for Model {
-    fn default() -> Model {
-        Self::Lightning
-    }
-}
-/// This is the language code (ISO 639-1) that will be used.  @default 'en-US'
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
-    #[serde(rename = "en-US")]
-    EnUs,
-    #[serde(rename = "en-GB")]
-    EnGb,
-    #[serde(rename = "en-AU")]
-    EnAu,
-    #[serde(rename = "en-CA")]
-    EnCa,
-    #[serde(rename = "ja")]
-    Ja,
-    #[serde(rename = "zh")]
-    Zh,
-    #[serde(rename = "de")]
-    De,
-    #[serde(rename = "hi")]
-    Hi,
-    #[serde(rename = "fr-FR")]
-    FrFr,
-    #[serde(rename = "fr-CA")]
-    FrCa,
-    #[serde(rename = "ko")]
-    Ko,
-    #[serde(rename = "pt-BR")]
-    PtBr,
-    #[serde(rename = "pt-PT")]
-    PtPt,
-    #[serde(rename = "it")]
-    It,
-    #[serde(rename = "es-ES")]
-    EsEs,
-    #[serde(rename = "es-MX")]
-    EsMx,
-    #[serde(rename = "id")]
-    Id,
-    #[serde(rename = "nl")]
-    Nl,
-    #[serde(rename = "tr")]
-    Tr,
-    #[serde(rename = "fil")]
-    Fil,
-    #[serde(rename = "pl")]
-    Pl,
-    #[serde(rename = "sv")]
-    Sv,
-    #[serde(rename = "bg")]
-    Bg,
-    #[serde(rename = "ro")]
-    Ro,
-    #[serde(rename = "ar-SA")]
-    ArSa,
-    #[serde(rename = "ar-AE")]
-    ArAe,
-    #[serde(rename = "cs")]
-    Cs,
-    #[serde(rename = "el")]
-    El,
-    #[serde(rename = "fi")]
-    Fi,
-    #[serde(rename = "hr")]
-    Hr,
-    #[serde(rename = "ms")]
-    Ms,
-    #[serde(rename = "sk")]
-    Sk,
-    #[serde(rename = "da")]
-    Da,
-    #[serde(rename = "ta")]
-    Ta,
-    #[serde(rename = "uk")]
-    Uk,
-    #[serde(rename = "ru")]
-    Ru,
-    #[serde(rename = "hu")]
-    Hu,
-    #[serde(rename = "no")]
-    No,
-    #[serde(rename = "vi")]
-    Vi,
-}
-
-impl Default for Language {
-    fn default() -> Language {
-        Self::EnUs
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
+        Self::Afrikaans
     }
 }
 /// An emotion to be applied to the speech.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Emotion {
+pub enum EmotionTrue {
     #[serde(rename = "female_happy")]
     FemaleHappy,
     #[serde(rename = "female_sad")]
@@ -208,8 +175,8 @@ pub enum Emotion {
     MaleSurprised,
 }
 
-impl Default for Emotion {
-    fn default() -> Emotion {
+impl Default for EmotionTrue {
+    fn default() -> EmotionTrue {
         Self::FemaleHappy
     }
 }

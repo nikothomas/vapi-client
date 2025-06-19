@@ -18,10 +18,10 @@ pub struct KnowledgeBase {
     pub name: String,
     /// The provider of the knowledge base
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// The model to use for the knowledge base
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// A description of the knowledge base
     #[serde(rename = "description")]
     pub description: String,
@@ -31,7 +31,7 @@ pub struct KnowledgeBase {
 }
 
 impl KnowledgeBase {
-    pub fn new(name: String, provider: Provider, description: String, file_ids: Vec<String>) -> KnowledgeBase {
+    pub fn new(name: String, provider: ProviderTrue, description: String, file_ids: Vec<String>) -> KnowledgeBase {
         KnowledgeBase {
             name,
             provider,
@@ -43,19 +43,25 @@ impl KnowledgeBase {
 }
 /// The provider of the knowledge base
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "google")]
     Google,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Google
     }
 }
 /// The model to use for the knowledge base
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
+    #[serde(rename = "gemini-2.5-pro-preview-05-06")]
+    Gemini2Period5ProPreview0506,
+    #[serde(rename = "gemini-2.5-flash-preview-05-20")]
+    Gemini2Period5FlashPreview0520,
+    #[serde(rename = "gemini-2.5-flash-preview-04-17")]
+    Gemini2Period5FlashPreview0417,
     #[serde(rename = "gemini-2.0-flash-thinking-exp")]
     Gemini2Period0FlashThinkingExp,
     #[serde(rename = "gemini-2.0-pro-exp-02-05")]
@@ -82,9 +88,9 @@ pub enum Model {
     Gemini1Period0Pro,
 }
 
-impl Default for Model {
-    fn default() -> Model {
-        Self::Gemini2Period0FlashThinkingExp
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
+        Self::Gemini2Period5ProPreview0506
     }
 }
 

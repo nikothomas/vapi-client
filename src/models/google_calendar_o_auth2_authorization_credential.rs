@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GoogleCalendarOAuth2AuthorizationCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// The authorization ID for the OAuth2 authorization
     #[serde(rename = "authorizationId")]
     pub authorization_id: String,
@@ -36,7 +36,7 @@ pub struct GoogleCalendarOAuth2AuthorizationCredential {
 }
 
 impl GoogleCalendarOAuth2AuthorizationCredential {
-    pub fn new(provider: Provider, authorization_id: String, id: String, org_id: String, created_at: String, updated_at: String) -> GoogleCalendarOAuth2AuthorizationCredential {
+    pub fn new(provider: ProviderTrue, authorization_id: String, id: String, org_id: String, created_at: String, updated_at: String) -> GoogleCalendarOAuth2AuthorizationCredential {
         GoogleCalendarOAuth2AuthorizationCredential {
             provider,
             authorization_id,
@@ -50,13 +50,13 @@ impl GoogleCalendarOAuth2AuthorizationCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "google.calendar.oauth2-authorization")]
     GooglePeriodCalendarPeriodOauth2Authorization,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::GooglePeriodCalendarPeriodOauth2Authorization
     }
 }

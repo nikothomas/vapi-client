@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct AzureSpeechTranscriber {
     /// This is the transcription provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the language that will be set for the transcription. The list of languages Azure supports can be found here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
     /// This is the plan for voice provider fallbacks in the event that the primary voice provider fails.
     #[serde(rename = "fallbackPlan", skip_serializing_if = "Option::is_none")]
     pub fallback_plan: Option<models::FallbackTranscriberPlan>,
 }
 
 impl AzureSpeechTranscriber {
-    pub fn new(provider: Provider) -> AzureSpeechTranscriber {
+    pub fn new(provider: ProviderTrue) -> AzureSpeechTranscriber {
         AzureSpeechTranscriber {
             provider,
             language: None,
@@ -35,19 +35,19 @@ impl AzureSpeechTranscriber {
 }
 /// This is the transcription provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "azure")]
     Azure,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Azure
     }
 }
 /// This is the language that will be set for the transcription. The list of languages Azure supports can be found here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "af-ZA")]
     AfZa,
     #[serde(rename = "am-ET")]
@@ -336,8 +336,8 @@ pub enum Language {
     ZuZa,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::AfZa
     }
 }

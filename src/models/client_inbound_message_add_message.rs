@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct ClientInboundMessageAddMessage {
     /// This is the type of the message. Send \"add-message\" message to add a message to the conversation history.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the message to add to the conversation.
     #[serde(rename = "message")]
     pub message: models::OpenAiMessage,
@@ -25,7 +25,7 @@ pub struct ClientInboundMessageAddMessage {
 }
 
 impl ClientInboundMessageAddMessage {
-    pub fn new(r#type: Type, message: models::OpenAiMessage) -> ClientInboundMessageAddMessage {
+    pub fn new(r#type: TypeTrue, message: models::OpenAiMessage) -> ClientInboundMessageAddMessage {
         ClientInboundMessageAddMessage {
             r#type,
             message,
@@ -35,13 +35,13 @@ impl ClientInboundMessageAddMessage {
 }
 /// This is the type of the message. Send \"add-message\" message to add a message to the conversation history.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "add-message")]
     AddMessage,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::AddMessage
     }
 }

@@ -16,6 +16,12 @@ pub struct UpdateTwilioCredentialDto {
     /// This is not returned in the API.
     #[serde(rename = "authToken", skip_serializing_if = "Option::is_none")]
     pub auth_token: Option<String>,
+    /// This is not returned in the API.
+    #[serde(rename = "apiKey", skip_serializing_if = "Option::is_none")]
+    pub api_key: Option<String>,
+    /// This is not returned in the API.
+    #[serde(rename = "apiSecret", skip_serializing_if = "Option::is_none")]
+    pub api_secret: Option<String>,
     /// This is the name of credential. This is just for your reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -27,6 +33,8 @@ impl UpdateTwilioCredentialDto {
     pub fn new() -> UpdateTwilioCredentialDto {
         UpdateTwilioCredentialDto {
             auth_token: None,
+            api_key: None,
+            api_secret: None,
             name: None,
             account_sid: None,
         }

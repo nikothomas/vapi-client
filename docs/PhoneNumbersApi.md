@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## phone_number_controller_create
 
-> models::PhoneNumber phone_number_controller_create(phonenumber_body)
+> models::PhoneNumber phone_number_controller_create(phone_number_controller_create_request)
 Create Phone Number
 
 ### Parameters
@@ -22,7 +22,7 @@ Create Phone Number
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**phonenumber_body** | [**PhonenumberBody**](PhonenumberBody.md) |  | [required] |
+**phone_number_controller_create_request** | [**PhoneNumberControllerCreateRequest**](PhoneNumberControllerCreateRequest.md) |  | [required] |
 
 ### Return type
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Required | Notes
 
 ## phone_number_controller_find_all
 
-> Vec<models::PhoneNumber1> phone_number_controller_find_all(limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
+> Vec<models::PhoneNumber> phone_number_controller_find_all(limit, created_at_gt, created_at_lt, created_at_ge, created_at_le, updated_at_gt, updated_at_lt, updated_at_ge, updated_at_le)
 List Phone Numbers
 
 ### Parameters
@@ -62,7 +62,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::PhoneNumber1>**](PhoneNumber_1.md)
+[**Vec<models::PhoneNumber>**](PhoneNumber.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Required | Notes
 
 ## phone_number_controller_update
 
-> models::PhoneNumber phone_number_controller_update(id, phonenumber_id_body)
+> models::PhoneNumber phone_number_controller_update(id, phone_number_controller_update_request)
 Update Phone Number
 
 ### Parameters
@@ -143,7 +143,7 @@ Update Phone Number
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **String** |  | [required] |
-**phonenumber_id_body** | [**PhonenumberIdBody**](PhonenumberIdBody.md) |  | [required] |
+**phone_number_controller_update_request** | [**PhoneNumberControllerUpdateRequest**](PhoneNumberControllerUpdateRequest.md) |  | [required] |
 
 ### Return type
 

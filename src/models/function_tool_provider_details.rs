@@ -20,11 +20,11 @@ pub struct FunctionToolProviderDetails {
     pub setup_instructions: Option<Vec<models::ToolTemplateSetup>>,
     /// The type of tool. \"function\" for Function tool.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
 }
 
 impl FunctionToolProviderDetails {
-    pub fn new(r#type: Type) -> FunctionToolProviderDetails {
+    pub fn new(r#type: TypeTrue) -> FunctionToolProviderDetails {
         FunctionToolProviderDetails {
             template_url: None,
             setup_instructions: None,
@@ -34,13 +34,13 @@ impl FunctionToolProviderDetails {
 }
 /// The type of tool. \"function\" for Function tool.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "function")]
     Function,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Function
     }
 }

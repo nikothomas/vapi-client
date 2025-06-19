@@ -16,13 +16,13 @@ pub struct InviteUserDto {
     #[serde(rename = "emails")]
     pub emails: Vec<String>,
     #[serde(rename = "role")]
-    pub role: Role,
+    pub role: RoleTrue,
     #[serde(rename = "redirectTo", skip_serializing_if = "Option::is_none")]
     pub redirect_to: Option<String>,
 }
 
 impl InviteUserDto {
-    pub fn new(emails: Vec<String>, role: Role) -> InviteUserDto {
+    pub fn new(emails: Vec<String>, role: RoleTrue) -> InviteUserDto {
         InviteUserDto {
             emails,
             role,
@@ -32,7 +32,7 @@ impl InviteUserDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Role {
+pub enum RoleTrue {
     #[serde(rename = "admin")]
     Admin,
     #[serde(rename = "editor")]
@@ -41,8 +41,8 @@ pub enum Role {
     Viewer,
 }
 
-impl Default for Role {
-    fn default() -> Role {
+impl Default for RoleTrue {
+    fn default() -> RoleTrue {
         Self::Admin
     }
 }

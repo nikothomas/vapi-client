@@ -23,16 +23,16 @@ pub struct AnthropicModel {
     #[serde(rename = "toolIds", skip_serializing_if = "Option::is_none")]
     pub tool_ids: Option<Vec<String>>,
     #[serde(rename = "knowledgeBase", skip_serializing_if = "Option::is_none")]
-    pub knowledge_base: Option<models::AnyscaleModelKnowledgeBase>,
+    pub knowledge_base: Option<models::CreateCustomKnowledgeBaseDto>,
     /// This is the ID of the knowledge base the model will use.
     #[serde(rename = "knowledgeBaseId", skip_serializing_if = "Option::is_none")]
     pub knowledge_base_id: Option<String>,
     /// The specific Anthropic/Claude model that will be used.
     #[serde(rename = "model")]
-    pub model: Model,
+    pub model: ModelTrue,
     /// The provider identifier for Anthropic.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// Optional configuration for Anthropic's thinking feature. Only applicable for claude-3-7-sonnet-20250219 model. If provided, maxTokens must be greater than thinking.budgetTokens.
     #[serde(rename = "thinking", skip_serializing_if = "Option::is_none")]
     pub thinking: Option<models::AnthropicThinkingConfig>,
@@ -51,7 +51,7 @@ pub struct AnthropicModel {
 }
 
 impl AnthropicModel {
-    pub fn new(model: Model, provider: Provider) -> AnthropicModel {
+    pub fn new(model: ModelTrue, provider: ProviderTrue) -> AnthropicModel {
         AnthropicModel {
             messages: None,
             tools: None,
@@ -70,7 +70,7 @@ impl AnthropicModel {
 }
 /// The specific Anthropic/Claude model that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "claude-3-opus-20240229")]
     Claude3Opus20240229,
     #[serde(rename = "claude-3-sonnet-20240229")]
@@ -85,22 +85,26 @@ pub enum Model {
     Claude35Haiku20241022,
     #[serde(rename = "claude-3-7-sonnet-20250219")]
     Claude37Sonnet20250219,
+    #[serde(rename = "claude-opus-4-20250514")]
+    ClaudeOpus420250514,
+    #[serde(rename = "claude-sonnet-4-20250514")]
+    ClaudeSonnet420250514,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::Claude3Opus20240229
     }
 }
 /// The provider identifier for Anthropic.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "anthropic")]
     Anthropic,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Anthropic
     }
 }

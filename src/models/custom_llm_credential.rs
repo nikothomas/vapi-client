@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CustomLlmCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -42,7 +42,7 @@ pub struct CustomLlmCredential {
 }
 
 impl CustomLlmCredential {
-    pub fn new(provider: Provider, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> CustomLlmCredential {
+    pub fn new(provider: ProviderTrue, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> CustomLlmCredential {
         CustomLlmCredential {
             provider,
             api_key,
@@ -58,13 +58,13 @@ impl CustomLlmCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "custom-llm")]
     CustomLlm,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::CustomLlm
     }
 }

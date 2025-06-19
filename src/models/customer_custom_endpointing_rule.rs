@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct CustomerCustomEndpointingRule {
     /// This endpointing rule is based on current customer message as they are speaking.  Flow: - Assistant speaks - Customer starts speaking - Customer transcription comes in - This rule is evaluated on the current customer transcription - If a match is found based on `regex`, the endpointing timeout is set to `timeoutSeconds`  Usage: - If you want to wait longer while customer is speaking numbers, you can set a longer timeout.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the regex pattern to match.  Note: - This works by using the `RegExp.test` method in Node.JS. Eg. `/hello/.test(\"hello there\")` will return `true`.  Hot tip: - In JavaScript, escape `\\` when sending the regex pattern. Eg. `\"hello\\sthere\"` will be sent over the wire as `\"hellosthere\"`. Send `\"hello\\\\sthere\"` instead. - `RegExp.test` does substring matching, so `/cat/.test(\"I love cats\")` will return `true`. To do full string matching, send \"^cat$\".
     #[serde(rename = "regex")]
     pub regex: String,
@@ -28,7 +28,7 @@ pub struct CustomerCustomEndpointingRule {
 }
 
 impl CustomerCustomEndpointingRule {
-    pub fn new(r#type: Type, regex: String, timeout_seconds: f64) -> CustomerCustomEndpointingRule {
+    pub fn new(r#type: TypeTrue, regex: String, timeout_seconds: f64) -> CustomerCustomEndpointingRule {
         CustomerCustomEndpointingRule {
             r#type,
             regex,
@@ -39,13 +39,13 @@ impl CustomerCustomEndpointingRule {
 }
 /// This endpointing rule is based on current customer message as they are speaking.  Flow: - Assistant speaks - Customer starts speaking - Customer transcription comes in - This rule is evaluated on the current customer transcription - If a match is found based on `regex`, the endpointing timeout is set to `timeoutSeconds`  Usage: - If you want to wait longer while customer is speaking numbers, you can set a longer timeout.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "customer")]
     Customer,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Customer
     }
 }

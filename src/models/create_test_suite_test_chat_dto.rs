@@ -18,7 +18,7 @@ pub struct CreateTestSuiteTestChatDto {
     pub scorers: Vec<models::TestSuiteTestVoiceScorersInner>,
     /// This is the type of the test, which must be chat.
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// This is the script to be used for the chat test.
     #[serde(rename = "script")]
     pub script: String,
@@ -31,7 +31,7 @@ pub struct CreateTestSuiteTestChatDto {
 }
 
 impl CreateTestSuiteTestChatDto {
-    pub fn new(scorers: Vec<models::TestSuiteTestVoiceScorersInner>, r#type: Type, script: String) -> CreateTestSuiteTestChatDto {
+    pub fn new(scorers: Vec<models::TestSuiteTestVoiceScorersInner>, r#type: TypeTrue, script: String) -> CreateTestSuiteTestChatDto {
         CreateTestSuiteTestChatDto {
             scorers,
             r#type,
@@ -43,13 +43,13 @@ impl CreateTestSuiteTestChatDto {
 }
 /// This is the type of the test, which must be chat.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "chat")]
     Chat,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Chat
     }
 }

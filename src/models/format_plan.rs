@@ -24,7 +24,7 @@ pub struct FormatPlan {
     pub replacements: Option<Vec<models::FormatPlanReplacementsInner>>,
     /// List of formatters to apply. If not provided, all default formatters will be applied. If provided, only the specified formatters will be applied. Note: Some essential formatters like angle bracket removal will always be applied. @default undefined
     #[serde(rename = "formattersEnabled", skip_serializing_if = "Option::is_none")]
-    pub formatters_enabled: Option<Vec<FormattersEnabled>>,
+    pub formatters_enabled: Option<Vec<FormattersEnabledTrue>>,
 }
 
 impl FormatPlan {
@@ -39,7 +39,7 @@ impl FormatPlan {
 }
 /// List of formatters to apply. If not provided, all default formatters will be applied. If provided, only the specified formatters will be applied. Note: Some essential formatters like angle bracket removal will always be applied. @default undefined
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum FormattersEnabled {
+pub enum FormattersEnabledTrue {
     #[serde(rename = "markdown")]
     Markdown,
     #[serde(rename = "asterisk")]
@@ -72,10 +72,12 @@ pub enum FormattersEnabled {
     PhoneNumber,
     #[serde(rename = "number")]
     Number,
+    #[serde(rename = "stripAsterisk")]
+    StripAsterisk,
 }
 
-impl Default for FormattersEnabled {
-    fn default() -> FormattersEnabled {
+impl Default for FormattersEnabledTrue {
+    fn default() -> FormattersEnabledTrue {
         Self::Markdown
     }
 }

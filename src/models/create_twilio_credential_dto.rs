@@ -14,10 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateTwilioCredentialDto {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
-    #[serde(rename = "authToken")]
-    pub auth_token: String,
+    #[serde(rename = "authToken", skip_serializing_if = "Option::is_none")]
+    pub auth_token: Option<String>,
+    /// This is not returned in the API.
+    #[serde(rename = "apiKey", skip_serializing_if = "Option::is_none")]
+    pub api_key: Option<String>,
+    /// This is not returned in the API.
+    #[serde(rename = "apiSecret", skip_serializing_if = "Option::is_none")]
+    pub api_secret: Option<String>,
     #[serde(rename = "accountSid")]
     pub account_sid: String,
     /// This is the name of credential. This is just for your reference.
@@ -26,10 +32,12 @@ pub struct CreateTwilioCredentialDto {
 }
 
 impl CreateTwilioCredentialDto {
-    pub fn new(provider: Provider, auth_token: String, account_sid: String) -> CreateTwilioCredentialDto {
+    pub fn new(provider: ProviderTrue, account_sid: String) -> CreateTwilioCredentialDto {
         CreateTwilioCredentialDto {
             provider,
-            auth_token,
+            auth_token: None,
+            api_key: None,
+            api_secret: None,
             account_sid,
             name: None,
         }
@@ -37,13 +45,13 @@ impl CreateTwilioCredentialDto {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "twilio")]
     Twilio,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Twilio
     }
 }

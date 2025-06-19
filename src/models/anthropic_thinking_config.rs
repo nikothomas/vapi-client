@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnthropicThinkingConfig {
     #[serde(rename = "type")]
-    pub r#type: Type,
+    pub r#type: TypeTrue,
     /// The maximum number of tokens to allocate for thinking. Must be between 1024 and 100000 tokens.
     #[serde(rename = "budgetTokens")]
     pub budget_tokens: f64,
 }
 
 impl AnthropicThinkingConfig {
-    pub fn new(r#type: Type, budget_tokens: f64) -> AnthropicThinkingConfig {
+    pub fn new(r#type: TypeTrue, budget_tokens: f64) -> AnthropicThinkingConfig {
         AnthropicThinkingConfig {
             r#type,
             budget_tokens,
@@ -30,13 +30,13 @@ impl AnthropicThinkingConfig {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "enabled")]
     Enabled,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Enabled
     }
 }

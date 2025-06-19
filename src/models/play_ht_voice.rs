@@ -13,9 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PlayHtVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "voiceId")]
     pub voice_id: models::PlayHtVoiceVoiceId,
     /// This is the speed multiplier that will be used.
@@ -26,7 +29,7 @@ pub struct PlayHtVoice {
     pub temperature: Option<f64>,
     /// An emotion to be applied to the speech.
     #[serde(rename = "emotion", skip_serializing_if = "Option::is_none")]
-    pub emotion: Option<Emotion>,
+    pub emotion: Option<EmotionTrue>,
     /// A number between 1 and 6. Use lower numbers to reduce how unique your chosen voice will be compared to other voices.
     #[serde(rename = "voiceGuidance", skip_serializing_if = "Option::is_none")]
     pub voice_guidance: Option<f64>,
@@ -38,10 +41,10 @@ pub struct PlayHtVoice {
     pub text_guidance: Option<f64>,
     /// Playht voice model/engine to use.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// The language to use for the speech.
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<Language>,
+    pub language: Option<LanguageTrue>,
     /// This is the plan for chunking the model output before it is sent to the voice provider.
     #[serde(rename = "chunkPlan", skip_serializing_if = "Option::is_none")]
     pub chunk_plan: Option<models::ChunkPlan>,
@@ -51,8 +54,9 @@ pub struct PlayHtVoice {
 }
 
 impl PlayHtVoice {
-    pub fn new(provider: Provider, voice_id: models::PlayHtVoiceVoiceId) -> PlayHtVoice {
+    pub fn new(provider: ProviderTrue, voice_id: models::PlayHtVoiceVoiceId) -> PlayHtVoice {
         PlayHtVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             speed: None,
@@ -70,19 +74,19 @@ impl PlayHtVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "playht")]
     Playht,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Playht
     }
 }
 /// An emotion to be applied to the speech.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Emotion {
+pub enum EmotionTrue {
     #[serde(rename = "female_happy")]
     FemaleHappy,
     #[serde(rename = "female_sad")]
@@ -109,14 +113,14 @@ pub enum Emotion {
     MaleSurprised,
 }
 
-impl Default for Emotion {
-    fn default() -> Emotion {
+impl Default for EmotionTrue {
+    fn default() -> EmotionTrue {
         Self::FemaleHappy
     }
 }
 /// Playht voice model/engine to use.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "PlayHT2.0")]
     PlayHt2Period0,
     #[serde(rename = "PlayHT2.0-turbo")]
@@ -127,14 +131,14 @@ pub enum Model {
     PlayDialog,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::PlayHt2Period0
     }
 }
 /// The language to use for the speech.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Language {
+pub enum LanguageTrue {
     #[serde(rename = "afrikaans")]
     Afrikaans,
     #[serde(rename = "albanian")]
@@ -211,8 +215,8 @@ pub enum Language {
     Xhosa,
 }
 
-impl Default for Language {
-    fn default() -> Language {
+impl Default for LanguageTrue {
+    fn default() -> LanguageTrue {
         Self::Afrikaans
     }
 }

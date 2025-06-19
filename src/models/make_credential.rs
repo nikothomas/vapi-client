@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MakeCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// Team ID
     #[serde(rename = "teamId")]
     pub team_id: String,
@@ -42,7 +42,7 @@ pub struct MakeCredential {
 }
 
 impl MakeCredential {
-    pub fn new(provider: Provider, team_id: String, region: String, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> MakeCredential {
+    pub fn new(provider: ProviderTrue, team_id: String, region: String, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> MakeCredential {
         MakeCredential {
             provider,
             team_id,
@@ -58,13 +58,13 @@ impl MakeCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "make")]
     Make,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Make
     }
 }

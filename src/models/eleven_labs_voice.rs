@@ -13,9 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ElevenLabsVoice {
+    /// This is the flag to toggle voice caching for the assistant.
+    #[serde(rename = "cachingEnabled", skip_serializing_if = "Option::is_none")]
+    pub caching_enabled: Option<bool>,
     /// This is the voice provider that will be used.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     #[serde(rename = "voiceId")]
     pub voice_id: models::ElevenLabsVoiceVoiceId,
     /// Defines the stability for voice settings.
@@ -44,7 +47,7 @@ pub struct ElevenLabsVoice {
     pub auto_mode: Option<bool>,
     /// This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified.
     #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<Model>,
+    pub model: Option<ModelTrue>,
     /// This is the plan for chunking the model output before it is sent to the voice provider.
     #[serde(rename = "chunkPlan", skip_serializing_if = "Option::is_none")]
     pub chunk_plan: Option<models::ChunkPlan>,
@@ -57,8 +60,9 @@ pub struct ElevenLabsVoice {
 }
 
 impl ElevenLabsVoice {
-    pub fn new(provider: Provider, voice_id: models::ElevenLabsVoiceVoiceId) -> ElevenLabsVoice {
+    pub fn new(provider: ProviderTrue, voice_id: models::ElevenLabsVoiceVoiceId) -> ElevenLabsVoice {
         ElevenLabsVoice {
+            caching_enabled: None,
             provider,
             voice_id,
             stability: None,
@@ -78,19 +82,19 @@ impl ElevenLabsVoice {
 }
 /// This is the voice provider that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "11labs")]
     Variant11labs,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Variant11labs
     }
 }
 /// This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "eleven_multilingual_v2")]
     ElevenMultilingualV2,
     #[serde(rename = "eleven_turbo_v2")]
@@ -105,8 +109,8 @@ pub enum Model {
     ElevenMonolingualV1,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::ElevenMultilingualV2
     }
 }

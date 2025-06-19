@@ -14,6 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum ToolControllerFindAll200ResponseInner {
+    #[serde(rename="apiRequest")]
+    ApiRequest(models::ApiRequestTool),
     #[serde(rename="dtmf")]
     Dtmf(models::DtmfTool),
     #[serde(rename="endCall")]
@@ -45,39 +47,61 @@ pub enum ToolControllerFindAll200ResponseInner {
     #[serde(rename="slack.message.send")]
     SlackPeriodMessagePeriodSend(models::SlackSendMessageTool),
     #[serde(rename="sms")]
-    Sms(models::SmsSendTool),
+    Sms(models::SmsTool),
     #[serde(rename="mcp")]
     Mcp(models::McpTool),
+    #[serde(rename="gohighlevel.calendar.availability.check")]
+    GohighlevelPeriodCalendarPeriodAvailabilityPeriodCheck(models::GoHighLevelCalendarAvailabilityTool),
+    #[serde(rename="gohighlevel.calendar.event.create")]
+    GohighlevelPeriodCalendarPeriodEventPeriodCreate(models::GoHighLevelCalendarEventCreateTool),
+    #[serde(rename="gohighlevel.contact.create")]
+    GohighlevelPeriodContactPeriodCreate(models::GoHighLevelContactCreateTool),
+    #[serde(rename="gohighlevel.contact.get")]
+    GohighlevelPeriodContactPeriodGet(models::GoHighLevelContactGetTool),
 }
 
 impl Default for ToolControllerFindAll200ResponseInner {
     fn default() -> Self {
-        Self::Dtmf(Default::default())
+        Self::ApiRequest(Default::default())
     }
 }
 
-/// The sub type of tool.
+/// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum SubType {
-    #[serde(rename = "text_editor_20241022")]
-    TextEditor20241022,
+pub enum MethodTrue {
+    #[serde(rename = "POST")]
+    Post,
+    #[serde(rename = "GET")]
+    Get,
 }
 
-impl Default for SubType {
-    fn default() -> SubType {
-        Self::TextEditor20241022
+impl Default for MethodTrue {
+    fn default() -> MethodTrue {
+        Self::Post
     }
 }
 /// The name of the tool, fixed to 'str_replace_editor'
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Name {
+pub enum NameTrue {
     #[serde(rename = "str_replace_editor")]
     StrReplaceEditor,
 }
 
-impl Default for Name {
-    fn default() -> Name {
+impl Default for NameTrue {
+    fn default() -> NameTrue {
         Self::StrReplaceEditor
+    }
+}
+/// The sub type of tool.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum SubTypeTrue {
+    #[serde(rename = "text_editor_20241022")]
+    TextEditor20241022,
+}
+
+impl Default for SubTypeTrue {
+    fn default() -> SubTypeTrue {
+        Self::TextEditor20241022
     }
 }
 

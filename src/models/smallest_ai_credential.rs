@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SmallestAiCredential {
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is not returned in the API.
     #[serde(rename = "apiKey")]
     pub api_key: String,
@@ -36,7 +36,7 @@ pub struct SmallestAiCredential {
 }
 
 impl SmallestAiCredential {
-    pub fn new(provider: Provider, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> SmallestAiCredential {
+    pub fn new(provider: ProviderTrue, api_key: String, id: String, org_id: String, created_at: String, updated_at: String) -> SmallestAiCredential {
         SmallestAiCredential {
             provider,
             api_key,
@@ -50,13 +50,13 @@ impl SmallestAiCredential {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "smallest-ai")]
     SmallestAi,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::SmallestAi
     }
 }

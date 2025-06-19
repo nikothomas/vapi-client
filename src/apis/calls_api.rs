@@ -51,7 +51,7 @@ pub enum CallControllerUpdateError {
 }
 
 
-pub async fn call_controller_create(configuration: &configuration::Configuration, create_call_dto: models::CreateCallDto) -> Result<models::InlineResponse201, Error<CallControllerCreateError>> {
+pub async fn call_controller_create(configuration: &configuration::Configuration, create_call_dto: models::CreateCallDto) -> Result<models::CallControllerCreate201Response, Error<CallControllerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_create_call_dto = create_call_dto;
 
@@ -81,8 +81,8 @@ pub async fn call_controller_create(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InlineResponse201`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InlineResponse201`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CallControllerCreate201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CallControllerCreate201Response`")))),
         }
     } else {
         let content = resp.text().await?;

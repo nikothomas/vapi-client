@@ -17,10 +17,10 @@ pub struct VapiPhoneNumber {
     pub fallback_destination: Option<models::ImportTwilioPhoneNumberDtoFallbackDestination>,
     /// This is the hooks that will be used for incoming calls to this phone number.
     #[serde(rename = "hooks", skip_serializing_if = "Option::is_none")]
-    pub hooks: Option<Vec<serde_json::Value>>,
+    pub hooks: Option<Vec<models::ImportTwilioPhoneNumberDtoHooksInner>>,
     /// This is to create free SIP phone numbers on Vapi.
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the unique identifier for the phone number.
     #[serde(rename = "id")]
     pub id: String,
@@ -35,17 +35,20 @@ pub struct VapiPhoneNumber {
     pub updated_at: String,
     /// This is the status of the phone number.
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<Status>,
+    pub status: Option<StatusTrue>,
     /// These are the digits of the phone number you purchased from Vapi.
     #[serde(rename = "number", skip_serializing_if = "Option::is_none")]
     pub number: Option<String>,
     /// This is the name of the phone number. This is just for your own reference.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    /// This is the assistant that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     #[serde(rename = "assistantId", skip_serializing_if = "Option::is_none")]
     pub assistant_id: Option<String>,
-    /// This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    /// This is the workflow that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+    #[serde(rename = "workflowId", skip_serializing_if = "Option::is_none")]
+    pub workflow_id: Option<String>,
+    /// This is the squad that will be used for incoming calls to this phone number.  If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     #[serde(rename = "squadId", skip_serializing_if = "Option::is_none")]
     pub squad_id: Option<String>,
     /// This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.  The order of precedence is:  1. assistant.server 2. phoneNumber.server 3. org.server
@@ -63,7 +66,7 @@ pub struct VapiPhoneNumber {
 }
 
 impl VapiPhoneNumber {
-    pub fn new(provider: Provider, id: String, org_id: String, created_at: String, updated_at: String) -> VapiPhoneNumber {
+    pub fn new(provider: ProviderTrue, id: String, org_id: String, created_at: String, updated_at: String) -> VapiPhoneNumber {
         VapiPhoneNumber {
             fallback_destination: None,
             hooks: None,
@@ -76,6 +79,7 @@ impl VapiPhoneNumber {
             number: None,
             name: None,
             assistant_id: None,
+            workflow_id: None,
             squad_id: None,
             server: None,
             number_desired_area_code: None,
@@ -86,19 +90,19 @@ impl VapiPhoneNumber {
 }
 /// This is to create free SIP phone numbers on Vapi.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "vapi")]
     Vapi,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Vapi
     }
 }
 /// This is the status of the phone number.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Status {
+pub enum StatusTrue {
     #[serde(rename = "active")]
     Active,
     #[serde(rename = "activating")]
@@ -107,8 +111,8 @@ pub enum Status {
     Blocked,
 }
 
-impl Default for Status {
-    fn default() -> Status {
+impl Default for StatusTrue {
+    fn default() -> StatusTrue {
         Self::Active
     }
 }

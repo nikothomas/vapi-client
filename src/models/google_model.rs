@@ -23,15 +23,15 @@ pub struct GoogleModel {
     #[serde(rename = "toolIds", skip_serializing_if = "Option::is_none")]
     pub tool_ids: Option<Vec<String>>,
     #[serde(rename = "knowledgeBase", skip_serializing_if = "Option::is_none")]
-    pub knowledge_base: Option<models::AnyscaleModelKnowledgeBase>,
+    pub knowledge_base: Option<models::CreateCustomKnowledgeBaseDto>,
     /// This is the ID of the knowledge base the model will use.
     #[serde(rename = "knowledgeBaseId", skip_serializing_if = "Option::is_none")]
     pub knowledge_base_id: Option<String>,
     /// This is the Google model that will be used.
     #[serde(rename = "model")]
-    pub model: Model,
+    pub model: ModelTrue,
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the session configuration for the Gemini Flash 2.0 Multimodal Live API. Only applicable if the model `gemini-2.0-flash-realtime-exp` is selected.
     #[serde(rename = "realtimeConfig", skip_serializing_if = "Option::is_none")]
     pub realtime_config: Option<models::GoogleRealtimeConfig>,
@@ -50,7 +50,7 @@ pub struct GoogleModel {
 }
 
 impl GoogleModel {
-    pub fn new(model: Model, provider: Provider) -> GoogleModel {
+    pub fn new(model: ModelTrue, provider: ProviderTrue) -> GoogleModel {
         GoogleModel {
             messages: None,
             tools: None,
@@ -69,7 +69,13 @@ impl GoogleModel {
 }
 /// This is the Google model that will be used.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
+    #[serde(rename = "gemini-2.5-pro-preview-05-06")]
+    Gemini2Period5ProPreview0506,
+    #[serde(rename = "gemini-2.5-flash-preview-05-20")]
+    Gemini2Period5FlashPreview0520,
+    #[serde(rename = "gemini-2.5-flash-preview-04-17")]
+    Gemini2Period5FlashPreview0417,
     #[serde(rename = "gemini-2.0-flash-thinking-exp")]
     Gemini2Period0FlashThinkingExp,
     #[serde(rename = "gemini-2.0-pro-exp-02-05")]
@@ -96,20 +102,20 @@ pub enum Model {
     Gemini1Period0Pro,
 }
 
-impl Default for Model {
-    fn default() -> Model {
-        Self::Gemini2Period0FlashThinkingExp
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
+        Self::Gemini2Period5ProPreview0506
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "google")]
     Google,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Google
     }
 }

@@ -18,7 +18,7 @@ pub struct UpdateTestSuiteTestVoiceDto {
     pub scorers: Option<Vec<models::TestSuiteTestVoiceScorersInner>>,
     /// This is the type of the test, which must be voice.
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<Type>,
+    pub r#type: Option<TypeTrue>,
     /// This is the name of the test.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -43,13 +43,13 @@ impl UpdateTestSuiteTestVoiceDto {
 }
 /// This is the type of the test, which must be voice.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeTrue {
     #[serde(rename = "voice")]
     Voice,
 }
 
-impl Default for Type {
-    fn default() -> Type {
+impl Default for TypeTrue {
+    fn default() -> TypeTrue {
         Self::Voice
     }
 }

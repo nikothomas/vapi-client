@@ -23,15 +23,15 @@ pub struct CerebrasModel {
     #[serde(rename = "toolIds", skip_serializing_if = "Option::is_none")]
     pub tool_ids: Option<Vec<String>>,
     #[serde(rename = "knowledgeBase", skip_serializing_if = "Option::is_none")]
-    pub knowledge_base: Option<models::AnyscaleModelKnowledgeBase>,
+    pub knowledge_base: Option<models::CreateCustomKnowledgeBaseDto>,
     /// This is the ID of the knowledge base the model will use.
     #[serde(rename = "knowledgeBaseId", skip_serializing_if = "Option::is_none")]
     pub knowledge_base_id: Option<String>,
     /// This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
     #[serde(rename = "model")]
-    pub model: Model,
+    pub model: ModelTrue,
     #[serde(rename = "provider")]
-    pub provider: Provider,
+    pub provider: ProviderTrue,
     /// This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.
     #[serde(rename = "temperature", skip_serializing_if = "Option::is_none")]
     pub temperature: Option<f64>,
@@ -47,7 +47,7 @@ pub struct CerebrasModel {
 }
 
 impl CerebrasModel {
-    pub fn new(model: Model, provider: Provider) -> CerebrasModel {
+    pub fn new(model: ModelTrue, provider: ProviderTrue) -> CerebrasModel {
         CerebrasModel {
             messages: None,
             tools: None,
@@ -65,27 +65,27 @@ impl CerebrasModel {
 }
 /// This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Model {
+pub enum ModelTrue {
     #[serde(rename = "llama3.1-8b")]
     Llama3Period18b,
     #[serde(rename = "llama-3.3-70b")]
     Llama3Period370b,
 }
 
-impl Default for Model {
-    fn default() -> Model {
+impl Default for ModelTrue {
+    fn default() -> ModelTrue {
         Self::Llama3Period18b
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Provider {
+pub enum ProviderTrue {
     #[serde(rename = "cerebras")]
     Cerebras,
 }
 
-impl Default for Provider {
-    fn default() -> Provider {
+impl Default for ProviderTrue {
+    fn default() -> ProviderTrue {
         Self::Cerebras
     }
 }
