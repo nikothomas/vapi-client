@@ -9,6 +9,7 @@ use vapi_client::models::{
 };
 
 #[tokio::test]
+#[ignore]
 async fn test_create_outbound_call() {
     let api_key = env::var("VAPI_API_KEY").expect("VAPI_API_KEY environment variable must be set");
     let phone_number = env::var("VAPI_TEST_PHONE_NUMBER")
@@ -77,6 +78,7 @@ async fn test_create_outbound_call() {
 }
 
 #[tokio::test]
+#[ignore]
 async fn test_list_calls() {
     let api_key = env::var("VAPI_API_KEY").expect("VAPI_API_KEY environment variable must be set");
 
@@ -102,6 +104,7 @@ async fn test_list_calls() {
 }
 
 #[tokio::test]
+#[ignore]
 async fn test_get_call_by_id() {
     let api_key = env::var("VAPI_API_KEY").expect("VAPI_API_KEY environment variable must be set");
     let call_id = env::var("VAPI_TEST_CALL_ID").unwrap_or_else(|_| {

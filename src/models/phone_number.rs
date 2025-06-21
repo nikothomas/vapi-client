@@ -12,17 +12,12 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(tag = "provider")]
+#[serde(untagged)]
 pub enum PhoneNumber {
-    #[serde(rename = "byo-phone-number")]
     ByoPhoneNumber(models::ByoPhoneNumber),
-    #[serde(rename = "twilio")]
     Twilio(models::TwilioPhoneNumber),
-    #[serde(rename = "vonage")]
     Vonage(models::VonagePhoneNumber),
-    #[serde(rename = "vapi")]
     Vapi(models::VapiPhoneNumber),
-    #[serde(rename = "telnyx")]
     Telnyx(models::TelnyxPhoneNumber),
 }
 

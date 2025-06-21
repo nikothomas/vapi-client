@@ -6,3 +6,4 @@ Cargo.lock
 CLAUDE.md
 git_push.sh
 openapitools.json
+**/server_messages
